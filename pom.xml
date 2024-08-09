@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.lgitsolution</groupId>
-	<artifactId>switcheshop</artifactId>
+	<artifactId>switcheshopcommon</artifactId>
 	<version>2024.1</version>
 	<name>switcheshop</name>
 	<description>Common services for switcheshop app</description>
