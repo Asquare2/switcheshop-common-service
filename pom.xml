@@ -72,6 +72,14 @@
 			</plugin>
 		</plugins>
 	</build>
+	
+<distributionManagement>
+   <repository>
+     <id>github</id>
+     <name>Common package</name>
+     <url>https://maven.pkg.github.com/Asquare2/switcheshop-common-service</url>
+   </repository>
+</distributionManagement>
 
 <developers>
       <developer>
