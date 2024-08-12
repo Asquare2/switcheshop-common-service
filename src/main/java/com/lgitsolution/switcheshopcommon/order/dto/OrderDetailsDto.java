@@ -1,7 +1,9 @@
 
 package com.lgitsolution.switcheshopcommon.order.dto;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -37,8 +39,14 @@ public class OrderDetailsDto {
 
   private Long modifiedAt;
 
-  private List<OrderItemsDto> orderItemsDtoList;
-
   private String deliveryPartnerResponse;
+
+  private Map<String, String> packageDimensionsMap;
+
+  private String itemId;
+
+  private String trackingData;
+
+  private List<OrderItemsDto> orderItemsDtoList = new ArrayList<>();
 
 }

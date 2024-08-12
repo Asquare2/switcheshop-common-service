@@ -23,6 +23,10 @@ public class OrderItems {
   @Column(name = "order_detail_id")
   private Integer orderDetailId;
 
+  // @ManyToOne(fetch = FetchType.LAZY)
+  // @JoinColumn(name = "order_detail_id")
+  // private OrderDetails orderDetails;
+
   @Column(name = "sku_id")
   private Integer skuId;
 
@@ -34,9 +38,5 @@ public class OrderItems {
 
   @Column(name = "modified_at")
   private LocalDateTime modifiedAt;
-
-  // @ManyToOne(fetch = FetchType.LAZY)
-  // @JoinColumn(name = "order_detail_id")
-  // private OrderDetails orderDetails;
 
 }

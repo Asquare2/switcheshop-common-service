@@ -69,6 +69,15 @@ public class OrderDetails {
   @Column(name = "delivery_partner_response")
   private String deliveryPartnerResponse;
 
+  @Column(name = "package_dimensions")
+  private String packageDimensions;
+
+  @Column(name = "item_id")
+  private String itemId;
+
+  @Column(name = "tracking_data")
+  private String trackingData;
+
   @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
   @JoinColumn(name = "order_detail_id", referencedColumnName = "id")
   private List<OrderItems> orderItemsList = new ArrayList<>();
