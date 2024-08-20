@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 /**
  * The Class SelfKartLogger.
  */
-public class SelfKartLogger {
+public class SwitcheShopLogger {
 	
 	/** The logger. */
 	Logger logger;
@@ -18,7 +18,7 @@ public class SelfKartLogger {
 	 *
 	 * @param clazz the clazz
 	 */
-	public SelfKartLogger(Class clazz) {
+	public SwitcheShopLogger(Class clazz) {
 		this.logger = LogManager.getLogger(clazz);
 	}
 	

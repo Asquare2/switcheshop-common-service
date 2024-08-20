@@ -24,7 +24,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lgitsolution.switcheshopcommon.common.dto.Multimedia;
 import com.lgitsolution.switcheshopcommon.common.dto.ResponseWrapper;
-import com.lgitsolution.switcheshopcommon.common.logger.SelfKartLogger;
+import com.lgitsolution.switcheshopcommon.common.logger.SwitcheShopLogger;
 import com.lgitsolution.switcheshopcommon.filter.dto.SearchOptionsDto;
 
 import io.micrometer.common.util.StringUtils;
@@ -34,7 +34,7 @@ import io.micrometer.common.util.StringUtils;
  */
 public class Utility {
 
-  static SelfKartLogger logger = new SelfKartLogger(Utility.class);
+  static SwitcheShopLogger logger = new SwitcheShopLogger(Utility.class);
 
   /**
    * Wrap response.
