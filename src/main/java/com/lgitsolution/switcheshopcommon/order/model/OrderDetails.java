@@ -36,7 +36,7 @@ public class OrderDetails {
   @Column(name = "customer_details_id")
   private Integer customerDetailsId;
 
-  @Column(name = "total_amout")
+  @Column(name = "total_amount")
   private Float totalAmount;
 
   @Column(name = "total_payable")
@@ -66,7 +66,7 @@ public class OrderDetails {
   @Column(name = "modified_at")
   private LocalDateTime modifiedAt;
 
-  @Column(name = "delivery_partner_response")
+  @Column(name = "delivery_partner_response", columnDefinition = "text")
   private String deliveryPartnerResponse;
 
   @Column(name = "package_dimensions")
@@ -75,7 +75,7 @@ public class OrderDetails {
   @Column(name = "item_id")
   private String itemId;
 
-  @Column(name = "tracking_data")
+  @Column(name = "tracking_data", columnDefinition = "text")
   private String trackingData;
 
   @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
