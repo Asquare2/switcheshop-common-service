@@ -1,8 +1,6 @@
 
 package com.lgitsolution.switcheshopcommon.common.util;
 
-
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -165,13 +163,13 @@ public class Utility {
   public static boolean deleteFiles(String path) {
     boolean isDeleted = true;
     // Delete the file
-      try {
+    try {
       Files.delete(Paths.get(path));
       logger.info("Deleted file: " + path);
-      } catch (IOException e) {
+    } catch (IOException e) {
       logger.error("Error processing file: " + path, e);
-        isDeleted = false;
-      }
+      isDeleted = false;
+    }
     return isDeleted;
   }
 
@@ -354,7 +352,46 @@ public class Utility {
   }
 
   /**
-   * Gets the json string of SearchOptionsDto object.
+   * Converts the json string to object.
+   * 
+   * @param multiMedia
+   * @return the json string to object.
+   */
+  public static String ConvertObjectToJsonString(Object object) {
+    String jsonString = "";
+    if (object != null) {
+      ObjectMapper obj = new ObjectMapper();
+      try {
+        jsonString = obj.writeValueAsString(object);
+      } catch (JsonProcessingException e) {
+        e.printStackTrace();
+      }
+    }
+    return jsonString;
+  }
+
+  /**
+   * Converts the object from json string
+   * 
+   * @param <T> generic type for object
+   * @param jsonString the json string which need to convert into object
+   * @param object the object in which we need to convert the json
+   * @return the object from json string.
+   */
+  public static <T> T convertJsonToObject(String jsonString, T object) {
+    try {
+      if (jsonString != null && StringUtils.isNotEmpty(jsonString)) {
+        ObjectMapper obj = new ObjectMapper();
+        object = (T) obj.readValue(jsonString, object.getClass());
+      }
+    } catch (JsonProcessingException e) {
+      e.printStackTrace();
+    }
+    return object;
+  }
+
+  /**
+   * Gets the json string of object.
    * 
    * @param SearchOptionsDto
    * @return the json string of SearchOptionsDto object.
