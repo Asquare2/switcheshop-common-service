@@ -24,7 +24,7 @@ public class PendingRequest {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
-  @Column(name = "request_type", length = 100)
+  @Column(name = "request_type")
   private String requestType;
 
   @Column(name = "is_run")
