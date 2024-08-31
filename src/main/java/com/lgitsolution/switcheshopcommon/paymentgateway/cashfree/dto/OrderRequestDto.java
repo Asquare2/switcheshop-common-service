@@ -5,6 +5,7 @@ import static com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.Cas
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Data;
 
@@ -13,7 +14,8 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderRequestDto {
 
-  private String order_id;
+  @JsonProperty(value = "order_id")
+  private String orderItemId;
 
   private Double order_amount;
 
