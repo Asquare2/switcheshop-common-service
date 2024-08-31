@@ -38,6 +38,7 @@ public class Utility {
             .convertMapToJsonString(orderDetilsDto.getPackageDimensionsMap()));
     orderItemsDtoList.forEach(dto -> orderDetails.getOrderItemsList().add(convertDtoToModel(dto)));
     orderDetails.setTrackingData(orderDetilsDto.getTrackingData());
+    orderDetails.setPaymenMethod(orderDetilsDto.getPaymenMethod());
     return orderDetails;
   }
 
@@ -71,6 +72,7 @@ public class Utility {
       orderItemsList.forEach(o -> orderDetailsDto.getOrderItemsDtoList().add(convertModelToDto(o)));
     }
     orderDetailsDto.setTrackingData(orderDetails.getTrackingData());
+    orderDetailsDto.setPaymenMethod(orderDetails.getPaymenMethod());
     return orderDetailsDto;
   }
 

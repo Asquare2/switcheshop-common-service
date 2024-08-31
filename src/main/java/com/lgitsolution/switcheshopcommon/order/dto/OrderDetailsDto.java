@@ -51,4 +51,6 @@ public class OrderDetailsDto {
 
   private List<OrderItemsDto> orderItemsDtoList = new ArrayList<>();
 
+  private String paymenMethod;
+
 }

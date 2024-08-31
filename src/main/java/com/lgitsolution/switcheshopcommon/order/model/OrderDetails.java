@@ -82,4 +82,7 @@ public class OrderDetails {
   @JoinColumn(name = "order_detail_id", referencedColumnName = "id")
   private List<OrderItems> orderItemsList = new ArrayList<>();
 
+  @Column(name = "payment_method")
+  private String paymenMethod;
+
 }
