@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -187,6 +188,23 @@ public class Utility {
     }
     return localDateTime;
   }
+
+  /**
+   * Gets the object of local date from the long millisecond value.
+   * 
+   * @param dateTime the millisecond value in long
+   * @return the local date object
+   */
+  public static LocalDate getLocalDate(Long dateTime) {
+    LocalDate localDate = null;
+    if (dateTime != null) {
+      Date dateInstant = new Date(dateTime);
+      localDate = dateInstant.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    }
+    return localDate;
+  }
+
+
 
   /**
    * Gets the date and time object as per the given format.
