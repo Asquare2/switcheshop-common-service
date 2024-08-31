@@ -35,6 +35,8 @@ public class OrderDetailsDto {
 
   private Float promocodeDiscount;
 
+  private int promocodeId;
+
   private Long createdAt;
 
   private Long modifiedAt;
