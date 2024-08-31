@@ -54,4 +54,7 @@ public class PaymentDetail {
   @Column(name = "status")
   private Integer status;
 
+  @Column(name = "order_item_id")
+  private String orderItemId;
+
 }

@@ -35,4 +35,6 @@ public class PaymentDetailDto {
 
   private Integer status;
 
+  private String orderItemId;
+
 }

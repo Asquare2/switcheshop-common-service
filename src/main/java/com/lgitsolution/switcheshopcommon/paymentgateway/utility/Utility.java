@@ -27,6 +27,7 @@ public class Utility {
     paymentDetailDto.setOrderPaymentsResponseArr(Utility.convertJsonToObject(paymentDetail
             .getOrderPaymentsResponse(), new OrderPaymentsResponseDto[0]));
     paymentDetailDto.setStatus(paymentDetail.getStatus());
+    paymentDetailDto.setOrderItemId(paymentDetail.getOrderItemId());
     return paymentDetailDto;
   }
 
@@ -46,6 +47,7 @@ public class Utility {
     paymentDetail.setOrderPaymentsResponse(Utility.ConvertObjectToJsonString(dto
             .getOrderPaymentsResponseArr()));
     paymentDetail.setStatus(dto.getStatus());
+    paymentDetail.setOrderItemId(dto.getOrderItemId());
     return paymentDetail;
   }
 
