@@ -3,6 +3,7 @@ package com.lgitsolution.switcheshopcommon.order.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lgitsolution.switcheshopcommon.sku.dto.SKUDto;
 
 import lombok.Data;
 
@@ -16,6 +17,8 @@ public class OrderItemsDto {
   private Integer orderDetailId;
 
   private Integer skuId;
+
+  private SKUDto skuDto;
 
   private Integer quantity;
 

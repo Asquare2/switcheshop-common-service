@@ -1,10 +1,14 @@
 
 package com.lgitsolution.switcheshopcommon.customer.utility;
 
+import com.lgitsolution.switcheshopcommon.customer.dto.CustomerAddressDetails;
 import com.lgitsolution.switcheshopcommon.customer.dto.CustomerDetailsDto;
 import com.lgitsolution.switcheshopcommon.customer.model.CustomerDetails;
 
 public class Utility {
+
+  private static com.lgitsolution.switcheshopcommon.common.util.Utility Utility =
+          new com.lgitsolution.switcheshopcommon.common.util.Utility();
 
   /**
    * Converts the model class object to dto class object.
@@ -21,7 +25,8 @@ public class Utility {
     customerDetailsDto.setLastName(customerDetails.getLastName());
     customerDetailsDto.setEmail(customerDetails.getEmail());
     customerDetailsDto.setMobile(customerDetails.getMobile());
-    customerDetailsDto.setAddress(customerDetails.getAddress());
+    customerDetailsDto.setAddress(Utility.convertJsonToObject(customerDetails.getAddress(),
+            new CustomerAddressDetails()));
     customerDetailsDto.setProvider(customerDetails.getProvider());
     return customerDetailsDto;
   }
@@ -40,7 +45,7 @@ public class Utility {
     customerDetails.setLastName(customerDetailsDto.getLastName());
     customerDetails.setEmail(customerDetailsDto.getEmail());
     customerDetails.setMobile(customerDetailsDto.getMobile());
-    customerDetails.setAddress(customerDetailsDto.getAddress());
+    customerDetails.setAddress(Utility.ConvertObjectToJsonString(customerDetailsDto.getAddress()));
     customerDetails.setProvider(customerDetailsDto.getProvider());
     return customerDetails;
   }
