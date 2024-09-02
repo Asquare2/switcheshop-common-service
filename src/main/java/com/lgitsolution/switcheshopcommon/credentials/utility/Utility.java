@@ -22,10 +22,10 @@ public class Utility {
     credentials.setPassword(credentialsDto.getPassword());
     credentials.setClientId(credentialsDto.getClientId());
     credentials.setClientSecret(credentialsDto.getClientSecret());
-    credentials.setConfig(
-            com.lgitsolution.switcheshopcommon.common.util.Utility
-                    .convertMapToJsonString(credentialsDto.getConfig()));
+    credentials.setConfig(com.lgitsolution.switcheshopcommon.common.util.Utility
+            .convertMapToJsonString(credentialsDto.getConfig()));
     credentials.setModifiedAt(Utility.getLocalDateTime(credentialsDto.getModifiedAt()));
+    credentials.setPhoneNumber(credentialsDto.getPhoneNumber());
     return credentials;
   }
 
@@ -43,10 +43,10 @@ public class Utility {
     credentialsDto.setPassword(credentials.getPassword());
     credentialsDto.setClientId(credentials.getClientId());
     credentialsDto.setClientSecret(credentials.getClientSecret());
-    credentialsDto.setConfig(
-            com.lgitsolution.switcheshopcommon.common.util.Utility
-                    .convertJsonStringToMap(credentials.getConfig()));
+    credentialsDto.setConfig(com.lgitsolution.switcheshopcommon.common.util.Utility
+            .convertJsonStringToMap(credentials.getConfig()));
     credentialsDto.setModifiedAt(Utility.getLocalDateTimeMillis(credentials.getModifiedAt()));
+    credentialsDto.setPhoneNumber(credentials.getPhoneNumber());
     return credentialsDto;
   }
 

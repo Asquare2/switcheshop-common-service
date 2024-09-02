@@ -64,4 +64,8 @@ public class Credentials {
   @Column(name = "modified_at")
   private LocalDateTime modifiedAt;
 
+  /** The phone number */
+  @Column(name = "phone_number")
+  private String phoneNumber;
+
 }
