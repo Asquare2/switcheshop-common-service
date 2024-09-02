@@ -28,7 +28,7 @@ public class CustomerDetailsDto {
 
   private String mobile;
 
-  private String address;
+  private CustomerAddressDetails address;
 
   @Enumerated(EnumType.STRING)
   private Provider provider;

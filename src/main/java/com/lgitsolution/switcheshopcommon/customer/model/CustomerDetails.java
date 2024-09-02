@@ -45,7 +45,7 @@ public class CustomerDetails implements UserDetails {
   @Column(name = "mobile")
   private String mobile;
 
-  @Column(name = "address")
+  @Column(name = "address", columnDefinition = "text")
   private String address;
 
   @Column(name = "provider")
