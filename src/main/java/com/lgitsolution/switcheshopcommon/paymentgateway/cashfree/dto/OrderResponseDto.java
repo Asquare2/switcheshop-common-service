@@ -36,9 +36,6 @@ public class OrderResponseDto {
 
   private OrderMetaDataDto order_meta;
 
-  /* The id of the payment detail table. */
-  private Integer paymentDetailId;
-
   /* Attributes for errors. */
   private String message;
 

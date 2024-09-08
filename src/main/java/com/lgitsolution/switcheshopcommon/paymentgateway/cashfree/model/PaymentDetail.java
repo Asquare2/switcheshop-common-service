@@ -57,4 +57,7 @@ public class PaymentDetail {
   @Column(name = "order_item_id")
   private String orderItemId;
 
+  @Column(name = "payment_method")
+  private String paymentMethod;
+
 }

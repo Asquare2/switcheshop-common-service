@@ -28,6 +28,7 @@ public class Utility {
             .getOrderPaymentsResponse(), new OrderPaymentsResponseDto[0]));
     paymentDetailDto.setStatus(paymentDetail.getStatus());
     paymentDetailDto.setOrderItemId(paymentDetail.getOrderItemId());
+    paymentDetailDto.setPaymentMethod(paymentDetail.getPaymentMethod());
     return paymentDetailDto;
   }
 
@@ -48,6 +49,7 @@ public class Utility {
             .getOrderPaymentsResponseArr()));
     paymentDetail.setStatus(dto.getStatus());
     paymentDetail.setOrderItemId(dto.getOrderItemId());
+    paymentDetail.setPaymentMethod(dto.getPaymentMethod());
     return paymentDetail;
   }
 

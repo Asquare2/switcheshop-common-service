@@ -37,4 +37,6 @@ public class PaymentDetailDto {
 
   private String orderItemId;
 
+  private String paymentMethod;
+
 }
