@@ -18,4 +18,12 @@ public class CommonConstants {
 
   // Credentials constants End
 
+  // Payment Method constants Start //
+
+  public static final String PAYMENT_METHOD_PREPAID = "prepaid";
+
+  public static final String PAYMENT_METHOD_COD = "cod";
+
+  // Payment Method constants End //
+
 }
