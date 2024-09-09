@@ -3,10 +3,12 @@ package com.lgitsolution.switcheshopcommon.order.utility;
 
 import java.util.List;
 
+import com.lgitsolution.switcheshopcommon.customer.dto.CustomerDetailsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderDetailsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderItemsDto;
 import com.lgitsolution.switcheshopcommon.order.model.OrderDetails;
 import com.lgitsolution.switcheshopcommon.order.model.OrderItems;
+import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.OrderRequestDto;
 
 public class Utility {
 
@@ -121,6 +123,24 @@ public class Utility {
       orderItemsDto.setOrderDetailId(orderItems.getOrderDetailId());
     }
     return orderItemsDto;
+  }
+
+  /**
+   * 
+   * @param customerDetailsDto
+   * @param orderDetilsDto
+   * @return
+   */
+  public static OrderRequestDto createOrderRequestDto(CustomerDetailsDto customerDetailsDto,
+          OrderDetailsDto orderDetilsDto) {
+    OrderRequestDto orderRequestDto = new OrderRequestDto();
+    orderRequestDto.setOrder_amount((double) orderDetilsDto.getTotalPayable());
+    orderRequestDto.setOrderItemId(orderDetilsDto.getItemId());
+
+    orderRequestDto.getCustomer_details().setCustomer_email(customerDetailsDto.getEmail());
+    orderRequestDto.getCustomer_details().setCustomer_phone(customerDetailsDto.getMobile());
+
+    return null;
   }
 
 }

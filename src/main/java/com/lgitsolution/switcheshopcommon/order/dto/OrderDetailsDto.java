@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.PaymentDetailDto;
 
 import lombok.Data;
 
@@ -52,5 +53,8 @@ public class OrderDetailsDto {
   private List<OrderItemsDto> orderItemsDtoList = new ArrayList<>();
 
   private String paymenMethod;
+
+  private PaymentDetailDto paymentDetailDto;
+
 
 }

@@ -25,4 +25,8 @@ public class OrderRequestDto {
 
   private OrderMetaDataDto order_meta;
 
+  public OrderRequestDto() {
+    customer_details = new CustomerDetailsDto();
+  }
+
 }
