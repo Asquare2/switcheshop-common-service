@@ -24,8 +24,9 @@ public class Utility {
     category.setSlug(categoryDto.getSlug());
     category.setDmContent(categoryDto.getDmContent());
     if (categoryDto.getSpecificationId() > 0) {
-    category.setSpecificationId(categoryDto.getSpecificationId());
+      category.setSpecificationId(categoryDto.getSpecificationId());
     }
+    category.setTitle(categoryDto.getTitle());
     return category;
   }
 
@@ -44,6 +45,7 @@ public class Utility {
     if (category.getSpecificationId() != null) {
       categoryDto.setSpecificationId(category.getSpecificationId());
     }
+    categoryDto.setTitle(category.getTitle());
     return categoryDto;
   }
 

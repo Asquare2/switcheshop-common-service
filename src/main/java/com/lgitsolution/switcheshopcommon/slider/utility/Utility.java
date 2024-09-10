@@ -24,6 +24,7 @@ public class Utility {
     model.setDmContent(dto.getDmContent());
     model.setSlug(dto.getSlug());
     model.setRowOrderId(dto.getRowOrderId());
+    model.setTitle(dto.getTitle());
     return model;
   }
 
@@ -39,6 +40,7 @@ public class Utility {
     dto.setDmContent(model.getDmContent());
     dto.setSlug(model.getSlug());
     dto.setRowOrderId(model.getRowOrderId());
+    dto.setTitle(model.getTitle());
     return dto;
   }
 

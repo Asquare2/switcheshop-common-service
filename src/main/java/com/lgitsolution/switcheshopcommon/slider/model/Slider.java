@@ -50,4 +50,7 @@ public class Slider {
   @Column(name = "row_order_id")
   private Integer rowOrderId;
 
+  @Column(name = "title")
+  private String title;
+
 }

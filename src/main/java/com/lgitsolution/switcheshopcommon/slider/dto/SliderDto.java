@@ -34,4 +34,6 @@ public class SliderDto {
 
   private Integer rowOrderId;
 
+  private String title;
+
 }
