@@ -1,6 +1,8 @@
 
 package com.lgitsolution.switcheshopcommon.category.dto;
 
+import java.util.Set;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lgitsolution.switcheshopcommon.common.dto.Multimedia;
@@ -40,5 +42,7 @@ public class CategoryDto {
   private Integer specificationId = -1;
 
   private String title;
+
+  private Set<Integer> attributeIds;
 
 }

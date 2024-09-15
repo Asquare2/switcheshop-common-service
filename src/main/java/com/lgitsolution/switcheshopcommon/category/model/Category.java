@@ -61,4 +61,7 @@ public class Category {
   @Column(name = "title")
   private String title;
 
+  @Column(name = "attribute_ids", columnDefinition = "text")
+  private String attributeIds;
+
 }
