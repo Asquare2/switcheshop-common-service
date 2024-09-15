@@ -2,6 +2,7 @@
 package com.lgitsolution.switcheshopcommon.category.utility;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import com.lgitsolution.switcheshopcommon.category.dto.CategoryDto;
@@ -26,6 +27,7 @@ public class Utility {
     if (categoryDto.getSpecificationId() > 0) {
       category.setSpecificationId(categoryDto.getSpecificationId());
     }
+    category.setAttributeIds(Utility.ConvertObjectToJsonString(categoryDto.getAttributeIds()));
     category.setTitle(categoryDto.getTitle());
     return category;
   }
@@ -45,6 +47,8 @@ public class Utility {
     if (category.getSpecificationId() != null) {
       categoryDto.setSpecificationId(category.getSpecificationId());
     }
+    categoryDto.setAttributeIds(Utility.convertJsonToObject(category.getAttributeIds(),
+            new HashSet<Integer>()));
     categoryDto.setTitle(category.getTitle());
     return categoryDto;
   }
