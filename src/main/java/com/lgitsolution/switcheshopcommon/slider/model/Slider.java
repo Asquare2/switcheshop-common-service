@@ -1,6 +1,8 @@
 
 package com.lgitsolution.switcheshopcommon.slider.model;
 
+import com.lgitsolution.switcheshopcommon.slider.dto.SliderTypeEnum;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,10 +23,7 @@ public class Slider {
 
   /** The type. */
   @Column(name = "type")
-  private String type;
-
-  @Column(name = "type_option")
-  private String typeOption;
+  private SliderTypeEnum type;
 
   @Column(name = "multi_media")
   private String multiMedia;

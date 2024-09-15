@@ -17,7 +17,6 @@ public class Utility {
     model.setMultiMedia(Utility.getMultiMediaJsonString(dto.getMultiMedia()));
     model.setId(dto.getId());
     model.setType(dto.getType());
-    model.setTypeOption(dto.getTypeOption());
     model.setLink(dto.getLink());
     model.setStatus(dto.getStatus());
     model.setFilter(Utility.getSearchOptionsDtoJsonString(dto.getSearchOptionsDto()));
@@ -33,7 +32,6 @@ public class Utility {
     dto.setId(model.getId());
     dto.setMultiMedia(Utility.getMultiMediaObject(model.getMultiMedia()));
     dto.setType(model.getType());
-    dto.setTypeOption(model.getTypeOption());
     dto.setLink(model.getLink());
     dto.setStatus(model.getStatus());
     dto.setSearchOptionsDto(Utility.getSearchOptionsDtoObject(model.getFilter()));
