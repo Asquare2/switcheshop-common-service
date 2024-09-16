@@ -21,17 +21,11 @@ public class FeatureSection {
   @Column(name = "title")
   private String title;
 
-  @Column(name = "short_desc", columnDefinition = "text")
-  private String shortDescription;
-
-  @Column(name = "filter", columnDefinition = "text")
-  private String filter;
-
   @Column(name = "row_order_id")
   private Integer rowOrderId;
 
-  @Column(name = "style")
-  private Integer style;
+  @Column(name = "type")
+  private Integer type;
 
   @Column(name = "status")
   private Integer status;
@@ -41,5 +35,8 @@ public class FeatureSection {
 
   @Column(name = "dm_content", columnDefinition = "text")
   private String dmContent;
+
+  @Column(name = "type_filter_data")
+  private String typeFilterData;
 
 }
