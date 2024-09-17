@@ -18,4 +18,6 @@ public class FeatureSectionType1Dto {
 
   private SearchOptionsDto searchOptionsDto;
 
+  private String text;
+
 }
