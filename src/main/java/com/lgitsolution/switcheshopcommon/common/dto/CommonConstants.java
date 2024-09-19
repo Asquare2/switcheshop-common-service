@@ -26,4 +26,10 @@ public class CommonConstants {
 
   // Payment Method constants End //
 
+  // Company details constants Start
+
+  public static final String CMN_COMPANY_TERMS_AND_CONDITIONS = "termAndCondition";
+
+  // Company details constants End
+
 }
