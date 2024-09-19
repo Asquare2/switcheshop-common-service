@@ -1,6 +1,9 @@
 
 package com.lgitsolution.switcheshopcommon.slider.utility;
 
+import static com.lgitsolution.switcheshopcommon.slider.dto.SliderConstants.SLDR_TYPE_FILTER;
+import static com.lgitsolution.switcheshopcommon.slider.dto.SliderConstants.SLDR_TYPE_LINK;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,9 +20,12 @@ public class Utility {
     model.setMultiMedia(Utility.getMultiMediaJsonString(dto.getMultiMedia()));
     model.setId(dto.getId());
     model.setType(dto.getType());
-    model.setLink(dto.getLink());
+    if (dto.getType().equals(SLDR_TYPE_LINK)) {
+      model.setLink(dto.getLink());
+    } else if (dto.getType().equals(SLDR_TYPE_FILTER)) {
+      model.setFilter(Utility.getSearchOptionsDtoJsonString(dto.getSearchOptionsDto()));
+    }
     model.setStatus(dto.getStatus());
-    model.setFilter(Utility.getSearchOptionsDtoJsonString(dto.getSearchOptionsDto()));
     model.setDmContent(dto.getDmContent());
     model.setSlug(dto.getSlug());
     model.setRowOrderId(dto.getRowOrderId());
@@ -32,9 +38,12 @@ public class Utility {
     dto.setId(model.getId());
     dto.setMultiMedia(Utility.getMultiMediaObject(model.getMultiMedia()));
     dto.setType(model.getType());
-    dto.setLink(model.getLink());
+    if (model.getType().equals(SLDR_TYPE_LINK)) {
+      dto.setLink(model.getLink());
+    } else if (model.getType().equals(SLDR_TYPE_FILTER)) {
+      dto.setSearchOptionsDto(Utility.getSearchOptionsDtoObject(model.getFilter()));
+    }
     dto.setStatus(model.getStatus());
-    dto.setSearchOptionsDto(Utility.getSearchOptionsDtoObject(model.getFilter()));
     dto.setDmContent(model.getDmContent());
     dto.setSlug(model.getSlug());
     dto.setRowOrderId(model.getRowOrderId());

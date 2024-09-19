@@ -15,7 +15,7 @@ public class SliderDto {
 
   private Integer id;
 
-  private SliderTypeEnum type;
+  private String type;
 
   private String link;
 
