@@ -73,4 +73,7 @@ public class SKU {
 
   @Column(name = "sale_price")
   private Float salePrice;
+
+  @Column(name = "discount_percentage")
+  private Float discountPercentage;
 }

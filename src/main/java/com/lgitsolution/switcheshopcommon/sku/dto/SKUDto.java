@@ -45,4 +45,6 @@ public class SKUDto {
   private String itemId;
 
   private Float salePrice;
+
+  private Float discountPercentage;
 }

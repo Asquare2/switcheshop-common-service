@@ -30,6 +30,7 @@ public class Utility {
     model.setDmContent(dto.getDmContent());
     model.setItemId(dto.getItemId());
     model.setSalePrice(dto.getSalePrice());
+    model.setDiscountPercentage(dto.getDiscountPercentage());
     return model;
   }
 
@@ -53,6 +54,7 @@ public class Utility {
     skuDto.setDmContent(model.getDmContent());
     skuDto.setItemId(model.getItemId());
     skuDto.setSalePrice(model.getSalePrice());
+    skuDto.setDiscountPercentage(model.getDiscountPercentage());
     return skuDto;
   }
 }
