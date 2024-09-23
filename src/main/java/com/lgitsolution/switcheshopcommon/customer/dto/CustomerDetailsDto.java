@@ -32,4 +32,6 @@ public class CustomerDetailsDto {
 
   @Enumerated(EnumType.STRING)
   private Provider provider;
+
+  private Long dob;
 }

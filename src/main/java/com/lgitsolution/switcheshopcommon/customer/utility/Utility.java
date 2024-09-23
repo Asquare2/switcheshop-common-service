@@ -28,6 +28,7 @@ public class Utility {
     customerDetailsDto.setAddress(Utility.convertJsonToObject(customerDetails.getAddress(),
             new CustomerAddressDetails()));
     customerDetailsDto.setProvider(customerDetails.getProvider());
+    customerDetailsDto.setDob(Utility.getLocalDateTimeMillis(customerDetails.getDob()));
     return customerDetailsDto;
   }
 
@@ -47,6 +48,7 @@ public class Utility {
     customerDetails.setMobile(customerDetailsDto.getMobile());
     customerDetails.setAddress(Utility.ConvertObjectToJsonString(customerDetailsDto.getAddress()));
     customerDetails.setProvider(customerDetailsDto.getProvider());
+    customerDetails.setDob(Utility.getLocalDateTime(customerDetailsDto.getDob()));
     return customerDetails;
   }
 
