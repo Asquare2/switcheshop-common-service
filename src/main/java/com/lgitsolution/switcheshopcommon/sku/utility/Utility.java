@@ -57,4 +57,5 @@ public class Utility {
     skuDto.setDiscountPercentage(model.getDiscountPercentage());
     return skuDto;
   }
+
 }
