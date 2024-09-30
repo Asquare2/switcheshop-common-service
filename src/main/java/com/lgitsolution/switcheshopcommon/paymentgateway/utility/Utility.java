@@ -1,6 +1,8 @@
 
 package com.lgitsolution.switcheshopcommon.paymentgateway.utility;
 
+import java.util.List;
+
 import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.OrderPaymentsResponseDto;
 import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.OrderResponseDto;
 import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.PaymentDetailDto;
@@ -51,6 +53,15 @@ public class Utility {
     paymentDetail.setOrderItemId(dto.getOrderItemId());
     paymentDetail.setPaymentMethod(dto.getPaymentMethod());
     return paymentDetail;
+  }
+
+  /**
+   * 
+   * @param paymentDetail
+   * @return
+   */
+  public static List<PaymentDetailDto> convertModelToDto(List<PaymentDetail> paymentDetail) {
+    return paymentDetail.stream().map(paymentDetailL -> convertModelToDto(paymentDetailL)).toList();
   }
 
 }
