@@ -136,7 +136,7 @@ public class Utility {
     OrderRequestDto orderRequestDto = new OrderRequestDto();
     orderRequestDto.setOrder_amount((double) orderDetilsDto.getTotalPayable());
     orderRequestDto.setOrderItemId(orderDetilsDto.getItemId());
-
+    orderRequestDto.getCustomer_details().setCustomer_id(customerDetailsDto.getId() + "");
     orderRequestDto.getCustomer_details().setCustomer_email(customerDetailsDto.getEmail());
     orderRequestDto.getCustomer_details().setCustomer_phone(customerDetailsDto.getMobile());
 
