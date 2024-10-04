@@ -71,7 +71,7 @@ public class Product {
 
   @Column(name = "brand_id")
   private int brandId;
-  
+
   @Column(name = "pickup_location")
   private int pickupLocation;
 
@@ -132,13 +132,13 @@ public class Product {
 
   @Column(name = "product_type")
   private int productType;
-  
+
   @Column(name = "display_sku_on_attribute_id")
   private int displaySkuOnAttributeId;
-  
+
   @Column(name = "is_display_sku_wise")
   private int isDisplaySkuWise;
-  
+
   @Column(name = "specification_data", columnDefinition = "text")
   private String specificationData;
 
@@ -154,5 +154,8 @@ public class Product {
 
   @Column(name = "faq", columnDefinition = "text")
   private String faq;
+
+  @Column(name = "rating_map")
+  private String ratingMap;
 
 }

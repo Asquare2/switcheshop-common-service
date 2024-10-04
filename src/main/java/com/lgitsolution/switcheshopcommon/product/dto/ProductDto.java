@@ -4,6 +4,7 @@ package com.lgitsolution.switcheshopcommon.product.dto;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -82,7 +83,7 @@ public class ProductDto {
   private int productType;
 
   private int displaySkuOnAttributeId;
-  
+
   private int pickupLocationId;
 
   private int isDisplaySkuWise;
@@ -97,5 +98,9 @@ public class ProductDto {
   private String itemId;
 
   private LinkedHashMap<String, String> faq;
+
+  private Map<String, String> ratingMap;
+
+  private Double averageRating;
 
 }

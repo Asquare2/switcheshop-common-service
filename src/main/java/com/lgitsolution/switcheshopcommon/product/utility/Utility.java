@@ -1,13 +1,15 @@
 
 package com.lgitsolution.switcheshopcommon.product.utility;
 
+import java.text.DecimalFormat;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.lgitsolution.switcheshopcommon.product.dto.ProductDto;
 import com.lgitsolution.switcheshopcommon.product.model.Product;
 import com.lgitsolution.switcheshopcommon.sku.dto.SKUDto;
 import com.lgitsolution.switcheshopcommon.sku.model.SKU;
-
 
 public class Utility {
 
@@ -39,13 +41,12 @@ public class Utility {
     model.setCancelable(dto.getCancelable());
     model.setReturnable(dto.getReturnable());
     model.setAttachmentRequired(dto.getAttachmentRequired());
-    model.setPickupLocation(dto.getPickupLocationId());    
+    model.setPickupLocation(dto.getPickupLocationId());
     model.setTaxId(dto.getTaxId());
     List<SKUDto> skuList = dto.getSkuList();
     skuList.stream().forEach(o -> {
-      model.getSkuList().add(
-              com.lgitsolution.switcheshopcommon.sku.utility.Utility
-                      .convertDtoToModel(o));
+      model.getSkuList().add(com.lgitsolution.switcheshopcommon.sku.utility.Utility
+              .convertDtoToModel(o));
     });
     model.setModifiedBy(dto.getModifiedBy());
     model.setStatus(dto.getStatus());
@@ -60,8 +61,10 @@ public class Utility {
     model.setSlug(dto.getSlug());
     model.setDmContent(dto.getDmContent());
     model.setItemId(dto.getItemId());
-    model.setFaq(com.lgitsolution.switcheshopcommon.common.util.Utility
-            .convertMapToJsonString(dto.getFaq()));
+    model.setFaq(com.lgitsolution.switcheshopcommon.common.util.Utility.convertMapToJsonString(dto
+            .getFaq()));
+    model.setRatingMap(com.lgitsolution.switcheshopcommon.common.util.Utility
+            .ConvertObjectToJsonString(dto.getRatingMap()));
     return model;
   }
 
@@ -95,9 +98,8 @@ public class Utility {
     List<SKU> skuList = model.getSkuList();
     if (skuList != null && !skuList.isEmpty()) {
       skuList.stream().forEach(o -> {
-        dto.getSkuList().add(
-                com.lgitsolution.switcheshopcommon.sku.utility.Utility
-                        .convertModelToDto(o));
+        dto.getSkuList().add(com.lgitsolution.switcheshopcommon.sku.utility.Utility
+                .convertModelToDto(o));
 
       });
     }
@@ -114,9 +116,32 @@ public class Utility {
     dto.setSlug(model.getSlug());
     dto.setDmContent(model.getDmContent());
     dto.setItemId(model.getItemId());
-    dto.setFaq(com.lgitsolution.switcheshopcommon.common.util.Utility
-            .convertJsonStringToMap(model.getFaq()));
+    dto.setFaq(com.lgitsolution.switcheshopcommon.common.util.Utility.convertJsonStringToMap(model
+            .getFaq()));
+    dto.setRatingMap(com.lgitsolution.switcheshopcommon.common.util.Utility.convertJsonToObject(
+            model.getRatingMap(), new LinkedHashMap<String, String>()));
+    dto.setAverageRating(getAverageRating(dto.getRatingMap()));
     return dto;
+  }
+
+  /**
+   * 
+   * @param ratingMap
+   * @return
+   */
+  private static Double getAverageRating(Map<String, String> ratingMap) {
+    double totalScoreL = 0;
+    double totalResponseL = 0;
+    double responseL = 0;
+    for (String ratingL : ratingMap.keySet()) {
+      responseL = Double.parseDouble(ratingMap.get(ratingL));
+      totalScoreL += Double.parseDouble(ratingL) * responseL;
+      totalResponseL += responseL;
+    }
+    Double averageRatingL = totalScoreL / totalResponseL;
+    DecimalFormat decimalFormat = new DecimalFormat("#.#");
+    averageRatingL = Double.parseDouble(decimalFormat.format(averageRatingL));
+    return averageRatingL;
   }
 
 }
