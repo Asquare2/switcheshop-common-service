@@ -8,6 +8,7 @@ import com.lgitsolution.switcheshopcommon.order.dto.OrderDetailsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderItemsDto;
 import com.lgitsolution.switcheshopcommon.order.model.OrderDetails;
 import com.lgitsolution.switcheshopcommon.order.model.OrderItems;
+import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.OrderMetaDataDto;
 import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.OrderRequestDto;
 
 public class Utility {
@@ -140,6 +141,12 @@ public class Utility {
     orderRequestDto.getCustomer_details().setCustomer_email(customerDetailsDto.getEmail());
     orderRequestDto.getCustomer_details().setCustomer_phone(customerDetailsDto.getMobile());
 
+    /* Order Meta data details. */
+    OrderMetaDataDto orderMetaDataDto = new OrderMetaDataDto();
+    orderMetaDataDto.setReturn_url(
+            "https://localhost:8081/order-details/get-update-order-status?orderItemId="
+                    + orderDetilsDto.getItemId());
+    orderRequestDto.setOrder_meta(orderMetaDataDto);
     return orderRequestDto;
   }
 
