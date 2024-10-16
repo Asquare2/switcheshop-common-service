@@ -1,4 +1,3 @@
-
 package com.lgitsolution.switcheshopcommon.companydetails.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -9,18 +8,10 @@ import lombok.Data;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CompanyDetailsDto {
+public class CustomerCareDetails {
 
-  private Integer id;
+  private String title;
 
-  private String Key;
-
-  private TermsAndCondition termsAndConditionValue;
-
-  private ContactUsDetails contactUsDetails;
-
-  CustomerCareDetails customerCareDetails;
-
-  ReturnAndExchangePolicy returnAndExchangePolicy;
+  private String content;
 
 }
