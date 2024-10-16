@@ -47,4 +47,6 @@ public class SKUDto {
   private Float salePrice;
 
   private Float discountPercentage;
+
+  private Double averageRating;
 }
