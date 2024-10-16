@@ -13,5 +13,5 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderCancelRequest {
 
-  private List<Integer> awbs;
+  private List<String> awbs;
 }
