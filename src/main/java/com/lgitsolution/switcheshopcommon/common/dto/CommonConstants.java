@@ -30,6 +30,12 @@ public class CommonConstants {
 
   public static final String CMN_COMPANY_TERMS_AND_CONDITIONS = "termAndCondition";
 
+  public static final String CMN_COMPANY_CONTACT_US_DETAILS = "contactUsDetails";
+
+  public static final String CMN_COMPANY_CUSTOMER_CARE_DETAILS = "customerCareDetails";
+
+  public static final String CMN_COMPANY_RETUEN_AND_EXCHANGE_POLICY = "returnAndExchangePolicy";
+
   // Company details constants End
 
   public static final String FILTER_CATEGORY_KEY = "category";

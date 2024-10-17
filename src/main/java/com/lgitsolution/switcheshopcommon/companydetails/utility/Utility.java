@@ -3,6 +3,9 @@ package com.lgitsolution.switcheshopcommon.companydetails.utility;
 
 import com.lgitsolution.switcheshopcommon.common.dto.CommonConstants;
 import com.lgitsolution.switcheshopcommon.companydetails.dto.CompanyDetailsDto;
+import com.lgitsolution.switcheshopcommon.companydetails.dto.ContactUsDetails;
+import com.lgitsolution.switcheshopcommon.companydetails.dto.CustomerCareDetails;
+import com.lgitsolution.switcheshopcommon.companydetails.dto.ReturnAndExchangePolicy;
 import com.lgitsolution.switcheshopcommon.companydetails.dto.TermsAndCondition;
 import com.lgitsolution.switcheshopcommon.companydetails.model.CompanyDetails;
 
@@ -19,6 +22,18 @@ public class Utility {
     if (companyDetailsDto.getKey().equals(CommonConstants.CMN_COMPANY_TERMS_AND_CONDITIONS)) {
       companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
               .getTermsAndConditionValue()));
+    } else if (companyDetailsDto.getKey().equals(
+            CommonConstants.CMN_COMPANY_RETUEN_AND_EXCHANGE_POLICY)) {
+      companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
+              .getReturnAndExchangePolicy()));
+    } else if (companyDetailsDto.getKey().equals(
+            CommonConstants.CMN_COMPANY_CONTACT_US_DETAILS)) {
+      companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
+              .getContactUsDetails()));
+    } else if (companyDetailsDto.getKey().equals(
+            CommonConstants.CMN_COMPANY_CUSTOMER_CARE_DETAILS)) {
+      companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
+              .getCustomerCareDetails()));
     }
     return companyDetails;
   }
@@ -30,6 +45,18 @@ public class Utility {
     if (companyDetails.getKey().equals(CommonConstants.CMN_COMPANY_TERMS_AND_CONDITIONS)) {
       companyDetailsDto.setTermsAndConditionValue(CommonUtility.convertJsonToObject(companyDetails
               .getValue(), new TermsAndCondition()));
+    } else if (companyDetailsDto.getKey().equals(
+            CommonConstants.CMN_COMPANY_RETUEN_AND_EXCHANGE_POLICY)) {
+      companyDetailsDto.setReturnAndExchangePolicy(CommonUtility.convertJsonToObject(companyDetails
+              .getValue(), new ReturnAndExchangePolicy()));
+    } else if (companyDetailsDto.getKey().equals(
+            CommonConstants.CMN_COMPANY_CONTACT_US_DETAILS)) {
+      companyDetailsDto.setContactUsDetails(CommonUtility.convertJsonToObject(companyDetails
+              .getValue(), new ContactUsDetails()));
+    } else if (companyDetailsDto.getKey().equals(
+            CommonConstants.CMN_COMPANY_CUSTOMER_CARE_DETAILS)) {
+      companyDetailsDto.setCustomerCareDetails(CommonUtility.convertJsonToObject(companyDetails
+              .getValue(), new CustomerCareDetails()));
     }
     return companyDetailsDto;
 

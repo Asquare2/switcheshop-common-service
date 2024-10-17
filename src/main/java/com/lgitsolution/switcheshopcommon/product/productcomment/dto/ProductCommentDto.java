@@ -17,6 +17,8 @@ public class ProductCommentDto {
 
   private Integer customerId;
 
+  private String customerName;
+
   private Integer orderId;
 
   private Integer ratingStar;
