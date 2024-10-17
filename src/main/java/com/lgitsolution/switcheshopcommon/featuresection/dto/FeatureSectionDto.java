@@ -31,7 +31,7 @@ public class FeatureSectionDto {
 
   private FeatureSectionType2Dto featureSectionType2;
 
-  private FeatureSectionType3Dto featureSectionType3;
+  private List<FeatureSectionType3Dto> featureSectionType3;
 
   private List<FeatureSectionType1Dto> featureSectionType4;
 

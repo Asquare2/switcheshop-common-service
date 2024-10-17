@@ -55,7 +55,7 @@ public class Utility {
               new FeatureSectionType2Dto()));
     } else if (model.getType() == FEATURE_SECTION_TYPE_3) {
       dto.setFeatureSectionType3(Utility.convertJsonToObject(model.getTypeFilterData(),
-              new FeatureSectionType3Dto()));
+    		  new ArrayList<FeatureSectionType3Dto>()));
     } else if (model.getType() == FEATURE_SECTION_TYPE_4) {
       dto.setFeatureSectionType4(Utility.convertJsonToObject(model.getTypeFilterData(),
               new ArrayList<FeatureSectionType1Dto>()));
