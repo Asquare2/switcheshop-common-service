@@ -38,7 +38,7 @@ public class CommonConstants {
 
   // Company details constants End
 
-  public static final String FILTER_CATEGORY_KEY = "category";
+  public static final String FILTER_CATEGORY_KEY = "categoryId";
 
   public static final String FILTER_SPECIFICATION_KEY = "specification";
 
