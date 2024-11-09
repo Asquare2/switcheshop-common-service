@@ -17,6 +17,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SearchCriteriaDto {
 
+  private String mappingKey;
+
   private String filterKey;
 
   /** List of values that is coming from front end. */
