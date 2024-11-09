@@ -1,14 +1,16 @@
 
 package com.lgitsolution.switcheshopcommon.sku.utility;
 
+import static com.lgitsolution.switcheshopcommon.common.dto.CommonConstants.ACTIVE_STATUS;
+
 import java.text.DecimalFormat;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import com.lgitsolution.switcheshopcommon.flashsale.dto.FlashSaleDto;
 import com.lgitsolution.switcheshopcommon.product.model.Product;
 import com.lgitsolution.switcheshopcommon.sku.dto.SKUDto;
 import com.lgitsolution.switcheshopcommon.sku.model.SKU;
-
 
 public class Utility {
 
@@ -35,6 +37,7 @@ public class Utility {
     model.setItemId(dto.getItemId());
     model.setSalePrice(dto.getSalePrice());
     model.setDiscountPercentage(dto.getDiscountPercentage());
+    model.setFlashSaleId(dto.getFlashSaleId());
     return model;
   }
 
@@ -65,6 +68,7 @@ public class Utility {
     skuDto.setItemId(model.getItemId());
     skuDto.setSalePrice(model.getSalePrice());
     skuDto.setDiscountPercentage(model.getDiscountPercentage());
+    skuDto.setFlashSaleId(model.getFlashSaleId());
     return skuDto;
   }
 
@@ -86,6 +90,27 @@ public class Utility {
     DecimalFormat decimalFormat = new DecimalFormat("#.#");
     averageRatingL = Double.parseDouble(decimalFormat.format(averageRatingL));
     return averageRatingL;
+  }
+
+  /**
+   * Gets the sale price if the sale is active and started.
+   * 
+   * @param skuPrice the price of the sku
+   * @param flashSaleDto the object of the flash sale to calculate the sale price
+   * @return the sale price
+   */
+  public Float getSalePrice(Float skuPrice, FlashSaleDto flashSaleDto) {
+    Float salePrice = null;
+    Long currentTimeL = System.currentTimeMillis();
+    if (flashSaleDto != null && flashSaleDto.getStatus() == ACTIVE_STATUS && flashSaleDto
+            .getStartDate() <= currentTimeL && flashSaleDto.getEndDate() >= currentTimeL) {
+      salePrice = skuPrice * (flashSaleDto.getDiscount().floatValue() / 100);
+      if (flashSaleDto.getMaxDiscountAmount() != null && salePrice > flashSaleDto
+              .getMaxDiscountAmount()) {
+        salePrice = (float) flashSaleDto.getMaxDiscountAmount();
+      }
+    }
+    return salePrice;
   }
 
 }

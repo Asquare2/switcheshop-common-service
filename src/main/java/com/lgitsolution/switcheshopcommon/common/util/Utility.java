@@ -1,6 +1,7 @@
 
 package com.lgitsolution.switcheshopcommon.common.util;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -21,6 +22,10 @@ import org.springframework.http.ResponseEntity;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import com.lgitsolution.switcheshopcommon.common.dto.Multimedia;
 import com.lgitsolution.switcheshopcommon.common.dto.ResponseWrapper;
 import com.lgitsolution.switcheshopcommon.common.logger.SwitcheShopLogger;
@@ -203,8 +208,6 @@ public class Utility {
     }
     return localDate;
   }
-
-
 
   /**
    * Gets the date and time object as per the given format.
@@ -459,6 +462,24 @@ public class Utility {
     } catch (NumberFormatException e) {
       return false;
     }
+  }
+
+  /**
+   * Generates the qr code image as per the given text.
+   * 
+   * @param barcodeText the text for which qr code will be generates
+   * @param width The preferred width in pixels
+   * @param height The preferred height in pixels
+   * @return the generated qr code image for the given text
+   */
+  public static BufferedImage generateQRCodeImage(String barcodeText, int width, int height) {
+    BitMatrix bitMatrix = null;
+    try {
+      bitMatrix = new QRCodeWriter().encode(barcodeText, BarcodeFormat.QR_CODE, width, height);
+    } catch (Exception e) {
+      logger.error("Unable to generate barcode: " + e);
+    }
+    return MatrixToImageWriter.toBufferedImage(bitMatrix);
   }
 
 }

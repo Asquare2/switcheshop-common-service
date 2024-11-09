@@ -49,4 +49,7 @@ public class SKUDto {
   private Float discountPercentage;
 
   private Double averageRating;
+
+  private Integer flashSaleId;
+
 }

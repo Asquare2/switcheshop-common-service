@@ -1,8 +1,6 @@
 
 package com.lgitsolution.switcheshopcommon.sku.model;
 
-
-
 import com.lgitsolution.switcheshopcommon.product.model.Product;
 
 import jakarta.persistence.Column;
@@ -76,4 +74,8 @@ public class SKU {
 
   @Column(name = "discount_percentage")
   private Float discountPercentage;
+
+  @Column(name = "flash_sale_id")
+  private Integer flashSaleId;
+
 }
