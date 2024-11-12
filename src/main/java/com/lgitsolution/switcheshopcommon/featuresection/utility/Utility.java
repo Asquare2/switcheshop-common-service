@@ -34,9 +34,9 @@ public class Utility {
       model.setTypeFilterData(Utility.ConvertObjectToJsonString(dto.getFeatureSectionType3()));
     } else if (dto.getType() == FEATURE_SECTION_TYPE_4) {
       model.setTypeFilterData(Utility.ConvertObjectToJsonString(dto.getFeatureSectionType4()));
-    }
     model.setId(dto.getId());
     model.setStatus(dto.getStatus());
+  }
     model.setDmContent(dto.getDmContent());
     model.setSlug(dto.getSlug());
     return model;

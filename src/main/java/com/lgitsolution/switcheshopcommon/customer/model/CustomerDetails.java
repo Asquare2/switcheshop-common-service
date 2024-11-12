@@ -8,6 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.lgitsolution.switcheshopcommon.common.authentication.dto.Provider;
+import com.lgitsolution.switcheshopcommon.customer.dto.Gender;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -55,6 +56,10 @@ public class CustomerDetails implements UserDetails {
 
   @Column(name = "dob")
   private LocalDateTime dob;
+
+  @Column(name = "gender")
+  @Enumerated(EnumType.STRING)
+  private Gender gender;
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {

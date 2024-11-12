@@ -1,6 +1,8 @@
 
 package com.lgitsolution.switcheshopcommon.flashsale.utility;
 
+import static com.lgitsolution.switcheshopcommon.common.dto.CommonConstants.ACTIVE_STATUS;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,15 +61,41 @@ public class Utility {
   /**
    * 
    * @param flashSaleList
+   * @param checkActiveSale
    * @return
    */
-  public static List<FlashSaleDto> convertModelToDto(List<FlashSale> flashSaleList) {
+  public static List<FlashSaleDto> convertModelToDto(List<FlashSale> flashSaleList,
+          boolean checkActiveSale) {
     List<FlashSaleDto> flashSaleDtoList = new ArrayList<>();
     for (FlashSale flashSale : flashSaleList) {
-      FlashSaleDto flashSaleDto = convertModelToDto(flashSale);
-      flashSaleDtoList.add(flashSaleDto);
+      if (checkActiveSale) {
+        FlashSaleDto flashSaleDto = convertModelToDto(flashSale);
+        if (checkActiveSale) {
+          if (isActiveSale(flashSaleDto)) {
+            flashSaleDtoList.add(flashSaleDto);
+          }
+        } else {
+          flashSaleDtoList.add(flashSaleDto);
+        }
+      }
     }
     return flashSaleDtoList;
+  }
+
+  /**
+   * Check that sale is active or not
+   * 
+   * @param flashSaleDto
+   * @return
+   */
+  private static boolean isActiveSale(FlashSaleDto flashSaleDto) {
+    boolean isActiveSaleL = false;
+    Long currentTimeL = System.currentTimeMillis();
+    if (flashSaleDto != null && flashSaleDto.getStatus() == ACTIVE_STATUS && flashSaleDto
+            .getStartDate() >= currentTimeL && flashSaleDto.getEndDate() <= currentTimeL) {
+      isActiveSaleL = true;
+    }
+    return isActiveSaleL;
   }
 
 }

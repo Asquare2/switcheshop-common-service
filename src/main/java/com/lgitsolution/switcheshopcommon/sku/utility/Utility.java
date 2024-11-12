@@ -100,10 +100,10 @@ public class Utility {
    * @return the sale price
    */
   public Float getSalePrice(Float skuPrice, FlashSaleDto flashSaleDto) {
-    Float salePrice = null;
+    Float salePrice = 0.0f;
     Long currentTimeL = System.currentTimeMillis();
     if (flashSaleDto != null && flashSaleDto.getStatus() == ACTIVE_STATUS && flashSaleDto
-            .getStartDate() <= currentTimeL && flashSaleDto.getEndDate() >= currentTimeL) {
+            .getStartDate() >= currentTimeL && flashSaleDto.getEndDate() <= currentTimeL) {
       salePrice = skuPrice * (flashSaleDto.getDiscount().floatValue() / 100);
       if (flashSaleDto.getMaxDiscountAmount() != null && salePrice > flashSaleDto
               .getMaxDiscountAmount()) {

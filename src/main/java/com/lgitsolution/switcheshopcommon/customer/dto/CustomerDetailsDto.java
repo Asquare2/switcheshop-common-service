@@ -1,6 +1,8 @@
 
 package com.lgitsolution.switcheshopcommon.customer.dto;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lgitsolution.switcheshopcommon.common.authentication.dto.Provider;
@@ -28,10 +30,14 @@ public class CustomerDetailsDto {
 
   private String mobile;
 
-  private CustomerAddressDetails address;
+  private List<CustomerAddressDetails> address;
 
   @Enumerated(EnumType.STRING)
   private Provider provider;
 
   private Long dob;
+  
+  @Enumerated(EnumType.STRING)
+  private Gender gender;
+  
 }

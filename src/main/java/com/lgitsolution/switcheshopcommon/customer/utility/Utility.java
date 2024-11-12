@@ -1,6 +1,8 @@
 
 package com.lgitsolution.switcheshopcommon.customer.utility;
 
+import java.util.ArrayList;
+
 import com.lgitsolution.switcheshopcommon.customer.dto.CustomerAddressDetails;
 import com.lgitsolution.switcheshopcommon.customer.dto.CustomerDetailsDto;
 import com.lgitsolution.switcheshopcommon.customer.model.CustomerDetails;
@@ -26,9 +28,10 @@ public class Utility {
     customerDetailsDto.setEmail(customerDetails.getEmail());
     customerDetailsDto.setMobile(customerDetails.getMobile());
     customerDetailsDto.setAddress(Utility.convertJsonToObject(customerDetails.getAddress(),
-            new CustomerAddressDetails()));
+            new ArrayList<CustomerAddressDetails>()));
     customerDetailsDto.setProvider(customerDetails.getProvider());
     customerDetailsDto.setDob(Utility.getLocalDateTimeMillis(customerDetails.getDob()));
+    customerDetailsDto.setGender(customerDetails.getGender());
     return customerDetailsDto;
   }
 
@@ -49,6 +52,7 @@ public class Utility {
     customerDetails.setAddress(Utility.ConvertObjectToJsonString(customerDetailsDto.getAddress()));
     customerDetails.setProvider(customerDetailsDto.getProvider());
     customerDetails.setDob(Utility.getLocalDateTime(customerDetailsDto.getDob()));
+    customerDetails.setGender(customerDetailsDto.getGender());
     return customerDetails;
   }
 

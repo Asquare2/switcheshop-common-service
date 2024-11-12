@@ -11,6 +11,10 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CustomerAddressDetails {
 
+  private String addressName;
+
+  private boolean isPrimary = true;
+
   private String shipping_customer_name;
   private String shipping_last_name;
   private String shipping_address;
