@@ -3,6 +3,7 @@ package com.lgitsolution.switcheshopcommon.order.utility;
 
 import java.util.List;
 
+import com.lgitsolution.switcheshopcommon.customer.dto.CustomerAddressDetails;
 import com.lgitsolution.switcheshopcommon.customer.dto.CustomerDetailsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderDetailsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderItemsDto;
@@ -42,6 +43,8 @@ public class Utility {
     orderItemsDtoList.forEach(dto -> orderDetails.getOrderItemsList().add(convertDtoToModel(dto)));
     orderDetails.setTrackingData(orderDetilsDto.getTrackingData());
     orderDetails.setPaymenMethod(orderDetilsDto.getPaymenMethod());
+    orderDetails.setAddress(com.lgitsolution.switcheshopcommon.common.util.Utility
+            .ConvertObjectToJsonString(orderDetilsDto.getCustomerAddressDetails()));
     return orderDetails;
   }
 
@@ -76,6 +79,8 @@ public class Utility {
     }
     orderDetailsDto.setTrackingData(orderDetails.getTrackingData());
     orderDetailsDto.setPaymenMethod(orderDetails.getPaymenMethod());
+    orderDetailsDto.setCustomerAddressDetails(com.lgitsolution.switcheshopcommon.common.util.Utility
+            .convertJsonToObject(orderDetails.getAddress(), new CustomerAddressDetails()));
     return orderDetailsDto;
   }
 

@@ -85,4 +85,7 @@ public class OrderDetails {
   @Column(name = "payment_method")
   private String paymenMethod;
 
+  @Column(name = "address", columnDefinition = "text")
+  private String address;
+
 }

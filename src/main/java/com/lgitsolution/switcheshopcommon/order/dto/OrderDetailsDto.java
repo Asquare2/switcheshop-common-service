@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lgitsolution.switcheshopcommon.customer.dto.CustomerAddressDetails;
 import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.PaymentDetailDto;
 
 import lombok.Data;
@@ -56,5 +57,6 @@ public class OrderDetailsDto {
 
   private PaymentDetailDto paymentDetailDto;
 
+  private CustomerAddressDetails customerAddressDetails;
 
 }
