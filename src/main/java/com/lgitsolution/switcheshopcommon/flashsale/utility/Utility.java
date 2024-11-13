@@ -32,6 +32,8 @@ public class Utility {
     flashSale.setModifiedAt(Utility.getLocalDateTime(flashSaleDto.getModifiedAt()));
     flashSale.setFilter(Utility.getSearchOptionsDtoJsonString(flashSaleDto.getSearchOptionsDto()));
     flashSale.setMaxDiscountAmount(flashSaleDto.getMaxDiscountAmount());
+    flashSale.setSlug(flashSaleDto.getSlug());
+    flashSale.setDmContent(flashSaleDto.getDmContent());
     return flashSale;
   }
 
@@ -55,6 +57,8 @@ public class Utility {
     flashSaleDto.setModifiedAt(Utility.getLocalDateTimeMillis(flashSale.getModifiedAt()));
     flashSaleDto.setSearchOptionsDto(Utility.getSearchOptionsDtoObject(flashSale.getFilter()));
     flashSaleDto.setMaxDiscountAmount(flashSale.getMaxDiscountAmount());
+    flashSaleDto.setSlug(flashSale.getSlug());
+    flashSaleDto.setDmContent(flashSale.getDmContent());
     return flashSaleDto;
   }
 

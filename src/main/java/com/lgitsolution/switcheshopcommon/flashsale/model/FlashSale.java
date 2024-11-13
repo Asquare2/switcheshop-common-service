@@ -67,4 +67,10 @@ public class FlashSale {
   @Column(name = "max_discount_amount")
   private Integer maxDiscountAmount;
 
+  @Column(name = "slug")
+  private String slug;
+
+  @Column(name = "dm_content", columnDefinition = "text")
+  private String dmContent;
+
 }

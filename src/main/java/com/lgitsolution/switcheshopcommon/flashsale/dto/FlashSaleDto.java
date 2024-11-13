@@ -38,4 +38,9 @@ public class FlashSaleDto {
 
   private Integer maxDiscountAmount;
 
+  /** For DM purpose */
+  private String slug;
+
+  private String dmContent;
+
 }
