@@ -3,6 +3,40 @@ package com.lgitsolution.switcheshopcommon.common.dto;
 
 public class CommonConstants {
 
+  // Modules Names Constant Start
+  /** The Constant CATEGORY_MODULE_NAME. */
+
+  public static final String CATEGORY_MODULE_NAME = "Category";
+
+  /** The Constant SKU_MODULE_NAME. */
+  public static final String SKU_MODULE_NAME = "SKU";
+
+  /** The Constant PRODUCT_MODULE_NAME. */
+  public static final String PRODUCT_MODULE_NAME = "Product";
+
+  /** The Constant SYSTEM_USER_MODULE_NAME. */
+  public static final String SYSTEM_USER_MODULE_NAME = "System_User";
+
+  /** The Constant CATEGORY_MODULE_NAME. */
+  public static final String ATTRIBUTE_MODULE_NAME = "ATTRIBUTE";
+
+  /** The Constant FLASHSALE_MODULE_NAME. */
+  public static final String FLASHSALE_MODULE_NAME = "FlashSale";
+
+  /** The Constant PROMOCODE_MODULE_NAME. */
+  public static final String PROMOCODE_MODULE_NAME = "Promocode";
+
+  /** The Constant SLIDER_MODULE_NAME. */
+  public static final String SLIDER_MODULE_NAME = "Slider";
+
+  /** The Constant TAX_MODULE_NAME. */
+  public static final String TAX_MODULE_NAME = "Tax";
+
+  /** The Constant SALE_MODULE_NAME. */
+  public static final String SALE_MODULE_NAME = "Sale";
+
+  // Modules Names Constant End
+
   // Credentials constants
   public static final String CMN_SERVICE_NAME_SHIP_ROCKET = "shipRocket";
 
