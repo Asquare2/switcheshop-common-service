@@ -72,15 +72,13 @@ public class Utility {
           boolean checkActiveSale) {
     List<FlashSaleDto> flashSaleDtoList = new ArrayList<>();
     for (FlashSale flashSale : flashSaleList) {
+      FlashSaleDto flashSaleDto = convertModelToDto(flashSale);
       if (checkActiveSale) {
-        FlashSaleDto flashSaleDto = convertModelToDto(flashSale);
-        if (checkActiveSale) {
-          if (isActiveSale(flashSaleDto)) {
-            flashSaleDtoList.add(flashSaleDto);
-          }
-        } else {
+        if (isActiveSale(flashSaleDto)) {
           flashSaleDtoList.add(flashSaleDto);
         }
+      } else {
+        flashSaleDtoList.add(flashSaleDto);
       }
     }
     return flashSaleDtoList;
