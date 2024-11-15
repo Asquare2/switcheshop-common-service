@@ -23,10 +23,6 @@ public class FeatureSectionDto {
 
   private Integer status;
 
-  private String slug;
-
-  private String dmContent;
-
   private FeatureSectionType1Dto featureSectionType1;
 
   private FeatureSectionType2Dto featureSectionType2;

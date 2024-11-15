@@ -16,6 +16,7 @@ import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.SplittableRandom;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -480,6 +481,17 @@ public class Utility {
       logger.error("Unable to generate barcode: " + e);
     }
     return MatrixToImageWriter.toBufferedImage(bitMatrix);
+  }
+
+  /**
+   * Generate random number.
+   * 
+   * @return the random number.
+   */
+  public static int generateRandomNumber() {
+    SplittableRandom splittableRandom = new SplittableRandom();
+    int randomWithSplittableRandom = splittableRandom.nextInt(1, 100000000);
+    return randomWithSplittableRandom;
   }
 
 }

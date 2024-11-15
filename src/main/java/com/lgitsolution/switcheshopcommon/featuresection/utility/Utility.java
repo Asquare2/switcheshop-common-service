@@ -34,11 +34,9 @@ public class Utility {
       model.setTypeFilterData(Utility.ConvertObjectToJsonString(dto.getFeatureSectionType3()));
     } else if (dto.getType() == FEATURE_SECTION_TYPE_4) {
       model.setTypeFilterData(Utility.ConvertObjectToJsonString(dto.getFeatureSectionType4()));
-    model.setId(dto.getId());
-    model.setStatus(dto.getStatus());
-  }
-    model.setDmContent(dto.getDmContent());
-    model.setSlug(dto.getSlug());
+      model.setId(dto.getId());
+      model.setStatus(dto.getStatus());
+    }
     return model;
   }
 
@@ -55,15 +53,13 @@ public class Utility {
               new FeatureSectionType2Dto()));
     } else if (model.getType() == FEATURE_SECTION_TYPE_3) {
       dto.setFeatureSectionType3(Utility.convertJsonToObject(model.getTypeFilterData(),
-    		  new ArrayList<FeatureSectionType3Dto>()));
+              new ArrayList<FeatureSectionType3Dto>()));
     } else if (model.getType() == FEATURE_SECTION_TYPE_4) {
       dto.setFeatureSectionType4(Utility.convertJsonToObject(model.getTypeFilterData(),
               new ArrayList<FeatureSectionType1Dto>()));
     }
     dto.setId(model.getId());
     dto.setStatus(model.getStatus());
-    dto.setDmContent(model.getDmContent());
-    dto.setSlug(model.getSlug());
     return dto;
   }
 

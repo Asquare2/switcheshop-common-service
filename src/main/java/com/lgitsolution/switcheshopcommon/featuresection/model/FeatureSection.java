@@ -30,12 +30,6 @@ public class FeatureSection {
   @Column(name = "status")
   private Integer status;
 
-  @Column(name = "slug")
-  private String slug;
-
-  @Column(name = "dm_content", columnDefinition = "text")
-  private String dmContent;
-
   @Column(name = "type_filter_data")
   private String typeFilterData;
 

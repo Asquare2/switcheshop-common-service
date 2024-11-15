@@ -20,4 +20,12 @@ public class FeatureSectionType1Dto {
 
   private String text;
 
+  private String title;
+
+  private String slug;
+
+  private String dmContent;
+
+  private String itemID;
+
 }

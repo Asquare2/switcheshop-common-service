@@ -16,4 +16,12 @@ public class FeatureSectionType3Dto {
 
   private SearchOptionsDto searchOptionsDto;
 
+  private String title;
+
+  private String slug;
+
+  private String dmContent;
+
+  private String itemID;
+
 }
