@@ -102,13 +102,15 @@ public class Utility {
   public Float getSalePrice(Float skuPrice, FlashSaleDto flashSaleDto) {
     Float salePrice = 0.0f;
     Long currentTimeL = System.currentTimeMillis();
-    if (flashSaleDto != null && flashSaleDto.getStatus() == ACTIVE_STATUS && flashSaleDto
-            .getStartDate() >= currentTimeL && flashSaleDto.getEndDate() <= currentTimeL) {
+    if (flashSaleDto != null && flashSaleDto.getStatus() == ACTIVE_STATUS
+            && currentTimeL >= flashSaleDto.getStartDate() && currentTimeL <= flashSaleDto
+                    .getEndDate()) {
       salePrice = skuPrice * (flashSaleDto.getDiscount().floatValue() / 100);
       if (flashSaleDto.getMaxDiscountAmount() != null && salePrice > flashSaleDto
               .getMaxDiscountAmount()) {
         salePrice = (float) flashSaleDto.getMaxDiscountAmount();
       }
+      salePrice = skuPrice - salePrice;
     }
     return salePrice;
   }
