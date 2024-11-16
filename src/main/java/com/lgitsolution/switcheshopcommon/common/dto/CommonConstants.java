@@ -17,7 +17,7 @@ public class CommonConstants {
   /** The Constant SYSTEM_USER_MODULE_NAME. */
   public static final String SYSTEM_USER_MODULE_NAME = "System_User";
 
-  /** The Constant CATEGORY_MODULE_NAME. */
+  /** The Constant ATTRIBUTE_MODULE_NAME. */
   public static final String ATTRIBUTE_MODULE_NAME = "ATTRIBUTE";
 
   /** The Constant FLASHSALE_MODULE_NAME. */
@@ -81,5 +81,7 @@ public class CommonConstants {
   /* Integer Constants */
   /** The active status value. */
   public static final int ACTIVE_STATUS = 1;
+
+  public static final int INACTIVE_STATUS = 0;
 
 }
