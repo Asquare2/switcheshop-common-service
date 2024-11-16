@@ -73,13 +73,7 @@ public class Utility {
     List<FlashSaleDto> flashSaleDtoList = new ArrayList<>();
     for (FlashSale flashSale : flashSaleList) {
       FlashSaleDto flashSaleDto = convertModelToDto(flashSale);
-      if (checkActiveSale) {
-        if (isActiveSale(flashSaleDto)) {
-          flashSaleDtoList.add(flashSaleDto);
-        }
-      } else {
         flashSaleDtoList.add(flashSaleDto);
-      }
     }
     return flashSaleDtoList;
   }
