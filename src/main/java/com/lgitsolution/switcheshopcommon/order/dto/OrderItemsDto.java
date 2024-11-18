@@ -25,5 +25,9 @@ public class OrderItemsDto {
   private Long createdAt;
 
   private Long modifiedAt;
+  
+  private String identificationNumber;
+
+  private String skuName;
 
 }

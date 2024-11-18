@@ -39,4 +39,10 @@ public class OrderItems {
   @Column(name = "modified_at")
   private LocalDateTime modifiedAt;
 
+  @Column(name = "identification_no")
+  private String identificationNumber;
+
+  @Column(name = "name")
+  private String skuName;
+
 }
