@@ -28,7 +28,7 @@ public class SKUDto {
 
   private Float specialPrice;
 
-  // Comma separated primary keys of attibute option
+  // Comma separated primary keys of attribute option
   private String attributeOptions;
 
   private String title;
