@@ -59,4 +59,6 @@ public class OrderDetailsDto {
 
   private CustomerAddressDetails customerAddressDetails;
 
+  private int saleId;
+
 }

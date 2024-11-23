@@ -78,6 +78,8 @@ public class CommonConstants {
 
   public static final String FILTER_ATTRIBUTE_KEY = "attribute";
 
+  public static final String FILTER_COLLECTION_KEY = "Collections";
+
   /* Integer Constants */
   /** The active status value. */
   public static final int ACTIVE_STATUS = 1;

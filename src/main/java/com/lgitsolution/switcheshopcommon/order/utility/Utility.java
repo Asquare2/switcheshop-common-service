@@ -45,6 +45,7 @@ public class Utility {
     orderDetails.setPaymenMethod(orderDetilsDto.getPaymenMethod());
     orderDetails.setAddress(com.lgitsolution.switcheshopcommon.common.util.Utility
             .ConvertObjectToJsonString(orderDetilsDto.getCustomerAddressDetails()));
+    orderDetails.setSaleId(orderDetilsDto.getSaleId());
     return orderDetails;
   }
 
@@ -81,6 +82,7 @@ public class Utility {
     orderDetailsDto.setPaymenMethod(orderDetails.getPaymenMethod());
     orderDetailsDto.setCustomerAddressDetails(com.lgitsolution.switcheshopcommon.common.util.Utility
             .convertJsonToObject(orderDetails.getAddress(), new CustomerAddressDetails()));
+    orderDetailsDto.setSaleId(orderDetails.getSaleId());
     return orderDetailsDto;
   }
 
@@ -108,6 +110,8 @@ public class Utility {
     orderItems.setModifiedAt(com.lgitsolution.switcheshopcommon.common.util.Utility
             .getLocalDateTime(dto.getModifiedAt()));
     orderItems.setOrderDetailId(dto.getOrderDetailId());
+    orderItems.setIdentificationNumber(dto.getIdentificationNumber());
+    orderItems.setSkuName(dto.getSkuName());
     return orderItems;
   }
 
@@ -128,6 +132,8 @@ public class Utility {
     if (orderItems.getOrderDetailId() != null) {
       orderItemsDto.setOrderDetailId(orderItems.getOrderDetailId());
     }
+    orderItemsDto.setIdentificationNumber(orderItems.getIdentificationNumber());
+    orderItemsDto.setSkuName(orderItems.getSkuName());
     return orderItemsDto;
   }
 
