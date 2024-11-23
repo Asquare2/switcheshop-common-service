@@ -72,15 +72,4 @@ public class Utility {
     return promocodeDtoList;
   }
 
-  /*
-   * public static Specification<Promocode> getSpecification(SearchOptionsDto searchOptionsDto) {
-   * PromocodeSpecificationBuilder builder = new PromocodeSpecificationBuilder();
-   * List<SearchCriteriaDto> criteriaList = searchOptionsDto.getSearchCriteriaList(); if
-   * (criteriaList != null) { criteriaList.forEach(x -> { List<Object> values = x.getValue();
-   * values.forEach(y -> { SearchCriteriaDto dto = new SearchCriteriaDto();
-   * dto.setFilterKey(x.getFilterKey()); dto.setDataOption(searchOptionsDto.getDataOption());
-   * dto.setSearchValue(y); dto.setOperation(x.getOperation()); builder.with(dto); }); }); } return
-   * builder.build(); }
-   */
-
 }
