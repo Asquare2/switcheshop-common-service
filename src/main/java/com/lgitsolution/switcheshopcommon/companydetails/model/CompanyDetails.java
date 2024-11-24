@@ -23,8 +23,13 @@ public class CompanyDetails {
   @Column(name = "key")
   private String key;
 
-  /** The question */
+  /** The value */
   @Column(name = "value", columnDefinition = "text")
   private String value;
+
+  /** The value */
+  @Column(name = "content", columnDefinition = "text")
+  private String content;
+
 
 }

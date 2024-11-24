@@ -19,8 +19,10 @@ public class CompanyDetailsDto {
 
   private ContactUsDetails contactUsDetails;
 
-  CustomerCareDetails customerCareDetails;
+  private CustomerCareDetails customerCareDetails;
 
-  ReturnAndExchangePolicy returnAndExchangePolicy;
+  private ReturnAndExchangePolicy returnAndExchangePolicy;
+
+  private CompanyLogoDetails companyLogoDetails;
 
 }

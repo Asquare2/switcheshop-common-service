@@ -44,5 +44,5 @@ public class CategoryDto {
   private String title;
 
   private Set<Integer> attributeIds;
-
+  
 }

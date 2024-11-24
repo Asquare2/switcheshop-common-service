@@ -70,6 +70,8 @@ public class CommonConstants {
 
   public static final String CMN_COMPANY_RETUEN_AND_EXCHANGE_POLICY = "returnAndExchangePolicy";
 
+  public static final String CMN_COMPANY_LOGO_DETAILS = "logoDetails";
+
   // Company details constants End
 
   public static final String FILTER_CATEGORY_KEY = "category";
