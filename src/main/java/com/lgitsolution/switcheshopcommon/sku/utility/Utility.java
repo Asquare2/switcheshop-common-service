@@ -52,7 +52,7 @@ public class Utility {
       Map<String, String> ratingMap = com.lgitsolution.switcheshopcommon.common.util.Utility
               .convertJsonToObject(model.getProduct().getRatingMap(),
                       new LinkedHashMap<String, String>());
-      if (ratingMap != null) {
+      if (ratingMap != null && !ratingMap.isEmpty()) {
         skuDto.setAverageRating(getAverageRating(ratingMap));
       }
     }
