@@ -11,6 +11,8 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CustomerAddressDetails {
 
+  private int id = -1;
+
   private String addressName;
 
   private boolean isPrimary = true;
