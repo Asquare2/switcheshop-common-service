@@ -50,6 +50,8 @@ public class CommonConstants {
 
   public static final String CMN_CONST_NAME_AUTH_TOKEN_KEY = "authToken";
 
+  public static final String CMN_CONST_NAME_SUFY_THIRED_PARTY_STORAGE_KEY = "sufyStorage";
+
   // Credentials constants End
 
   // Payment Method constants Start //
