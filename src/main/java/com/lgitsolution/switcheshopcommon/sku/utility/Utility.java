@@ -56,6 +56,8 @@ public class Utility {
         skuDto.setAverageRating(getAverageRating(ratingMap));
       }
     }
+    skuDto.setMinimumOrderQuantity(model.getProduct().getMinimumOrderQuantity());
+    skuDto.setMaximumOrderQuantity(model.getProduct().getMaximumOrderQuantity());
     skuDto.setQuantity(model.getQuantity());
     skuDto.setPrice(model.getPrice());
     skuDto.setSpecialPrice(model.getSpecialPrice());

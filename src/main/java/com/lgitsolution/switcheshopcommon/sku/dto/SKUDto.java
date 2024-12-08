@@ -52,4 +52,8 @@ public class SKUDto {
 
   private Integer flashSaleId;
 
+  private Integer minimumOrderQuantity;
+
+  private Integer maximumOrderQuantity;
+
 }

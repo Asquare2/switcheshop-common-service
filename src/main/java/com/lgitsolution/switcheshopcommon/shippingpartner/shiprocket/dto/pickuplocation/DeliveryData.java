@@ -12,5 +12,6 @@ import lombok.Data;
 public class DeliveryData {
 
   private ShippingDataDTO data;
+  private int status_code;
 
 }
