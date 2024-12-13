@@ -63,4 +63,18 @@ public class OrderDetailsDto {
 
   private int outOfStock = 0;
 
+  private String pickupScheduledDate;
+
+  private String pickupBookedDate;
+
+  private String deliveryPartnerOrderId;
+
+  private String shipmentId;
+
+  private String awbCode;
+
+  private String courierCompanyId;
+
+  private String courierName;
+
 }

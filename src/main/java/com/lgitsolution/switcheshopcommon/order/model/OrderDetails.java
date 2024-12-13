@@ -91,4 +91,25 @@ public class OrderDetails {
   @Column(name = "sale_id")
   private int saleId;
 
+  @Column(name = "pickup_scheduled_date")
+  private String pickupScheduledDate;
+
+  @Column(name = "pickup_booked_date")
+  private String pickupBookedDate;
+
+  @Column(name = "delivery_partner_order_id")
+  private String deliveryPartnerOrderId;
+
+  @Column(name = "shipment_id")
+  private String shipmentId;
+
+  @Column(name = "awb_code")
+  private String awbCode;
+
+  @Column(name = "courier_company_id")
+  private String courierCompanyId;
+
+  @Column(name = "courier_name")
+  private String courierName;
+
 }
