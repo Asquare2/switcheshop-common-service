@@ -42,7 +42,7 @@ public class CommonConstants {
 
   public static final String CMN_SERVICE_NAME_GOOGLE_AUTH = "googleAuth";
 
-  public static final String CMN_SERVICE_NAME_GOOGLE_EMAIL = "googleEmail";
+  public static final String CMN_SERVICE_NAME_EMAIL = "email";
 
   public static final String CMN_SERVICE_NAME_TWILLO_MOBILE_OTP = "twillioMobileOtp";
 
