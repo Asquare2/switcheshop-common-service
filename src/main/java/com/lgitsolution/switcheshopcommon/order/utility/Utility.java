@@ -46,6 +46,13 @@ public class Utility {
     orderDetails.setAddress(com.lgitsolution.switcheshopcommon.common.util.Utility
             .ConvertObjectToJsonString(orderDetilsDto.getCustomerAddressDetails()));
     orderDetails.setSaleId(orderDetilsDto.getSaleId());
+    orderDetails.setPickupBookedDate(orderDetilsDto.getPickupBookedDate());
+    orderDetails.setPickupScheduledDate(orderDetilsDto.getPickupScheduledDate());
+    orderDetails.setDeliveryPartnerOrderId(orderDetilsDto.getDeliveryPartnerOrderId());
+    orderDetails.setShipmentId(orderDetilsDto.getShipmentId());
+    orderDetails.setAwbCode(orderDetilsDto.getAwbCode());
+    orderDetails.setCourierCompanyId(orderDetilsDto.getCourierCompanyId());
+    orderDetails.setCourierName(orderDetilsDto.getCourierName());
     return orderDetails;
   }
 
@@ -83,6 +90,13 @@ public class Utility {
     orderDetailsDto.setCustomerAddressDetails(com.lgitsolution.switcheshopcommon.common.util.Utility
             .convertJsonToObject(orderDetails.getAddress(), new CustomerAddressDetails()));
     orderDetailsDto.setSaleId(orderDetails.getSaleId());
+    orderDetailsDto.setPickupBookedDate(orderDetails.getPickupBookedDate());
+    orderDetailsDto.setPickupScheduledDate(orderDetails.getPickupScheduledDate());
+    orderDetailsDto.setDeliveryPartnerOrderId(orderDetails.getDeliveryPartnerOrderId());
+    orderDetailsDto.setShipmentId(orderDetails.getShipmentId());
+    orderDetailsDto.setAwbCode(orderDetails.getAwbCode());
+    orderDetailsDto.setCourierCompanyId(orderDetails.getCourierCompanyId());
+    orderDetailsDto.setCourierName(orderDetails.getCourierName());
     return orderDetailsDto;
   }
 

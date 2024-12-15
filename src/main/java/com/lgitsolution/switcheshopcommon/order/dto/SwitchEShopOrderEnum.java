@@ -3,8 +3,8 @@ package com.lgitsolution.switcheshopcommon.order.dto;
 
 public enum SwitchEShopOrderEnum {
 
-  Pending(0), Confirmed(1), Ready_To_Ship(2), Shipped(3), Out_For_Delivery(4), Deliverd(
-          5), Order_Cancelled_By_Customer(6), Order_Cancelled_By_Company(7);
+  Pending(0), Confirmed(1), Processing(2), Prepared(3), Shipped(4), Out_For_Delivery(5), Deliverd(
+          6), Order_Cancelled_By_Customer(7), Order_Cancelled_By_Company(8);
 
   private int value;
 
