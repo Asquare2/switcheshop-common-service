@@ -52,6 +52,8 @@ public class CommonConstants {
 
   public static final String CMN_CONST_NAME_SUFY_THIRED_PARTY_STORAGE_KEY = "sufyStorage";
 
+  public static final String CMN_SERVICE_NAME_FAST2SMS = "fast2sms";
+
   // Credentials constants End
 
   // Payment Method constants Start //
