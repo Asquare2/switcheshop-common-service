@@ -126,6 +126,10 @@ public class Utility {
     orderItems.setOrderDetailId(dto.getOrderDetailId());
     orderItems.setIdentificationNumber(dto.getIdentificationNumber());
     orderItems.setSkuName(dto.getSkuName());
+    orderItems.setTax(dto.getTax());
+    orderItems.setTitle(dto.getTitle());
+    orderItems.setOriginalPrice(dto.getOriginalPrice());
+    orderItems.setSellingPrice(dto.getSellingPrice());
     return orderItems;
   }
 
@@ -148,6 +152,10 @@ public class Utility {
     }
     orderItemsDto.setIdentificationNumber(orderItems.getIdentificationNumber());
     orderItemsDto.setSkuName(orderItems.getSkuName());
+    orderItemsDto.setTax(orderItems.getTax());
+    orderItemsDto.setTitle(orderItems.getTitle());
+    orderItemsDto.setOriginalPrice(orderItems.getOriginalPrice());
+    orderItemsDto.setSellingPrice(orderItems.getSellingPrice());
     return orderItemsDto;
   }
 

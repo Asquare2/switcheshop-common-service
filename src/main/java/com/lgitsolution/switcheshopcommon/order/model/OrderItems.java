@@ -45,4 +45,16 @@ public class OrderItems {
   @Column(name = "name")
   private String skuName;
 
+  @Column(name = "title")
+  private String title;
+
+  @Column(name = "price")
+  private Float originalPrice;
+
+  @Column(name = "selling_price")
+  private Float sellingPrice;
+
+  @Column(name = "tax")
+  private Float tax;
+
 }
