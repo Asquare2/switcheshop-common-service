@@ -99,7 +99,7 @@ public class Utility {
     if (skuList != null && !skuList.isEmpty()) {
       skuList.stream().forEach(o -> {
         dto.getSkuList().add(com.lgitsolution.switcheshopcommon.sku.utility.Utility
-                .convertModelToDto(o));
+                .convertModelToDto(o, null));
 
       });
     }

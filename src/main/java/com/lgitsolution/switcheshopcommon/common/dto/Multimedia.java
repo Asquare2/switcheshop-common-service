@@ -24,7 +24,7 @@ public class Multimedia
 	
 	String banner_Image = "";
 	
-	List<String> otherImages = new ArrayList<String>();;
+  List<String> otherImages = new ArrayList<String>();
 	
 	String mainVideo = "";
 	

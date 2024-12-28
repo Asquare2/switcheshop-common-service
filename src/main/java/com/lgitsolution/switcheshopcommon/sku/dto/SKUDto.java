@@ -56,4 +56,6 @@ public class SKUDto {
 
   private Integer maximumOrderQuantity;
 
+  private String productIdentificationNo;
+
 }

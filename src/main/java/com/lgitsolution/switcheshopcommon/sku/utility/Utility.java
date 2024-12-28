@@ -41,7 +41,7 @@ public class Utility {
     return model;
   }
 
-  public static SKUDto convertModelToDto(SKU model) {
+  public static SKUDto convertModelToDto(SKU model, FlashSaleDto flashSaleDto) {
     SKUDto skuDto = new SKUDto();
     skuDto.setId(model.getId());
     skuDto.setName(model.getName());
@@ -71,6 +71,14 @@ public class Utility {
     skuDto.setSalePrice(model.getSalePrice());
     skuDto.setDiscountPercentage(model.getDiscountPercentage());
     skuDto.setFlashSaleId(model.getFlashSaleId());
+    skuDto.setProductIdentificationNo(model.getProduct().getProductIdentificationNo());
+    if (flashSaleDto != null) {
+      Float salePrice = getSalePrice(skuDto.getPrice(), flashSaleDto);
+      skuDto.setSalePrice(salePrice);
+      if (salePrice > 0.0) {
+        skuDto.setDiscountPercentage(null);
+      }
+    }
     return skuDto;
   }
 
@@ -101,7 +109,7 @@ public class Utility {
    * @param flashSaleDto the object of the flash sale to calculate the sale price
    * @return the sale price
    */
-  public Float getSalePrice(Float skuPrice, FlashSaleDto flashSaleDto) {
+  public static Float getSalePrice(Float skuPrice, FlashSaleDto flashSaleDto) {
     Float salePrice = 0.0f;
     Float discountAmount = 0.0f;
     Long currentTimeL = System.currentTimeMillis();
