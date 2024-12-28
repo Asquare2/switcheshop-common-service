@@ -45,7 +45,6 @@ public class Utility {
     orderDetails.setPaymenMethod(orderDetilsDto.getPaymenMethod());
     orderDetails.setAddress(com.lgitsolution.switcheshopcommon.common.util.Utility
             .ConvertObjectToJsonString(orderDetilsDto.getCustomerAddressDetails()));
-    orderDetails.setSaleId(orderDetilsDto.getSaleId());
     orderDetails.setPickupBookedDate(orderDetilsDto.getPickupBookedDate());
     orderDetails.setPickupScheduledDate(orderDetilsDto.getPickupScheduledDate());
     orderDetails.setDeliveryPartnerOrderId(orderDetilsDto.getDeliveryPartnerOrderId());
@@ -89,7 +88,6 @@ public class Utility {
     orderDetailsDto.setPaymenMethod(orderDetails.getPaymenMethod());
     orderDetailsDto.setCustomerAddressDetails(com.lgitsolution.switcheshopcommon.common.util.Utility
             .convertJsonToObject(orderDetails.getAddress(), new CustomerAddressDetails()));
-    orderDetailsDto.setSaleId(orderDetails.getSaleId());
     orderDetailsDto.setPickupBookedDate(orderDetails.getPickupBookedDate());
     orderDetailsDto.setPickupScheduledDate(orderDetails.getPickupScheduledDate());
     orderDetailsDto.setDeliveryPartnerOrderId(orderDetails.getDeliveryPartnerOrderId());
@@ -119,10 +117,6 @@ public class Utility {
     orderItems.setId(dto.getId());
     orderItems.setSkuId(dto.getSkuId());
     orderItems.setQuantity(dto.getQuantity());
-    orderItems.setCreatedAt(com.lgitsolution.switcheshopcommon.common.util.Utility.getLocalDateTime(
-            dto.getCreatedAt()));
-    orderItems.setModifiedAt(com.lgitsolution.switcheshopcommon.common.util.Utility
-            .getLocalDateTime(dto.getModifiedAt()));
     orderItems.setOrderDetailId(dto.getOrderDetailId());
     orderItems.setIdentificationNumber(dto.getIdentificationNumber());
     orderItems.setSkuName(dto.getSkuName());
@@ -130,6 +124,8 @@ public class Utility {
     orderItems.setTitle(dto.getTitle());
     orderItems.setOriginalPrice(dto.getOriginalPrice());
     orderItems.setSellingPrice(dto.getSellingPrice());
+    orderItems.setSaleId(dto.getSaleId());
+    orderItems.setHsnCode(dto.getHsnCode());
     return orderItems;
   }
 
@@ -143,10 +139,6 @@ public class Utility {
     orderItemsDto.setId(orderItems.getId());
     orderItemsDto.setSkuId(orderItems.getSkuId());
     orderItemsDto.setQuantity(orderItems.getQuantity());
-    orderItemsDto.setCreatedAt(com.lgitsolution.switcheshopcommon.common.util.Utility
-            .getLocalDateTimeMillis(orderItems.getCreatedAt()));
-    orderItemsDto.setModifiedAt(com.lgitsolution.switcheshopcommon.common.util.Utility
-            .getLocalDateTimeMillis(orderItems.getModifiedAt()));
     if (orderItems.getOrderDetailId() != null) {
       orderItemsDto.setOrderDetailId(orderItems.getOrderDetailId());
     }
@@ -156,6 +148,8 @@ public class Utility {
     orderItemsDto.setTitle(orderItems.getTitle());
     orderItemsDto.setOriginalPrice(orderItems.getOriginalPrice());
     orderItemsDto.setSellingPrice(orderItems.getSellingPrice());
+    orderItemsDto.setSaleId(orderItems.getSaleId());
+    orderItemsDto.setHsnCode(orderItems.getHsnCode());
     return orderItemsDto;
   }
 
@@ -173,7 +167,6 @@ public class Utility {
     orderRequestDto.getCustomer_details().setCustomer_id(customerDetailsDto.getId() + "");
     orderRequestDto.getCustomer_details().setCustomer_email(customerDetailsDto.getEmail());
     orderRequestDto.getCustomer_details().setCustomer_phone(customerDetailsDto.getMobile());
-
     /* Order Meta data details. */
     OrderMetaDataDto orderMetaDataDto = new OrderMetaDataDto();
     orderMetaDataDto.setReturn_url(

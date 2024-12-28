@@ -88,9 +88,6 @@ public class OrderDetails {
   @Column(name = "address", columnDefinition = "text")
   private String address;
 
-  @Column(name = "sale_id")
-  private int saleId;
-
   @Column(name = "pickup_scheduled_date")
   private String pickupScheduledDate;
 

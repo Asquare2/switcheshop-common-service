@@ -18,10 +18,6 @@ public class OrderItemsDto {
   private Integer skuId;
 
   private Integer quantity;
-
-  private Long createdAt;
-
-  private Long modifiedAt;
   
   private String identificationNumber;
 
@@ -34,5 +30,12 @@ public class OrderItemsDto {
   private Float sellingPrice;
 
   private Float tax;
+
+  private int saleId;
+
+  private String hsnCode;
+
+  // Not for saving purpose
+  private int productId;
 
 }

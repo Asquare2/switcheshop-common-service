@@ -1,8 +1,6 @@
 
 package com.lgitsolution.switcheshopcommon.order.model;
 
-import java.time.LocalDateTime;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,12 +31,6 @@ public class OrderItems {
   @Column(name = "quantity")
   private Integer quantity;
 
-  @Column(name = "created_at")
-  private LocalDateTime createdAt;
-
-  @Column(name = "modified_at")
-  private LocalDateTime modifiedAt;
-
   @Column(name = "identification_no")
   private String identificationNumber;
 
@@ -57,4 +49,10 @@ public class OrderItems {
   @Column(name = "tax")
   private Float tax;
 
+  @Column(name = "sale_id")
+  private int saleId;
+
+  /** The hsn code. */
+  @Column(name = "hsn_code")
+  private String hsnCode;
 }

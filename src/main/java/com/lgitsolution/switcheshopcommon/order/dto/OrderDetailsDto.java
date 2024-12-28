@@ -59,8 +59,6 @@ public class OrderDetailsDto {
 
   private CustomerAddressDetails customerAddressDetails;
 
-  private int saleId;
-
   private int outOfStock = 0;
 
   private String pickupScheduledDate;
