@@ -72,6 +72,8 @@ public class Utility {
     skuDto.setDiscountPercentage(model.getDiscountPercentage());
     skuDto.setFlashSaleId(model.getFlashSaleId());
     skuDto.setProductIdentificationNo(model.getProduct().getProductIdentificationNo());
+    skuDto.setCategoryId(model.getProduct().getCategoryId());
+    skuDto.setTaxId(model.getProduct().getTaxId());
     if (flashSaleDto != null) {
       Float salePrice = getSalePrice(skuDto.getPrice(), flashSaleDto);
       skuDto.setSalePrice(salePrice);
