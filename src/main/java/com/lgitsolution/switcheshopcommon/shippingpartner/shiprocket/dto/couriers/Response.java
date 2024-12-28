@@ -11,5 +11,5 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Response {
 
-  ResponseData data;
+  private ResponseData data;
 }

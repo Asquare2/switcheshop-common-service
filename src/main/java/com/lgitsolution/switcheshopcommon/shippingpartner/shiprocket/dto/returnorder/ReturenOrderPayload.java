@@ -2,6 +2,7 @@ package com.lgitsolution.switcheshopcommon.shippingpartner.shiprocket.dto.return
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lgitsolution.switcheshopcommon.shippingpartner.shiprocket.dto.shipmentorder.AssignedDateTime;
 
 import lombok.Data;
 

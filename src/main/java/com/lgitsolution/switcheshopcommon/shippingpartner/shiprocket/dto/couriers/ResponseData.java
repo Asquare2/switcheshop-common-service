@@ -2,6 +2,7 @@ package com.lgitsolution.switcheshopcommon.shippingpartner.shiprocket.dto.courie
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lgitsolution.switcheshopcommon.shippingpartner.shiprocket.dto.shipmentorder.AssignedDateTime;
 
 import lombok.Data;
 
@@ -16,7 +17,7 @@ public class ResponseData {
   private int order_id;
   private int shipment_id;
   private int awb_code_status;
-  AssignedDateTime assigned_date_time;
+  private AssignedDateTime assigned_date_time;
   private float applied_weight;
   private int company_id;
   private String courier_name;
@@ -27,5 +28,5 @@ public class ResponseData {
   private String invoice_no;
   private String transporter_id;
   private String transporter_name;
-  ShippedBy shipped_by;
+  private ShippedBy shipped_by;
 }

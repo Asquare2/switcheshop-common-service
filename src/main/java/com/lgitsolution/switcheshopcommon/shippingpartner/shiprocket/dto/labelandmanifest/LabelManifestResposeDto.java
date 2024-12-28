@@ -1,4 +1,4 @@
-package com.lgitsolution.switcheshopcommon.shippingpartner.shiprocket.dto.couriers;
+package com.lgitsolution.switcheshopcommon.shippingpartner.shiprocket.dto.labelandmanifest;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -8,10 +8,13 @@ import lombok.Data;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
+public class LabelManifestResposeDto {
 
-public class GenerateAWBResponse {
-  private int awb_assign_status;
-  private Response response;
+  private int status;
+  private String manifest_url;
+  private String label_url;
+  private String label_created;
   private String message;
   private int status_code;
+
 }

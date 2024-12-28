@@ -1,4 +1,6 @@
-package com.lgitsolution.switcheshopcommon.shippingpartner.shiprocket.dto.couriers;
+package com.lgitsolution.switcheshopcommon.shippingpartner.shiprocket.dto.labelandmanifest;
+
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -8,9 +10,8 @@ import lombok.Data;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AssignedDateTime {
+public class LabelManifestRequestDto {
 
-  private String date;
-  private int timezone_type;
-  private String timezone;
+  private List shipment_id;
+
 }
