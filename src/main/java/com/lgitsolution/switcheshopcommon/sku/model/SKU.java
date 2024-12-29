@@ -78,4 +78,7 @@ public class SKU {
   @Column(name = "flash_sale_id")
   private Integer flashSaleId;
 
+  @Column(name = "search_values", columnDefinition = "text")
+  private String searchValues;
+
 }

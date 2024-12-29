@@ -62,4 +62,6 @@ public class SKUDto {
 
   private int categoryId;
 
+  private String searchValues;
+
 }

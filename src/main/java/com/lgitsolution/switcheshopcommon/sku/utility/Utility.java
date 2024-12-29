@@ -38,6 +38,7 @@ public class Utility {
     model.setSalePrice(dto.getSalePrice());
     model.setDiscountPercentage(dto.getDiscountPercentage());
     model.setFlashSaleId(dto.getFlashSaleId());
+    model.setSearchValues(dto.getSearchValues());
     return model;
   }
 
@@ -55,9 +56,12 @@ public class Utility {
       if (ratingMap != null && !ratingMap.isEmpty()) {
         skuDto.setAverageRating(getAverageRating(ratingMap));
       }
+      skuDto.setMinimumOrderQuantity(model.getProduct().getMinimumOrderQuantity());
+      skuDto.setMaximumOrderQuantity(model.getProduct().getMaximumOrderQuantity());
+      skuDto.setProductIdentificationNo(model.getProduct().getProductIdentificationNo());
+      skuDto.setCategoryId(model.getProduct().getCategoryId());
+      skuDto.setTaxId(model.getProduct().getTaxId());
     }
-    skuDto.setMinimumOrderQuantity(model.getProduct().getMinimumOrderQuantity());
-    skuDto.setMaximumOrderQuantity(model.getProduct().getMaximumOrderQuantity());
     skuDto.setQuantity(model.getQuantity());
     skuDto.setPrice(model.getPrice());
     skuDto.setSpecialPrice(model.getSpecialPrice());
@@ -71,9 +75,7 @@ public class Utility {
     skuDto.setSalePrice(model.getSalePrice());
     skuDto.setDiscountPercentage(model.getDiscountPercentage());
     skuDto.setFlashSaleId(model.getFlashSaleId());
-    skuDto.setProductIdentificationNo(model.getProduct().getProductIdentificationNo());
-    skuDto.setCategoryId(model.getProduct().getCategoryId());
-    skuDto.setTaxId(model.getProduct().getTaxId());
+    skuDto.setSearchValues(model.getSearchValues());
     if (flashSaleDto != null) {
       Float salePrice = getSalePrice(skuDto.getPrice(), flashSaleDto);
       skuDto.setSalePrice(salePrice);

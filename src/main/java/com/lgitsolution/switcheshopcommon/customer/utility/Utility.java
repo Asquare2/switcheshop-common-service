@@ -2,6 +2,8 @@
 package com.lgitsolution.switcheshopcommon.customer.utility;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import com.lgitsolution.switcheshopcommon.customer.dto.CustomerAddressDetails;
 import com.lgitsolution.switcheshopcommon.customer.dto.CustomerDetailsDto;
@@ -54,6 +56,10 @@ public class Utility {
     customerDetails.setDob(Utility.getLocalDateTime(customerDetailsDto.getDob()));
     customerDetails.setGender(customerDetailsDto.getGender());
     return customerDetails;
+  }
+
+  public static List<CustomerDetailsDto> convertModelToDto(List<CustomerDetails> modelList) {
+    return modelList.stream().map(model -> convertModelToDto(model)).collect(Collectors.toList());
   }
 
 }
