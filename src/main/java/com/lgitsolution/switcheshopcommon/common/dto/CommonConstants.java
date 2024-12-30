@@ -76,6 +76,8 @@ public class CommonConstants {
 
   public static final String CMN_COMPANY_LOGO_DETAILS = "logoDetails";
 
+  public static final String CMN_COMPANY_HOME_DM_DETAILS = "home_dm";
+
   // Company details constants End
 
   public static final String FILTER_CATEGORY_KEY = "category";

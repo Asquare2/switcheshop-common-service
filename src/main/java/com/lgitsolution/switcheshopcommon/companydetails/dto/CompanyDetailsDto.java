@@ -3,6 +3,7 @@ package com.lgitsolution.switcheshopcommon.companydetails.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lgitsolution.switcheshopcommon.dm.dto.DmCommonDto;
 
 import lombok.Data;
 
@@ -24,5 +25,7 @@ public class CompanyDetailsDto {
   private ReturnAndExchangePolicy returnAndExchangePolicy;
 
   private CompanyLogoDetails companyLogoDetails;
+
+  private DmCommonDto homeDM;
 
 }
