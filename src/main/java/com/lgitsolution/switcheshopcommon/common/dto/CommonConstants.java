@@ -94,4 +94,20 @@ public class CommonConstants {
 
   public static final int INACTIVE_STATUS = 0;
 
+  // Order module constant Start
+
+  public static final String ORDER_PAYMENT_METHOD_PREPAID = "Prepaid";
+
+  public static final String ORDER_PAYMENT_METHOD_COD = "COD";
+
+  public static final String ORDER_PACKAGE_DIMENTION_LENGTH = "length";
+
+  public static final String ORDER_PACKAGE_DIMENTION_BREADTH = "breadth";
+
+  public static final String ORDER_PACKAGE_DIMENTION_HEIGHT = "height";
+
+  public static final String ORDER_PACKAGE_DIMENTION_WEIGHT = "weight";
+
+  // Order module constant End
+
 }
