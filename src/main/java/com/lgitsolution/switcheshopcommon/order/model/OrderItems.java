@@ -50,7 +50,7 @@ public class OrderItems {
   private Float tax;
 
   @Column(name = "sale_id")
-  private int saleId;
+  private Integer saleId;
 
   /** The hsn code. */
   @Column(name = "hsn_code")

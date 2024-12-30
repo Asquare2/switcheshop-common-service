@@ -31,11 +31,11 @@ public class OrderItemsDto {
 
   private Float tax;
 
-  private int saleId;
+  private Integer saleId;
 
   private String hsnCode;
 
   // Not for saving purpose
-  private int productId;
+  private Integer productId;
 
 }
