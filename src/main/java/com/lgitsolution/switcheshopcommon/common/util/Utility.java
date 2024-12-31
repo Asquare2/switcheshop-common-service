@@ -486,11 +486,13 @@ public class Utility {
   /**
    * Generate random number.
    * 
+   * @param the maximum number
+   * 
    * @return the random number.
    */
-  public static int generateRandomNumber() {
+  public static int generateRandomNumber(int maxNumber) {
     SplittableRandom splittableRandom = new SplittableRandom();
-    int randomWithSplittableRandom = splittableRandom.nextInt(1, 100000000);
+    int randomWithSplittableRandom = splittableRandom.nextInt(1, maxNumber);
     return randomWithSplittableRandom;
   }
 
