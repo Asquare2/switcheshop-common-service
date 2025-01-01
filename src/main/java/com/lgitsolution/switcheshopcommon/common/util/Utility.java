@@ -16,6 +16,7 @@ import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.SplittableRandom;
 
 import org.springframework.http.HttpStatus;
@@ -494,6 +495,41 @@ public class Utility {
     SplittableRandom splittableRandom = new SplittableRandom();
     int randomWithSplittableRandom = splittableRandom.nextInt(1, maxNumber);
     return randomWithSplittableRandom;
+  }
+
+  /**
+   * Gets the random alpha numeric word.
+   * 
+   * @param length the length of number
+   * @return the random alpha numeric word.
+   */
+  public static String generateRandomAlphanumeric(int length) {
+    String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    Random random = new Random();
+    StringBuilder result = new StringBuilder();
+
+    for (int i = 0; i < length; i++) {
+      int index = random.nextInt(characters.length());
+      result.append(characters.charAt(index));
+    }
+
+    return result.toString();
+  }
+
+  /**
+   * Gets the slug by title
+   * 
+   * @param title the title of product.
+   * 
+   * @return the slug
+   */
+  public static String getSlugByTitle(String titie) {
+    String slug = "";
+    slug = titie.replace(" ", "-");
+    slug = slug.replace(" ", "-").toLowerCase();
+    String randomNumber = generateRandomAlphanumeric(10);
+    slug = slug + "-" + randomNumber;
+    return slug;
   }
 
 }
