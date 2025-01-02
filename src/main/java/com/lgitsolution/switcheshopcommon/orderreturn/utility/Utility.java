@@ -1,6 +1,8 @@
 
 package com.lgitsolution.switcheshopcommon.orderreturn.utility;
 
+import java.util.List;
+
 import com.lgitsolution.switcheshopcommon.orderreturn.dto.ReturnDetailDto;
 import com.lgitsolution.switcheshopcommon.orderreturn.model.ReturnDetail;
 
@@ -52,6 +54,15 @@ public class Utility {
     model.setCreatedAt(com.lgitsolution.switcheshopcommon.common.util.Utility.getLocalDateTime(dto
             .getCreatedAt()));
     return model;
+  }
+
+  /**
+   * 
+   * @param modelList
+   * @return
+   */
+  public static List<ReturnDetailDto> convertModelToDto(List<ReturnDetail> modelList) {
+    return modelList.stream().map(model -> convertModelToDto(model)).toList();
   }
 
 }

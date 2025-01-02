@@ -100,4 +100,13 @@ public class Utility {
     return builder.build();
   }
 
+  public static SearchCriteriaDto getCustomerMatchingSearchCriteriaDto(int customerId) {
+    SearchCriteriaDto searchCriteriaDto = new SearchCriteriaDto();
+    searchCriteriaDto.setFilterKey("customerDetailsId");
+    searchCriteriaDto.setOperation("eq");
+    searchCriteriaDto.setValue(List.of(customerId));
+    searchCriteriaDto.setDataOption("all");
+    return searchCriteriaDto;
+  }
+
 }
