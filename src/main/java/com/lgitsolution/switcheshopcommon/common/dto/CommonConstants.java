@@ -110,4 +110,21 @@ public class CommonConstants {
 
   // Order module constant End
 
+  public static final String countKeyName = "count";
+
+  public static final String listKeyName = "list";
+
+  // Miscellaneous settings constant start
+
+  /** The Constant key for sky prefix. */
+  public static final String MIS_SETTING_SKU_PREFIX_KEY = "sku_prefix";
+
+  /** The Constant key for product prefix. */
+  public static final String MIS_SETTING_PRODUCT_PREFIX_KEY = "product_prefix";
+
+  /** The Constant key for order prefix. */
+  public static final String MIS_SETTING_ORDER_PREFIX_KEY = "order_detail_prefix";
+
+  // Miscellaneous settings constant end
+
 }
