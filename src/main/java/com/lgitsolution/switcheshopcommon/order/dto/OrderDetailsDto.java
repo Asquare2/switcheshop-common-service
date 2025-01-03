@@ -27,6 +27,8 @@ public class OrderDetailsDto {
 
   private Integer status;
 
+  private OrderStatusDetail orderStatusDetail;
+
   private String orderNotes;
 
   private Float deliveryCharge;

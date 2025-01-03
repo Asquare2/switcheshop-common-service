@@ -7,6 +7,9 @@ import com.lgitsolution.switcheshopcommon.customer.dto.CustomerAddressDetails;
 import com.lgitsolution.switcheshopcommon.customer.dto.CustomerDetailsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderDetailsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderItemsDto;
+import com.lgitsolution.switcheshopcommon.order.dto.OrderStatusConstants;
+import com.lgitsolution.switcheshopcommon.order.dto.OrderStatusDetail;
+import com.lgitsolution.switcheshopcommon.order.dto.SwitchEShopOrderEnum;
 import com.lgitsolution.switcheshopcommon.order.model.OrderDetails;
 import com.lgitsolution.switcheshopcommon.order.model.OrderItems;
 import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.OrderMetaDataDto;
@@ -95,7 +98,35 @@ public class Utility {
     orderDetailsDto.setAwbCode(orderDetails.getAwbCode());
     orderDetailsDto.setCourierCompanyId(orderDetails.getCourierCompanyId());
     orderDetailsDto.setCourierName(orderDetails.getCourierName());
+    orderDetailsDto.setOrderStatusDetail(getOrderStatusDetailObj(orderDetails.getStatus()));
     return orderDetailsDto;
+  }
+
+  public static OrderStatusDetail getOrderStatusDetailObj(int status) {
+    OrderStatusDetail orderStatusDetail = new OrderStatusDetail();
+    orderStatusDetail.setStatusCode(status);
+    String statusName = "";
+    if (status == SwitchEShopOrderEnum.Confirmed.getValue()) {
+      statusName = OrderStatusConstants.NEW_ORDER_STATUS;
+    } else if (status == SwitchEShopOrderEnum.Shipped.getValue()) {
+      statusName = OrderStatusConstants.SHIPPED_ORDER_STATUS;
+    } else if (status == SwitchEShopOrderEnum.Pending.getValue()) {
+      statusName = OrderStatusConstants.PENDING_ORDER_STATUS;
+    } else if (status == SwitchEShopOrderEnum.Prepared.getValue()) {
+      statusName = OrderStatusConstants.PREPARED_ORDER_STATUS;
+    } else if (status == SwitchEShopOrderEnum.Processing.getValue()) {
+      statusName = OrderStatusConstants.PROCESSING_ORDER_STATUS;
+    } else if (status == SwitchEShopOrderEnum.Out_For_Delivery.getValue()) {
+      statusName = OrderStatusConstants.OUT_FOR_DELIVERY_ORDER_STATUS;
+    } else if (status == SwitchEShopOrderEnum.Deliverd.getValue()) {
+      statusName = OrderStatusConstants.DELIVERED_ORDER_STATUS;
+    } else if (status == SwitchEShopOrderEnum.Order_Cancelled_By_Customer.getValue()) {
+      statusName = OrderStatusConstants.CANCEL_BY_CUSTOMER_ORDER_STATUS;
+    } else if (status == SwitchEShopOrderEnum.Order_Cancelled_By_Company.getValue()) {
+      statusName = OrderStatusConstants.CANCEL_BY_COMPANY_ORDER_STATUS;
+    }
+    orderStatusDetail.setName(statusName);
+    return orderStatusDetail;
   }
 
   /**
