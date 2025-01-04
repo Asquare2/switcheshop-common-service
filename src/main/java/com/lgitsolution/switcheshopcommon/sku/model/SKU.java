@@ -29,9 +29,6 @@ public class SKU {
   @Column(name = "multi_media")
   private String multiMedia;
 
-  @Column(name = "status")
-  private Integer status;
-
   // @Column(name = "product_id")
   // private Integer productId;
 

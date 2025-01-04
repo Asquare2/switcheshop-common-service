@@ -88,6 +88,8 @@ public class CommonConstants {
 
   public static final String FILTER_COLLECTION_KEY = "Collections";
 
+  public static final String FILTER_STATUS_KEY = "status";
+
   /* Integer Constants */
   /** The active status value. */
   public static final int ACTIVE_STATUS = 1;
@@ -126,5 +128,11 @@ public class CommonConstants {
   public static final String MIS_SETTING_ORDER_PREFIX_KEY = "order_detail_prefix";
 
   // Miscellaneous settings constant end
+
+  // search operations name start
+
+  public static final String FILTER_OPERATION_EQUALS_KEY = "eq";
+
+  // search operations name end
 
 }

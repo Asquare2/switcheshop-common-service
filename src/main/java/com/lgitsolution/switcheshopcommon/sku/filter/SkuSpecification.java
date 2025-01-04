@@ -61,7 +61,8 @@ public class SkuSpecification implements Specification<Object> {
           break;
         case EQUAL:
           if (filterKey.equals("categoryId") || filterKey.equals("productIdentificationNo")
-                  || filterKey.equals("customerType") || filterKey.equals("brandId")) {
+                  || filterKey.equals("customerType") || filterKey.equals("brandId") || filterKey
+                          .equals("status")) {
             p = cb.equal(productJoin(root).get(filterKey), searchValueObject.toString());
             break;
           }

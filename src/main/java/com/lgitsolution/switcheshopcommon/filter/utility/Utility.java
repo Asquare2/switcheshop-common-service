@@ -109,4 +109,22 @@ public class Utility {
     return searchCriteriaDto;
   }
 
+  /**
+   * Gets the specification
+   * 
+   * @param key the key (column name in dto)
+   * @param value the list of values
+   * @param operation the operation
+   * @return the specification.
+   */
+  public static SearchCriteriaDto getSearchCriteriaDto(String key, List<Object> value,
+          String operation) {
+    SearchCriteriaDto searchCriteriaDto = new SearchCriteriaDto();
+    searchCriteriaDto.setFilterKey(key);
+    searchCriteriaDto.setOperation(operation);
+    searchCriteriaDto.setValue(value);
+    searchCriteriaDto.setDataOption("all");
+    return searchCriteriaDto;
+  }
+
 }

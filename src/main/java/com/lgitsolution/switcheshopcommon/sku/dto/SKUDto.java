@@ -18,8 +18,6 @@ public class SKUDto {
 
   private Multimedia multiMedia;
 
-  private Integer status;
-
   private Integer productId;
 
   private Integer quantity;

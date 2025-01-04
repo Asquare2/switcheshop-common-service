@@ -23,7 +23,6 @@ public class Utility {
     model.setId(dto.getId());
     model.setName(dto.getName());
     model.setMultiMedia(commonUtility.getMultiMediaJsonString(dto.getMultiMedia()));
-    model.setStatus(dto.getStatus());
     model.setProduct(new Product(dto.getProductId()));
     model.setQuantity(dto.getQuantity());
     model.setPrice(dto.getPrice());
@@ -47,7 +46,6 @@ public class Utility {
     skuDto.setId(model.getId());
     skuDto.setName(model.getName());
     skuDto.setMultiMedia(commonUtility.getMultiMediaObject(model.getMultiMedia()));
-    skuDto.setStatus(model.getStatus());
     if (model.getProduct() != null) {
       skuDto.setProductId(model.getProduct().getId());
       Map<String, String> ratingMap = com.lgitsolution.switcheshopcommon.common.util.Utility
