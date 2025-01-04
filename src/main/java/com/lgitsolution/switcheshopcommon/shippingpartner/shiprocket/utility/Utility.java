@@ -1,3 +1,4 @@
+
 package com.lgitsolution.switcheshopcommon.shippingpartner.shiprocket.utility;
 
 import java.util.ArrayList;
@@ -9,9 +10,13 @@ import com.lgitsolution.switcheshopcommon.common.dto.CommonConstants;
 import com.lgitsolution.switcheshopcommon.customer.dto.CustomerAddressDetails;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderDetailsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderItemsDto;
+import com.lgitsolution.switcheshopcommon.orderreturn.dto.ReturnDetailDto;
+import com.lgitsolution.switcheshopcommon.pickuplocation.dto.PickupLocationDto;
 import com.lgitsolution.switcheshopcommon.shippingpartner.shiprocket.dto.couriers.GenerateAWBRequest;
 import com.lgitsolution.switcheshopcommon.shippingpartner.shiprocket.dto.labelandmanifest.LabelManifestRequestDto;
 import com.lgitsolution.switcheshopcommon.shippingpartner.shiprocket.dto.pickupschedule.PickupScheduleRequestDto;
+import com.lgitsolution.switcheshopcommon.shippingpartner.shiprocket.dto.returnorder.ReturnOrderItems;
+import com.lgitsolution.switcheshopcommon.shippingpartner.shiprocket.dto.returnorder.ReturnOrderRequest;
 import com.lgitsolution.switcheshopcommon.shippingpartner.shiprocket.dto.shipmentorder.OrderCancelRequest;
 import com.lgitsolution.switcheshopcommon.shippingpartner.shiprocket.dto.shipmentorder.OrderItem;
 import com.lgitsolution.switcheshopcommon.shippingpartner.shiprocket.dto.shipmentorder.ShipmentOrderIRequestDto;
@@ -101,5 +106,64 @@ public class Utility {
     LabelManifestRequestDto request = new LabelManifestRequestDto();
     request.setShipment_id(Arrays.asList(shipmentId));
     return request;
+  }
+
+  public static ReturnOrderRequest createShipmentReturnOrderRequestDto(
+          ReturnDetailDto returnDetailDto, OrderDetailsDto orderDetailsDto,
+          PickupLocationDto pickupLocationDto) {
+    ReturnOrderRequest dto = new ReturnOrderRequest();
+    CustomerAddressDetails address = orderDetailsDto.getCustomerAddressDetails();
+    dto.setOrder_id(returnDetailDto.getItemId());
+    dto.setOrder_date(CommonUtility.getLocalDate(returnDetailDto.getCreatedAt()).toString());
+    dto.setPickup_customer_name(address.getShipping_customer_name());
+    dto.setPickup_address(address.getShipping_address());
+    dto.setPickup_city(address.getShipping_city());
+    dto.setPickup_country(address.getShipping_country());
+    dto.setPickup_state(address.getShipping_state());
+    dto.setPickup_pincode(Integer.parseInt(address.getShipping_pincode()));
+    dto.setPickup_email(address.getShipping_email());
+    dto.setPickup_phone(address.getShipping_phone());
+
+    // set delivery address
+    dto.setShipping_customer_name(pickupLocationDto.getName());
+    dto.setShipping_address(pickupLocationDto.getAddress());
+    dto.setShipping_city(pickupLocationDto.getCity());
+    dto.setShipping_country(pickupLocationDto.getCountry());
+    dto.setShipping_email(pickupLocationDto.getEmail());
+    dto.setShipping_phone(Integer.parseInt(pickupLocationDto.getPhone()));
+    dto.setShipping_pincode(Integer.parseInt(pickupLocationDto.getPincode()));
+    dto.setShipping_state(pickupLocationDto.getState());
+
+    dto.setPayment_method(orderDetailsDto.getPaymenMethod());
+    dto.setSub_total(Math.round(orderDetailsDto.getTotalPayable()));
+    Map<String, String> packageDimensionsMap = orderDetailsDto.getPackageDimensionsMap();
+    dto.setLength(Integer.parseInt(packageDimensionsMap.get(
+            CommonConstants.ORDER_PACKAGE_DIMENTION_LENGTH)));
+    dto.setBreadth(Integer.parseInt(packageDimensionsMap.get(
+            CommonConstants.ORDER_PACKAGE_DIMENTION_BREADTH)));
+    dto.setHeight(Integer.parseInt(packageDimensionsMap.get(
+            CommonConstants.ORDER_PACKAGE_DIMENTION_HEIGHT)));
+    dto.setWeight(Integer.parseInt(packageDimensionsMap.get(
+            CommonConstants.ORDER_PACKAGE_DIMENTION_WEIGHT)));
+    List<ReturnOrderItems> srItemsList = new ArrayList<ReturnOrderItems>();
+    List<OrderItemsDto> orderItemsDtoList = orderDetailsDto.getOrderItemsDtoList();
+    orderItemsDtoList.forEach(o -> {
+      if (returnDetailDto.getOrderItemId() == o.getId()) {
+        ReturnOrderItems item = new ReturnOrderItems();
+        item.setQc_enable(true);
+        item.setUnits(o.getQuantity());
+        item.setSku(o.getSkuName());
+        item.setSelling_price(o.getSellingPrice());
+        item.setQc_product_name(o.getSkuName());
+        // image pending
+        item.setQc_product_image("");
+        srItemsList.add(item);
+      }
+    });
+
+    dto.setOrder_items(srItemsList);
+    dto.setPayment_method("Prepaid");
+    dto.setSub_total(returnDetailDto.getTotalApprovedAmount());
+    return dto;
   }
 }

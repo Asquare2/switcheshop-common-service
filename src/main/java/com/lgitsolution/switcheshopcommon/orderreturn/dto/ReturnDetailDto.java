@@ -29,4 +29,5 @@ public class ReturnDetailDto {
   private String courierCompanyId;
   private String courierName;
   private Long createdAt;
+  private float totalApprovedAmount;
 }
