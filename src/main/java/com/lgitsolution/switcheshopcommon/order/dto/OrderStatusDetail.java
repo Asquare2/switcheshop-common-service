@@ -16,4 +16,6 @@ public class OrderStatusDetail {
   private int count = 0;
 
   private int statusCode = -1;
+
+  private int id;
 }
