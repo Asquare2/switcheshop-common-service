@@ -50,8 +50,8 @@ public class Utility {
     });
     model.setModifiedBy(dto.getModifiedBy());
     model.setStatus(dto.getStatus());
-    model.setCreatedAt(Utility.getLocalDateTime(dto.getCreatedAt()));
-    model.setModifiedAt(Utility.getLocalDateTime(dto.getModifiedAt()));
+    model.setCreatedAt(Utility.getLocalDate(dto.getCreatedAt()));
+    model.setModifiedAt(Utility.getLocalDate(dto.getModifiedAt()));
     model.setDeliverableZipCode(dto.getDeliverableZipCode());
     model.setVideoType(dto.getVideoType());
     model.setProductType(dto.getProductType());
@@ -105,8 +105,8 @@ public class Utility {
     }
     dto.setModifiedBy(model.getModifiedBy());
     dto.setStatus(model.getStatus());
-    dto.setCreatedAt(Utility.getLocalDateTimeMillis(model.getCreatedAt()));
-    dto.setModifiedAt(Utility.getLocalDateTimeMillis(model.getModifiedAt()));
+    dto.setCreatedAt(Utility.getLocalDateMillis(model.getCreatedAt()));
+    dto.setModifiedAt(Utility.getLocalDateMillis(model.getModifiedAt()));
     dto.setDeliverableZipCode(model.getDeliverableZipCode());
     dto.setVideoType(model.getVideoType());
     dto.setProductType(model.getProductType());

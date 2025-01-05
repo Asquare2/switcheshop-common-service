@@ -32,7 +32,8 @@ public class Utility {
     customerDetailsDto.setAddress(Utility.convertJsonToObject(customerDetails.getAddress(),
             new ArrayList<CustomerAddressDetails>()));
     customerDetailsDto.setProvider(customerDetails.getProvider());
-    customerDetailsDto.setDob(Utility.getLocalDateTimeMillis(customerDetails.getDob()));
+    customerDetailsDto.setDob(Utility.getLocalDateMillis(customerDetails.getDob()));
+    customerDetailsDto.setCreatedAt(Utility.getLocalDateMillis(customerDetails.getCreatedAt()));
     customerDetailsDto.setGender(customerDetails.getGender());
     return customerDetailsDto;
   }
@@ -53,7 +54,8 @@ public class Utility {
     customerDetails.setMobile(customerDetailsDto.getMobile());
     customerDetails.setAddress(Utility.ConvertObjectToJsonString(customerDetailsDto.getAddress()));
     customerDetails.setProvider(customerDetailsDto.getProvider());
-    customerDetails.setDob(Utility.getLocalDateTime(customerDetailsDto.getDob()));
+    customerDetails.setDob(Utility.getLocalDate(customerDetailsDto.getDob()));
+    customerDetails.setCreatedAt(Utility.getLocalDate(customerDetailsDto.getCreatedAt()));
     customerDetails.setGender(customerDetailsDto.getGender());
     return customerDetails;
   }

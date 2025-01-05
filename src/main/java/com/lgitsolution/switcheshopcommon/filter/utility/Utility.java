@@ -21,6 +21,8 @@ import jakarta.persistence.criteria.Root;
 
 public class Utility {
 
+  private static com.lgitsolution.switcheshopcommon.common.util.Utility CommonUtility;
+
   public static Predicate getCommonPredicate(Root<?> root, CriteriaQuery<?> query,
           CriteriaBuilder cb, SearchCriteriaDto searchCriteria) {
 
@@ -47,6 +49,11 @@ public class Utility {
           p = cb.notLike(cb.lower(root.get(filterKey)), strToSearch + "%");
           break;
         case EQUAL:
+          if (filterKey.equals("createdAt")) {
+            p = cb.equal(root.get(filterKey), (CommonUtility.getLocalDate((Long) searchValueObject))
+                    .toString());
+            break;
+          }
           p = cb.equal(root.get(filterKey), searchValueObject.toString());
           break;
         case NOT_EQUAL:

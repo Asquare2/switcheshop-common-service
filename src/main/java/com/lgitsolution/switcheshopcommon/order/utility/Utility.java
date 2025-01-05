@@ -34,10 +34,10 @@ public class Utility {
     orderDetails.setWalletUsed(orderDetilsDto.getWalletUsed());
     orderDetails.setPromocodeName(orderDetilsDto.getPromocodeName());
     orderDetails.setPromocodeDiscount(orderDetilsDto.getPromocodeDiscount());
-    orderDetails.setCreatedAt(com.lgitsolution.switcheshopcommon.common.util.Utility
-            .getLocalDateTime(orderDetilsDto.getCreatedAt()));
-    orderDetails.setModifiedAt(com.lgitsolution.switcheshopcommon.common.util.Utility
-            .getLocalDateTime(orderDetilsDto.getModifiedAt()));
+    orderDetails.setCreatedAt(com.lgitsolution.switcheshopcommon.common.util.Utility.getLocalDate(
+            orderDetilsDto.getCreatedAt()));
+    orderDetails.setModifiedAt(com.lgitsolution.switcheshopcommon.common.util.Utility.getLocalDate(
+            orderDetilsDto.getModifiedAt()));
     orderDetails.setDeliveryPartnerResponse(orderDetilsDto.getDeliveryPartnerResponse());
     List<OrderItemsDto> orderItemsDtoList = orderDetilsDto.getOrderItemsDtoList();
     orderDetails.setItemId(orderDetilsDto.getItemId());
@@ -76,9 +76,9 @@ public class Utility {
     orderDetailsDto.setPromocodeName(orderDetails.getPromocodeName());
     orderDetailsDto.setPromocodeDiscount(orderDetails.getPromocodeDiscount());
     orderDetailsDto.setCreatedAt(com.lgitsolution.switcheshopcommon.common.util.Utility
-            .getLocalDateTimeMillis(orderDetails.getCreatedAt()));
+            .getLocalDateMillis(orderDetails.getCreatedAt()));
     orderDetailsDto.setModifiedAt(com.lgitsolution.switcheshopcommon.common.util.Utility
-            .getLocalDateTimeMillis(orderDetails.getModifiedAt()));
+            .getLocalDateMillis(orderDetails.getModifiedAt()));
     orderDetailsDto.setDeliveryPartnerResponse(orderDetails.getDeliveryPartnerResponse());
     orderDetailsDto.setPackageDimensionsMap(com.lgitsolution.switcheshopcommon.common.util.Utility
             .convertJsonStringToMap(orderDetails.getPackageDimensions()));

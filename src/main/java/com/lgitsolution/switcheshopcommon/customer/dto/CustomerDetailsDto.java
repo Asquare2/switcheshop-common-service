@@ -40,4 +40,6 @@ public class CustomerDetailsDto {
   @Enumerated(EnumType.STRING)
   private Gender gender;
   
+  private Long createdAt;
+
 }

@@ -237,6 +237,21 @@ public class Utility {
   }
 
   /**
+   * Gets the local date object value in millisecond.
+   * 
+   * @param localDateTime the local date time object
+   * @return the local date time object in the millisecond
+   */
+  public static Long getLocalDateMillis(LocalDate localDateTime) {
+    Long localDateTimrMillis = null;
+    if (localDateTime != null) {
+      localDateTimrMillis = localDateTime.atStartOfDay(ZoneId.systemDefault()).toInstant()
+              .toEpochMilli();
+    }
+    return localDateTimrMillis;
+  }
+
+  /**
    * Gets the id list from multimedia object.
    * 
    * @param multimedia the multimedia object

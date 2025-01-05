@@ -1,7 +1,7 @@
 
 package com.lgitsolution.switcheshopcommon.order.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,10 +61,10 @@ public class OrderDetails {
   private Float promocodeDiscount;
 
   @Column(name = "created_at")
-  private LocalDateTime createdAt;
+  private LocalDate createdAt;
 
   @Column(name = "modified_at")
-  private LocalDateTime modifiedAt;
+  private LocalDate modifiedAt;
 
   @Column(name = "delivery_partner_response", columnDefinition = "text")
   private String deliveryPartnerResponse;

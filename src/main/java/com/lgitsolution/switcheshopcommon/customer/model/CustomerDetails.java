@@ -1,7 +1,7 @@
 
 package com.lgitsolution.switcheshopcommon.customer.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -55,11 +55,14 @@ public class CustomerDetails implements UserDetails {
   private Provider provider;
 
   @Column(name = "dob")
-  private LocalDateTime dob;
+  private LocalDate dob;
 
   @Column(name = "gender")
   @Enumerated(EnumType.STRING)
   private Gender gender;
+
+  @Column(name = "created_at")
+  private LocalDate createdAt;
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {

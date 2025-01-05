@@ -1,7 +1,7 @@
 
 package com.lgitsolution.switcheshopcommon.product.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -113,10 +113,10 @@ public class Product {
   private List<SKU> skuList = new ArrayList<SKU>();
 
   @Column(name = "created_at")
-  private LocalDateTime createdAt;
+  private LocalDate createdAt;
 
   @Column(name = "modified_at")
-  private LocalDateTime modifiedAt;
+  private LocalDate modifiedAt;
 
   @Column(name = "modified_by")
   private String modifiedBy;
