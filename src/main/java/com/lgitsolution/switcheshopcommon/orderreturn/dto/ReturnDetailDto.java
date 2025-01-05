@@ -23,7 +23,7 @@ public class ReturnDetailDto {
   private String itemId;
   private String deliveryPartnerResponse;
   private String trackingData;
-  private String pickupScheduledDate;
+  private Long pickupScheduledDate;
   private String shipmentId;
   private String awbCode;
   private String courierCompanyId;

@@ -212,6 +212,25 @@ public class Utility {
   }
 
   /**
+   * Gets the object of local date.
+   * 
+   * @param dateTime the date time in string
+   * @return the local date object
+   */
+  public static LocalDate getLocalDate(String dateTime) {
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    LocalDate localDate = null;
+    try {
+      if (dateTime != null && !dateTime.isBlank()) {
+        localDate = LocalDate.parse(dateTime, formatter);
+      }
+    } catch (Exception e) {
+      logger.error("Unable to parse date: " + e);
+    }
+    return localDate;
+  }
+
+  /**
    * Gets the date and time object as per the given format.
    * 
    * @param localDateTime the local date time object

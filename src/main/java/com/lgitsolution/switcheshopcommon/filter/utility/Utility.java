@@ -49,7 +49,7 @@ public class Utility {
           p = cb.notLike(cb.lower(root.get(filterKey)), strToSearch + "%");
           break;
         case EQUAL:
-          if (filterKey.equals("createdAt")) {
+          if (filterKey.equals("createdAt") || filterKey.equals("pickupScheduledDate")) {
             p = cb.equal(root.get(filterKey), (CommonUtility.getLocalDate((Long) searchValueObject))
                     .toString());
             break;

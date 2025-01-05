@@ -89,7 +89,7 @@ public class OrderDetails {
   private String address;
 
   @Column(name = "pickup_scheduled_date")
-  private String pickupScheduledDate;
+  private LocalDate pickupScheduledDate;
 
   @Column(name = "pickup_booked_date")
   private String pickupBookedDate;

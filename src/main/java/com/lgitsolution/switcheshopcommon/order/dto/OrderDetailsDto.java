@@ -63,7 +63,7 @@ public class OrderDetailsDto {
 
   private int outOfStock = 0;
 
-  private String pickupScheduledDate;
+  private Long pickupScheduledDate;
 
   private String pickupBookedDate;
 

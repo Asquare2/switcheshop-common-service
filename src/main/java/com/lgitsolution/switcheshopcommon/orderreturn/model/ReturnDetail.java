@@ -1,6 +1,6 @@
 package com.lgitsolution.switcheshopcommon.orderreturn.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -53,7 +53,7 @@ public class ReturnDetail {
   private String trackingData;
 
   @Column(name = "pickup_scheduled_date")
-  private String pickupScheduledDate;
+  private LocalDate pickupScheduledDate;
 
   @Column(name = "shipment_id")
   private String shipmentId;
@@ -68,5 +68,5 @@ public class ReturnDetail {
   private String courierName;
 
   @Column(name = "created_at")
-  private LocalDateTime createdAt;
+  private LocalDate createdAt;
 }
