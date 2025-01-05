@@ -7,6 +7,7 @@ import com.lgitsolution.switcheshopcommon.companydetails.dto.CompanyLogoDetails;
 import com.lgitsolution.switcheshopcommon.companydetails.dto.ContactUsDetails;
 import com.lgitsolution.switcheshopcommon.companydetails.dto.CustomerCareDetails;
 import com.lgitsolution.switcheshopcommon.companydetails.dto.ReturnAndExchangePolicy;
+import com.lgitsolution.switcheshopcommon.companydetails.dto.TaxDetailsDto;
 import com.lgitsolution.switcheshopcommon.companydetails.dto.TermsAndCondition;
 import com.lgitsolution.switcheshopcommon.companydetails.model.CompanyDetails;
 import com.lgitsolution.switcheshopcommon.dm.dto.DmCommonDto;
@@ -49,6 +50,9 @@ public class Utility {
     } else if (companyDetailsDto.getKey().equals(CommonConstants.CMN_COMPANY_HOME_DM_DETAILS)) {
       companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
               .getHomeDM()));
+    } else if (companyDetailsDto.getKey().equals(CommonConstants.CMN_COMPANY_TAX_DETAILS)) {
+      companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
+              .getTaxDetailsDto()));
     }
 
     return companyDetails;
@@ -82,6 +86,9 @@ public class Utility {
     } else if (companyDetailsDto.getKey().equals(CommonConstants.CMN_COMPANY_HOME_DM_DETAILS)) {
       companyDetailsDto.setHomeDM(CommonUtility.convertJsonToObject(companyDetails.getValue(),
               new DmCommonDto()));
+    } else if (companyDetailsDto.getKey().equals(CommonConstants.CMN_COMPANY_TAX_DETAILS)) {
+      companyDetailsDto.setTaxDetailsDto(CommonUtility.convertJsonToObject(companyDetails
+              .getValue(), new TaxDetailsDto()));
     }
     return companyDetailsDto;
 

@@ -28,4 +28,6 @@ public class CompanyDetailsDto {
 
   private DmCommonDto homeDM;
 
+  private TaxDetailsDto taxDetailsDto;
+
 }
