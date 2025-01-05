@@ -1,7 +1,7 @@
 
 package com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,10 +33,10 @@ public class PaymentDetail {
   private String spStatus;
 
   @Column(name = "created_at")
-  private LocalDateTime createdAt;
+  private LocalDate createdAt;
 
   @Column(name = "modified_at")
-  private LocalDateTime modifiedAt;
+  private LocalDate modifiedAt;
 
   @Column(name = "sp_order_id")
   private String spOrderId;

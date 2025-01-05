@@ -20,8 +20,8 @@ public class Utility {
     paymentDetailDto.setAmount(paymentDetail.getAmount());
     paymentDetailDto.setProvider(paymentDetail.getProvider());
     paymentDetailDto.setSpStatus(paymentDetail.getSpStatus());
-    paymentDetailDto.setCreatedAt(Utility.getLocalDateTimeMillis(paymentDetail.getCreatedAt()));
-    paymentDetailDto.setModifiedAt(Utility.getLocalDateTimeMillis(paymentDetail.getModifiedAt()));
+    paymentDetailDto.setCreatedAt(Utility.getLocalDateMillis(paymentDetail.getCreatedAt()));
+    paymentDetailDto.setModifiedAt(Utility.getLocalDateMillis(paymentDetail.getModifiedAt()));
     paymentDetailDto.setSpOrderId(paymentDetail.getSpOrderId());
     paymentDetailDto.setPaymentSessionId(paymentDetail.getPaymentSessionId());
     paymentDetailDto.setCreatedOrderResponse(Utility.convertJsonToObject(paymentDetail
@@ -41,8 +41,8 @@ public class Utility {
     paymentDetail.setAmount(dto.getAmount());
     paymentDetail.setProvider(dto.getProvider());
     paymentDetail.setSpStatus(dto.getSpStatus());
-    paymentDetail.setCreatedAt(Utility.getLocalDateTime(dto.getCreatedAt()));
-    paymentDetail.setModifiedAt(Utility.getLocalDateTime(dto.getModifiedAt()));
+    paymentDetail.setCreatedAt(Utility.getLocalDate(dto.getCreatedAt()));
+    paymentDetail.setModifiedAt(Utility.getLocalDate(dto.getModifiedAt()));
     paymentDetail.setSpOrderId(dto.getSpOrderId());
     paymentDetail.setPaymentSessionId(dto.getPaymentSessionId());
     paymentDetail.setCreatedOrderResponse(Utility.ConvertObjectToJsonString(dto
