@@ -1,7 +1,7 @@
 
 package com.lgitsolution.switcheshopcommon.promocode.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -60,10 +60,10 @@ public class Promocode {
 
   /** The created at. */
   @Column(name = "created_at")
-  private LocalDateTime createdAt;
+  private LocalDate createdAt;
 
   /** The modified at. */
   @Column(name = "modified_at")
-  private LocalDateTime modifiedAt;
+  private LocalDate modifiedAt;
 
 }

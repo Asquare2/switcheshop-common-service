@@ -1,6 +1,6 @@
 package com.lgitsolution.switcheshopcommon.blog.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -39,5 +39,5 @@ public class Blog {
 	private String dmContent;
 	
 	@Column(name = "created_at")
-	private LocalDateTime createdAt;
+  private LocalDate createdAt;
 }

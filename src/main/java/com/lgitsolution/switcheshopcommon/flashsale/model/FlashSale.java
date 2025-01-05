@@ -1,7 +1,7 @@
 
 package com.lgitsolution.switcheshopcommon.flashsale.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -38,11 +38,11 @@ public class FlashSale {
 
   /** The start date. */
   @Column(name = "start_date")
-  private LocalDateTime startDate;
+  private LocalDate startDate;
 
   /** The end date. */
   @Column(name = "end_date")
-  private LocalDateTime endDate;
+  private LocalDate endDate;
 
   /** This multi media. */
   @Column(name = "multi_media")
@@ -54,11 +54,11 @@ public class FlashSale {
 
   /** The created date. */
   @Column(name = "created_at")
-  private LocalDateTime createdAt;
+  private LocalDate createdAt;
 
   /** The modified at date. */
   @Column(name = "modified_at")
-  private LocalDateTime modifiedAt;
+  private LocalDate modifiedAt;
 
   /** The filter. */
   @Column(name = "filter")

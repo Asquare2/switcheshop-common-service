@@ -21,7 +21,7 @@ public class Utility {
     productComment.setRatingStar(productCommentDto.getRatingStar());
     productComment.setComment(productCommentDto.getComment());
     productComment.setIsPublished(productCommentDto.getIsPublished());
-    productComment.setCreatedAt(Utility.getLocalDateTime(productCommentDto.getCreatedAt()));
+    productComment.setCreatedAt(Utility.getLocalDate(productCommentDto.getCreatedAt()));
 
     return productComment;
   }
@@ -35,7 +35,7 @@ public class Utility {
     productCommentDto.setRatingStar(productComment.getRatingStar());
     productCommentDto.setComment(productComment.getComment());
     productCommentDto.setIsPublished(productComment.getIsPublished());
-    productCommentDto.setCreatedAt(Utility.getLocalDateTimeMillis(productComment.getCreatedAt()));
+    productCommentDto.setCreatedAt(Utility.getLocalDateMillis(productComment.getCreatedAt()));
     return productCommentDto;
   }
 

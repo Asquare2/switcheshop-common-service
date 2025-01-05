@@ -1,7 +1,7 @@
 
 package com.lgitsolution.switcheshopcommon.product.productcomment.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -47,5 +47,5 @@ public class ProductComment {
 
   /** The created at. */
   @Column(name = "created_at")
-  private LocalDateTime createdAt;
+  private LocalDate createdAt;
 }

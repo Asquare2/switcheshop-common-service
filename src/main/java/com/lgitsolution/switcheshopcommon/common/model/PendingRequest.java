@@ -1,6 +1,6 @@
 package com.lgitsolution.switcheshopcommon.common.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -46,5 +46,5 @@ public class PendingRequest {
   private String response;
 
   @Column(name = "created_at")
-  private LocalDateTime createdAt;
+  private LocalDate createdAt;
 }

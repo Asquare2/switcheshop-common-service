@@ -1,7 +1,7 @@
 
 package com.lgitsolution.switcheshopcommon.credentials.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import org.hibernate.annotations.ColumnTransformer;
 
@@ -62,7 +62,7 @@ public class Credentials {
 
   /** The modified at date. */
   @Column(name = "modified_at")
-  private LocalDateTime modifiedAt;
+  private LocalDate modifiedAt;
 
   /** The phone number */
   @Column(name = "phone_number")

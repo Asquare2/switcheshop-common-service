@@ -20,7 +20,7 @@ public class Utility {
     blog.setContent(blogDto.getContent());
     blog.setSlug(blogDto.getSlug());
     blog.setTitle(blogDto.getTitle());
-    blog.setCreatedAt(Utility.getLocalDateTime(blogDto.getCreatedAt()));
+    blog.setCreatedAt(Utility.getLocalDate(blogDto.getCreatedAt()));
     blog.setStatus(blogDto.getStatus());
     return blog;
   }
@@ -32,7 +32,7 @@ public class Utility {
 		blogDto.setContent(blog.getContent());
 		blogDto.setSlug(blog.getSlug());
 		blogDto.setDmContent(blog.getDmContent());
-		blogDto.setCreatedAt(Utility.getLocalDateTimeMillis(blog.getCreatedAt()));
+    blogDto.setCreatedAt(Utility.getLocalDateMillis(blog.getCreatedAt()));
 		blogDto.setStatus(blog.getStatus());
 		return blogDto;
 	}

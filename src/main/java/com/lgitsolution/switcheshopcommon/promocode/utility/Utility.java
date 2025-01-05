@@ -29,8 +29,8 @@ public class Utility {
     promocode.setDiscountType(promocodeDto.getDiscountType());
     promocode.setDiscountAmount(promocodeDto.getDiscountAmount());
     promocode.setStatus(promocodeDto.getStatus());
-    promocode.setCreatedAt(Utility.getLocalDateTime(promocodeDto.getCreatedAt()));
-    promocode.setModifiedAt(Utility.getLocalDateTime(promocodeDto.getModifiedAt()));
+    promocode.setCreatedAt(Utility.getLocalDate(promocodeDto.getCreatedAt()));
+    promocode.setModifiedAt(Utility.getLocalDate(promocodeDto.getModifiedAt()));
     return promocode;
   }
 
@@ -52,8 +52,8 @@ public class Utility {
     promocodeDto.setDiscountType(promocode.getDiscountType());
     promocodeDto.setDiscountAmount(promocode.getDiscountAmount());
     promocodeDto.setStatus(promocode.getStatus());
-    promocodeDto.setCreatedAt(Utility.getLocalDateTimeMillis(promocode.getCreatedAt()));
-    promocodeDto.setModifiedAt(Utility.getLocalDateTimeMillis(promocode.getModifiedAt()));
+    promocodeDto.setCreatedAt(Utility.getLocalDateMillis(promocode.getCreatedAt()));
+    promocodeDto.setModifiedAt(Utility.getLocalDateMillis(promocode.getModifiedAt()));
     return promocodeDto;
   }
 

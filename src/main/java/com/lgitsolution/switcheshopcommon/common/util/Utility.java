@@ -247,7 +247,7 @@ public class Utility {
    * @param localDateTime the local date time object
    * @return the local date time object in the millisecond
    */
-  public static Long getLocalDateTimeMillis(LocalDateTime localDateTime) {
+  public Long getLocalDateTimeMillis(LocalDateTime localDateTime) {
     Long localDateTimrMillis = null;
     if (localDateTime != null) {
       localDateTimrMillis = localDateTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
