@@ -57,9 +57,6 @@ public class Product {
   @Column(name = "tag", columnDefinition = "text")
   private String tag;
 
-  @Column(name = "tax_id")
-  private int taxId;
-
   @Column(name = "tax_include")
   private int taxIncluded;
 

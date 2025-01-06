@@ -42,7 +42,6 @@ public class Utility {
     model.setReturnable(dto.getReturnable());
     model.setAttachmentRequired(dto.getAttachmentRequired());
     model.setPickupLocation(dto.getPickupLocationId());
-    model.setTaxId(dto.getTaxId());
     List<SKUDto> skuList = dto.getSkuList();
     skuList.stream().forEach(o -> {
       model.getSkuList().add(com.lgitsolution.switcheshopcommon.sku.utility.Utility
@@ -93,7 +92,6 @@ public class Utility {
     dto.setCancelable(model.getCancelable());
     dto.setReturnable(model.getReturnable());
     dto.setAttachmentRequired(model.getAttachmentRequired());
-    dto.setTaxId(model.getTaxId());
     dto.setPickupLocationId(model.getPickupLocation());
     List<SKU> skuList = model.getSkuList();
     if (skuList != null && !skuList.isEmpty()) {

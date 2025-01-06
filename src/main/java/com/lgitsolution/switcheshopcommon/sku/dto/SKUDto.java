@@ -56,8 +56,6 @@ public class SKUDto {
 
   private String productIdentificationNo;
 
-  private int taxId;
-
   private int categoryId;
 
   private String searchValues;

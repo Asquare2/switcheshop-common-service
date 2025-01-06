@@ -24,6 +24,8 @@ public class Utility {
     Tax tax = new Tax();
     tax.setPercentage(taxDto.getPercentage());
     tax.setTitle(taxDto.getTitle());
+    tax.setMinPrice(taxDto.getMinPrice());
+    tax.setMaxPrice(taxDto.getMaxPrice());
     return tax;
   }
 
@@ -38,6 +40,8 @@ public class Utility {
     taxDto.setId(tax.getId());
     taxDto.setTitle(tax.getTitle());
     taxDto.setPercentage(tax.getPercentage());
+    taxDto.setMinPrice(tax.getMinPrice());
+    taxDto.setMaxPrice(tax.getMaxPrice());
     return taxDto;
   }
 

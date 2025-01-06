@@ -17,6 +17,10 @@ public class TaxDto {
 
   Float percentage;
 
+  Float minPrice;
+
+  Float maxPrice;
+
   /**
    * Gets the concatenated title and tax value e.g if title is GSTIN and percentage is 5.3 then the
    * value will be <b>GSTIN (5%)</b>.

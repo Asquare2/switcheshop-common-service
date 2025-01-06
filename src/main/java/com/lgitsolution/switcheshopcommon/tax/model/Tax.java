@@ -27,4 +27,10 @@ public class Tax {
   @Column(name = "percentage")
   Float percentage;
 
+  @Column(name = "min_price")
+  Float minPrice;
+
+  @Column(name = "max_price")
+  Float maxPrice;
+
 }

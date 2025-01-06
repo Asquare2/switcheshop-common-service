@@ -36,8 +36,6 @@ public class ProductDto {
 
   private int taxIncluded;
 
-  private int taxId;
-
   private int customerType;
 
   private int categoryId;

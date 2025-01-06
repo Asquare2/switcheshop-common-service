@@ -58,7 +58,6 @@ public class Utility {
       skuDto.setMaximumOrderQuantity(model.getProduct().getMaximumOrderQuantity());
       skuDto.setProductIdentificationNo(model.getProduct().getProductIdentificationNo());
       skuDto.setCategoryId(model.getProduct().getCategoryId());
-      skuDto.setTaxId(model.getProduct().getTaxId());
     }
     skuDto.setQuantity(model.getQuantity());
     skuDto.setPrice(model.getPrice());
