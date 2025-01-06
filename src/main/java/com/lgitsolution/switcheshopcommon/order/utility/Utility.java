@@ -21,6 +21,8 @@ import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.OrderReque
 
 public class Utility {
 
+  private static com.lgitsolution.switcheshopcommon.common.util.Utility CommonUtility;
+
   /**
    * 
    * @param orderDetilsDto
@@ -60,6 +62,9 @@ public class Utility {
     orderDetails.setAwbCode(orderDetilsDto.getAwbCode());
     orderDetails.setCourierCompanyId(orderDetilsDto.getCourierCompanyId());
     orderDetails.setCourierName(orderDetilsDto.getCourierName());
+    orderDetails.setDisplayedTrackingData(CommonUtility.ConvertObjectToJsonString(orderDetilsDto
+            .getDisplayedTrackingList()));
+    ;
     return orderDetails;
   }
 
@@ -105,6 +110,8 @@ public class Utility {
     orderDetailsDto.setCourierCompanyId(orderDetails.getCourierCompanyId());
     orderDetailsDto.setCourierName(orderDetails.getCourierName());
     orderDetailsDto.setOrderStatusDetail(getOrderStatusDetailObj(orderDetails.getStatus()));
+    orderDetailsDto.setDisplayedTrackingList(parseJsonToList(orderDetails
+            .getDisplayedTrackingData()));
     return orderDetailsDto;
   }
 
@@ -228,26 +235,31 @@ public class Utility {
       OrderTrackingDetailsDto pending = new OrderTrackingDetailsDto();
       pending.setStepNumber(0);
       pending.setStatusName(OrderStatusConstants.PENDING_ORDER_STATUS);
+      pending.setStatusCode(SwitchEShopOrderEnum.Pending.getValue());
       trackingList.add(pending);
 
       OrderTrackingDetailsDto confirmed = new OrderTrackingDetailsDto();
       confirmed.setStepNumber(1);
+      confirmed.setStatusCode(SwitchEShopOrderEnum.Confirmed.getValue());
       confirmed.setStatusName(OrderStatusConstants.CONFIRMED_STATUS);
       trackingList.add(confirmed);
 
       OrderTrackingDetailsDto shipped = new OrderTrackingDetailsDto();
       shipped.setStepNumber(2);
       shipped.setStatusName(OrderStatusConstants.SHIPPED_ORDER_STATUS);
+      shipped.setStatusCode(SwitchEShopOrderEnum.Shipped.getValue());
       trackingList.add(shipped);
 
       OrderTrackingDetailsDto outForDelivery = new OrderTrackingDetailsDto();
       outForDelivery.setStepNumber(3);
       outForDelivery.setStatusName(OrderStatusConstants.OUT_FOR_DELIVERY_ORDER_STATUS);
+      outForDelivery.setStatusCode(SwitchEShopOrderEnum.Out_For_Delivery.getValue());
       trackingList.add(outForDelivery);
 
       OrderTrackingDetailsDto delivered = new OrderTrackingDetailsDto();
       delivered.setStepNumber(4);
       delivered.setStatusName(OrderStatusConstants.DELIVERED_ORDER_STATUS);
+      delivered.setStatusCode(SwitchEShopOrderEnum.Deliverd.getValue());
       trackingList.add(delivered);
 
     } else {
@@ -262,7 +274,10 @@ public class Utility {
    * @param json string
    * @return the list of OrderTrackingDetailsDto details
    */
-  private List<OrderTrackingDetailsDto> parseJsonToList(String json) {
+  public static List<OrderTrackingDetailsDto> parseJsonToList(String json) {
+    if (json == null || json.isBlank()) {
+      return null;
+    }
     ObjectMapper objectMapper = new ObjectMapper();
     try {
       return objectMapper.readValue(json, new TypeReference<List<OrderTrackingDetailsDto>>() {
@@ -271,6 +286,25 @@ public class Utility {
       e.printStackTrace();
       throw new RuntimeException("Failed to parse JSON to List<OrderTrackingDetailsDto>", e);
     }
+  }
+
+  /**
+   * Gets updated tracking list.
+   * 
+   * @param trackingList the tracking list
+   * @param statusCode the status code
+   * @param date the date
+   * @return the updated tracking list.
+   */
+  public static List<OrderTrackingDetailsDto> updateTrackingDatalist(
+          List<OrderTrackingDetailsDto> trackingList, int statusCode, long date) {
+    trackingList.forEach(o -> {
+      if (o.getStatusCode() == statusCode) {
+        o.setStatusDate(date);
+        o.setIsDone(1);
+      }
+    });
+    return trackingList;
   }
 
 }
