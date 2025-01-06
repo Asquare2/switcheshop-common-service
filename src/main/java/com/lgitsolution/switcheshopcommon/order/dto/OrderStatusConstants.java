@@ -23,4 +23,6 @@ public class OrderStatusConstants {
 
   public static final String CANCEL_BY_COMPANY_ORDER_STATUS = "Cancel by company";
 
+  public static final String CANCEL_STATUS = "Cancel";
+
 }

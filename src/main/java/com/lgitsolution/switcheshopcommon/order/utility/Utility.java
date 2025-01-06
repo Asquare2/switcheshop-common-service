@@ -298,12 +298,25 @@ public class Utility {
    */
   public static List<OrderTrackingDetailsDto> updateTrackingDatalist(
           List<OrderTrackingDetailsDto> trackingList, int statusCode, long date) {
-    trackingList.forEach(o -> {
-      if (o.getStatusCode() == statusCode) {
-        o.setStatusDate(date);
-        o.setIsDone(1);
-      }
-    });
+    if (statusCode == SwitchEShopOrderEnum.Order_Cancelled_By_Customer.getValue()
+            || statusCode == SwitchEShopOrderEnum.Order_Cancelled_By_Company.getValue()) {
+      trackingList.removeIf(obj -> obj.getStatusCode() != SwitchEShopOrderEnum.Confirmed
+              .getValue());
+      OrderTrackingDetailsDto cancel = new OrderTrackingDetailsDto();
+      cancel.setStepNumber(2);
+      cancel.setStatusName(OrderStatusConstants.CANCEL_STATUS);
+      cancel.setStatusCode(statusCode);
+      cancel.setIsDone(1);
+      cancel.setStatusDate(System.currentTimeMillis());
+      trackingList.add(cancel);
+    } else {
+      trackingList.forEach(o -> {
+        if (o.getStatusCode() == statusCode) {
+          o.setStatusDate(date);
+          o.setIsDone(1);
+        }
+      });
+    }
     return trackingList;
   }
 
