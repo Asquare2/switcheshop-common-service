@@ -13,5 +13,5 @@ public class GenerateAWBRequest {
 
   private Integer shipment_id;
   private Integer courier_id = null;
-
+  private Integer is_return = 0;
 }

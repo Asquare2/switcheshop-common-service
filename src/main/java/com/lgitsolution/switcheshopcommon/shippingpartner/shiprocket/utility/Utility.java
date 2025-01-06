@@ -90,7 +90,13 @@ public class Utility {
     return dto;
   }
 
-  public static GenerateAWBRequest createGenerateAWBCodeRequestDto(int shipmentId) {
+  /**
+   * 
+   * @param shipmentId
+   * @param isReturn 1 for return order , 0 for new order
+   * @return
+   */
+  public static GenerateAWBRequest createGenerateAWBCodeRequestDto(int shipmentId, int isReturn) {
     GenerateAWBRequest awbRequest = new GenerateAWBRequest();
     awbRequest.setShipment_id(shipmentId);
     return awbRequest;
