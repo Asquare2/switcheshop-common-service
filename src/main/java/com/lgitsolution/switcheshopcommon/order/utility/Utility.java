@@ -1,14 +1,18 @@
 
 package com.lgitsolution.switcheshopcommon.order.utility;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lgitsolution.switcheshopcommon.customer.dto.CustomerAddressDetails;
 import com.lgitsolution.switcheshopcommon.customer.dto.CustomerDetailsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderDetailsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderItemsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderStatusConstants;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderStatusDetail;
+import com.lgitsolution.switcheshopcommon.order.dto.OrderTrackingDetailsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.SwitchEShopOrderEnum;
 import com.lgitsolution.switcheshopcommon.order.model.OrderDetails;
 import com.lgitsolution.switcheshopcommon.order.model.OrderItems;
@@ -207,6 +211,66 @@ public class Utility {
                     + orderDetilsDto.getItemId());
     orderRequestDto.setOrder_meta(orderMetaDataDto);
     return orderRequestDto;
+  }
+
+  /**
+   * Gets the order status list.
+   * 
+   * @param isReturn is for return order.
+   * @param trackingList the tracking list
+   * @return the tracking data list.
+   */
+  public static List<OrderTrackingDetailsDto> getOrderTrackingDetailsList(boolean isReturn,
+          List<OrderTrackingDetailsDto> trackingList) {
+    if (!isReturn) {
+      trackingList = new ArrayList<OrderTrackingDetailsDto>();
+
+      OrderTrackingDetailsDto pending = new OrderTrackingDetailsDto();
+      pending.setStepNumber(0);
+      pending.setStatusName(OrderStatusConstants.PENDING_ORDER_STATUS);
+      trackingList.add(pending);
+
+      OrderTrackingDetailsDto confirmed = new OrderTrackingDetailsDto();
+      confirmed.setStepNumber(1);
+      confirmed.setStatusName(OrderStatusConstants.CONFIRMED_STATUS);
+      trackingList.add(confirmed);
+
+      OrderTrackingDetailsDto shipped = new OrderTrackingDetailsDto();
+      shipped.setStepNumber(2);
+      shipped.setStatusName(OrderStatusConstants.SHIPPED_ORDER_STATUS);
+      trackingList.add(shipped);
+
+      OrderTrackingDetailsDto outForDelivery = new OrderTrackingDetailsDto();
+      outForDelivery.setStepNumber(3);
+      outForDelivery.setStatusName(OrderStatusConstants.OUT_FOR_DELIVERY_ORDER_STATUS);
+      trackingList.add(outForDelivery);
+
+      OrderTrackingDetailsDto delivered = new OrderTrackingDetailsDto();
+      delivered.setStepNumber(4);
+      delivered.setStatusName(OrderStatusConstants.DELIVERED_ORDER_STATUS);
+      trackingList.add(delivered);
+
+    } else {
+
+    }
+    return trackingList;
+  }
+
+  /**
+   * Parse json string to OrderTrackingDetailsDto list.
+   * 
+   * @param json string
+   * @return the list of OrderTrackingDetailsDto details
+   */
+  private List<OrderTrackingDetailsDto> parseJsonToList(String json) {
+    ObjectMapper objectMapper = new ObjectMapper();
+    try {
+      return objectMapper.readValue(json, new TypeReference<List<OrderTrackingDetailsDto>>() {
+      });
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new RuntimeException("Failed to parse JSON to List<OrderTrackingDetailsDto>", e);
+    }
   }
 
 }

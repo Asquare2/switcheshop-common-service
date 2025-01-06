@@ -77,4 +77,6 @@ public class OrderDetailsDto {
 
   private String courierName;
 
+  private List<OrderTrackingDetailsDto> displayedTrackingList;
+
 }

@@ -109,4 +109,6 @@ public class OrderDetails {
   @Column(name = "courier_name")
   private String courierName;
 
+  @Column(name = "displayed_tracking_data")
+  private String displayedTrackingData;
 }

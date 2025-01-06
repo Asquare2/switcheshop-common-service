@@ -5,6 +5,8 @@ public class OrderStatusConstants {
 
   public static final String NEW_ORDER_STATUS = "New Orders";
 
+  public static final String CONFIRMED_STATUS = "Order Confirmed";
+
   public static final String PENDING_ORDER_STATUS = "Pending";
 
   public static final String PROCESSING_ORDER_STATUS = "Processing";
