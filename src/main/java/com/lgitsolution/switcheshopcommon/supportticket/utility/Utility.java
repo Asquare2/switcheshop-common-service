@@ -1,8 +1,8 @@
 
 package com.lgitsolution.switcheshopcommon.supportticket.utility;
 
-import com.lgitsolution.switcheshopcommon.product.dto.ProductDto;
-import com.lgitsolution.switcheshopcommon.product.model.Product;
+import java.util.List;
+
 import com.lgitsolution.switcheshopcommon.supportticket.dto.SupportTicketDto;
 import com.lgitsolution.switcheshopcommon.supportticket.model.SupportTicket;
 
@@ -39,6 +39,15 @@ public class Utility {
     dto.setImage(model.getImage());
     dto.setCreatedAt(Utility.getLocalDateMillis(model.getCreatedAt()));
     return dto;
+  }
+
+  /**
+   * 
+   * @param modelList
+   * @return
+   */
+  public static List<SupportTicketDto> convertModelToDto(List<SupportTicket> modelList) {
+    return modelList.stream().map(model -> convertModelToDto(model)).toList();
   }
 
 }
