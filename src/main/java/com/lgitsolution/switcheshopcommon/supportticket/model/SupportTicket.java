@@ -2,19 +2,12 @@
 package com.lgitsolution.switcheshopcommon.supportticket.model;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-
-import com.lgitsolution.switcheshopcommon.subcribe.model.SubscribeDetail;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Data;
-
-import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -52,4 +45,7 @@ public class SupportTicket {
 
 	@Column(name = "created_at")
 	private LocalDate createdAt;
+
+  @Column(name = "modified_at")
+  private LocalDate modifiedAt;
 }

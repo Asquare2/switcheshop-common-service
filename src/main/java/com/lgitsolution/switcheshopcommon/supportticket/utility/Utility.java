@@ -23,6 +23,7 @@ public class Utility {
     model.setResponse(dto.getResponse());
     model.setImage(dto.getImage());
     model.setCreatedAt(Utility.getLocalDate(dto.getCreatedAt()));
+    model.setModifiedAt(Utility.getLocalDate(dto.getModifiedAt()));
     return model;
   }
 
@@ -38,6 +39,7 @@ public class Utility {
     dto.setResponse(model.getResponse());
     dto.setImage(model.getImage());
     dto.setCreatedAt(Utility.getLocalDateMillis(model.getCreatedAt()));
+    dto.setModifiedAt(Utility.getLocalDateMillis(model.getModifiedAt()));
     return dto;
   }
 

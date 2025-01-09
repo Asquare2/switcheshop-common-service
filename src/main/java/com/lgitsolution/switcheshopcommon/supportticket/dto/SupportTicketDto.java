@@ -3,7 +3,6 @@ package com.lgitsolution.switcheshopcommon.supportticket.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.lgitsolution.switcheshopcommon.subcribe.dto.SubscribeDetailsDto;
 
 import lombok.Data;
 
@@ -22,4 +21,5 @@ public class SupportTicketDto {
   private String response;
   private String image;
   private long createdAt;
+  private long modifiedAt;
 }
