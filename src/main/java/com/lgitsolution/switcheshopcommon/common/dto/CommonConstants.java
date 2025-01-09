@@ -42,8 +42,6 @@ public class CommonConstants {
 
   public static final String CMN_SERVICE_NAME_GOOGLE_AUTH = "googleAuth";
 
-  public static final String CMN_SERVICE_NAME_EMAIL = "email";
-
   public static final String CMN_SERVICE_NAME_TWILLO_MOBILE_OTP = "twillioMobileOtp";
 
   public static final String CMN_SERVICE_NAME_CASHFREE_P_GATEWAY = "cashFreePGateway";
@@ -137,4 +135,7 @@ public class CommonConstants {
 
   // search operations name end
 
+  /* Encryption key constant. */
+  public static final String CMN_COLUMN_ENCRYPTION_DECRYPTION_KEY =
+          "sdfvgddsdsrsffffhgfduiquwdjhakshuhdiqwdhjknjked";
 }

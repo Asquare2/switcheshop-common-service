@@ -1,5 +1,5 @@
 
-package com.lgitsolution.switcheshopcommon.credentials.model;
+package com.lgitsolution.switcheshopcommon.email.preferences.model;
 
 import static com.lgitsolution.switcheshopcommon.common.dto.CommonConstants.CMN_COLUMN_ENCRYPTION_DECRYPTION_KEY;
 
@@ -15,45 +15,31 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-/** The credentials model class mapped with database. */
+/** The email preferences model class mapped with database. */
 @Data
 @Entity
-@Table(name = "credentials")
-public class Credentials {
+@Table(name = "email_preferences")
+public class EmailPreferences {
 
   /** The id. */
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
-  /** The service name. */
-  @Column(name = "service_name", unique = true)
-  private String serviceName;
+  @Column(name = "email_type")
+  private String emailType;
 
-  /** The email id. */
   @Column(name = "email_id")
   @ColumnTransformer(read = "convert_from(decrypt(email_id, '"
           + CMN_COLUMN_ENCRYPTION_DECRYPTION_KEY + "', 'aes'), 'UTF_8')",
           write = "encrypt(?::bytea, '" + CMN_COLUMN_ENCRYPTION_DECRYPTION_KEY + "', 'aes')")
   private String emailId;
 
-  /** The password. */
   @Column(name = "password")
   @ColumnTransformer(read = "convert_from(decrypt(password, '"
           + CMN_COLUMN_ENCRYPTION_DECRYPTION_KEY + "', 'aes'), 'UTF_8')",
           write = "encrypt(?::bytea, '" + CMN_COLUMN_ENCRYPTION_DECRYPTION_KEY + "', 'aes')")
   private String password;
-
-  /** The client id. */
-  @Column(name = "client_id")
-  private String clientId;
-
-  /** The client secret. */
-  @Column(name = "client_secret")
-  @ColumnTransformer(read = "convert_from(decrypt(client_secret, '"
-          + CMN_COLUMN_ENCRYPTION_DECRYPTION_KEY + "', 'aes'), 'UTF_8')",
-          write = "encrypt(?::bytea, '" + CMN_COLUMN_ENCRYPTION_DECRYPTION_KEY + "', 'aes')")
-  private String clientSecret;
 
   @Column(name = "config")
   private String config;
@@ -61,9 +47,5 @@ public class Credentials {
   /** The modified at date. */
   @Column(name = "modified_at")
   private LocalDate modifiedAt;
-
-  /** The phone number */
-  @Column(name = "phone_number")
-  private String phoneNumber;
 
 }
