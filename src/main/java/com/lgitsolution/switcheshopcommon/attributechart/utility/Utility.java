@@ -1,7 +1,9 @@
 
 package com.lgitsolution.switcheshopcommon.attributechart.utility;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.lgitsolution.switcheshopcommon.attributechart.dto.AttributeChartDto;
@@ -17,6 +19,7 @@ public class Utility {
     model.setMultiMedia(Utility.getMultiMediaJsonString(dto.getMultiMedia()));
     model.setTemplateName(dto.getTemplateName());
     model.setId(dto.getId());
+    model.setChartData(Utility.ConvertObjectToJsonString(dto.getChartData()));
     return model;
   }
 
@@ -25,6 +28,8 @@ public class Utility {
     dto.setMultiMedia(Utility.getMultiMediaObject(model.getMultiMedia()));
     dto.setTemplateName(model.getTemplateName());
     dto.setId(model.getId());
+    dto.setChartData(Utility.convertJsonToObject(model.getChartData(),
+            new LinkedHashMap<String, Map<String, String>>()));
     return dto;
   }
 
