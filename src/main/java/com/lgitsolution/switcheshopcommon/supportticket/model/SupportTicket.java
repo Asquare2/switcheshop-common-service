@@ -13,7 +13,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "subscribe_details")
+@Table(name = "support_ticket")
 public class SupportTicket {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
