@@ -64,6 +64,7 @@ public class Utility {
             .getFaq()));
     model.setRatingMap(com.lgitsolution.switcheshopcommon.common.util.Utility
             .ConvertObjectToJsonString(dto.getRatingMap()));
+    model.setAttributeChartTemplate(dto.getAttributeChartTemplate());
     return model;
   }
 
@@ -119,6 +120,7 @@ public class Utility {
     dto.setRatingMap(com.lgitsolution.switcheshopcommon.common.util.Utility.convertJsonToObject(
             model.getRatingMap(), new LinkedHashMap<String, String>()));
     dto.setAverageRating(getAverageRating(dto.getRatingMap()));
+    dto.setAttributeChartTemplate(model.getAttributeChartTemplate());
     return dto;
   }
 

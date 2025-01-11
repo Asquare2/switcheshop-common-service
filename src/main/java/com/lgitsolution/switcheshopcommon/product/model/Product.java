@@ -155,4 +155,7 @@ public class Product {
   @Column(name = "rating_map")
   private String ratingMap;
 
+  @Column(name = "attribute_chart_template_name")
+  private String attributeChartTemplate;
+
 }

@@ -100,5 +100,7 @@ public class ProductDto {
   private Map<String, String> ratingMap;
 
   private Double averageRating;
+  
+  private String attributeChartTemplate;
 
 }
