@@ -45,6 +45,4 @@ public class CategoryDto {
 
   private Set<Integer> attributeIds;
   
-  private String attributeChartTemplate;
-
 }

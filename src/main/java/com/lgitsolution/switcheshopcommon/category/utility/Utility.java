@@ -29,7 +29,6 @@ public class Utility {
     }
     category.setAttributeIds(Utility.ConvertObjectToJsonString(categoryDto.getAttributeIds()));
     category.setTitle(categoryDto.getTitle());
-    category.setAttributeChartTemplate(categoryDto.getAttributeChartTemplate());
     return category;
   }
 
@@ -51,7 +50,6 @@ public class Utility {
     categoryDto.setAttributeIds(Utility.convertJsonToObject(category.getAttributeIds(),
             new HashSet<Integer>()));
     categoryDto.setTitle(category.getTitle());
-    categoryDto.setAttributeChartTemplate(category.getAttributeChartTemplate());
     return categoryDto;
   }
 

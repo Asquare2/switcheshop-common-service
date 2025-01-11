@@ -64,7 +64,4 @@ public class Category {
   @Column(name = "attribute_ids", columnDefinition = "text")
   private String attributeIds;
 
-  @Column(name = "attribute_chart_template_name")
-  private String attributeChartTemplate;
-
 }
