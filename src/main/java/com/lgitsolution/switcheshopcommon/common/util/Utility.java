@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -564,6 +566,29 @@ public class Utility {
     String randomNumber = generateRandomAlphanumeric(10);
     slug = slug + "-" + randomNumber;
     return slug;
+  }
+
+  public static String getNewAddedDate(int addDays) {
+    String DATE_FORMAT = "dd/MM/yyyy";
+    DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
+    DateTimeFormatter dateFormat8 = DateTimeFormatter.ofPattern(DATE_FORMAT);
+    // Get current date
+    Date currentDate = new Date();
+    System.out.println("date : " + dateFormat.format(currentDate));
+
+    // convert date to localdatetime
+    LocalDateTime localDateTime = currentDate.toInstant().atZone(ZoneId.systemDefault())
+            .toLocalDateTime();
+    System.out.println("localDateTime : " + dateFormat8.format(localDateTime));
+
+    // plus one
+    localDateTime = localDateTime.plusDays(addDays);
+
+    // convert LocalDateTime to date
+    Date currentDatePlusOneDay = Date.from(localDateTime.atZone(ZoneId.systemDefault())
+            .toInstant());
+
+    return dateFormat.format(currentDatePlusOneDay);
   }
 
 }
