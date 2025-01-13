@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lgitsolution.switcheshopcommon.customer.dto.CustomerAddressDetails;
 import com.lgitsolution.switcheshopcommon.featuresection.dto.FeatureSectionDto;
 import com.lgitsolution.switcheshopcommon.featuresection.dto.FeatureSectionType1Dto;
 import com.lgitsolution.switcheshopcommon.featuresection.dto.FeatureSectionType2Dto;
@@ -52,15 +55,46 @@ public class Utility {
       dto.setFeatureSectionType2(Utility.convertJsonToObject(model.getTypeFilterData(),
               new FeatureSectionType2Dto()));
     } else if (model.getType() == FEATURE_SECTION_TYPE_3) {
-      dto.setFeatureSectionType3(Utility.convertJsonToObject(model.getTypeFilterData(),
-              new ArrayList<FeatureSectionType3Dto>()));
+      dto.setFeatureSectionType3(parseJsonToType3List(model.getTypeFilterData()));
     } else if (model.getType() == FEATURE_SECTION_TYPE_4) {
-      dto.setFeatureSectionType4(Utility.convertJsonToObject(model.getTypeFilterData(),
-              new ArrayList<FeatureSectionType1Dto>()));
+      dto.setFeatureSectionType4(parseJsonToType1List(model.getTypeFilterData()));
     }
     dto.setId(model.getId());
     dto.setStatus(model.getStatus());
     return dto;
+  }
+  
+  /**
+   * Parse json string to type 1 feature section details list.
+   * 
+   * @param json string
+   * @return the list of address details
+   */
+  private static List<FeatureSectionType1Dto> parseJsonToType1List(String json) {
+    ObjectMapper objectMapper = new ObjectMapper();
+    try {
+      return objectMapper.readValue(json, new TypeReference<List<FeatureSectionType1Dto>>() {
+      });
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new RuntimeException("Failed to parse JSON to List<FeatureSectionType1Dto>", e);
+    }
+  }
+  /**
+   * Parse json string to type 1 feature section details list.
+   * 
+   * @param json string
+   * @return the list of address details
+   */
+  private static List<FeatureSectionType3Dto> parseJsonToType3List(String json) {
+    ObjectMapper objectMapper = new ObjectMapper();
+    try {
+      return objectMapper.readValue(json, new TypeReference<List<FeatureSectionType3Dto>>() {
+      });
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new RuntimeException("Failed to parse JSON to List<FeatureSectionType1Dto>", e);
+    }
   }
 
   public static List<FeatureSectionDto> convertModelToDto(List<FeatureSection> modelList) {
