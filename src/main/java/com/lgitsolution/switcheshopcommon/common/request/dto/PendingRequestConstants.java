@@ -5,4 +5,10 @@ public class PendingRequestConstants {
 
   public static final String PR_VERIFY_CASHFREE_PAYMENT_STATUS = "VERIFY_CASHFREE_PAYMENT_STATUS";
 
+  public static final String PR_ORDER_TRACK_STATUS = "ORDER_TRACK";
+
+  public static final int PR_VERIFY_CASHFREE_PAYMENT_MAX_RUN_COUNT = 50;
+
+  public static final int PR_ORDER_TRACK_STATUS_MAX_RUN_COUNT = 30;
+
 }
