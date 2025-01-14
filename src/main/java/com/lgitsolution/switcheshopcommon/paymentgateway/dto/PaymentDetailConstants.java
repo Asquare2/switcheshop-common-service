@@ -20,4 +20,13 @@ public class PaymentDetailConstants {
   /** The constant holds the failed payment status value. */
   public static final Integer PAYMENT_STATUS_FAILED = 2;
 
+  /** The constant holds the in progress payment status value. */
+  public static final String PAYMENT_IN_PROGRESS_STATUS = "In progress";
+
+  /** The constant holds the paid payment status value. */
+  public static final String PAYMENT_PAID_STATUS = "Paid";
+
+  /** The constant holds the failed payment status value. */
+  public static final String PAYMENT_FAILED_STATUS = "Failed";
+
 }
