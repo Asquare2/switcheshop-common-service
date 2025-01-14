@@ -76,6 +76,13 @@ public class Utility {
           break;
         case LESS_THAN_EQUAL:
           p = cb.lessThanOrEqualTo(root.<String>get(filterKey), searchValueObject.toString());
+        case AFTER:
+        	return cb.greaterThan(root.<String>get(filterKey), searchValueObject + "");
+        case BEFORE:
+        	return cb.lessThan(root.<String>get(filterKey), searchValueObject + "");
+        case RANGE:
+        	String dateRange[] = searchValueObject.toString().split("-");
+        	return cb.between(root.get(filterKey), dateRange[0], dateRange[1]);
       }
       predicateList.add(p);
     }
