@@ -1,6 +1,8 @@
 
 package com.lgitsolution.switcheshopcommon.filter.utility;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -50,8 +52,8 @@ public class Utility {
           break;
         case EQUAL:
           if (filterKey.equals("createdAt") || filterKey.equals("pickupScheduledDate")) {
-            p = cb.equal(root.get(filterKey), (CommonUtility.getLocalDate((Long) searchValueObject))
-                    .toString());
+        	  LocalDate localDate = CommonUtility.getLocalDate((Long)searchValueObject);
+            p = cb.between(root.get(filterKey), localDate.atStartOfDay(), localDate.atTime(LocalTime.MAX));
             break;
           }
           p = cb.equal(root.get(filterKey), searchValueObject.toString());
@@ -77,12 +79,18 @@ public class Utility {
         case LESS_THAN_EQUAL:
           p = cb.lessThanOrEqualTo(root.<String>get(filterKey), searchValueObject.toString());
         case AFTER:
-        	return cb.greaterThan(root.<String>get(filterKey), searchValueObject + "");
+        	LocalDate localDate = CommonUtility.getLocalDate((Long)searchValueObject);
+        	p= cb.greaterThan(root.get(filterKey), localDate.atTime(LocalTime.MAX));
+        	break;
         case BEFORE:
-        	return cb.lessThan(root.<String>get(filterKey), searchValueObject + "");
+        	LocalDate localDate1 = CommonUtility.getLocalDate((Long)searchValueObject);
+        	p= cb.lessThan(root.get(filterKey), localDate1.atStartOfDay());
+        	break;
         case RANGE:
         	String dateRange[] = searchValueObject.toString().split("-");
-        	return cb.between(root.get(filterKey), dateRange[0], dateRange[1]);
+        	LocalDate localDate2 = CommonUtility.getLocalDate(Long.parseLong(dateRange[0]));
+        	LocalDate localDate3 = CommonUtility.getLocalDate(Long.parseLong(dateRange[1]));
+        	p= cb.between(root.get(filterKey), localDate2.atStartOfDay(), localDate3.atTime(LocalTime.MAX));
       }
       predicateList.add(p);
     }
