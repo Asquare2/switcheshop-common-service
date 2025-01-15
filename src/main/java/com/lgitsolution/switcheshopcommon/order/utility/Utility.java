@@ -64,7 +64,7 @@ public class Utility {
     orderDetails.setCourierName(orderDetilsDto.getCourierName());
     orderDetails.setDisplayedTrackingData(CommonUtility.ConvertObjectToJsonString(orderDetilsDto
             .getDisplayedTrackingList()));
-    ;
+    orderDetails.setPickupLocation(orderDetilsDto.getPickupLocation());
     return orderDetails;
   }
 
@@ -112,6 +112,7 @@ public class Utility {
     orderDetailsDto.setOrderStatusDetail(getOrderStatusDetailObj(orderDetails.getStatus()));
     orderDetailsDto.setDisplayedTrackingList(parseJsonToList(orderDetails
             .getDisplayedTrackingData()));
+    orderDetailsDto.setPickupLocation(orderDetails.getPickupLocation());
     return orderDetailsDto;
   }
 

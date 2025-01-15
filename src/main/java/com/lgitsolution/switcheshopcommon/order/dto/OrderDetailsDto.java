@@ -79,4 +79,8 @@ public class OrderDetailsDto {
 
   private List<OrderTrackingDetailsDto> displayedTrackingList;
 
+  private Long pickupLocation;
+
+  private String pickupLocationName;
+
 }

@@ -111,4 +111,7 @@ public class OrderDetails {
 
   @Column(name = "displayed_tracking_data")
   private String displayedTrackingData;
+
+  @Column(name = "pickup_location")
+  private Long pickupLocation;
 }

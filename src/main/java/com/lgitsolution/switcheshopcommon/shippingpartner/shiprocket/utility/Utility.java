@@ -27,11 +27,11 @@ public class Utility {
           new com.lgitsolution.switcheshopcommon.common.util.Utility();
 
   public static ShipmentOrderIRequestDto createShipmentOrderRequestDto(
-          OrderDetailsDto orderDetailsDto, String pickupLocation) {
+          OrderDetailsDto orderDetailsDto) {
     ShipmentOrderIRequestDto dto = new ShipmentOrderIRequestDto();
     dto.setOrder_id(orderDetailsDto.getItemId());
     dto.setOrder_date(CommonUtility.getLocalDate(orderDetailsDto.getCreatedAt()).toString());
-    dto.setPickup_location(pickupLocation);
+    dto.setPickup_location(orderDetailsDto.getPickupLocationName());
     dto.setPayment_method(orderDetailsDto.getPaymenMethod());
     dto.setSub_total(Math.round(orderDetailsDto.getTotalPayable()));
     Map<String, String> packageDimensionsMap = orderDetailsDto.getPackageDimensionsMap();

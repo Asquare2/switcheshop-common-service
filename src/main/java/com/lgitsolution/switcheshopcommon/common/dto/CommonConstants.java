@@ -56,7 +56,7 @@ public class CommonConstants {
 
   // Payment Method constants Start //
 
-  public static final String CMN_PAYMENT_METHOD_PREPAID = "prepaid";
+  public static final String CMN_PAYMENT_METHOD_PREPAID = "Prepaid";
 
   public static final String CMN_PAYMENT_METHOD_COD = "cod";
 
