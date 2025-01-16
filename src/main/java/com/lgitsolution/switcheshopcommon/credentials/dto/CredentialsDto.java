@@ -36,7 +36,4 @@ public class CredentialsDto {
   /** The modified at date. */
   private Long modifiedAt;
 
-  /** The phone number */
-  private String phoneNumber;
-
 }

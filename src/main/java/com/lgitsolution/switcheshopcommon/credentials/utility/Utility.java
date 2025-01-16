@@ -25,7 +25,6 @@ public class Utility {
     credentials.setConfig(com.lgitsolution.switcheshopcommon.common.util.Utility
             .convertMapToJsonString(credentialsDto.getConfig()));
     credentials.setModifiedAt(Utility.getLocalDate(credentialsDto.getModifiedAt()));
-    credentials.setPhoneNumber(credentialsDto.getPhoneNumber());
     return credentials;
   }
 
@@ -46,7 +45,6 @@ public class Utility {
     credentialsDto.setConfig(com.lgitsolution.switcheshopcommon.common.util.Utility
             .convertJsonStringToMap(credentials.getConfig()));
     credentialsDto.setModifiedAt(Utility.getLocalDateMillis(credentials.getModifiedAt()));
-    credentialsDto.setPhoneNumber(credentials.getPhoneNumber());
     return credentialsDto;
   }
 
