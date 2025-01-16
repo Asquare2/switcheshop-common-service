@@ -1,6 +1,7 @@
 
 package com.lgitsolution.switcheshopcommon.order.utility;
 
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import com.lgitsolution.switcheshopcommon.order.dto.SwitchEShopOrderEnum;
 import com.lgitsolution.switcheshopcommon.order.model.OrderDetails;
 import com.lgitsolution.switcheshopcommon.order.model.OrderItems;
 import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.OrderMetaDataDto;
-import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.OrderRequestDto;
+import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.PaymentOrderRequestDto;
 
 public class Utility {
 
@@ -204,14 +205,15 @@ public class Utility {
    * @param orderDetilsDto
    * @return
    */
-  public static OrderRequestDto createOrderRequestDto(CustomerDetailsDto customerDetailsDto,
-          OrderDetailsDto orderDetilsDto) {
-    OrderRequestDto orderRequestDto = new OrderRequestDto();
+  public static PaymentOrderRequestDto createPaymentOrderRequestDto(
+          CustomerDetailsDto customerDetailsDto, OrderDetailsDto orderDetilsDto) {
+    PaymentOrderRequestDto orderRequestDto = new PaymentOrderRequestDto();
     orderRequestDto.setOrder_amount((double) orderDetilsDto.getTotalPayable());
     orderRequestDto.setOrderItemId(orderDetilsDto.getItemId());
     orderRequestDto.getCustomer_details().setCustomer_id(customerDetailsDto.getId() + "");
     orderRequestDto.getCustomer_details().setCustomer_email(customerDetailsDto.getEmail());
     orderRequestDto.getCustomer_details().setCustomer_phone(customerDetailsDto.getMobile());
+    orderRequestDto.setOrder_expiry_time(CommonUtility.getNewDateTime(15, ZoneOffset.UTC));
     /* Order Meta data details. */
     OrderMetaDataDto orderMetaDataDto = new OrderMetaDataDto();
     orderMetaDataDto.setReturn_url(

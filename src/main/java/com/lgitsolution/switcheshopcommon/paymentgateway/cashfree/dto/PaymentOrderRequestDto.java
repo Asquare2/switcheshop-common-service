@@ -12,7 +12,7 @@ import lombok.Data;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class OrderRequestDto {
+public class PaymentOrderRequestDto {
 
   @JsonProperty(value = "order_id")
   private String orderItemId;
@@ -25,7 +25,9 @@ public class OrderRequestDto {
 
   private OrderMetaDataDto order_meta;
 
-  public OrderRequestDto() {
+  private String order_expiry_time;
+
+  public PaymentOrderRequestDto() {
     customer_details = new CustomerDetailsDto();
   }
 

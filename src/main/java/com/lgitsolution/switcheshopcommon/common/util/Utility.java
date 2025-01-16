@@ -11,7 +11,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
@@ -589,6 +591,54 @@ public class Utility {
             .toInstant());
 
     return dateFormat.format(currentDatePlusOneDay);
+  }
+
+  /**
+   * Gets new date time with time zone formate
+   * 
+   * @param addedTime added minutes
+   * @param zoneOffset
+   * @return
+   */
+  public static String getNewDateTime(int addedTime, ZoneOffset zoneOffset) {
+    // Get current date
+    Date currentDate = new Date();
+    // Create a LocalDateTime instance
+    LocalDateTime localDateTime = currentDate.toInstant().atZone(ZoneId.systemDefault())
+            .toLocalDateTime();
+
+    // plus one
+    localDateTime = localDateTime.plusMinutes(addedTime);
+
+    // Add a UTC offset to create an OffsetDateTime
+    OffsetDateTime offsetDateTime = localDateTime.atOffset(zoneOffset);
+
+    // Convert OffsetDateTime to ISO 8601 string
+    String iso8601TimeWithOffset = offsetDateTime.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+
+    return iso8601TimeWithOffset;
+  }
+
+  public static void main(String[] args) {
+
+    // // Get current date
+    // Date currentDate = new Date();
+    // // Create a LocalDateTime instance
+    // LocalDateTime localDateTime = currentDate.toInstant().atZone(ZoneId.systemDefault())
+    // .toLocalDateTime();
+    //
+    // // plus one
+    // localDateTime = localDateTime.plusMinutes(15);
+    //
+    // // Add a UTC offset to create an OffsetDateTime
+    // OffsetDateTime offsetDateTime = localDateTime.atOffset(ZoneOffset.UTC);
+    //
+    // // Convert OffsetDateTime to ISO 8601 string
+    // String iso8601TimeWithOffset = offsetDateTime.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+
+    // Print the result
+    System.out.println("ISO 8601 format with offset: " + getNewDateTime(15, ZoneOffset.UTC));
+
   }
 
 }
