@@ -23,6 +23,8 @@ public class InvoiceItemDto {
 
   private Float sellingPrice;
 
+  private Float taxableAmount;
+
   private String skuName;
   
   private int quantity;
