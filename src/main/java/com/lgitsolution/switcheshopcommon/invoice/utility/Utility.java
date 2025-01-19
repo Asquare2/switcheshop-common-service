@@ -2,6 +2,7 @@
 package com.lgitsolution.switcheshopcommon.invoice.utility;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.lgitsolution.switcheshopcommon.invoice.dto.InvoiceDetailsDto;
 import com.lgitsolution.switcheshopcommon.invoice.dto.InvoiceItemDto;
@@ -35,5 +36,14 @@ public class Utility {
     dto.setInvoiceItemsDetailList(CommonUtility.convertJsonToObject(model
             .getInvoiceItemsDetailList(), new ArrayList<InvoiceItemDto>()));
     return dto;
+  }
+
+  /**
+   * 
+   * @param modelList
+   * @return
+   */
+  public static List<InvoiceDetailsDto> convertModelToDto(List<InvoiceDetails> modelList) {
+    return modelList.stream().map(model -> convertModelToDto(model)).toList();
   }
 }

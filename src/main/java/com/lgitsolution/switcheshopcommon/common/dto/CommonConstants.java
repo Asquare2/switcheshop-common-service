@@ -127,6 +127,9 @@ public class CommonConstants {
   /** The Constant key for order prefix. */
   public static final String MIS_SETTING_ORDER_PREFIX_KEY = "order_detail_prefix";
 
+  /** The Constant key for sky prefix. */
+  public static final String MIS_SETTING_INVOICE_PREFIX_KEY = "invoice_prefix";
+
   // Miscellaneous settings constant end
 
   // search operations name start
