@@ -41,23 +41,21 @@ public class Utility {
     orderDetails.setWalletUsed(orderDetilsDto.getWalletUsed());
     orderDetails.setPromocodeName(orderDetilsDto.getPromocodeName());
     orderDetails.setPromocodeDiscount(orderDetilsDto.getPromocodeDiscount());
-    orderDetails.setCreatedAt(com.lgitsolution.switcheshopcommon.common.util.Utility.getLocalDate(
-            orderDetilsDto.getCreatedAt()));
-    orderDetails.setModifiedAt(com.lgitsolution.switcheshopcommon.common.util.Utility.getLocalDate(
-            orderDetilsDto.getModifiedAt()));
+    orderDetails.setCreatedAt(CommonUtility.getLocalDate(orderDetilsDto.getCreatedAt()));
+    orderDetails.setModifiedAt(CommonUtility.getLocalDate(orderDetilsDto.getModifiedAt()));
     orderDetails.setDeliveryPartnerResponse(orderDetilsDto.getDeliveryPartnerResponse());
     List<OrderItemsDto> orderItemsDtoList = orderDetilsDto.getOrderItemsDtoList();
     orderDetails.setItemId(orderDetilsDto.getItemId());
-    orderDetails.setPackageDimensions(com.lgitsolution.switcheshopcommon.common.util.Utility
-            .convertMapToJsonString(orderDetilsDto.getPackageDimensionsMap()));
+    orderDetails.setPackageDimensions(CommonUtility.convertMapToJsonString(orderDetilsDto
+            .getPackageDimensionsMap()));
     orderItemsDtoList.forEach(dto -> orderDetails.getOrderItemsList().add(convertDtoToModel(dto)));
     orderDetails.setTrackingData(orderDetilsDto.getTrackingData());
     orderDetails.setPaymenMethod(orderDetilsDto.getPaymenMethod());
     orderDetails.setAddress(com.lgitsolution.switcheshopcommon.common.util.Utility
             .ConvertObjectToJsonString(orderDetilsDto.getCustomerAddressDetails()));
     orderDetails.setPickupBookedDate(orderDetilsDto.getPickupBookedDate());
-    orderDetails.setPickupScheduledDate(com.lgitsolution.switcheshopcommon.common.util.Utility
-            .getLocalDate(orderDetilsDto.getPickupScheduledDate()));
+    orderDetails.setPickupScheduledDate(CommonUtility.getLocalDate(orderDetilsDto
+            .getPickupScheduledDate()));
     orderDetails.setDeliveryPartnerOrderId(orderDetilsDto.getDeliveryPartnerOrderId());
     orderDetails.setShipmentId(orderDetilsDto.getShipmentId());
     orderDetails.setAwbCode(orderDetilsDto.getAwbCode());
@@ -86,13 +84,11 @@ public class Utility {
     orderDetailsDto.setWalletUsed(orderDetails.getWalletUsed());
     orderDetailsDto.setPromocodeName(orderDetails.getPromocodeName());
     orderDetailsDto.setPromocodeDiscount(orderDetails.getPromocodeDiscount());
-    orderDetailsDto.setCreatedAt(com.lgitsolution.switcheshopcommon.common.util.Utility
-            .getLocalDateMillis(orderDetails.getCreatedAt()));
-    orderDetailsDto.setModifiedAt(com.lgitsolution.switcheshopcommon.common.util.Utility
-            .getLocalDateMillis(orderDetails.getModifiedAt()));
+    orderDetailsDto.setCreatedAt(CommonUtility.getLocalDateMillis(orderDetails.getCreatedAt()));
+    orderDetailsDto.setModifiedAt(CommonUtility.getLocalDateMillis(orderDetails.getModifiedAt()));
     orderDetailsDto.setDeliveryPartnerResponse(orderDetails.getDeliveryPartnerResponse());
-    orderDetailsDto.setPackageDimensionsMap(com.lgitsolution.switcheshopcommon.common.util.Utility
-            .convertJsonStringToMap(orderDetails.getPackageDimensions()));
+    orderDetailsDto.setPackageDimensionsMap(CommonUtility.convertJsonStringToMap(orderDetails
+            .getPackageDimensions()));
     orderDetailsDto.setItemId(orderDetails.getItemId());
     List<OrderItems> orderItemsList = orderDetails.getOrderItemsList();
     if (orderItemsList != null && !orderItemsList.isEmpty()) {
@@ -100,11 +96,11 @@ public class Utility {
     }
     orderDetailsDto.setTrackingData(orderDetails.getTrackingData());
     orderDetailsDto.setPaymenMethod(orderDetails.getPaymenMethod());
-    orderDetailsDto.setCustomerAddressDetails(com.lgitsolution.switcheshopcommon.common.util.Utility
-            .convertJsonToObject(orderDetails.getAddress(), new CustomerAddressDetails()));
+    orderDetailsDto.setCustomerAddressDetails(CommonUtility.convertJsonToObject(orderDetails
+            .getAddress(), new CustomerAddressDetails()));
     orderDetailsDto.setPickupBookedDate(orderDetails.getPickupBookedDate());
-    orderDetailsDto.setPickupScheduledDate(com.lgitsolution.switcheshopcommon.common.util.Utility
-            .getLocalDateMillis(orderDetails.getPickupScheduledDate()));
+    orderDetailsDto.setPickupScheduledDate(CommonUtility.getLocalDateMillis(orderDetails
+            .getPickupScheduledDate()));
     orderDetailsDto.setDeliveryPartnerOrderId(orderDetails.getDeliveryPartnerOrderId());
     orderDetailsDto.setShipmentId(orderDetails.getShipmentId());
     orderDetailsDto.setAwbCode(orderDetails.getAwbCode());

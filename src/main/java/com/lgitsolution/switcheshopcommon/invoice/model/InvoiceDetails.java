@@ -37,5 +37,13 @@ public class InvoiceDetails {
   @Column(name = "total_payable")
   private Float totalPayable;
 
+  @Column(name = "invoice_number")
+  private String invoiceNumber;
+
+  @Column(name = "invoice_items_detail", columnDefinition = "text")
+  private String invoiceItemsDetailList;
+
+  @Column(name = "total_tax")
+  private Float taxTotalAmount;
 
 }
