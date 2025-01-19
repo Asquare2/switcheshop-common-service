@@ -18,13 +18,7 @@ public class InvoiceDetailsDto {
 
   private Integer orderDetailsId;
 
-  private String orderItemId;
-
   private LocalDate createdAt;
-
-  private String promocodeName;
-
-  private Float promocodeDiscount;
 
   private Float totalPayable;
 

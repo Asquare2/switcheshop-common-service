@@ -22,17 +22,8 @@ public class InvoiceDetails {
   @Column(name = "order_detail_id")
   private Integer orderDetailsId;
 
-  @Column(name = "order_item_id")
-  private String orderItemId;
-
   @Column(name = "created_at")
   private LocalDate createdAt;
-
-  @Column(name = "promocode_name")
-  private String promocodeName;
-
-  @Column(name = "promocode_discount")
-  private Float promocodeDiscount;
 
   @Column(name = "total_payable")
   private Float totalPayable;

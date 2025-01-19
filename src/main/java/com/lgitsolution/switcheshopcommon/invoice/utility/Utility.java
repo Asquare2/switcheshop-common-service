@@ -15,10 +15,7 @@ public class Utility {
     InvoiceDetails model = new InvoiceDetails();
     model.setId(dto.getId());
     model.setOrderDetailsId(dto.getOrderDetailsId());
-    model.setOrderItemId(dto.getOrderItemId());
     model.setCreatedAt(dto.getCreatedAt());
-    model.setPromocodeDiscount(dto.getPromocodeDiscount());
-    model.setPromocodeName(dto.getPromocodeName());
     model.setTotalPayable(dto.getTotalPayable());
     model.setTaxTotalAmount(dto.getTaxTotalAmount());
     model.setInvoiceNumber(dto.getInvoiceNumber());
@@ -31,10 +28,7 @@ public class Utility {
     InvoiceDetailsDto dto = new InvoiceDetailsDto();
     dto.setId(model.getId());
     dto.setOrderDetailsId(model.getOrderDetailsId());
-    dto.setOrderItemId(model.getOrderItemId());
     dto.setCreatedAt(model.getCreatedAt());
-    dto.setPromocodeDiscount(model.getPromocodeDiscount());
-    dto.setPromocodeName(model.getPromocodeName());
     dto.setTotalPayable(model.getTotalPayable());
     dto.setTaxTotalAmount(model.getTaxTotalAmount());
     dto.setInvoiceNumber(model.getInvoiceNumber());
