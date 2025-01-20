@@ -29,8 +29,6 @@ public class OrderItemsDto {
 
   private Float sellingPrice;
 
-  private Float tax;
-
   private Integer saleId;
 
   private String hsnCode;

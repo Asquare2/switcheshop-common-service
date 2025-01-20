@@ -2,6 +2,7 @@
 package com.lgitsolution.switcheshopcommon.invoice.dto;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -24,7 +25,7 @@ public class InvoiceDetailsDto {
 
   private String invoiceNumber;
 
-  private List<InvoiceItemDto> invoiceItemsDetailList;
+  private List<InvoiceItemDto> invoiceItemsDetailList = new ArrayList<InvoiceItemDto>();
 
   private Float taxTotalAmount;
 

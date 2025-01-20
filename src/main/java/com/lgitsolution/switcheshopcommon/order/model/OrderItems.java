@@ -46,9 +46,6 @@ public class OrderItems {
   @Column(name = "selling_price")
   private Float sellingPrice;
 
-  @Column(name = "tax")
-  private Float tax;
-
   @Column(name = "sale_id")
   private Integer saleId;
 
