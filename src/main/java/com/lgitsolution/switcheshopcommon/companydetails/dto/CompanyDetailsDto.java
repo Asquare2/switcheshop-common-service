@@ -30,4 +30,6 @@ public class CompanyDetailsDto {
 
   private TaxDetailsDto taxDetailsDto;
 
+  private DmCommonDto faqDM;
+
 }

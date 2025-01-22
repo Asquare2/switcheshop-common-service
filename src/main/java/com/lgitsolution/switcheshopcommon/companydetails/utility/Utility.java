@@ -53,6 +53,9 @@ public class Utility {
     } else if (companyDetailsDto.getKey().equals(CommonConstants.CMN_COMPANY_TAX_DETAILS)) {
       companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
               .getTaxDetailsDto()));
+    } else if (companyDetailsDto.getKey().equals(CommonConstants.CMN_COMPANY_FAQ_DM_DETAILS)) {
+      companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
+              .getFaqDM()));
     }
 
     return companyDetails;
@@ -89,6 +92,9 @@ public class Utility {
     } else if (companyDetailsDto.getKey().equals(CommonConstants.CMN_COMPANY_TAX_DETAILS)) {
       companyDetailsDto.setTaxDetailsDto(CommonUtility.convertJsonToObject(companyDetails
               .getValue(), new TaxDetailsDto()));
+    } else if (companyDetailsDto.getKey().equals(CommonConstants.CMN_COMPANY_FAQ_DM_DETAILS)) {
+      companyDetailsDto.setFaqDM(CommonUtility.convertJsonToObject(companyDetails.getValue(),
+              new DmCommonDto()));
     }
     return companyDetailsDto;
 

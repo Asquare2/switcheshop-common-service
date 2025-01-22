@@ -77,6 +77,8 @@ public class CommonConstants {
   public static final String CMN_COMPANY_HOME_DM_DETAILS = "home_dm";
 
   public static final String CMN_COMPANY_TAX_DETAILS = "taxDetails";
+  
+  public static final String CMN_COMPANY_FAQ_DM_DETAILS = "faq_dm";
 
   // Company details constants End
 

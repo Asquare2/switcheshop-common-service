@@ -14,4 +14,6 @@ public class ReturnAndExchangePolicy {
 
   private String content;
 
+  private String dmContent;
+
 }
