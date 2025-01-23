@@ -30,4 +30,5 @@ public class ReturnDetailDto {
   private String courierName;
   private Long createdAt;
   private float totalApprovedAmount;
+  private String rejectReason;
 }

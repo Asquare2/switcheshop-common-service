@@ -18,4 +18,6 @@ public class ShipmentTrackActivities {
   private String location;
   @JsonProperty(value = "sr-status")
   private String srStatus;
+  @JsonProperty(value = "sr-status-label")
+  private String srStatusLabel;
 }
