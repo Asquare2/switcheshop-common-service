@@ -1,5 +1,5 @@
-package com.lgitsolution.switcheshopcommon.order.dto;
 
+package com.lgitsolution.switcheshopcommon.order.dto;
 
 public enum SwitchEShopOrderEnum {
 
@@ -8,7 +8,8 @@ public enum SwitchEShopOrderEnum {
           6), Order_Cancelled_By_Customer(7), Order_Cancelled_By_Company(8),
 
   // return shipment
-  Return_Pending(9), Return_Approved(10), Return_Delivered(11), Return_Request_Cancel(12);
+  Return_Pending(9), Return_Approved(10), Return_Initiated(11), Return_Completed(
+          12), Return_Request_Canceled(13), Return_Delivered_To_Company(14);
 
   private int value;
 

@@ -69,4 +69,14 @@ public class ReturnDetail {
 
   @Column(name = "created_at")
   private LocalDate createdAt;
+
+  @Column(name = "approved_amount")
+  private Float totalApprovedAmount;
+
+  @Column(name = "reject_return_reason", columnDefinition = "text")
+  private String rejectReturnReason;
+
+  @Column(name = "return_order_que_ans", columnDefinition = "text")
+  private String returnOrderQuestionAnswerDto;
+
 }

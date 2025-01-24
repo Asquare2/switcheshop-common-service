@@ -61,7 +61,7 @@ public class Utility {
       });
     } catch (Exception e) {
       e.printStackTrace();
-      throw new RuntimeException("Failed to parse JSON to List<CustomerDetailsDt0>", e);
+      throw new RuntimeException("Failed to parse JSON to List<InvoiceItemDto>", e);
     }
   }
 }

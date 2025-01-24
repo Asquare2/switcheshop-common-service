@@ -5,8 +5,11 @@ import java.util.List;
 
 import com.lgitsolution.switcheshopcommon.orderreturn.dto.ReturnDetailDto;
 import com.lgitsolution.switcheshopcommon.orderreturn.model.ReturnDetail;
+import com.lgitsolution.switcheshopcommon.returnorderquestion.dto.ReturnOrderQuestionDto;
 
 public class Utility {
+
+  private static com.lgitsolution.switcheshopcommon.common.util.Utility CommonUtility;
 
   public static ReturnDetailDto convertModelToDto(ReturnDetail model) {
     ReturnDetailDto dto = new ReturnDetailDto();
@@ -22,14 +25,16 @@ public class Utility {
     dto.setItemId(model.getItemId());
     dto.setDeliveryPartnerResponse(model.getDeliveryPartnerResponse());
     dto.setTrackingData(model.getTrackingData());
-    dto.setPickupScheduledDate(com.lgitsolution.switcheshopcommon.common.util.Utility
-            .getLocalDateMillis(model.getPickupScheduledDate()));
+    dto.setPickupScheduledDate(CommonUtility.getLocalDateMillis(model.getPickupScheduledDate()));
     dto.setShipmentId(model.getShipmentId());
     dto.setAwbCode(model.getAwbCode());
     dto.setCourierCompanyId(model.getCourierCompanyId());
     dto.setCourierName(model.getCourierName());
-    dto.setCreatedAt(com.lgitsolution.switcheshopcommon.common.util.Utility.getLocalDateMillis(model
-            .getCreatedAt()));
+    dto.setCreatedAt(CommonUtility.getLocalDateMillis(model.getCreatedAt()));
+    dto.setTotalApprovedAmount(model.getTotalApprovedAmount());
+    dto.setRejectReturnReason(model.getRejectReturnReason());
+    dto.setReturnOrderQuestionAnswerDto(CommonUtility.convertJsonToObject(model
+            .getReturnOrderQuestionAnswerDto(), new ReturnOrderQuestionDto()));
     return dto;
   }
 
@@ -47,18 +52,21 @@ public class Utility {
     model.setItemId(dto.getItemId());
     model.setDeliveryPartnerResponse(dto.getDeliveryPartnerResponse());
     model.setTrackingData(dto.getTrackingData());
-    model.setPickupScheduledDate(com.lgitsolution.switcheshopcommon.common.util.Utility
-            .getLocalDate(dto.getPickupScheduledDate()));
+    model.setPickupScheduledDate(CommonUtility.getLocalDate(dto.getPickupScheduledDate()));
     model.setShipmentId(dto.getShipmentId());
     model.setAwbCode(dto.getAwbCode());
     model.setCourierCompanyId(dto.getCourierCompanyId());
     model.setCourierName(dto.getCourierName());
-    model.setCreatedAt(com.lgitsolution.switcheshopcommon.common.util.Utility.getLocalDate(dto
-            .getCreatedAt()));
+    model.setCreatedAt(CommonUtility.getLocalDate(dto.getCreatedAt()));
+    model.setTotalApprovedAmount(dto.getTotalApprovedAmount());
+    model.setRejectReturnReason(dto.getRejectReturnReason());
+    model.setReturnOrderQuestionAnswerDto(CommonUtility.ConvertObjectToJsonString(dto
+            .getReturnOrderQuestionAnswerDto()));
     return model;
   }
 
   /**
+   * Convert model list to DTO list
    * 
    * @param modelList
    * @return

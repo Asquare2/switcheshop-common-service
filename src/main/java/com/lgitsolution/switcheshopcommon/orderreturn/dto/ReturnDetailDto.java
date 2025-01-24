@@ -3,6 +3,7 @@ package com.lgitsolution.switcheshopcommon.orderreturn.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lgitsolution.switcheshopcommon.returnorderquestion.dto.ReturnOrderQuestionDto;
 
 import lombok.Data;
 
@@ -30,5 +31,6 @@ public class ReturnDetailDto {
   private String courierName;
   private Long createdAt;
   private float totalApprovedAmount;
-  private String rejectReason;
+  private String rejectReturnReason;
+  private ReturnOrderQuestionDto returnOrderQuestionAnswerDto;
 }
