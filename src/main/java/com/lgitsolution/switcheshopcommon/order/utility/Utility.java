@@ -308,7 +308,7 @@ public class Utility {
       trackingList.add(cancel);
     } else {
       trackingList.forEach(o -> {
-        if (o.getStatusCode() == statusCode) {
+        if (o.getStatusCode() == statusCode && o.getIsDone() != 1) {
           o.setStatusDate(date);
           o.setIsDone(1);
         }
