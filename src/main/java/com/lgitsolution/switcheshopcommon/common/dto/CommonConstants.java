@@ -80,6 +80,12 @@ public class CommonConstants {
   
   public static final String CMN_COMPANY_FAQ_DM_DETAILS = "faq_dm";
 
+  public static final String CMN_COMPANY_RETURN_ECXHANGE_DM_DETAILS = "return_exchange_policy_dm";
+
+  public static final String CMN_COMPANY_TERM_CONDITION_DM_DETAILS = "term_condition_dm";
+
+  public static final String CMN_COMPANY_CONTACT_US_DM_DETAILS = "contact_us_dm";
+
   // Company details constants End
 
   public static final String FILTER_CATEGORY_KEY = "category";

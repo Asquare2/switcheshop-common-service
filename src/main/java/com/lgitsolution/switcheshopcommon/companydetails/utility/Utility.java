@@ -56,6 +56,18 @@ public class Utility {
     } else if (companyDetailsDto.getKey().equals(CommonConstants.CMN_COMPANY_FAQ_DM_DETAILS)) {
       companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
               .getFaqDM()));
+    } else if (companyDetailsDto.getKey().equals(
+            CommonConstants.CMN_COMPANY_TERM_CONDITION_DM_DETAILS)) {
+      companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
+              .getTermsAndConditionDM()));
+    } else if (companyDetailsDto.getKey().equals(
+            CommonConstants.CMN_COMPANY_RETURN_ECXHANGE_DM_DETAILS)) {
+      companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
+              .getReturnAndExchangePolicyDM()));
+    } else if (companyDetailsDto.getKey().equals(
+            CommonConstants.CMN_COMPANY_CONTACT_US_DM_DETAILS)) {
+      companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
+              .getContactUsDM()));
     }
 
     return companyDetails;
@@ -94,6 +106,18 @@ public class Utility {
               .getValue(), new TaxDetailsDto()));
     } else if (companyDetailsDto.getKey().equals(CommonConstants.CMN_COMPANY_FAQ_DM_DETAILS)) {
       companyDetailsDto.setFaqDM(CommonUtility.convertJsonToObject(companyDetails.getValue(),
+              new DmCommonDto()));
+    } else if (companyDetailsDto.getKey().equals(
+            CommonConstants.CMN_COMPANY_TERM_CONDITION_DM_DETAILS)) {
+      companyDetailsDto.setTermsAndConditionDM(CommonUtility.convertJsonToObject(companyDetails
+              .getValue(), new DmCommonDto()));
+    } else if (companyDetailsDto.getKey().equals(
+            CommonConstants.CMN_COMPANY_RETURN_ECXHANGE_DM_DETAILS)) {
+      companyDetailsDto.setReturnAndExchangePolicyDM(CommonUtility.convertJsonToObject(
+              companyDetails.getValue(), new DmCommonDto()));
+    } else if (companyDetailsDto.getKey().equals(
+            CommonConstants.CMN_COMPANY_CONTACT_US_DM_DETAILS)) {
+      companyDetailsDto.setContactUsDM(CommonUtility.convertJsonToObject(companyDetails.getValue(),
               new DmCommonDto()));
     }
     return companyDetailsDto;

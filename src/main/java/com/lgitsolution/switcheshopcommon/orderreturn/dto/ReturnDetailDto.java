@@ -32,5 +32,6 @@ public class ReturnDetailDto {
   private Long createdAt;
   private float totalApprovedAmount;
   private String rejectReturnReason;
+  // pending exchange size
   private ReturnOrderQuestionDto returnOrderQuestionAnswerDto;
 }

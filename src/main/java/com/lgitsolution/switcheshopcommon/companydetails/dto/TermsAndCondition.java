@@ -15,6 +15,4 @@ public class TermsAndCondition {
 
   private String content;
 
-  private String dmContent;
-
 }

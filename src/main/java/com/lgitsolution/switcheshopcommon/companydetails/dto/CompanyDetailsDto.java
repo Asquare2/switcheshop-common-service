@@ -26,10 +26,16 @@ public class CompanyDetailsDto {
 
   private CompanyLogoDetails companyLogoDetails;
 
-  private DmCommonDto homeDM;
-
   private TaxDetailsDto taxDetailsDto;
 
+  private DmCommonDto homeDM;
+
   private DmCommonDto faqDM;
+
+  private DmCommonDto returnAndExchangePolicyDM;
+
+  private DmCommonDto termsAndConditionDM;
+
+  private DmCommonDto contactUsDM;
 
 }

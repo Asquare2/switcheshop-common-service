@@ -24,6 +24,5 @@ public class ShipmentDetails {
   private String destination;
   private String consignee_name;
   private String origin;
-  private String courier_agent_details;
   private String edd;
 }
