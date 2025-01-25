@@ -14,7 +14,9 @@ public class ReturnDetailDto {
 
   private int id;
   private Integer orderId;
+  private String orderIdentificationNo;
   private Integer orderItemId;
+  private String skuName;
   private Integer replaceOrderId;
   private Integer paymentId;
   private Integer status;

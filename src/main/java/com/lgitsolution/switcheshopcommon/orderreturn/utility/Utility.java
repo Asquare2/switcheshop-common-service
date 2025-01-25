@@ -35,6 +35,8 @@ public class Utility {
     dto.setRejectReturnReason(model.getRejectReturnReason());
     dto.setReturnOrderQuestionAnswerDto(CommonUtility.convertJsonToObject(model
             .getReturnOrderQuestionAnswerDto(), new ReturnOrderQuestionDto()));
+    dto.setOrderIdentificationNo(model.getOrderIdentificationNo());
+    dto.setSkuName(model.getSkuName());
     return dto;
   }
 
@@ -62,6 +64,8 @@ public class Utility {
     model.setRejectReturnReason(dto.getRejectReturnReason());
     model.setReturnOrderQuestionAnswerDto(CommonUtility.ConvertObjectToJsonString(dto
             .getReturnOrderQuestionAnswerDto()));
+    model.setOrderIdentificationNo(dto.getOrderIdentificationNo());
+    model.setSkuName(dto.getSkuName());
     return model;
   }
 

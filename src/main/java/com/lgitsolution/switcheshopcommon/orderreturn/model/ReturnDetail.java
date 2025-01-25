@@ -79,4 +79,10 @@ public class ReturnDetail {
   @Column(name = "return_order_que_ans", columnDefinition = "text")
   private String returnOrderQuestionAnswerDto;
 
+  @Column(name = "order_id_no")
+  private String orderIdentificationNo;
+
+  @Column(name = "sku_name")
+  private String skuName;
+
 }
