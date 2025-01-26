@@ -64,6 +64,9 @@ public class CustomerDetails implements UserDetails {
   @Column(name = "created_at")
   private LocalDate createdAt;
 
+  @Column(name = "recently_view_sku_id", columnDefinition = "text")
+  private String recentlyViewSkuId;
+
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
     // TODO Auto-generated method stub

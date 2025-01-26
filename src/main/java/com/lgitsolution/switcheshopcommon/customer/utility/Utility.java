@@ -2,6 +2,7 @@
 package com.lgitsolution.switcheshopcommon.customer.utility;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,6 +36,8 @@ public class Utility {
     customerDetailsDto.setDob(Utility.getLocalDateMillis(customerDetails.getDob()));
     customerDetailsDto.setCreatedAt(Utility.getLocalDateMillis(customerDetails.getCreatedAt()));
     customerDetailsDto.setGender(customerDetails.getGender());
+    customerDetailsDto.setRecentlyViewSkuId(Utility.convertJsonToObject(customerDetails
+            .getRecentlyViewSkuId(), new LinkedList<Integer>()));
     return customerDetailsDto;
   }
 
@@ -57,6 +60,8 @@ public class Utility {
     customerDetails.setDob(Utility.getLocalDate(customerDetailsDto.getDob()));
     customerDetails.setCreatedAt(Utility.getLocalDate(customerDetailsDto.getCreatedAt()));
     customerDetails.setGender(customerDetailsDto.getGender());
+    customerDetails.setRecentlyViewSkuId(Utility.ConvertObjectToJsonString(customerDetailsDto
+            .getRecentlyViewSkuId()));
     return customerDetails;
   }
 

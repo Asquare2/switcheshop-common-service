@@ -36,10 +36,12 @@ public class CustomerDetailsDto {
   private Provider provider;
 
   private Long dob;
-  
+
   @Enumerated(EnumType.STRING)
   private Gender gender;
-  
+
   private Long createdAt;
+
+  private List<Integer> recentlyViewSkuId;
 
 }
