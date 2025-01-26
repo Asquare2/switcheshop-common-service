@@ -48,4 +48,7 @@ public class ProductComment {
   /** The created at. */
   @Column(name = "created_at")
   private LocalDate createdAt;
+
+  @Column(name = "order_item_id")
+  private Integer orderItemId;
 }

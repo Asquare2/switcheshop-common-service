@@ -15,6 +15,8 @@ public class ProductCommentDto {
 
   private Integer productId;
 
+  private Integer orderItemId;
+
   private Integer skuId;
 
   private Integer customerId;

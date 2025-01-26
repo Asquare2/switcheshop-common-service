@@ -22,7 +22,7 @@ public class Utility {
     productComment.setComment(productCommentDto.getComment());
     productComment.setIsPublished(productCommentDto.getIsPublished());
     productComment.setCreatedAt(Utility.getLocalDate(productCommentDto.getCreatedAt()));
-
+    productComment.setOrderItemId(productCommentDto.getOrderItemId());
     return productComment;
   }
 
@@ -36,6 +36,7 @@ public class Utility {
     productCommentDto.setComment(productComment.getComment());
     productCommentDto.setIsPublished(productComment.getIsPublished());
     productCommentDto.setCreatedAt(Utility.getLocalDateMillis(productComment.getCreatedAt()));
+    productCommentDto.setOrderItemId(productComment.getOrderItemId());
     return productCommentDto;
   }
 
