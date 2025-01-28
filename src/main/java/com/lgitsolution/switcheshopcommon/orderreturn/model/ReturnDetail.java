@@ -85,4 +85,10 @@ public class ReturnDetail {
   @Column(name = "sku_name")
   private String skuName;
 
+  @Column(name = "requested_sku_name")
+  private String requestedSkuName;
+
+  @Column(name = "requested_sku_id")
+  private Integer requestedSkuId;
+
 }

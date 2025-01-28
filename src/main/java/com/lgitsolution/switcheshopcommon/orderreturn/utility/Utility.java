@@ -37,6 +37,8 @@ public class Utility {
             .getReturnOrderQuestionAnswerDto(), new ReturnOrderQuestionDto()));
     dto.setOrderIdentificationNo(model.getOrderIdentificationNo());
     dto.setSkuName(model.getSkuName());
+    dto.setRequestedSkuName(model.getRequestedSkuName());
+    dto.setRequestedSkuId(model.getRequestedSkuId());
     return dto;
   }
 
@@ -66,6 +68,8 @@ public class Utility {
             .getReturnOrderQuestionAnswerDto()));
     model.setOrderIdentificationNo(dto.getOrderIdentificationNo());
     model.setSkuName(dto.getSkuName());
+    model.setRequestedSkuName(dto.getRequestedSkuName());
+    model.setRequestedSkuId(dto.getRequestedSkuId());
     return model;
   }
 

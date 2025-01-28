@@ -82,5 +82,10 @@ public class OrderDetailsDto {
   private Long pickupLocation;
 
   private String pickupLocationName;
+  
+  private boolean isApplicableForReturn;
+
+  // will soft code it
+  private Integer noOfAllowdReturableDays = 7;
 
 }
