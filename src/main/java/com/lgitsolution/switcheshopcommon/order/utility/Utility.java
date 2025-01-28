@@ -1,7 +1,9 @@
 
 package com.lgitsolution.switcheshopcommon.order.utility;
 
+import java.time.LocalDate;
 import java.time.ZoneOffset;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -110,6 +112,19 @@ public class Utility {
     orderDetailsDto.setDisplayedTrackingList(parseJsonToList(orderDetails
             .getDisplayedTrackingData()));
     orderDetailsDto.setPickupLocation(orderDetails.getPickupLocation());
+    OrderTrackingDetailsDto deliveredTrackingData = getTrackingDetailByStatus(
+            SwitchEShopOrderEnum.Deliverd, orderDetailsDto.getDisplayedTrackingList());
+
+    if (deliveredTrackingData != null && deliveredTrackingData.getIsDone() == 1) {
+      LocalDate deliveredDate = CommonUtility.getLocalDate(deliveredTrackingData.getStatusDate());
+      LocalDate currentDate = com.lgitsolution.switcheshopcommon.common.util.Utility.getLocalDate(
+              System.currentTimeMillis());
+      long daysDifference = ChronoUnit.DAYS.between(deliveredDate, currentDate);
+      daysDifference = Math.abs(daysDifference);
+      if (daysDifference <= orderDetailsDto.getNoOfAllowdReturableDays()) {
+        orderDetailsDto.setApplicableForReturn(true);
+      }
+    }
     return orderDetailsDto;
   }
 
@@ -315,6 +330,18 @@ public class Utility {
       });
     }
     return trackingList;
+  }
+
+  public static OrderTrackingDetailsDto getTrackingDetailByStatus(SwitchEShopOrderEnum orderEnum,
+          List<OrderTrackingDetailsDto> trackinglist) {
+    OrderTrackingDetailsDto trackingDetails = null;
+    try {
+      trackingDetails = trackinglist.stream().filter(obj -> obj.getStatusCode() == orderEnum
+              .getValue()).findFirst().get();
+    } catch (Exception e) {
+      trackingDetails = null;
+    }
+    return trackingDetails;
   }
 
 }
