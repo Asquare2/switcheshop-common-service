@@ -32,7 +32,7 @@ public class ReturnDetailDto {
   private String courierCompanyId;
   private String courierName;
   private Long createdAt;
-  private float totalApprovedAmount;
+  private Float totalApprovedAmount;
   private String rejectReturnReason;
   private String requestedSkuName;
   private Integer requestedSkuId;
