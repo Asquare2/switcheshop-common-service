@@ -36,6 +36,9 @@ public class ProductComment {
   /** The rating start. */
   @Column(name = "rating_star")
   private Integer ratingStar;
+  
+  @Column(name = "customer_name")
+  private String customerName;
 
   /** The comment */
   @Column(name = "comment")

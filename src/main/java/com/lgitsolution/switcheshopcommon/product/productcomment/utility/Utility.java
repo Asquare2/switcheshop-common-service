@@ -23,7 +23,7 @@ public class Utility {
     productComment.setIsPublished(productCommentDto.getIsPublished());
     productComment.setCreatedAt(Utility.getLocalDate(productCommentDto.getCreatedAt()));
     productComment.setOrderItemId(productCommentDto.getOrderItemId());
-    return productComment;
+    productComment.setCustomerName(productCommentDto.getCustomerName());  return productComment;
   }
 
   public static ProductCommentDto convertModelToDto(ProductComment productComment) {
@@ -37,6 +37,7 @@ public class Utility {
     productCommentDto.setIsPublished(productComment.getIsPublished());
     productCommentDto.setCreatedAt(Utility.getLocalDateMillis(productComment.getCreatedAt()));
     productCommentDto.setOrderItemId(productComment.getOrderItemId());
+    productCommentDto.setCustomerName(productComment.getCustomerName());
     return productCommentDto;
   }
 
