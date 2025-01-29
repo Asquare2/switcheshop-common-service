@@ -1,6 +1,8 @@
 
 package com.lgitsolution.switcheshopcommon.orderreturn.dto;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lgitsolution.switcheshopcommon.returnorderquestion.dto.ReturnOrderQuestionDto;
@@ -36,5 +38,5 @@ public class ReturnDetailDto {
   private String rejectReturnReason;
   private String requestedSkuName;
   private Integer requestedSkuId;
-  private ReturnOrderQuestionDto returnOrderQuestionAnswerDto;
+  private List<ReturnOrderQuestionDto> returnOrderQuestionAnswerDtoList;
 }

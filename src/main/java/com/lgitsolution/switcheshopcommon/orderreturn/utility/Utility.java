@@ -3,6 +3,8 @@ package com.lgitsolution.switcheshopcommon.orderreturn.utility;
 
 import java.util.List;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lgitsolution.switcheshopcommon.orderreturn.dto.ReturnDetailDto;
 import com.lgitsolution.switcheshopcommon.orderreturn.model.ReturnDetail;
 import com.lgitsolution.switcheshopcommon.returnorderquestion.dto.ReturnOrderQuestionDto;
@@ -33,13 +35,30 @@ public class Utility {
     dto.setCreatedAt(CommonUtility.getLocalDateMillis(model.getCreatedAt()));
     dto.setTotalApprovedAmount(model.getTotalApprovedAmount());
     dto.setRejectReturnReason(model.getRejectReturnReason());
-    dto.setReturnOrderQuestionAnswerDto(CommonUtility.convertJsonToObject(model
-            .getReturnOrderQuestionAnswerDto(), new ReturnOrderQuestionDto()));
+    dto.setReturnOrderQuestionAnswerDtoList(parseJsonToList(model
+            .getReturnOrderQuestionAnswerDto()));
     dto.setOrderIdentificationNo(model.getOrderIdentificationNo());
     dto.setSkuName(model.getSkuName());
     dto.setRequestedSkuName(model.getRequestedSkuName());
     dto.setRequestedSkuId(model.getRequestedSkuId());
     return dto;
+  }
+
+  /**
+   * Parse json string to address details list.
+   * 
+   * @param json string
+   * @return the list of address details
+   */
+  private static List<ReturnOrderQuestionDto> parseJsonToList(String json) {
+    ObjectMapper objectMapper = new ObjectMapper();
+    try {
+      return objectMapper.readValue(json, new TypeReference<List<ReturnOrderQuestionDto>>() {
+      });
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new RuntimeException("Failed to parse JSON to List<ReturnOrderQuestionDto>", e);
+    }
   }
 
   public static ReturnDetail convertDtoToModel(ReturnDetailDto dto) {
@@ -65,7 +84,7 @@ public class Utility {
     model.setTotalApprovedAmount(dto.getTotalApprovedAmount());
     model.setRejectReturnReason(dto.getRejectReturnReason());
     model.setReturnOrderQuestionAnswerDto(CommonUtility.ConvertObjectToJsonString(dto
-            .getReturnOrderQuestionAnswerDto()));
+            .getReturnOrderQuestionAnswerDtoList()));
     model.setOrderIdentificationNo(dto.getOrderIdentificationNo());
     model.setSkuName(dto.getSkuName());
     model.setRequestedSkuName(dto.getRequestedSkuName());

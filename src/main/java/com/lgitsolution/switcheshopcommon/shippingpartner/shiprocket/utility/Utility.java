@@ -136,12 +136,11 @@ public class Utility {
     dto.setShipping_city(pickupLocationDto.getCity());
     dto.setShipping_country(pickupLocationDto.getCountry());
     dto.setShipping_email(pickupLocationDto.getEmail());
-    dto.setShipping_phone(Integer.parseInt(pickupLocationDto.getPhone()));
+    dto.setShipping_phone(Long.parseLong(pickupLocationDto.getPhone()));
     dto.setShipping_pincode(Integer.parseInt(pickupLocationDto.getPincode()));
     dto.setShipping_state(pickupLocationDto.getState());
 
     dto.setPayment_method(orderDetailsDto.getPaymenMethod());
-    dto.setSub_total(Math.round(orderDetailsDto.getTotalPayable()));
     Map<String, String> packageDimensionsMap = orderDetailsDto.getPackageDimensionsMap();
     dto.setLength(Integer.parseInt(packageDimensionsMap.get(
             CommonConstants.ORDER_PACKAGE_DIMENTION_LENGTH)));
@@ -156,20 +155,21 @@ public class Utility {
     orderItemsDtoList.forEach(o -> {
       if (returnDetailDto.getOrderItemId() == o.getId()) {
         ReturnOrderItems item = new ReturnOrderItems();
-        item.setQc_enable(true);
+        // item.setQc_enable(true);
+        item.setName(o.getSkuName());
         item.setUnits(o.getQuantity());
         item.setSku(o.getSkuName());
         item.setSelling_price(o.getSellingPrice());
-        item.setQc_product_name(o.getSkuName());
-        // image pending
-        item.setQc_product_image("");
+        // item.setQc_product_name(o.getSkuName());
+        // // image pending
+        // item.setQc_product_image("");
         srItemsList.add(item);
       }
     });
 
     dto.setOrder_items(srItemsList);
-    dto.setPayment_method("Prepaid");
     dto.setSub_total(returnDetailDto.getTotalApprovedAmount());
+    dto.setRequest_pickup(true);
     return dto;
   }
 }
