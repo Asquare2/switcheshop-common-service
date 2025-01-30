@@ -88,4 +88,8 @@ public class OrderDetailsDto {
   // will soft code it
   private Integer noOfAllowdReturableDays = 7;
 
+  private Integer returnDetailId;
+
+  private boolean isApplicableForCancel;
+
 }

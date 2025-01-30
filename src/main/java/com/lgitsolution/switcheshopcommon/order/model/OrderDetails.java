@@ -114,4 +114,7 @@ public class OrderDetails {
 
   @Column(name = "pickup_location")
   private Long pickupLocation;
+
+  @Column(name = "return_detail_id")
+  private Integer returnDetailId;
 }
