@@ -66,6 +66,7 @@ public class Utility {
     orderDetails.setDisplayedTrackingData(CommonUtility.ConvertObjectToJsonString(orderDetilsDto
             .getDisplayedTrackingList()));
     orderDetails.setPickupLocation(orderDetilsDto.getPickupLocation());
+    orderDetails.setReturnDetailId(orderDetilsDto.getReturnDetailId());
     return orderDetails;
   }
 
@@ -125,6 +126,21 @@ public class Utility {
         orderDetailsDto.setApplicableForReturn(true);
       }
     }
+
+    boolean isApplicableForCancel = true;
+    List<OrderTrackingDetailsDto> displayedTrackingList = orderDetailsDto
+            .getDisplayedTrackingList();
+    for (OrderTrackingDetailsDto displayTrackDto : displayedTrackingList) {
+      int statusCode = displayTrackDto.getStatusCode();
+      if ((statusCode == SwitchEShopOrderEnum.Shipped.getValue() && displayTrackDto
+              .getIsDone() == 1) || (statusCode == SwitchEShopOrderEnum.Order_Cancelled_By_Company
+                      .getValue() && displayTrackDto.getIsDone() == 1)
+              || (statusCode == SwitchEShopOrderEnum.Order_Cancelled_By_Customer.getValue())) {
+        isApplicableForCancel = false;
+      }
+    }
+    orderDetailsDto.setApplicableForCancel(isApplicableForCancel);
+    orderDetailsDto.setReturnDetailId(orderDetails.getReturnDetailId());
     return orderDetailsDto;
   }
 

@@ -52,4 +52,5 @@ public class OrderItems {
   /** The hsn code. */
   @Column(name = "hsn_code")
   private String hsnCode;
+
 }

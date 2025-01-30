@@ -91,4 +91,7 @@ public class ReturnDetail {
   @Column(name = "requested_sku_id")
   private Integer requestedSkuId;
 
+  @Column(name = "displayed_tracking_data")
+  private String displayedTrackingData;
+
 }

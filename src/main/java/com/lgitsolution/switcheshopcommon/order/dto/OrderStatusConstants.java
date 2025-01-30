@@ -27,8 +27,6 @@ public class OrderStatusConstants {
 
   public static final String APPROVED_ORDER_STATUS = "Approved";
 
-  public static final String INITIATED_ORDER_STATUS = "Initiated";
-
   public static final String COMPLETED_ORDER_STATUS = "Completed";
 
   public static final String DELIVERED_TO_COMPANY_ORDER_STATUS = "Delivered to company";

@@ -8,7 +8,7 @@ public enum SwitchEShopOrderEnum {
           6), Order_Cancelled_By_Customer(7), Order_Cancelled_By_Company(8),
 
   // return shipment
-  Return_Pending(9), Return_Approved(10), Return_Initiated(11), Return_Completed(
+  Return_Pending(9), Return_Approved_Initiated(10), Return_Picked_Up(11), Return_Completed(
           12), Return_Request_Canceled_by_Company(13), Return_Request_Canceled_by_Customer(
                   14), Return_Delivered_To_Company(15);
 
