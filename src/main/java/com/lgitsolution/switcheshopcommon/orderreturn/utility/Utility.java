@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lgitsolution.switcheshopcommon.order.dto.OrderTrackingDetailsDto;
 import com.lgitsolution.switcheshopcommon.orderreturn.dto.ReturnDetailDto;
 import com.lgitsolution.switcheshopcommon.orderreturn.model.ReturnDetail;
 import com.lgitsolution.switcheshopcommon.returnorderquestion.dto.ReturnOrderQuestionDto;
@@ -41,7 +42,28 @@ public class Utility {
     dto.setSkuName(model.getSkuName());
     dto.setRequestedSkuName(model.getRequestedSkuName());
     dto.setRequestedSkuId(model.getRequestedSkuId());
+    dto.setDisplayedTrackingList(parseJsonToList(model.getDisplayedTrackingData(), true));
     return dto;
+  }
+
+  /**
+   * Parse json string to OrderTrackingDetailsDto list.
+   * 
+   * @param json string
+   * @return the list of OrderTrackingDetailsDto details
+   */
+  public static List<OrderTrackingDetailsDto> parseJsonToList(String json, boolean isTrack) {
+    if (json == null || json.isBlank()) {
+      return null;
+    }
+    ObjectMapper objectMapper = new ObjectMapper();
+    try {
+      return objectMapper.readValue(json, new TypeReference<List<OrderTrackingDetailsDto>>() {
+      });
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new RuntimeException("Failed to parse JSON to List<OrderTrackingDetailsDto>", e);
+    }
   }
 
   /**
@@ -89,6 +111,8 @@ public class Utility {
     model.setSkuName(dto.getSkuName());
     model.setRequestedSkuName(dto.getRequestedSkuName());
     model.setRequestedSkuId(dto.getRequestedSkuId());
+    model.setDisplayedTrackingData(CommonUtility.ConvertObjectToJsonString(dto
+            .getDisplayedTrackingList()));
     return model;
   }
 

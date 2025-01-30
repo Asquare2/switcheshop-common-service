@@ -53,6 +53,4 @@ public class OrderItems {
   @Column(name = "hsn_code")
   private String hsnCode;
 
-  @Column(name = "displayed_tracking_data")
-  private String displayedTrackingData;
 }

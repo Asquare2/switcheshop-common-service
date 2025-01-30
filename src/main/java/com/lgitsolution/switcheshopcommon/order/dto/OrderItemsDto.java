@@ -1,8 +1,6 @@
 
 package com.lgitsolution.switcheshopcommon.order.dto;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lgitsolution.switcheshopcommon.common.dto.Multimedia;
@@ -44,7 +42,5 @@ public class OrderItemsDto {
   private String skuItemId;
 
   private String slug;
-
-  private List<OrderTrackingDetailsDto> displayedTrackingList;
 
 }
