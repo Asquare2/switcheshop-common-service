@@ -198,6 +198,8 @@ public class Utility {
     orderItems.setSellingPrice(dto.getSellingPrice());
     orderItems.setSaleId(dto.getSaleId());
     orderItems.setHsnCode(dto.getHsnCode());
+    orderItems.setDisplayedTrackingData(CommonUtility.ConvertObjectToJsonString(dto
+            .getDisplayedTrackingList()));
     return orderItems;
   }
 
@@ -221,6 +223,7 @@ public class Utility {
     orderItemsDto.setSellingPrice(orderItems.getSellingPrice());
     orderItemsDto.setSaleId(orderItems.getSaleId());
     orderItemsDto.setHsnCode(orderItems.getHsnCode());
+    orderItemsDto.setDisplayedTrackingList(parseJsonToList(orderItems.getDisplayedTrackingData()));
     return orderItemsDto;
   }
 
