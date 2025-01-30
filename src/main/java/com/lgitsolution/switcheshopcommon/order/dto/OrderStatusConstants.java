@@ -27,7 +27,13 @@ public class OrderStatusConstants {
 
   public static final String APPROVED_ORDER_STATUS = "Approved";
 
+  public static final String APPROVED_Initiated_ORDER_STATUS = "Approved and Initiated";
+
+  public static final String Picked_Up_ORDER_STATUS = "Picked up";
+
   public static final String COMPLETED_ORDER_STATUS = "Completed";
 
   public static final String DELIVERED_TO_COMPANY_ORDER_STATUS = "Delivered to company";
+
+  public static final String Refund_Initiated_ORDER_STATUS = "Refund initiated";
 }

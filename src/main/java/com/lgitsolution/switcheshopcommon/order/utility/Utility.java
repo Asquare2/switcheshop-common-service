@@ -255,44 +255,39 @@ public class Utility {
    * @param trackingList the tracking list
    * @return the tracking data list.
    */
-  public static List<OrderTrackingDetailsDto> getOrderTrackingDetailsList(boolean isReturn,
-          List<OrderTrackingDetailsDto> trackingList) {
-    if (!isReturn) {
-      trackingList = new ArrayList<OrderTrackingDetailsDto>();
+  public static List<OrderTrackingDetailsDto> getOrderTrackingDetailsList() {
+    List<OrderTrackingDetailsDto> trackingList = new ArrayList<OrderTrackingDetailsDto>();
 
-      OrderTrackingDetailsDto pending = new OrderTrackingDetailsDto();
-      pending.setStepNumber(0);
-      pending.setStatusName(OrderStatusConstants.PENDING_ORDER_STATUS);
-      pending.setStatusCode(SwitchEShopOrderEnum.Pending.getValue());
-      trackingList.add(pending);
+    OrderTrackingDetailsDto pending = new OrderTrackingDetailsDto();
+    pending.setStepNumber(0);
+    pending.setStatusName(OrderStatusConstants.PENDING_ORDER_STATUS);
+    pending.setStatusCode(SwitchEShopOrderEnum.Pending.getValue());
+    trackingList.add(pending);
 
-      OrderTrackingDetailsDto confirmed = new OrderTrackingDetailsDto();
-      confirmed.setStepNumber(1);
-      confirmed.setStatusCode(SwitchEShopOrderEnum.Confirmed.getValue());
-      confirmed.setStatusName(OrderStatusConstants.CONFIRMED_STATUS);
-      trackingList.add(confirmed);
+    OrderTrackingDetailsDto confirmed = new OrderTrackingDetailsDto();
+    confirmed.setStepNumber(1);
+    confirmed.setStatusCode(SwitchEShopOrderEnum.Confirmed.getValue());
+    confirmed.setStatusName(OrderStatusConstants.CONFIRMED_STATUS);
+    trackingList.add(confirmed);
 
-      OrderTrackingDetailsDto shipped = new OrderTrackingDetailsDto();
-      shipped.setStepNumber(2);
-      shipped.setStatusName(OrderStatusConstants.SHIPPED_ORDER_STATUS);
-      shipped.setStatusCode(SwitchEShopOrderEnum.Shipped.getValue());
-      trackingList.add(shipped);
+    OrderTrackingDetailsDto shipped = new OrderTrackingDetailsDto();
+    shipped.setStepNumber(2);
+    shipped.setStatusName(OrderStatusConstants.SHIPPED_ORDER_STATUS);
+    shipped.setStatusCode(SwitchEShopOrderEnum.Shipped.getValue());
+    trackingList.add(shipped);
 
-      OrderTrackingDetailsDto outForDelivery = new OrderTrackingDetailsDto();
-      outForDelivery.setStepNumber(3);
-      outForDelivery.setStatusName(OrderStatusConstants.OUT_FOR_DELIVERY_ORDER_STATUS);
-      outForDelivery.setStatusCode(SwitchEShopOrderEnum.Out_For_Delivery.getValue());
-      trackingList.add(outForDelivery);
+    OrderTrackingDetailsDto outForDelivery = new OrderTrackingDetailsDto();
+    outForDelivery.setStepNumber(3);
+    outForDelivery.setStatusName(OrderStatusConstants.OUT_FOR_DELIVERY_ORDER_STATUS);
+    outForDelivery.setStatusCode(SwitchEShopOrderEnum.Out_For_Delivery.getValue());
+    trackingList.add(outForDelivery);
 
-      OrderTrackingDetailsDto delivered = new OrderTrackingDetailsDto();
-      delivered.setStepNumber(4);
-      delivered.setStatusName(OrderStatusConstants.DELIVERED_ORDER_STATUS);
-      delivered.setStatusCode(SwitchEShopOrderEnum.Deliverd.getValue());
-      trackingList.add(delivered);
+    OrderTrackingDetailsDto delivered = new OrderTrackingDetailsDto();
+    delivered.setStepNumber(4);
+    delivered.setStatusName(OrderStatusConstants.DELIVERED_ORDER_STATUS);
+    delivered.setStatusCode(SwitchEShopOrderEnum.Deliverd.getValue());
+    trackingList.add(delivered);
 
-    } else {
-
-    }
     return trackingList;
   }
 

@@ -1,11 +1,15 @@
 
 package com.lgitsolution.switcheshopcommon.orderreturn.utility;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lgitsolution.switcheshopcommon.order.dto.OrderStatusConstants;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderTrackingDetailsDto;
+import com.lgitsolution.switcheshopcommon.order.dto.SwitchEShopOrderEnum;
+import com.lgitsolution.switcheshopcommon.orderreturn.dto.OrderReturnConstants;
 import com.lgitsolution.switcheshopcommon.orderreturn.dto.ReturnDetailDto;
 import com.lgitsolution.switcheshopcommon.orderreturn.model.ReturnDetail;
 import com.lgitsolution.switcheshopcommon.returnorderquestion.dto.ReturnOrderQuestionDto;
@@ -124,6 +128,108 @@ public class Utility {
    */
   public static List<ReturnDetailDto> convertModelToDto(List<ReturnDetail> modelList) {
     return modelList.stream().map(model -> convertModelToDto(model)).toList();
+  }
+
+  /**
+   * Gets the order status list.
+   * 
+   * @param isReturn is for return order.
+   * @param trackingList the tracking list
+   * @return the tracking data list.
+   */
+  public static List<OrderTrackingDetailsDto> getOrderTrackingDetailsList(int requestedFor) {
+    List<OrderTrackingDetailsDto> trackingList = new ArrayList<OrderTrackingDetailsDto>();
+
+    OrderTrackingDetailsDto pending = new OrderTrackingDetailsDto();
+    pending.setStepNumber(0);
+    pending.setStatusName(OrderStatusConstants.PENDING_ORDER_STATUS);
+    pending.setStatusCode(SwitchEShopOrderEnum.Return_Pending.getValue());
+    trackingList.add(pending);
+
+    OrderTrackingDetailsDto confirmed = new OrderTrackingDetailsDto();
+    confirmed.setStepNumber(1);
+    confirmed.setStatusName(OrderStatusConstants.APPROVED_Initiated_ORDER_STATUS);
+    confirmed.setStatusCode(SwitchEShopOrderEnum.Return_Approved_Initiated.getValue());
+
+    OrderTrackingDetailsDto pickedUp = new OrderTrackingDetailsDto();
+    pickedUp.setStepNumber(2);
+    pickedUp.setStatusName(OrderStatusConstants.Picked_Up_ORDER_STATUS);
+    pickedUp.setStatusCode(SwitchEShopOrderEnum.Return_Picked_Up.getValue());
+
+    trackingList.add(pending);
+    trackingList.add(confirmed);
+    trackingList.add(pickedUp);
+
+    if (requestedFor == OrderReturnConstants.REQUESTED_FOR_RETURN) {
+      OrderTrackingDetailsDto refundInitiated = new OrderTrackingDetailsDto();
+      refundInitiated.setStepNumber(3);
+      refundInitiated.setStatusName(OrderStatusConstants.Refund_Initiated_ORDER_STATUS);
+      refundInitiated.setStatusCode(SwitchEShopOrderEnum.Return_Picked_Up.getValue());
+
+      OrderTrackingDetailsDto completed = new OrderTrackingDetailsDto();
+      completed.setStepNumber(4);
+      completed.setStatusName(OrderStatusConstants.COMPLETED_ORDER_STATUS);
+      completed.setStatusCode(SwitchEShopOrderEnum.Return_Completed.getValue());
+
+      trackingList.add(refundInitiated);
+      trackingList.add(completed);
+    } else {
+
+      OrderTrackingDetailsDto shipped = new OrderTrackingDetailsDto();
+      shipped.setStepNumber(3);
+      shipped.setStatusName(OrderStatusConstants.SHIPPED_ORDER_STATUS);
+      shipped.setStatusCode(SwitchEShopOrderEnum.Shipped.getValue());
+      trackingList.add(shipped);
+
+      OrderTrackingDetailsDto outForDelivery = new OrderTrackingDetailsDto();
+      outForDelivery.setStepNumber(4);
+      outForDelivery.setStatusName(OrderStatusConstants.OUT_FOR_DELIVERY_ORDER_STATUS);
+      outForDelivery.setStatusCode(SwitchEShopOrderEnum.Out_For_Delivery.getValue());
+      trackingList.add(outForDelivery);
+
+      OrderTrackingDetailsDto delivered = new OrderTrackingDetailsDto();
+      delivered.setStepNumber(5);
+      delivered.setStatusName(OrderStatusConstants.DELIVERED_ORDER_STATUS);
+      delivered.setStatusCode(SwitchEShopOrderEnum.Return_Completed.getValue());
+      trackingList.add(delivered);
+    }
+    return trackingList;
+  }
+
+  /**
+   * Gets updated tracking list.
+   * 
+   * @param trackingList the tracking list
+   * @param statusCode the status code
+   * @param date the date
+   * @return the updated tracking list.
+   */
+  public static List<OrderTrackingDetailsDto> updateTrackingDatalist(
+          List<OrderTrackingDetailsDto> trackingList, int statusCode, long date) {
+    if (statusCode == SwitchEShopOrderEnum.Return_Delivered_To_Company.getValue()) {
+      return trackingList;
+    }
+    if (statusCode == SwitchEShopOrderEnum.Return_Request_Canceled_by_Company.getValue()
+            || statusCode == SwitchEShopOrderEnum.Return_Request_Canceled_by_Customer.getValue()) {
+      trackingList.removeIf(obj -> (obj
+              .getStatusCode() != SwitchEShopOrderEnum.Return_Approved_Initiated.getValue() || obj
+                      .getStatusCode() != SwitchEShopOrderEnum.Return_Pending.getValue()));
+      OrderTrackingDetailsDto cancel = new OrderTrackingDetailsDto();
+      cancel.setStepNumber(2);
+      cancel.setStatusName(OrderStatusConstants.CANCEL_STATUS);
+      cancel.setStatusCode(statusCode);
+      cancel.setIsDone(1);
+      cancel.setStatusDate(System.currentTimeMillis());
+      trackingList.add(cancel);
+    } else {
+      trackingList.forEach(o -> {
+        if (o.getStatusCode() == statusCode && o.getIsDone() != 1) {
+          o.setStatusDate(date);
+          o.setIsDone(1);
+        }
+      });
+    }
+    return trackingList;
   }
 
 }
