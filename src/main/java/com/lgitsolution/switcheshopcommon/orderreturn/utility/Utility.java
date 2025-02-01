@@ -6,6 +6,9 @@ import java.util.List;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lgitsolution.switcheshopcommon.common.dto.CommonConstants;
+import com.lgitsolution.switcheshopcommon.order.dto.OrderDetailsDto;
+import com.lgitsolution.switcheshopcommon.order.dto.OrderItemsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderStatusConstants;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderTrackingDetailsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.SwitchEShopOrderEnum;
@@ -230,6 +233,25 @@ public class Utility {
       });
     }
     return trackingList;
+  }
+
+  public static OrderDetailsDto getOrderDetails(ReturnDetailDto returnDetailDto,
+          OrderDetailsDto existingOrderDetailsDto) {
+    OrderDetailsDto newOrderDetailsDto = new OrderDetailsDto();
+    newOrderDetailsDto.setCreatedAt(System.currentTimeMillis());
+    newOrderDetailsDto.setCustomerAddressDetails(existingOrderDetailsDto
+            .getCustomerAddressDetails());
+    newOrderDetailsDto.setCustomerDetailsId(existingOrderDetailsDto.getCustomerDetailsId());
+    List<OrderItemsDto> orderItemsDtoList = existingOrderDetailsDto.getOrderItemsDtoList();
+    OrderItemsDto orderItemsDto = orderItemsDtoList.stream().filter(obj -> obj
+            .getId() == returnDetailDto.getOrderItemId()).findFirst().get();
+    newOrderDetailsDto.setOrderItemsDtoList(List.of(orderItemsDto));
+    newOrderDetailsDto.setReturnDetailId(returnDetailDto.getId());
+    newOrderDetailsDto.setTotalPayable(orderItemsDto.getSellingPrice());
+    newOrderDetailsDto.setTotalAmount(orderItemsDto.getSellingPrice());
+    newOrderDetailsDto.setPaymenMethod(CommonConstants.CMN_PAYMENT_METHOD_PREPAID);
+    newOrderDetailsDto.setPickupLocation(existingOrderDetailsDto.getPickupLocation());
+    return newOrderDetailsDto;
   }
 
 }
