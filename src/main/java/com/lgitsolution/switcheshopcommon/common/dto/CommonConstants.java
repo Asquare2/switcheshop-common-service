@@ -77,7 +77,7 @@ public class CommonConstants {
   public static final String CMN_COMPANY_HOME_DM_DETAILS = "home_dm";
 
   public static final String CMN_COMPANY_TAX_DETAILS = "taxDetails";
-  
+
   public static final String CMN_COMPANY_FAQ_DM_DETAILS = "faq_dm";
 
   public static final String CMN_COMPANY_RETURN_ECXHANGE_DM_DETAILS = "return_exchange_policy_dm";
@@ -139,6 +139,8 @@ public class CommonConstants {
   public static final String MIS_SETTING_INVOICE_PREFIX_KEY = "invoice_prefix";
 
   public static final String MIS_SETTING_RETURN_ORDER_PREFIX_KEY = "return_order_detail_prefix";
+
+  public static final String MIS_SETTING_REFUND_DETAIL_PREFIX_KEY = "refund_detail_prefix";
 
   // Miscellaneous settings constant end
 
