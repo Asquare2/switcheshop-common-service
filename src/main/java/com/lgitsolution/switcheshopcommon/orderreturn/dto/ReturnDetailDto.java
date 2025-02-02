@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lgitsolution.switcheshopcommon.order.dto.OrderStatusDetail;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderTrackingDetailsDto;
 import com.lgitsolution.switcheshopcommon.returnorderquestion.dto.ReturnOrderQuestionDto;
 
@@ -23,6 +24,7 @@ public class ReturnDetailDto {
   private Integer replaceOrderId;
   private Integer paymentId;
   private Integer status;
+  private OrderStatusDetail orderStatusDetail;
   private String reason;
   private Integer requestedFor;
   private Integer paymentStatus;

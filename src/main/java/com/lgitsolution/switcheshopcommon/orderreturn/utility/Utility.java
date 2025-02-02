@@ -10,6 +10,7 @@ import com.lgitsolution.switcheshopcommon.common.dto.CommonConstants;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderDetailsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderItemsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderStatusConstants;
+import com.lgitsolution.switcheshopcommon.order.dto.OrderStatusDetail;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderTrackingDetailsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.SwitchEShopOrderEnum;
 import com.lgitsolution.switcheshopcommon.orderreturn.dto.OrderReturnConstants;
@@ -50,6 +51,7 @@ public class Utility {
     dto.setRequestedSkuName(model.getRequestedSkuName());
     dto.setRequestedSkuId(model.getRequestedSkuId());
     dto.setDisplayedTrackingList(parseJsonToList(model.getDisplayedTrackingData(), true));
+    dto.setOrderStatusDetail(getOrderStatusDetailObj(dto.getStatus()));
     return dto;
   }
 
@@ -252,6 +254,29 @@ public class Utility {
     newOrderDetailsDto.setPaymenMethod(CommonConstants.CMN_PAYMENT_METHOD_PREPAID);
     newOrderDetailsDto.setPickupLocation(existingOrderDetailsDto.getPickupLocation());
     return newOrderDetailsDto;
+  }
+
+  public static OrderStatusDetail getOrderStatusDetailObj(int status) {
+    OrderStatusDetail orderStatusDetail = new OrderStatusDetail();
+    orderStatusDetail.setStatusCode(status);
+    String statusName = "";
+    if (status == SwitchEShopOrderEnum.Return_Pending.getValue()) {
+      statusName = OrderStatusConstants.PENDING_ORDER_STATUS;
+    } else if (status == SwitchEShopOrderEnum.Return_Approved_Initiated.getValue()) {
+      statusName = OrderStatusConstants.APPROVED_Initiated_ORDER_STATUS;
+    } else if (status == SwitchEShopOrderEnum.Return_Picked_Up.getValue()) {
+      statusName = OrderStatusConstants.Picked_Up_ORDER_STATUS;
+    } else if (status == SwitchEShopOrderEnum.Return_Completed.getValue()) {
+      statusName = OrderStatusConstants.COMPLETED_ORDER_STATUS;
+    } else if (status == SwitchEShopOrderEnum.Return_Request_Canceled_by_Company.getValue()) {
+      statusName = OrderStatusConstants.CANCEL_BY_COMPANY_ORDER_STATUS;
+    } else if (status == SwitchEShopOrderEnum.Return_Request_Canceled_by_Customer.getValue()) {
+      statusName = OrderStatusConstants.CANCEL_BY_CUSTOMER_ORDER_STATUS;
+    } else if (status == SwitchEShopOrderEnum.Return_Delivered_To_Company.getValue()) {
+      statusName = OrderStatusConstants.DELIVERED_TO_COMPANY_ORDER_STATUS;
+    }
+    orderStatusDetail.setName(statusName);
+    return orderStatusDetail;
   }
 
 }
