@@ -140,8 +140,6 @@ public class CommonConstants {
 
   public static final String MIS_SETTING_RETURN_ORDER_PREFIX_KEY = "return_order_detail_prefix";
 
-  public static final String MIS_SETTING_REFUND_DETAIL_PREFIX_KEY = "refund_detail_prefix";
-
   // Miscellaneous settings constant end
 
   // search operations name start
