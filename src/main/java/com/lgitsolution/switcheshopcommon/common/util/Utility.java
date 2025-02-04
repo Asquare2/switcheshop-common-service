@@ -641,4 +641,15 @@ public class Utility {
 
   }
 
+  public static int roundFloat(float value) {
+    int intValue = (int) value; // Get the integer part
+    float decimalPart = value - intValue; // Get the decimal part
+
+    if (decimalPart > 0.5) {
+      return intValue + 1; // Round up
+    } else {
+      return intValue; // Round down
+    }
+  }
+
 }
