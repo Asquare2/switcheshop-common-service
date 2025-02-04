@@ -36,7 +36,7 @@ public class RefundRequestDto {
    * 
    * Available options: STANDARD, INSTANT
    */
-  private String refund_speed;
+  private RefundModeEnum refund_speed;
 
   private RefundSplitsDto[] refund_splits;
 
