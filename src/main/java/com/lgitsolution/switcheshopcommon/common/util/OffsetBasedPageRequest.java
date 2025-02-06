@@ -33,6 +33,19 @@ public class OffsetBasedPageRequest implements Pageable, Serializable {
     this.sort = sort;
   }
 
+  /**
+   * Creates a new {@link OffsetBasedPageRequest} with sort parameters applied.
+   *
+   * @param offset zero-based offset.
+   * @param limit the size of the elements to be returned.
+   * @param sort can be {@literal null}.
+   */
+  public OffsetBasedPageRequest(Sort sort) {
+    this.sort = sort;
+    this.offset = 0;
+    this.limit = Integer.MAX_VALUE;
+  }
+
 
   /**
    * Creates a new {@link OffsetBasedPageRequest} with sort parameters applied.
