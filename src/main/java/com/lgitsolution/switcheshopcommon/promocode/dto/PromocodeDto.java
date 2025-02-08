@@ -23,7 +23,7 @@ public class PromocodeDto {
   private Integer useCount;
 
   /** This is multi media comes from User interface. */
-  private Multimedia multiMedia;;
+  private Multimedia multiMedia;
 
   private Integer minimumPurchaseAmount;
 
