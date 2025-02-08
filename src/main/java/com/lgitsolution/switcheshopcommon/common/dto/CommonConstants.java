@@ -153,4 +153,5 @@ public class CommonConstants {
   /* Encryption key constant. */
   public static final String CMN_COLUMN_ENCRYPTION_DECRYPTION_KEY =
           "sdfvgddsdsrsffffhgfduiquwdjhakshuhdiqwdhjknjked";
+
 }

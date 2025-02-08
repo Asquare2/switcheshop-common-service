@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -652,4 +653,24 @@ public class Utility {
     }
   }
 
+  /**
+   * Generated the string of the random numbers as per the given criteria. e.g. if 6 digit random
+   * number is required then pass "000000" as pattern and the range like 999999.
+   * 
+   * @param pattern the pattern to format the random number
+   * @param range the range between the random number will be generating
+   * @return the random number string
+   */
+  public static String generateRandomNumberStr(String pattern, int range) {
+    return new DecimalFormat(pattern).format(new Random().nextInt(range));
+  }
+
+  /**
+   * 
+   * @param timeInMillis
+   * @return
+   */
+  public static Long getDifferenceInMillisFromCurrentTime(Long timeInMillis) {
+    return (Long) System.currentTimeMillis() - timeInMillis;
+  }
 }

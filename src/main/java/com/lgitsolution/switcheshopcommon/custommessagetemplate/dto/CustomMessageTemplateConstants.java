@@ -13,8 +13,17 @@ public class CustomMessageTemplateConstants {
   /** The constant holds the otp variable. */
   public static final String CMT_OTP_VAR = "<OTP>";
 
+  /** The constant holds the password variable. */
+  public static final String CMT_PASSWORD_VAR = "<PASSWORD>";
+
   /* Message template types constants */
   /** The constant holds the otp email message type value. */
   public static final String CMT_OTP_EMAIL_MSG_TYPE = "Otp Email";
+
+  /** The constant holds the forgot password otp email message type value. */
+  public static final String CMT_FORGOT_PASSWORD_OTP_EMAIL_MSG_TYPE = "Forgot Password OTP Email";
+
+  /** The constant holds the master admin password email message type value. */
+  public static final String CMT_MADMIN_PASSWORD_EMAIL_MSG_TYPE = "Master Admin Password Email";
 
 }
