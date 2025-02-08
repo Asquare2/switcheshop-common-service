@@ -6,13 +6,11 @@ import static com.lgitsolution.switcheshopcommon.featuresection.dto.FeatureSecti
 import static com.lgitsolution.switcheshopcommon.featuresection.dto.FeatureSectionConsant.FEATURE_SECTION_TYPE_3;
 import static com.lgitsolution.switcheshopcommon.featuresection.dto.FeatureSectionConsant.FEATURE_SECTION_TYPE_4;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lgitsolution.switcheshopcommon.customer.dto.CustomerAddressDetails;
 import com.lgitsolution.switcheshopcommon.featuresection.dto.FeatureSectionDto;
 import com.lgitsolution.switcheshopcommon.featuresection.dto.FeatureSectionType1Dto;
 import com.lgitsolution.switcheshopcommon.featuresection.dto.FeatureSectionType2Dto;
@@ -29,6 +27,7 @@ public class Utility {
     model.setRowOrderId(dto.getRowOrderId());
     model.setTitle(dto.getTitle());
     model.setType(dto.getType());
+    model.setStatus(dto.getStatus());
     if (dto.getType() == FEATURE_SECTION_TYPE_1) {
       model.setTypeFilterData(Utility.ConvertObjectToJsonString(dto.getFeatureSectionType1()));
     } else if (dto.getType() == FEATURE_SECTION_TYPE_2) {
@@ -63,7 +62,7 @@ public class Utility {
     dto.setStatus(model.getStatus());
     return dto;
   }
-  
+
   /**
    * Parse json string to type 1 feature section details list.
    * 
@@ -80,6 +79,7 @@ public class Utility {
       throw new RuntimeException("Failed to parse JSON to List<FeatureSectionType1Dto>", e);
     }
   }
+
   /**
    * Parse json string to type 1 feature section details list.
    * 
