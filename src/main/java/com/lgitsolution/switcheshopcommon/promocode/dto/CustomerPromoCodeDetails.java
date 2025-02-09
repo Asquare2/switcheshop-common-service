@@ -16,4 +16,6 @@ public class CustomerPromoCodeDetails {
   
   private Integer noOfUsage;
   
+  private String promocodeName;
+
 }

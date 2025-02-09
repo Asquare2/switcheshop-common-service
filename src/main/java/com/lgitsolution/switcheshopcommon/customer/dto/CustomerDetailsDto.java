@@ -46,6 +46,6 @@ public class CustomerDetailsDto {
 
   private List<Integer> recentlyViewSkuId;
 
-  private Map<String, CustomerPromoCodeDetails> promocodeDetails;
+  private Map<Integer, CustomerPromoCodeDetails> promocodeDetails = null;
 
 }

@@ -74,11 +74,11 @@ public class Utility {
     return customerDetails;
   }
 
-  private static HashMap<String, CustomerPromoCodeDetails> parseJsonToMap(String json) {
+  private static HashMap<Integer, CustomerPromoCodeDetails> parseJsonToMap(String json) {
     ObjectMapper objectMapper = new ObjectMapper();
     try {
       return objectMapper.readValue(json,
-              new TypeReference<HashMap<String, CustomerPromoCodeDetails>>() {
+              new TypeReference<HashMap<Integer, CustomerPromoCodeDetails>>() {
               });
     } catch (Exception e) {
       e.printStackTrace();
