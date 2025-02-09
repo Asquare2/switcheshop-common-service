@@ -67,6 +67,9 @@ public class CustomerDetails implements UserDetails {
   @Column(name = "recently_view_sku_id", columnDefinition = "text")
   private String recentlyViewSkuId;
 
+  @Column(name = "promocode", columnDefinition = "text")
+  private String promocode;
+
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
     // TODO Auto-generated method stub
