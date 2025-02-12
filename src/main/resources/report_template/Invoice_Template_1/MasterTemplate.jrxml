@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.15.0.final using JasperReports Library version 6.15.0-dd49bfb94918336b8321d5507193f0169ead4e95  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MasterTemplate" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3684d64f-78f9-4dd0-a647-7d048e8c373b">
+	<parameter name="orderDetailsDto" class="com.lgitsolution.switcheshopcommon.order.dto.OrderDetailsDto"/>
+	<parameter name="companyDetailsDto" class="com.lgitsolution.switcheshopcommon.companydetails.dto.CompanyDetailsDto"/>
+	<parameter name="invoiceDetailsDto" class="com.lgitsolution.switcheshopcommon.invoice.dto.InvoiceDetailsDto"/>
+	<parameter name="shippingAddress" class="java.lang.String"/>
+	<parameter name="billingAddress" class="java.lang.String"/>
+	<parameter name="tempList" class="java.util.ArrayList"/>
+	<pageHeader>
+		<band height="60" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="false">
+				<reportElement x="5" y="0" width="300" height="15" forecolor="#0F0F0E" uuid="b2a30d95-909b-4e01-b47c-7f95b8337ca5">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="html">
+					<font fontName="DejaVu Sans" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tax Invoice/Bill of Supply/Cash Memo<br>(Original for Recipient)"]]></textFieldExpression>
+			</textField>
+			<image scaleImage="RetainShape" onErrorType="Blank" evaluationTime="Auto">
+				<reportElement x="335" y="0" width="220" height="60" uuid="7c9c6cc3-03d5-4edf-af05-1ee63845a5af">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA[javax.imageio.ImageIO.read(new java.io.ByteArrayInputStream(java.util.Base64.getDecoder().decode($P{companyDetailsDto}.getCompanyLogoDetails().getLogoImage().substring($P{companyDetailsDto}.getCompanyLogoDetails().getLogoImage().indexOf(",") + 1, $P{companyDetailsDto}.getCompanyLogoDetails().getLogoImage().length()))))]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="555" height="15" uuid="31dec3b6-5013-40c3-9383-9e3dd2cae0ab">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<subreport>
+				<reportElement stretchType="RelativeToBandHeight" x="5" y="1" width="200" height="14" uuid="33bed292-55ab-4320-9543-f97a155318c0">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<subreportParameter name="companyDetailsDto">
+					<subreportParameterExpression><![CDATA[$P{companyDetailsDto}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{tempList})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["./CompanyDetails.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="15" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="555" height="15" uuid="31dec3b6-5013-40c3-9383-9e3dd2cae0ab">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<subreport>
+				<reportElement stretchType="RelativeToBandHeight" x="5" y="1" width="200" height="14" uuid="33bed292-55ab-4320-9543-f97a155318c0">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<subreportParameter name="shippingAddress">
+					<subreportParameterExpression><![CDATA[$P{shippingAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="billingAddress">
+					<subreportParameterExpression><![CDATA[$P{billingAddress}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{tempList})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["./Address.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="15" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="555" height="15" uuid="f7ba8f75-36dc-4dd1-b835-730c32fced52">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="1" width="40" height="14" uuid="ab964473-6ad1-47aa-a200-715ded8b43d4">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Order:]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="45" y="1" width="230" height="14" uuid="4c61ac3d-ecc6-4712-9a62-754b5552c386">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{orderDetailsDto}.getItemId()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="277" y="1" width="60" height="14" uuid="b5ec219a-e159-4ef6-8598-ce0b0ef415e0">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Order Date:]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="357" y="1" width="195" height="14" uuid="baf65f05-23a4-4d77-b552-7387ea0a42db">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date($P{orderDetailsDto}.getCreatedAt()))]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15" splitType="Stretch">
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="555" height="15" uuid="06456ec0-6436-41ce-8dab-59d995b86447">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="1" width="90" height="14" uuid="7ad1460d-e0c2-4d85-bccb-a35a413d5771">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Invoice Number:]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="105" y="1" width="170" height="14" uuid="9eab663e-d731-4222-bcf0-81d62cc52a13">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{invoiceDetailsDto}.getInvoiceNumber()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="277" y="1" width="70" height="14" uuid="2d77581d-87f0-472e-a02c-f126a4e40cb6">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Invoice Date:]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="357" y="1" width="195" height="14" uuid="8cb00ba7-e5ca-4bd1-a8f4-16a2b34ea96b">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date($P{orderDetailsDto}.getCreatedAt()))]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="555" height="15" uuid="abcc6113-4257-421b-a2e3-cd64dffa4c54">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="1" width="90" height="14" uuid="d9064556-f8b5-4cc0-89cc-a247b7892203">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Payment Method:]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="105" y="1" width="170" height="14" uuid="ce3357c8-5bca-44e7-8761-7d3390b0efff">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{orderDetailsDto}.getPaymenMethod()]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="555" height="15" uuid="6a19ae16-a425-455d-bcb9-19ea4059923f">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<subreport>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="1" width="200" height="14" uuid="19d889af-fb15-4407-96f3-2fbd5f1c1011">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<subreportParameter name="invoiceDetailsDto">
+					<subreportParameterExpression><![CDATA[$P{invoiceDetailsDto}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tempList">
+					<subreportParameterExpression><![CDATA[$P{tempList}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{tempList})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["./InvoiceMainTable.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="85">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="438" y="70" width="115" height="15" uuid="21e52047-a1dd-4552-992f-c3ee1b75a6e1">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<text><![CDATA[Authorized Signatory]]></text>
+			</staticText>
+			<image scaleImage="RetainShape" hAlign="Right" onErrorType="Blank" evaluationTime="Auto">
+				<reportElement x="337" y="10" width="218" height="60" uuid="7d3cffb2-500f-4f84-bced-b476259b83e1">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA[javax.imageio.ImageIO.read(new java.io.ByteArrayInputStream(java.util.Base64.getDecoder().decode($P{companyDetailsDto}.getCompanyLogoDetails().getSignatureImage().substring($P{companyDetailsDto}.getCompanyLogoDetails().getSignatureImage().indexOf(",") + 1, $P{companyDetailsDto}.getCompanyLogoDetails().getSignatureImage().length()))))]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="60" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="180" y="35" width="200" height="25" uuid="fe1c444d-e68d-4e9e-b94e-8100b9bb680e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans" size="18"/>
+				</textElement>
+				<text><![CDATA[Thank You!]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
