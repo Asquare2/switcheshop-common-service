@@ -14,6 +14,7 @@ public class CompanyLogoDetails {
   String logoImage = "";
   String signatureImage = "";
   String faviconImage = "";
+  String domainName = "";
   String cdnThirtdPartyEndPoint = "";
   String cdnLocalEndPoint = "";
 }

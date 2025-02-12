@@ -2,13 +2,17 @@
 package com.lgitsolution.switcheshopcommon.customer.utility;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lgitsolution.switcheshopcommon.customer.dto.CustomerAddressDetails;
 import com.lgitsolution.switcheshopcommon.customer.dto.CustomerDetailsDto;
 import com.lgitsolution.switcheshopcommon.customer.model.CustomerDetails;
+import com.lgitsolution.switcheshopcommon.promocode.dto.CustomerPromoCodeDetails;
 
 public class Utility {
 
@@ -38,6 +42,9 @@ public class Utility {
     customerDetailsDto.setGender(customerDetails.getGender());
     customerDetailsDto.setRecentlyViewSkuId(Utility.convertJsonToObject(customerDetails
             .getRecentlyViewSkuId(), new LinkedList<Integer>()));
+    if (customerDetails.getPromocode() != null && !customerDetails.getPromocode().isBlank()) {
+      customerDetailsDto.setPromocodeDetails(parseJsonToMap(customerDetails.getPromocode()));
+    }
     return customerDetailsDto;
   }
 
@@ -62,7 +69,22 @@ public class Utility {
     customerDetails.setGender(customerDetailsDto.getGender());
     customerDetails.setRecentlyViewSkuId(Utility.ConvertObjectToJsonString(customerDetailsDto
             .getRecentlyViewSkuId()));
+    customerDetails.setPromocode(Utility.ConvertObjectToJsonString(customerDetailsDto
+            .getPromocodeDetails()));
     return customerDetails;
+  }
+
+  private static HashMap<Integer, CustomerPromoCodeDetails> parseJsonToMap(String json) {
+    ObjectMapper objectMapper = new ObjectMapper();
+    try {
+      return objectMapper.readValue(json,
+              new TypeReference<HashMap<Integer, CustomerPromoCodeDetails>>() {
+              });
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new RuntimeException(
+              "Failed to parse JSON to HashMap<String, CustomerPromoCodeDetails>", e);
+    }
   }
 
   public static List<CustomerDetailsDto> convertModelToDto(List<CustomerDetails> modelList) {

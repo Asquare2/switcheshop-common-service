@@ -2,10 +2,12 @@
 package com.lgitsolution.switcheshopcommon.customer.dto;
 
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lgitsolution.switcheshopcommon.common.authentication.dto.Provider;
+import com.lgitsolution.switcheshopcommon.promocode.dto.CustomerPromoCodeDetails;
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -43,5 +45,7 @@ public class CustomerDetailsDto {
   private Long createdAt;
 
   private List<Integer> recentlyViewSkuId;
+
+  private Map<Integer, CustomerPromoCodeDetails> promocodeDetails = null;
 
 }

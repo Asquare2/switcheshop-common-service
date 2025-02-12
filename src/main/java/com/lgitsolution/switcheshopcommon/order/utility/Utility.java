@@ -238,7 +238,7 @@ public class Utility {
     orderRequestDto.getCustomer_details().setCustomer_id(customerDetailsDto.getId() + "");
     orderRequestDto.getCustomer_details().setCustomer_email(customerDetailsDto.getEmail());
     orderRequestDto.getCustomer_details().setCustomer_phone(customerDetailsDto.getMobile());
-    orderRequestDto.setOrder_expiry_time(CommonUtility.getNewDateTime(15, ZoneOffset.UTC));
+    orderRequestDto.setOrder_expiry_time(CommonUtility.getNewDateTime(18, ZoneOffset.UTC));
     /* Order Meta data details. */
     OrderMetaDataDto orderMetaDataDto = new OrderMetaDataDto();
     orderMetaDataDto.setReturn_url(
