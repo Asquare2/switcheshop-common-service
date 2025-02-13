@@ -3,7 +3,6 @@ package com.lgitsolution.switcheshopcommon.slider.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.lgitsolution.switcheshopcommon.common.dto.Multimedia;
 import com.lgitsolution.switcheshopcommon.filter.dto.SearchOptionsDto;
 
 import lombok.Data;
@@ -24,7 +23,7 @@ public class SliderDto {
   private SearchOptionsDto searchOptionsDto;
 
   /** This is multi media comes from User interface. */
-  private Multimedia multiMedia;
+  private String multiMedia;
 
   private String slug;
 
