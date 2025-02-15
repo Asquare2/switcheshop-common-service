@@ -18,5 +18,6 @@ public class DmCommonDto {
   private String slug;
   private String dmContent;
   private Multimedia multiMedia;
+  private String imageAltTag;
 
 }
