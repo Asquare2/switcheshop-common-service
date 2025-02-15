@@ -30,6 +30,7 @@ public class Utility {
     model.setSlug(dto.getSlug());
     model.setRowOrderId(dto.getRowOrderId());
     model.setTitle(dto.getTitle());
+    model.setImageAltTag(dto.getImageAltTag());
     return model;
   }
 
@@ -48,6 +49,7 @@ public class Utility {
     dto.setSlug(model.getSlug());
     dto.setRowOrderId(model.getRowOrderId());
     dto.setTitle(model.getTitle());
+    dto.setImageAltTag(model.getImageAltTag());
     return dto;
   }
 

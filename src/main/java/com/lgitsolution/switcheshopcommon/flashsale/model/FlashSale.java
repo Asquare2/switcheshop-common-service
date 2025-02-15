@@ -73,4 +73,7 @@ public class FlashSale {
   @Column(name = "dm_content", columnDefinition = "text")
   private String dmContent;
 
+  @Column(name = "image_alt_tag")
+  private String imageAltTag;
+
 }

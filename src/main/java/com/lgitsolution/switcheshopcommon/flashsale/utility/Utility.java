@@ -26,7 +26,7 @@ public class Utility {
     flashSale.setDiscount(flashSaleDto.getDiscount());
     flashSale.setStartDate(Utility.getLocalDate(flashSaleDto.getStartDate()));
     flashSale.setEndDate(Utility.getLocalDate(flashSaleDto.getEndDate()));
-    flashSale.setMultiMedia(Utility.getMultiMediaJsonString(flashSaleDto.getMultiMedia()));
+    flashSale.setMultiMedia(flashSaleDto.getMultiMedia());
     flashSale.setStatus(flashSaleDto.getStatus());
     flashSale.setCreatedAt(Utility.getLocalDate(flashSaleDto.getCreatedAt()));
     flashSale.setModifiedAt(Utility.getLocalDate(flashSaleDto.getModifiedAt()));
@@ -51,7 +51,7 @@ public class Utility {
     flashSaleDto.setDiscount(flashSale.getDiscount());
     flashSaleDto.setStartDate(Utility.getLocalDateMillis(flashSale.getStartDate()));
     flashSaleDto.setEndDate(Utility.getLocalDateMillis(flashSale.getEndDate()));
-    flashSaleDto.setMultiMedia(Utility.getMultiMediaObject(flashSale.getMultiMedia()));
+    flashSaleDto.setMultiMedia(flashSale.getMultiMedia());
     flashSaleDto.setStatus(flashSale.getStatus());
     flashSaleDto.setCreatedAt(Utility.getLocalDateMillis(flashSale.getCreatedAt()));
     flashSaleDto.setModifiedAt(Utility.getLocalDateMillis(flashSale.getModifiedAt()));

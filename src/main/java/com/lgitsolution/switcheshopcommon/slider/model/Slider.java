@@ -50,4 +50,7 @@ public class Slider {
   @Column(name = "title")
   private String title;
 
+  @Column(name = "image_alt_tag")
+  private String imageAltTag;
+
 }

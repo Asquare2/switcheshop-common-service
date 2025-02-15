@@ -25,6 +25,8 @@ public class SliderDto {
   /** This is multi media comes from User interface. */
   private String multiMedia;
 
+  private String imageAltTag;
+
   private String slug;
 
   private String dmContent;
