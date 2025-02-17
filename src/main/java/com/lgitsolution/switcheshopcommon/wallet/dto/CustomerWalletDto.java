@@ -11,13 +11,13 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CustomerWalletDto {
 
-  public int id;
+  private int id;
 
-  public int customerDetailsId;
+  private int customerDetailsId;
 
-  public String walletId;
+  private String walletId;
 
-  public Float balance = 0.0f;
+  private Float balance = 0.0f;
 
   private Long modifiedAt;
 }

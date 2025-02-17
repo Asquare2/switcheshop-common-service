@@ -25,19 +25,19 @@ public class CustomerWallet {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  public int id;
+  private int id;
 
   @Column(name = "title")
-  public int customerDetailsId;
+  private int customerDetailsId;
 
   @Column(name = "wallet_id")
-  public String walletId;
+  private String walletId;
 
   @Column(name = "balance")
   @ColumnTransformer(read = "convert_from(decrypt(balance, '" + CMN_COLUMN_ENCRYPTION_DECRYPTION_KEY
           + "', 'aes'), 'UTF_8')", write = "encrypt(?::bytea, '"
                   + CMN_COLUMN_ENCRYPTION_DECRYPTION_KEY + "', 'aes')")
-  public String balance;
+  private String balance;
 
   @Column(name = "modified_at")
   private LocalDate modifiedAt;
