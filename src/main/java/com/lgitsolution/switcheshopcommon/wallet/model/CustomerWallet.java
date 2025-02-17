@@ -27,7 +27,7 @@ public class CustomerWallet {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
-  @Column(name = "title")
+  @Column(name = "customer_details_id")
   private int customerDetailsId;
 
   @Column(name = "wallet_id")
