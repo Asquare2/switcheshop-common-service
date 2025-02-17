@@ -4,6 +4,8 @@ package com.lgitsolution.switcheshopcommon.wallet.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.Data;
 
 @Data
@@ -21,11 +23,13 @@ public class WalletTransactionDto {
 
   private float transactionAmount;
 
-  private String transactionType;
+  @Enumerated(EnumType.STRING)
+  private TransactionType transactionType;
 
   private String transactionFor;
 
-  private String transactionUserType;
+  @Enumerated(EnumType.STRING)
+  private TransactionUserType transactionUserType;
 
   private String transactionBy;
 

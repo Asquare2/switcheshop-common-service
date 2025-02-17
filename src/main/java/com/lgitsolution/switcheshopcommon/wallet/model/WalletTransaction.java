@@ -3,8 +3,13 @@ package com.lgitsolution.switcheshopcommon.wallet.model;
 
 import java.time.LocalDate;
 
+import com.lgitsolution.switcheshopcommon.wallet.dto.TransactionType;
+import com.lgitsolution.switcheshopcommon.wallet.dto.TransactionUserType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -33,13 +38,15 @@ public class WalletTransaction {
   private float transactionAmount;
 
   @Column(name = "transaction_type")
-  private String transactionType;
+  @Enumerated(EnumType.STRING)
+  private TransactionType transactionType;
 
   @Column(name = "transaction_for")
   private String transactionFor;
 
   @Column(name = "transaction_user_type")
-  private String transactionUserType;
+  @Enumerated(EnumType.STRING)
+  private TransactionUserType transactionUserType;
 
   @Column(name = "transaction_by")
   private String transactionBy;
