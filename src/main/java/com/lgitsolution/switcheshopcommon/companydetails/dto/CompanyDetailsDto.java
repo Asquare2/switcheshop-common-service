@@ -28,6 +28,8 @@ public class CompanyDetailsDto {
 
   private TaxDetailsDto taxDetailsDto;
 
+  private AppLinkDetails appLinkDetails;
+
   private DmCommonDto homeDM;
 
   private DmCommonDto faqDM;
