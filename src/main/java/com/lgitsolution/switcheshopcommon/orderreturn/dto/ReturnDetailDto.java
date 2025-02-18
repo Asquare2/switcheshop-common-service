@@ -9,6 +9,8 @@ import com.lgitsolution.switcheshopcommon.order.dto.OrderStatusDetail;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderTrackingDetailsDto;
 import com.lgitsolution.switcheshopcommon.returnorderquestion.dto.ReturnOrderQuestionDto;
 
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.Data;
 
 @Data
@@ -43,4 +45,6 @@ public class ReturnDetailDto {
   private Integer requestedSkuId;
   private List<ReturnOrderQuestionDto> returnOrderQuestionAnswerDtoList;
   private List<OrderTrackingDetailsDto> displayedTrackingList;
+  @Enumerated(EnumType.STRING)
+  private RefundMode refundMode;
 }

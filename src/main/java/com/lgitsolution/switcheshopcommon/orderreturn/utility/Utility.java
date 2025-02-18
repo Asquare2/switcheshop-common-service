@@ -52,6 +52,7 @@ public class Utility {
     dto.setRequestedSkuId(model.getRequestedSkuId());
     dto.setDisplayedTrackingList(parseJsonToList(model.getDisplayedTrackingData(), true));
     dto.setOrderStatusDetail(getOrderStatusDetailObj(dto.getStatus()));
+    dto.setRefundMode(model.getRefundMode());
     return dto;
   }
 
@@ -122,6 +123,7 @@ public class Utility {
     model.setRequestedSkuId(dto.getRequestedSkuId());
     model.setDisplayedTrackingData(CommonUtility.ConvertObjectToJsonString(dto
             .getDisplayedTrackingList()));
+    model.setRefundMode(dto.getRefundMode());
     return model;
   }
 

@@ -2,8 +2,12 @@ package com.lgitsolution.switcheshopcommon.orderreturn.model;
 
 import java.time.LocalDate;
 
+import com.lgitsolution.switcheshopcommon.orderreturn.dto.RefundMode;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -93,5 +97,9 @@ public class ReturnDetail {
 
   @Column(name = "displayed_tracking_data")
   private String displayedTrackingData;
+  
+  @Column(name = "refund_mode")
+  @Enumerated(EnumType.STRING)
+  private RefundMode refundMode;
 
 }
