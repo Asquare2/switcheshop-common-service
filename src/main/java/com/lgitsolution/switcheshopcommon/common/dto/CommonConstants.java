@@ -60,14 +60,6 @@ public class CommonConstants {
 
   // Credentials constants End
 
-  // Payment Method constants Start //
-
-  public static final String CMN_PAYMENT_METHOD_PREPAID = "Prepaid";
-
-  public static final String CMN_PAYMENT_METHOD_COD = "cod";
-
-  // Payment Method constants End //
-
   public static final String FILTER_CATEGORY_KEY = "category";
 
   public static final String FILTER_SPECIFICATION_KEY = "specification";

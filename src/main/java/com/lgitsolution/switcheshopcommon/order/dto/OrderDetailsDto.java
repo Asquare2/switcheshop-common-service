@@ -11,6 +11,8 @@ import com.lgitsolution.switcheshopcommon.customer.dto.CustomerAddressDetails;
 import com.lgitsolution.switcheshopcommon.orderreturn.dto.ReturnDetailDto;
 import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.PaymentDetailDto;
 
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.Data;
 
 @Data
@@ -58,7 +60,8 @@ public class OrderDetailsDto {
 
   private List<OrderItemsDto> orderItemsDtoList = new ArrayList<>();
 
-  private String paymenMethod;
+  @Enumerated(EnumType.STRING)
+  private OrderPaymentMethod paymentMethod;
 
   private PaymentDetailDto paymentDetailDto;
 

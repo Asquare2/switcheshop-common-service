@@ -37,6 +37,7 @@ import com.lgitsolution.switcheshopcommon.common.dto.Multimedia;
 import com.lgitsolution.switcheshopcommon.common.dto.ResponseWrapper;
 import com.lgitsolution.switcheshopcommon.common.logger.SwitcheShopLogger;
 import com.lgitsolution.switcheshopcommon.filter.dto.SearchOptionsDto;
+import com.lgitsolution.switcheshopcommon.order.dto.OrderPaymentMethod;
 
 import io.micrometer.common.util.StringUtils;
 
@@ -636,10 +637,8 @@ public class Utility {
     //
     // // Convert OffsetDateTime to ISO 8601 string
     // String iso8601TimeWithOffset = offsetDateTime.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
-
     // Print the result
-    System.out.println("ISO 8601 format with offset: " + getNewDateTime(15, ZoneOffset.UTC));
-
+    System.out.println(OrderPaymentMethod.Prepaid.name());
   }
 
   public static int roundFloat(float value) {

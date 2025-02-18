@@ -32,7 +32,7 @@ public class Utility {
     dto.setOrder_id(orderDetailsDto.getItemId());
     dto.setOrder_date(CommonUtility.getLocalDate(orderDetailsDto.getCreatedAt()).toString());
     dto.setPickup_location(orderDetailsDto.getPickupLocationName());
-    dto.setPayment_method(orderDetailsDto.getPaymenMethod());
+    dto.setPayment_method(orderDetailsDto.getPaymentMethod().name());
     dto.setSub_total(Math.round(orderDetailsDto.getTotalPayable()));
     Map<String, String> packageDimensionsMap = orderDetailsDto.getPackageDimensionsMap();
     dto.setLength(Integer.parseInt(packageDimensionsMap.get(
@@ -140,7 +140,7 @@ public class Utility {
     dto.setShipping_pincode(Integer.parseInt(pickupLocationDto.getPincode()));
     dto.setShipping_state(pickupLocationDto.getState());
 
-    dto.setPayment_method(orderDetailsDto.getPaymenMethod());
+    dto.setPayment_method(orderDetailsDto.getPaymentMethod().name());
     Map<String, String> packageDimensionsMap = orderDetailsDto.getPackageDimensionsMap();
     dto.setLength(Integer.parseInt(packageDimensionsMap.get(
             CommonConstants.ORDER_PACKAGE_DIMENTION_LENGTH)));

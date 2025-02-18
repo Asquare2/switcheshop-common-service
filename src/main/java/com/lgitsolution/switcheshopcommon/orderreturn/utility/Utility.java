@@ -6,9 +6,9 @@ import java.util.List;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lgitsolution.switcheshopcommon.common.dto.CommonConstants;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderDetailsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderItemsDto;
+import com.lgitsolution.switcheshopcommon.order.dto.OrderPaymentMethod;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderStatusConstants;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderStatusDetail;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderTrackingDetailsDto;
@@ -253,7 +253,7 @@ public class Utility {
     newOrderDetailsDto.setReturnDetailId(returnDetailDto.getId());
     newOrderDetailsDto.setTotalPayable(orderItemsDto.getSellingPrice());
     newOrderDetailsDto.setTotalAmount(orderItemsDto.getSellingPrice());
-    newOrderDetailsDto.setPaymenMethod(CommonConstants.CMN_PAYMENT_METHOD_PREPAID);
+    newOrderDetailsDto.setPaymentMethod(OrderPaymentMethod.Prepaid);
     newOrderDetailsDto.setPickupLocation(existingOrderDetailsDto.getPickupLocation());
     return newOrderDetailsDto;
   }

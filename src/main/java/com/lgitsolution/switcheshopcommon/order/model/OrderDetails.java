@@ -5,9 +5,13 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.lgitsolution.switcheshopcommon.order.dto.OrderPaymentMethod;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -83,7 +87,8 @@ public class OrderDetails {
   private List<OrderItems> orderItemsList = new ArrayList<>();
 
   @Column(name = "payment_method")
-  private String paymenMethod;
+  @Enumerated(EnumType.STRING)
+  private OrderPaymentMethod paymentMethod;
 
   @Column(name = "address", columnDefinition = "text")
   private String address;

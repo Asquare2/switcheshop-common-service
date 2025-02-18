@@ -52,7 +52,7 @@ public class Utility {
             .getPackageDimensionsMap()));
     orderItemsDtoList.forEach(dto -> orderDetails.getOrderItemsList().add(convertDtoToModel(dto)));
     orderDetails.setTrackingData(orderDetilsDto.getTrackingData());
-    orderDetails.setPaymenMethod(orderDetilsDto.getPaymenMethod());
+    orderDetails.setPaymentMethod(orderDetilsDto.getPaymentMethod());
     orderDetails.setAddress(com.lgitsolution.switcheshopcommon.common.util.Utility
             .ConvertObjectToJsonString(orderDetilsDto.getCustomerAddressDetails()));
     orderDetails.setPickupBookedDate(orderDetilsDto.getPickupBookedDate());
@@ -98,7 +98,7 @@ public class Utility {
       orderItemsList.forEach(o -> orderDetailsDto.getOrderItemsDtoList().add(convertModelToDto(o)));
     }
     orderDetailsDto.setTrackingData(orderDetails.getTrackingData());
-    orderDetailsDto.setPaymenMethod(orderDetails.getPaymenMethod());
+    orderDetailsDto.setPaymentMethod(orderDetails.getPaymentMethod());
     orderDetailsDto.setCustomerAddressDetails(CommonUtility.convertJsonToObject(orderDetails
             .getAddress(), new CustomerAddressDetails()));
     orderDetailsDto.setPickupBookedDate(orderDetails.getPickupBookedDate());
