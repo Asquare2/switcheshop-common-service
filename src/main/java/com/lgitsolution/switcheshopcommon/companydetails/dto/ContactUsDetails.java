@@ -24,4 +24,10 @@ public class ContactUsDetails {
 
   private String googleSupport;
 
+  private String pinteRestSupport;
+
+  private String xSupport;
+
+  private String youtubeSupport;
+
 }

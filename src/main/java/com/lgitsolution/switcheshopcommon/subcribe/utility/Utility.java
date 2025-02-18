@@ -15,6 +15,7 @@ public class Utility {
   public static SubscribeDetail convertDtoToModel(SubscribeDetailsDto dto) {
     SubscribeDetail model = new SubscribeDetail();
     model.setId(dto.getId());
+    model.setEmailId(dto.getEmailId());
     return model;
   }
 
