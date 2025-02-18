@@ -26,6 +26,8 @@ public class OrderDetailsDto {
 
   private Float totalPayable;
 
+  private Float totalPaymentGatwayPayable;
+
   private Integer status;
 
   private OrderStatusDetail orderStatusDetail;

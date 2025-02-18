@@ -233,7 +233,7 @@ public class Utility {
   public static PaymentOrderRequestDto createPaymentOrderRequestDto(
           CustomerDetailsDto customerDetailsDto, OrderDetailsDto orderDetilsDto) {
     PaymentOrderRequestDto orderRequestDto = new PaymentOrderRequestDto();
-    orderRequestDto.setOrder_amount((double) orderDetilsDto.getTotalPayable());
+    orderRequestDto.setOrder_amount((double) orderDetilsDto.getTotalPaymentGatwayPayable());
     orderRequestDto.setOrderItemId(orderDetilsDto.getItemId());
     orderRequestDto.getCustomer_details().setCustomer_id(customerDetailsDto.getId() + "");
     orderRequestDto.getCustomer_details().setCustomer_email(customerDetailsDto.getEmail());
