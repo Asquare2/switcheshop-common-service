@@ -38,6 +38,9 @@ public class CommonConstants {
   /** The Constant ORDER_MODULE_NAME. */
   public static final String ORDER_MODULE_NAME = "MANAGE_ORDER";
 
+  /** The Constant ORDER_MODULE_NAME. */
+  public static final String ORDER_RETURN_MODULE_NAME = "MANAGE_ORDER";
+
   // Modules Names Constant End
 
   // Credentials constants

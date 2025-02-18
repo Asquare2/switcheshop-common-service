@@ -39,4 +39,6 @@ public class WalletTransactionDto {
 
   private Long createdAt;
 
+  private float remainingWalletAmount;
+
 }
