@@ -2,6 +2,7 @@
 <!-- Created with Jaspersoft Studio version 6.15.0.final using JasperReports Library version 6.15.0-dd49bfb94918336b8321d5507193f0169ead4e95  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="InvoiceTable1" pageWidth="555" pageHeight="16" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="48e25fdb-dae8-447f-a6ce-9c5c9cbd5e01">
 	<parameter name="tempList" class="java.util.ArrayList"/>
+	<parameter name="SUBREPORT_DESCRIPTION_DETAILS" class="net.sf.jasperreports.engine.JasperReport" />
 	<field name="_THIS" class="com.lgitsolution.switcheshopcommon.invoice.dto.InvoiceItemDto"/>
 	<detail>
 		<band height="15" splitType="Stretch">
@@ -156,7 +157,7 @@
 					<subreportParameterExpression><![CDATA[$F{_THIS}.getTaxPercentage()]]></subreportParameterExpression>
 				</subreportParameter>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{tempList})]]></dataSourceExpression>
-				<subreportExpression><![CDATA["./Description.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DESCRIPTION_DETAILS}]]></subreportExpression>
 			</subreport>
 		</band>
 		<band height="1">

@@ -4,6 +4,8 @@
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="invoiceDetailsDto" class="com.lgitsolution.switcheshopcommon.invoice.dto.InvoiceDetailsDto"/>
 	<parameter name="tempList" class="java.util.ArrayList"/>
+	<parameter name="SUBREPORT_INVOICE1_DETAILS" class="net.sf.jasperreports.engine.JasperReport" />
+	<parameter name="SUBREPORT_DESCRIPTION_DETAILS" class="net.sf.jasperreports.engine.JasperReport" />
 	<detail>
 		<band height="15" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -176,8 +178,11 @@
 				<subreportParameter name="tempList">
 					<subreportParameterExpression><![CDATA[$P{tempList}]]></subreportParameterExpression>
 				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DESCRIPTION_DETAILS">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DESCRIPTION_DETAILS}]]></subreportParameterExpression>
+				</subreportParameter>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource((java.util.ArrayList<com.lgitsolution.switcheshopcommon.invoice.dto.InvoiceItemDto>)$P{invoiceDetailsDto}.getInvoiceItemsDetailList())]]></dataSourceExpression>
-				<subreportExpression><![CDATA["./InvoiceTable1.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_INVOICE1_DETAILS}]]></subreportExpression>
 			</subreport>
 		</band>
 		<band height="20" splitType="Stretch">

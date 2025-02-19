@@ -64,6 +64,18 @@
 			<artifactId>javase</artifactId>
 			<version>3.5.0</version>
 		</dependency>
+				<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>6.20.5</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-fonts -->
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-fonts</artifactId>
+			<version>6.20.5</version>
+		</dependency>
 	</dependencies>
 
 	<build>

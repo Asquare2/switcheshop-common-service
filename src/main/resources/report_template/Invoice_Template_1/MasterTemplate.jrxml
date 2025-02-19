@@ -7,6 +7,11 @@
 	<parameter name="shippingAddress" class="java.lang.String"/>
 	<parameter name="billingAddress" class="java.lang.String"/>
 	<parameter name="tempList" class="java.util.ArrayList"/>
+	<parameter name="SUBREPORT_COMPANY_DETAILS" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORT_ADDRESS_DETAILS" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORT_INVOICE1_DETAILS" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORT_DESCRIPTION_DETAILS" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORT_INVOICE_MAIN_DETAILS" class="net.sf.jasperreports.engine.JasperReport"/>
 	<pageHeader>
 		<band height="60" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -54,7 +59,7 @@
 					<subreportParameterExpression><![CDATA[$P{companyDetailsDto}]]></subreportParameterExpression>
 				</subreportParameter>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{tempList})]]></dataSourceExpression>
-				<subreportExpression><![CDATA["./CompanyDetails.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_COMPANY_DETAILS}]]></subreportExpression>
 			</subreport>
 		</band>
 		<band height="15" splitType="Stretch">
@@ -80,7 +85,7 @@
 					<subreportParameterExpression><![CDATA[$P{billingAddress}]]></subreportParameterExpression>
 				</subreportParameter>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{tempList})]]></dataSourceExpression>
-				<subreportExpression><![CDATA["./Address.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_ADDRESS_DETAILS}]]></subreportExpression>
 			</subreport>
 		</band>
 		<band height="15" splitType="Stretch">
@@ -217,7 +222,7 @@
 				<textElement>
 					<font fontName="DejaVu Sans" size="9"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{orderDetailsDto}.getPaymenMethod()]]></textFieldExpression>
+				<!--<textFieldExpression><![CDATA[$P{orderDetailsDto}.getPaymenMethod()]]></textFieldExpression> -->
 			</textField>
 		</band>
 		<band height="15" splitType="Stretch">
@@ -239,11 +244,17 @@
 				<subreportParameter name="invoiceDetailsDto">
 					<subreportParameterExpression><![CDATA[$P{invoiceDetailsDto}]]></subreportParameterExpression>
 				</subreportParameter>
+				<subreportParameter name="SUBREPORT_INVOICE1_DETAILS">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_INVOICE1_DETAILS}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DESCRIPTION_DETAILS">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DESCRIPTION_DETAILS}]]></subreportParameterExpression>
+				</subreportParameter>
 				<subreportParameter name="tempList">
 					<subreportParameterExpression><![CDATA[$P{tempList}]]></subreportParameterExpression>
 				</subreportParameter>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{tempList})]]></dataSourceExpression>
-				<subreportExpression><![CDATA["./InvoiceMainTable.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_INVOICE_MAIN_DETAILS}]]></subreportExpression>
 			</subreport>
 		</band>
 		<band height="85">
