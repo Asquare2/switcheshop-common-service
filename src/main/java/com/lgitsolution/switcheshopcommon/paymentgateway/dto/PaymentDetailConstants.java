@@ -9,7 +9,12 @@ public class PaymentDetailConstants {
    * The constant holds 'SwitchEShop' as a payment provider. This value is used for provider column
    * when user will select COD as a payment method.
    */
-  public static final String PAYMENT_PROVIDER_SWITCHESHOP = "SwitchEShop";
+  public static final String PAYMENT_PROVIDER_SWITCHESHOP_COD = "SwitchEShop_Cod";
+
+  /** */
+  public static final String PAYMENT_PROVIDER_SWITCHESHOP_WALLET = "SwitchEShop_Wallet";
+
+  public static final String PAYMENT_PROVIDER_WALLET_AND_PREPAID = "WalletAndPrepaid";
 
   /** The constant holds the in progress payment status value. */
   public static final Integer PAYMENT_STATUS_IN_PROGRESS = 0;
