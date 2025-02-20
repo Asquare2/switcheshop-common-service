@@ -19,5 +19,6 @@ public class DmCommonDto {
   private String dmContent;
   private Multimedia multiMedia;
   private String imageAltTag;
+  private String itemId;
 
 }
