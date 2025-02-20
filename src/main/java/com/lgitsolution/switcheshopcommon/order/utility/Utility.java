@@ -128,6 +128,7 @@ public class Utility {
     }
 
     boolean isApplicableForCancel = true;
+    boolean isToShowInvoiceButton = false;
     List<OrderTrackingDetailsDto> displayedTrackingList = orderDetailsDto
             .getDisplayedTrackingList();
     for (OrderTrackingDetailsDto displayTrackDto : displayedTrackingList) {
@@ -138,9 +139,14 @@ public class Utility {
               || (statusCode == SwitchEShopOrderEnum.Order_Cancelled_By_Customer.getValue())) {
         isApplicableForCancel = false;
       }
+      if (statusCode == SwitchEShopOrderEnum.Deliverd.getValue() && displayTrackDto
+              .getIsDone() == 1) {
+        isToShowInvoiceButton = true;
+      }
     }
     orderDetailsDto.setApplicableForCancel(isApplicableForCancel);
     orderDetailsDto.setReturnDetailId(orderDetails.getReturnDetailId());
+    orderDetailsDto.setToShowInvoiceButton(isToShowInvoiceButton);
     return orderDetailsDto;
   }
 

@@ -91,6 +91,8 @@ public class OrderDetailsDto {
   
   private boolean isApplicableForReturn;
 
+  private boolean isToShowInvoiceButton;
+
   // will soft code it
   private Integer noOfAllowdReturableDays = 7;
 

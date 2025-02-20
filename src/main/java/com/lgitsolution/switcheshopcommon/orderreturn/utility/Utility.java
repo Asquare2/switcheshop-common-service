@@ -151,7 +151,6 @@ public class Utility {
     pending.setStepNumber(0);
     pending.setStatusName(OrderStatusConstants.PENDING_ORDER_STATUS);
     pending.setStatusCode(SwitchEShopOrderEnum.Return_Pending.getValue());
-    trackingList.add(pending);
 
     OrderTrackingDetailsDto confirmed = new OrderTrackingDetailsDto();
     confirmed.setStepNumber(1);
