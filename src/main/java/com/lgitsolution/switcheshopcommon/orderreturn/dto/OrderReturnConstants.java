@@ -8,4 +8,6 @@ public class OrderReturnConstants {
 
   public static final int REQUESTED_FOR_RETURN = 0;
 
+  public static final int REQUESTED_FOR_RETURN_CANCEL = -1;
+
 }

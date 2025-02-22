@@ -338,6 +338,33 @@ public class Utility {
       cancel.setIsDone(1);
       cancel.setStatusDate(System.currentTimeMillis());
       trackingList.add(cancel);
+    } else if (statusCode == SwitchEShopOrderEnum.Paid_Order_Cancelled_By_Customer.getValue()) {
+      trackingList.removeIf(obj -> obj.getStatusCode() != SwitchEShopOrderEnum.Confirmed
+              .getValue());
+      OrderTrackingDetailsDto cancel = new OrderTrackingDetailsDto();
+      cancel.setStepNumber(2);
+      cancel.setStatusName(OrderStatusConstants.CANCEL_STATUS);
+      cancel.setStatusCode(statusCode);
+      cancel.setIsDone(1);
+      cancel.setStatusDate(System.currentTimeMillis());
+      trackingList.add(cancel);
+
+      OrderTrackingDetailsDto refundInitiated = new OrderTrackingDetailsDto();
+      refundInitiated.setStepNumber(3);
+      refundInitiated.setStatusName(OrderStatusConstants.APPROVED_Initiated_ORDER_STATUS);
+      refundInitiated.setStatusCode(SwitchEShopOrderEnum.Return_Approved_Initiated.getValue());
+      refundInitiated.setIsDone(0);
+      refundInitiated.setStatusDate(System.currentTimeMillis());
+      trackingList.add(refundInitiated);
+
+      OrderTrackingDetailsDto returCompleted = new OrderTrackingDetailsDto();
+      returCompleted.setStepNumber(4);
+      returCompleted.setStatusName(OrderStatusConstants.COMPLETED_ORDER_STATUS);
+      returCompleted.setStatusCode(SwitchEShopOrderEnum.Return_Completed.getValue());
+      returCompleted.setIsDone(0);
+      returCompleted.setStatusDate(System.currentTimeMillis());
+      trackingList.add(returCompleted);
+
     } else {
       trackingList.forEach(o -> {
         if (o.getStatusCode() == statusCode && o.getIsDone() != 1) {

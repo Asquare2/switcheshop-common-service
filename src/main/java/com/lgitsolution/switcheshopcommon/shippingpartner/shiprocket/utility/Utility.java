@@ -10,6 +10,7 @@ import com.lgitsolution.switcheshopcommon.common.dto.CommonConstants;
 import com.lgitsolution.switcheshopcommon.customer.dto.CustomerAddressDetails;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderDetailsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderItemsDto;
+import com.lgitsolution.switcheshopcommon.order.dto.OrderPaymentMethod;
 import com.lgitsolution.switcheshopcommon.orderreturn.dto.ReturnDetailDto;
 import com.lgitsolution.switcheshopcommon.pickuplocation.dto.PickupLocationDto;
 import com.lgitsolution.switcheshopcommon.shippingpartner.shiprocket.dto.couriers.GenerateAWBRequest;
@@ -32,6 +33,11 @@ public class Utility {
     dto.setOrder_id(orderDetailsDto.getItemId());
     dto.setOrder_date(CommonUtility.getLocalDate(orderDetailsDto.getCreatedAt()).toString());
     dto.setPickup_location(orderDetailsDto.getPickupLocationName());
+    if (orderDetailsDto.getPaymentMethod() == OrderPaymentMethod.cod) {
+      dto.setPayment_method(orderDetailsDto.getPaymentMethod().name());
+    } else {
+      dto.setPayment_method(OrderPaymentMethod.Prepaid.name());
+    }
     dto.setPayment_method(orderDetailsDto.getPaymentMethod().name());
     dto.setSub_total(Math.round(orderDetailsDto.getTotalPayable()));
     Map<String, String> packageDimensionsMap = orderDetailsDto.getPackageDimensionsMap();
