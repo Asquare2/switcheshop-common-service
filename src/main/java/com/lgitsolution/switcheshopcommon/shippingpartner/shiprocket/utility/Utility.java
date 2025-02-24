@@ -146,7 +146,7 @@ public class Utility {
     dto.setShipping_pincode(Integer.parseInt(pickupLocationDto.getPincode()));
     dto.setShipping_state(pickupLocationDto.getState());
 
-    dto.setPayment_method(orderDetailsDto.getPaymentMethod().name());
+    dto.setPayment_method(OrderPaymentMethod.Prepaid.name());
     Map<String, String> packageDimensionsMap = orderDetailsDto.getPackageDimensionsMap();
     dto.setLength(Integer.parseInt(packageDimensionsMap.get(
             CommonConstants.ORDER_PACKAGE_DIMENTION_LENGTH)));
