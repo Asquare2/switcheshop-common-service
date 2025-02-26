@@ -11,7 +11,7 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class NotificationDto {
 
-  private Long id;
+  private Integer id;
   private String message;
   private String role;
   private Long tableId;
