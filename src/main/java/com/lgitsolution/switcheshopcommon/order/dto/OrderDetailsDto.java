@@ -20,6 +20,49 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderDetailsDto {
 
+  public static final String ID = "id";
+  public static final String CUSTOMER_DETAILS_ID = "customerDetailsId";
+  public static final String TOTAL_AMOUNT = "totalAmount";
+  public static final String TOTAL_PAYABLE = "totalPayable";
+  public static final String TOTAL_PAYMENT_GATWAY_PAYABLE = "totalPaymentGatwayPayable";
+  public static final String STATUS = "status";
+  public static final String ORDER_STATUS_DETAIL = "orderStatusDetail";
+  public static final String ORDER_NOTES = "orderNotes";
+  public static final String DELIVERY_CHARGE = "deliveryCharge";
+  public static final String WALLET_USED = "walletUsed";
+  public static final String PROMOCODE_NAME = "promocodeName";
+  public static final String PROMOCODE_DISCOUNT = "promocodeDiscount";
+  public static final String PROMOCODE_ID = "promocodeId";
+  public static final String CREATED_AT = "createdAt";
+  public static final String MODIFIED_AT = "modifiedAt";
+  public static final String DELIVERY_PARTNER_RESPONSE = "deliveryPartnerResponse";
+  public static final String PACKAGE_DIMENSIONS_MAP = "packageDimensionsMap";
+  public static final String ITEM_ID = "itemId";
+  public static final String TRACKING_DATA = "trackingData";
+  public static final String ORDER_ITEMS_DTO_LIST = "orderItemsDtoList";
+  public static final String PAYMENT_METHOD = "paymentMethod";
+  public static final String PAYMENT_DETAIL_DTO = "paymentDetailDto";
+  public static final String CUSTOMER_ADDRESS_DETAILS = "customerAddressDetails";
+  public static final String OUT_OF_STOCK = "outOfStock";
+  public static final String PICKUP_SCHEDULED_DATE = "pickupScheduledDate";
+  public static final String PICKUP_BOOKED_DATE = "pickupBookedDate";
+  public static final String DELIVERY_PARTNER_ORDER_ID = "deliveryPartnerOrderId";
+  public static final String SHIPMENT_ID = "shipmentId";
+  public static final String AWB_CODE = "awbCode";
+  public static final String COURIER_COMPANY_ID = "courierCompanyId";
+  public static final String COURIER_NAME = "courierName";
+  public static final String DISPLAYED_TRACKING_LIST = "displayedTrackingList";
+  public static final String PICKUP_LOCATION = "pickupLocation";
+  public static final String PICKUP_LOCATION_NAME = "pickupLocationName";
+  public static final String IS_APPLICABLE_FOR_RETURN = "isApplicableForReturn";
+  public static final String IS_TO_SHOW_INVOICE_BUTTON = "isToShowInvoiceButton";
+  public static final String NO_OF_ALLOWED_RETURNABLE_DAYS = "noOfAllowdReturableDays";
+  public static final String RETURN_DETAIL_ID = "returnDetailId";
+  public static final String IS_APPLICABLE_FOR_CANCEL = "isApplicableForCancel";
+  public static final String RETURN_DETAILS_LIST = "returnDetailsList";
+
+  /*--------------------------------------------------------------------------------------*/
+
   private Integer id;
 
   private Integer customerDetailsId;
@@ -88,7 +131,7 @@ public class OrderDetailsDto {
   private Long pickupLocation;
 
   private String pickupLocationName;
-  
+
   private boolean isApplicableForReturn;
 
   private boolean isToShowInvoiceButton;

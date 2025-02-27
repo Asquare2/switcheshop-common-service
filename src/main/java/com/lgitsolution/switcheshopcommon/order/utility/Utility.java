@@ -87,11 +87,17 @@ public class Utility {
     orderDetailsDto.setWalletUsed(orderDetails.getWalletUsed());
     orderDetailsDto.setPromocodeName(orderDetails.getPromocodeName());
     orderDetailsDto.setPromocodeDiscount(orderDetails.getPromocodeDiscount());
-    orderDetailsDto.setCreatedAt(CommonUtility.getLocalDateMillis(orderDetails.getCreatedAt()));
-    orderDetailsDto.setModifiedAt(CommonUtility.getLocalDateMillis(orderDetails.getModifiedAt()));
+    if (orderDetails.getCreatedAt() != null) {
+      orderDetailsDto.setCreatedAt(CommonUtility.getLocalDateMillis(orderDetails.getCreatedAt()));
+    }
+    if (orderDetails.getModifiedAt() != null) {
+      orderDetailsDto.setModifiedAt(CommonUtility.getLocalDateMillis(orderDetails.getModifiedAt()));
+    }
     orderDetailsDto.setDeliveryPartnerResponse(orderDetails.getDeliveryPartnerResponse());
-    orderDetailsDto.setPackageDimensionsMap(CommonUtility.convertJsonStringToMap(orderDetails
-            .getPackageDimensions()));
+    if (orderDetails.getPackageDimensions() != null) {
+      orderDetailsDto.setPackageDimensionsMap(CommonUtility.convertJsonStringToMap(orderDetails
+              .getPackageDimensions()));
+    }
     orderDetailsDto.setItemId(orderDetails.getItemId());
     List<OrderItems> orderItemsList = orderDetails.getOrderItemsList();
     if (orderItemsList != null && !orderItemsList.isEmpty()) {
@@ -99,19 +105,27 @@ public class Utility {
     }
     orderDetailsDto.setTrackingData(orderDetails.getTrackingData());
     orderDetailsDto.setPaymentMethod(orderDetails.getPaymentMethod());
-    orderDetailsDto.setCustomerAddressDetails(CommonUtility.convertJsonToObject(orderDetails
-            .getAddress(), new CustomerAddressDetails()));
+    if (orderDetails.getAddress() != null) {
+      orderDetailsDto.setCustomerAddressDetails(CommonUtility.convertJsonToObject(orderDetails
+              .getAddress(), new CustomerAddressDetails()));
+    }
     orderDetailsDto.setPickupBookedDate(orderDetails.getPickupBookedDate());
-    orderDetailsDto.setPickupScheduledDate(CommonUtility.getLocalDateMillis(orderDetails
-            .getPickupScheduledDate()));
+    if (orderDetails.getPickupScheduledDate() != null) {
+      orderDetailsDto.setPickupScheduledDate(CommonUtility.getLocalDateMillis(orderDetails
+              .getPickupScheduledDate()));
+    }
     orderDetailsDto.setDeliveryPartnerOrderId(orderDetails.getDeliveryPartnerOrderId());
     orderDetailsDto.setShipmentId(orderDetails.getShipmentId());
     orderDetailsDto.setAwbCode(orderDetails.getAwbCode());
     orderDetailsDto.setCourierCompanyId(orderDetails.getCourierCompanyId());
     orderDetailsDto.setCourierName(orderDetails.getCourierName());
-    orderDetailsDto.setOrderStatusDetail(getOrderStatusDetailObj(orderDetails.getStatus()));
-    orderDetailsDto.setDisplayedTrackingList(parseJsonToList(orderDetails
-            .getDisplayedTrackingData()));
+    if (orderDetails.getStatus() != null) {
+      orderDetailsDto.setOrderStatusDetail(getOrderStatusDetailObj(orderDetails.getStatus()));
+    }
+    if (orderDetails.getDisplayedTrackingData() != null) {
+      orderDetailsDto.setDisplayedTrackingList(parseJsonToList(orderDetails
+              .getDisplayedTrackingData()));
+    }
     orderDetailsDto.setPickupLocation(orderDetails.getPickupLocation());
     OrderTrackingDetailsDto deliveredTrackingData = getTrackingDetailByStatus(
             SwitchEShopOrderEnum.Deliverd, orderDetailsDto.getDisplayedTrackingList());
@@ -228,6 +242,15 @@ public class Utility {
     orderItemsDto.setSaleId(orderItems.getSaleId());
     orderItemsDto.setHsnCode(orderItems.getHsnCode());
     return orderItemsDto;
+  }
+
+  /**
+   * 
+   * @param itemModelList
+   * @return
+   */
+  public static List<OrderItemsDto> convertModelToDtoList(List<OrderItems> itemModelList) {
+    return itemModelList.stream().map(model -> convertModelToDto(model)).toList();
   }
 
   /**
