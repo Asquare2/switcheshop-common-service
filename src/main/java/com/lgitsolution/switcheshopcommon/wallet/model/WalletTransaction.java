@@ -57,6 +57,12 @@ public class WalletTransaction {
   @Column(name = "return_details_id")
   private Integer returnDetailsId;
 
+  @Column(name = "order_item_id")
+  private String orderItemId;
+
+  @Column(name = "return_item_id")
+  private String returnItemId;
+
   @Column(name = "created_at")
   private LocalDate createdAt;
 }

@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lgitsolution.switcheshopcommon.common.authentication.dto.Provider;
 import com.lgitsolution.switcheshopcommon.promocode.dto.CustomerPromoCodeDetails;
+import com.lgitsolution.switcheshopcommon.wallet.dto.CustomerWalletDto;
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -47,5 +48,7 @@ public class CustomerDetailsDto {
   private List<Integer> recentlyViewSkuId;
 
   private Map<Integer, CustomerPromoCodeDetails> promocodeDetails = null;
+
+  private CustomerWalletDto customerWalletDto = null;
 
 }

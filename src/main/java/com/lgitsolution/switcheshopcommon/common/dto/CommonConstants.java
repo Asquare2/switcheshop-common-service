@@ -125,5 +125,8 @@ public class CommonConstants {
   /* Encryption key constant. */
   public static final String CMN_COLUMN_ENCRYPTION_DECRYPTION_KEY =
           "sdfvgddsdsrsffffhgfduiquwdjhakshuhdiqwdhjknjked";
+  
+  public static final String TEST_ENVIORMENT_NAME = "test";
 
+  public static final String PROD_ENVIORMENT_NAME = "prod";
 }

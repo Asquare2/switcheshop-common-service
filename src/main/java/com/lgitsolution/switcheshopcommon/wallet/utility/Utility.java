@@ -55,6 +55,8 @@ public class Utility {
     model.setTransactionBy(dto.getTransactionBy());
     model.setTransactionFor(dto.getTransactionFor());
     model.setTransactionUserType(dto.getTransactionUserType());
+    model.setOrderItemId(dto.getOrderItemId());
+    model.setReturnItemId(dto.getReturnItemId());
     return model;
   }
 
@@ -72,6 +74,8 @@ public class Utility {
     dto.setTransactionBy(model.getTransactionBy());
     dto.setTransactionFor(model.getTransactionFor());
     dto.setTransactionUserType(model.getTransactionUserType());
+    dto.setOrderItemId(model.getOrderItemId());
+    dto.setReturnItemId(model.getReturnItemId());
     return dto;
   }
 

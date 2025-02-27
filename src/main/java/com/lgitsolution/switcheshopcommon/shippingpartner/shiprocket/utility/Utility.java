@@ -146,7 +146,7 @@ public class Utility {
     dto.setShipping_pincode(Integer.parseInt(pickupLocationDto.getPincode()));
     dto.setShipping_state(pickupLocationDto.getState());
 
-    dto.setPayment_method(orderDetailsDto.getPaymentMethod().name());
+    dto.setPayment_method(OrderPaymentMethod.Prepaid.name());
     Map<String, String> packageDimensionsMap = orderDetailsDto.getPackageDimensionsMap();
     dto.setLength(Integer.parseInt(packageDimensionsMap.get(
             CommonConstants.ORDER_PACKAGE_DIMENTION_LENGTH)));
@@ -158,23 +158,24 @@ public class Utility {
             CommonConstants.ORDER_PACKAGE_DIMENTION_WEIGHT)));
     List<ReturnOrderItems> srItemsList = new ArrayList<ReturnOrderItems>();
     List<OrderItemsDto> orderItemsDtoList = orderDetailsDto.getOrderItemsDtoList();
-    orderItemsDtoList.forEach(o -> {
-      if (returnDetailDto.getOrderItemId() == o.getId()) {
+    Float totalApprovedAmount = 0.0f;
+    for (OrderItemsDto object : orderItemsDtoList) {
+      if (returnDetailDto.getOrderItemId() == object.getId()) {
         ReturnOrderItems item = new ReturnOrderItems();
         // item.setQc_enable(true);
-        item.setName(o.getSkuName());
-        item.setUnits(o.getQuantity());
-        item.setSku(o.getSkuName());
-        item.setSelling_price(o.getSellingPrice());
+        item.setName(object.getSkuName());
+        item.setUnits(object.getQuantity());
+        item.setSku(object.getSkuName());
+        item.setSelling_price(object.getSellingPrice());
+        totalApprovedAmount = object.getSellingPrice();
         // item.setQc_product_name(o.getSkuName());
         // // image pending
         // item.setQc_product_image("");
         srItemsList.add(item);
       }
-    });
-
+    }
     dto.setOrder_items(srItemsList);
-    dto.setSub_total(returnDetailDto.getTotalApprovedAmount());
+    dto.setSub_total(totalApprovedAmount);
     dto.setRequest_pickup(true);
     return dto;
   }

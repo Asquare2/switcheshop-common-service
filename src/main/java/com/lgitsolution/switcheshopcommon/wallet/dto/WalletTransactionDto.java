@@ -41,4 +41,8 @@ public class WalletTransactionDto {
 
   private float remainingWalletAmount;
 
+  private String orderItemId;
+
+  private String returnItemId;
+
 }
