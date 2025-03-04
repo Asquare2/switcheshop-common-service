@@ -578,12 +578,10 @@ public class Utility {
     DateTimeFormatter dateFormat8 = DateTimeFormatter.ofPattern(DATE_FORMAT);
     // Get current date
     Date currentDate = new Date();
-    System.out.println("date : " + dateFormat.format(currentDate));
 
     // convert date to localdatetime
     LocalDateTime localDateTime = currentDate.toInstant().atZone(ZoneId.systemDefault())
             .toLocalDateTime();
-    System.out.println("localDateTime : " + dateFormat8.format(localDateTime));
 
     // plus one
     localDateTime = localDateTime.plusDays(addDays);
@@ -671,5 +669,12 @@ public class Utility {
    */
   public static Long getDifferenceInMillisFromCurrentTime(Long timeInMillis) {
     return (Long) System.currentTimeMillis() - timeInMillis;
+  }
+
+  public static String convertyyyyMmDdToDdMmYyyyDateFormate(String date) {
+    DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    DateTimeFormatter outputDateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    LocalDate localDate = LocalDate.parse(date, inputFormatter);
+    return localDate.format(outputDateFormatter);
   }
 }
