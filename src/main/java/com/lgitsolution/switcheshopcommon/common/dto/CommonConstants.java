@@ -68,6 +68,8 @@ public class CommonConstants {
 
   public static final String FILTER_COLLECTION_KEY = "Collections";
 
+  public static final String FILTER_PRICE_KEY = "Price range";
+
   public static final String FILTER_STATUS_KEY = "status";
 
   /* Integer Constants */
