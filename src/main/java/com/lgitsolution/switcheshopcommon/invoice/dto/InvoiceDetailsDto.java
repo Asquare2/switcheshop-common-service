@@ -19,6 +19,8 @@ public class InvoiceDetailsDto {
 
   private Integer orderDetailsId;
 
+  private String orderItemId;
+
   private LocalDate createdAt;
 
   private Float totalPayable;

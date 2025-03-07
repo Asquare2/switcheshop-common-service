@@ -37,4 +37,7 @@ public class InvoiceDetails {
   @Column(name = "total_tax")
   private Float taxTotalAmount;
 
+  @Column(name = "order_item_id")
+  private String orderItemId;
+
 }

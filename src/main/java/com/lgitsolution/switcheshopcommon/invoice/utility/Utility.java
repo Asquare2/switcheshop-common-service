@@ -24,6 +24,7 @@ public class Utility {
     model.setInvoiceNumber(dto.getInvoiceNumber());
     model.setInvoiceItemsDetailList(CommonUtility.ConvertObjectToJsonString(dto
             .getInvoiceItemsDetailList()));
+    model.setOrderItemId(dto.getOrderItemId());
     return model;
   }
 
@@ -36,6 +37,7 @@ public class Utility {
     dto.setTaxTotalAmount(model.getTaxTotalAmount());
     dto.setInvoiceNumber(model.getInvoiceNumber());
     dto.setInvoiceItemsDetailList(parseJsonToList(model.getInvoiceItemsDetailList()));
+    dto.setOrderItemId(model.getOrderItemId());
     return dto;
   }
 
