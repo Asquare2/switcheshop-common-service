@@ -47,7 +47,7 @@ public class Utility {
             CommonConstants.ORDER_PACKAGE_DIMENTION_BREADTH)));
     dto.setHeight(Integer.parseInt(packageDimensionsMap.get(
             CommonConstants.ORDER_PACKAGE_DIMENTION_HEIGHT)));
-    dto.setWeight(Integer.parseInt(packageDimensionsMap.get(
+    dto.setWeight(Double.parseDouble(packageDimensionsMap.get(
             CommonConstants.ORDER_PACKAGE_DIMENTION_WEIGHT)));
     List<OrderItem> srItemsList = new ArrayList<OrderItem>();
     List<OrderItemsDto> orderItemsDtoList = orderDetailsDto.getOrderItemsDtoList();
