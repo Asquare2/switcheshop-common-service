@@ -1,6 +1,8 @@
 
 package com.lgitsolution.switcheshopcommon.common.model;
 
+import java.time.LocalDate;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -28,5 +30,8 @@ public class MiscellaneousSetting {
 
   @Column(name = "value")
   private String value;
+
+  @Column(name = "modified_at")
+  private LocalDate modifiedAt;
 
 }
