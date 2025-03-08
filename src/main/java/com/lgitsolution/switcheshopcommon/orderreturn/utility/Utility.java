@@ -83,6 +83,9 @@ public class Utility {
    * @return the list of address details
    */
   private static List<ReturnOrderQuestionDto> parseJsonToList(String json) {
+    if (json == null || json.isBlank()) {
+      return null;
+    }
     ObjectMapper objectMapper = new ObjectMapper();
     try {
       return objectMapper.readValue(json, new TypeReference<List<ReturnOrderQuestionDto>>() {
