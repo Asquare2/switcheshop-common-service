@@ -150,7 +150,10 @@ public class Utility {
       if ((statusCode == SwitchEShopOrderEnum.Shipped.getValue() && displayTrackDto
               .getIsDone() == 1) || (statusCode == SwitchEShopOrderEnum.Order_Cancelled_By_Company
                       .getValue() && displayTrackDto.getIsDone() == 1)
-              || (statusCode == SwitchEShopOrderEnum.Order_Cancelled_By_Customer.getValue())) {
+              || (statusCode == SwitchEShopOrderEnum.Order_Cancelled_By_Customer.getValue()
+                      && displayTrackDto.getIsDone() == 1)
+              || (statusCode == SwitchEShopOrderEnum.Paid_Order_Cancelled_By_Customer.getValue()
+                      && displayTrackDto.getIsDone() == 1)) {
         isApplicableForCancel = false;
       }
       if (statusCode == SwitchEShopOrderEnum.Deliverd.getValue() && displayTrackDto
@@ -182,7 +185,8 @@ public class Utility {
       statusName = OrderStatusConstants.OUT_FOR_DELIVERY_ORDER_STATUS;
     } else if (status == SwitchEShopOrderEnum.Deliverd.getValue()) {
       statusName = OrderStatusConstants.DELIVERED_ORDER_STATUS;
-    } else if (status == SwitchEShopOrderEnum.Order_Cancelled_By_Customer.getValue()) {
+    } else if (status == SwitchEShopOrderEnum.Order_Cancelled_By_Customer.getValue()
+            || status == SwitchEShopOrderEnum.Paid_Order_Cancelled_By_Customer.getValue()) {
       statusName = OrderStatusConstants.CANCEL_BY_CUSTOMER_ORDER_STATUS;
     } else if (status == SwitchEShopOrderEnum.Order_Cancelled_By_Company.getValue()) {
       statusName = OrderStatusConstants.CANCEL_BY_COMPANY_ORDER_STATUS;
