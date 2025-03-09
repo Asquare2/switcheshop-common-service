@@ -53,6 +53,10 @@ public class Utility {
               .getCompanyLogoDetails()));
     } else if (companyDetailsDto.getKey().equals(
             CompanyDetailsConstants.CMN_COMPANY_HOME_DM_DETAILS)) {
+      DmCommonDto dM = companyDetailsDto.getHomeDM();
+      String slug = CommonUtility.getSlugByTitle(dM.getTitle());
+      dM.setSlug(slug);
+      companyDetailsDto.setHomeDM(dM);
       companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
               .getHomeDM()));
     } else if (companyDetailsDto.getKey().equals(CompanyDetailsConstants.CMN_COMPANY_TAX_DETAILS)) {
@@ -60,18 +64,34 @@ public class Utility {
               .getTaxDetailsDto()));
     } else if (companyDetailsDto.getKey().equals(
             CompanyDetailsConstants.CMN_COMPANY_FAQ_DM_DETAILS)) {
+      DmCommonDto dM = companyDetailsDto.getFaqDM();
+      String slug = CommonUtility.getSlugByTitle(dM.getTitle());
+      dM.setSlug(slug);
+      companyDetailsDto.setFaqDM(dM);
       companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
               .getFaqDM()));
     } else if (companyDetailsDto.getKey().equals(
             CompanyDetailsConstants.CMN_COMPANY_TERM_CONDITION_DM_DETAILS)) {
+      DmCommonDto dM = companyDetailsDto.getTermsAndConditionDM();
+      String slug = CommonUtility.getSlugByTitle(dM.getTitle());
+      dM.setSlug(slug);
+      companyDetailsDto.setTermsAndConditionDM(dM);
       companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
               .getTermsAndConditionDM()));
     } else if (companyDetailsDto.getKey().equals(
             CompanyDetailsConstants.CMN_COMPANY_RETURN_ECXHANGE_DM_DETAILS)) {
+      DmCommonDto dM = companyDetailsDto.getReturnAndExchangePolicyDM();
+      String slug = CommonUtility.getSlugByTitle(dM.getTitle());
+      dM.setSlug(slug);
+      companyDetailsDto.setReturnAndExchangePolicyDM(dM);
       companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
               .getReturnAndExchangePolicyDM()));
     } else if (companyDetailsDto.getKey().equals(
             CompanyDetailsConstants.CMN_COMPANY_CONTACT_US_DM_DETAILS)) {
+      DmCommonDto dM = companyDetailsDto.getContactUsDM();
+      String slug = CommonUtility.getSlugByTitle(dM.getTitle());
+      dM.setSlug(slug);
+      companyDetailsDto.setContactUsDM(dM);
       companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
               .getContactUsDM()));
     } else if (companyDetailsDto.getKey().equals(
@@ -79,7 +99,6 @@ public class Utility {
       companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
               .getAppLinkDetails()));
     }
-
     return companyDetails;
   }
 
