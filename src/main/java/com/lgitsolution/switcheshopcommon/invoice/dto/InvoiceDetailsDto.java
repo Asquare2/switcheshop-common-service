@@ -8,6 +8,8 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.Data;
 
 @Data
@@ -30,5 +32,10 @@ public class InvoiceDetailsDto {
   private List<InvoiceItemDto> invoiceItemsDetailList = new ArrayList<InvoiceItemDto>();
 
   private Float taxTotalAmount;
+
+  @Enumerated(EnumType.STRING)
+  private RefundStatus refundStatus = RefundStatus.no;
+
+  private Float refundAmount = 0.0f;
 
 }

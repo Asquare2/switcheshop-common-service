@@ -1,9 +1,14 @@
+
 package com.lgitsolution.switcheshopcommon.invoice.model;
 
 import java.time.LocalDate;
 
+import com.lgitsolution.switcheshopcommon.invoice.dto.RefundStatus;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -39,5 +44,12 @@ public class InvoiceDetails {
 
   @Column(name = "order_item_id")
   private String orderItemId;
+
+  @Column(name = "refund_status")
+  @Enumerated(EnumType.STRING)
+  private RefundStatus refundStatus = RefundStatus.no;
+
+  @Column(name = "refund_amount")
+  private Float refundAmount = 0.0f;
 
 }
