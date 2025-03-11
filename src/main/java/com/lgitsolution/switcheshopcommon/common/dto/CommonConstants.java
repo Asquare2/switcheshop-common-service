@@ -116,6 +116,8 @@ public class CommonConstants {
 
   public static final String MIS_SETTING_REFUND_DETAIL_PREFIX_KEY = "refund_detail_prefix";
 
+  public static final String MIS_SETTING_SITE_MAP_KEY = "site_map";
+
   // Miscellaneous settings constant end
 
   // search operations name start
@@ -127,7 +129,7 @@ public class CommonConstants {
   /* Encryption key constant. */
   public static final String CMN_COLUMN_ENCRYPTION_DECRYPTION_KEY =
           "sdfvgddsdsrsffffhgfduiquwdjhakshuhdiqwdhjknjked";
-  
+
   public static final String TEST_ENVIORMENT_NAME = "test";
 
   public static final String PROD_ENVIORMENT_NAME = "prod";
