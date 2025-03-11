@@ -118,6 +118,8 @@ public class CommonConstants {
 
   public static final String MIS_SETTING_SITE_MAP_KEY = "site_map";
 
+  public static final String MIS_SETTING_ROBOT_TXT_KEY = "robot_txt";
+
   // Miscellaneous settings constant end
 
   // search operations name start
