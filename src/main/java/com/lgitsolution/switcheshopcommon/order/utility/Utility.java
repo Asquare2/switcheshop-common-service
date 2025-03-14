@@ -67,6 +67,8 @@ public class Utility {
             .getDisplayedTrackingList()));
     orderDetails.setPickupLocation(orderDetilsDto.getPickupLocation());
     orderDetails.setReturnDetailId(orderDetilsDto.getReturnDetailId());
+    orderDetails.setOrderTrackingUrl(orderDetilsDto.getOrderTrackingUrl());
+
     return orderDetails;
   }
 
@@ -164,6 +166,7 @@ public class Utility {
     orderDetailsDto.setApplicableForCancel(isApplicableForCancel);
     orderDetailsDto.setReturnDetailId(orderDetails.getReturnDetailId());
     orderDetailsDto.setToShowInvoiceButton(isToShowInvoiceButton);
+    orderDetailsDto.setOrderTrackingUrl(orderDetails.getOrderTrackingUrl());
     return orderDetailsDto;
   }
 

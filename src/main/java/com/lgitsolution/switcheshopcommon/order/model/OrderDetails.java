@@ -122,4 +122,8 @@ public class OrderDetails {
 
   @Column(name = "return_detail_id")
   private Integer returnDetailId;
+
+  @Column(name = "order_tracking_url")
+  private String orderTrackingUrl;
+
 }
