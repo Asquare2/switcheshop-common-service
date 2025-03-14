@@ -126,4 +126,6 @@ public class OrderDetailsDto {
 
   private List<ReturnDetailDto> returnDetailsList = null;
 
+  private String orderTrackingUrl;
+
 }
