@@ -98,6 +98,9 @@ public class Utility {
             CompanyDetailsConstants.CMN_COMPANY_APP_LINK_DETAILS)) {
       companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
               .getAppLinkDetails()));
+    } else if (companyDetailsDto.getKey().equals(CompanyDetailsConstants.CMN_WALLET_FAQ)) {
+      companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
+              .getWalletFaq()));
     }
     return companyDetails;
   }
@@ -156,8 +159,10 @@ public class Utility {
             CompanyDetailsConstants.CMN_COMPANY_APP_LINK_DETAILS)) {
       companyDetailsDto.setAppLinkDetails(CommonUtility.convertJsonToObject(companyDetails
               .getValue(), new AppLinkDetails()));
+    } else if (companyDetailsDto.getKey().equals(CompanyDetailsConstants.CMN_WALLET_FAQ)) {
+      companyDetailsDto.setWalletFaq(CommonUtility.convertJsonStringToMap(companyDetails
+              .getValue()));
     }
     return companyDetailsDto;
-
   }
 }
