@@ -155,7 +155,9 @@ public class Utility {
               || (statusCode == SwitchEShopOrderEnum.Order_Cancelled_By_Customer.getValue()
                       && displayTrackDto.getIsDone() == 1)
               || (statusCode == SwitchEShopOrderEnum.Paid_Order_Cancelled_By_Customer.getValue()
-                      && displayTrackDto.getIsDone() == 1)) {
+                      && displayTrackDto.getIsDone() == 1)
+              || (statusCode == SwitchEShopOrderEnum.Pending.getValue() && displayTrackDto
+                      .getIsDone() == 1)) {
         isApplicableForCancel = false;
       }
       if (statusCode == SwitchEShopOrderEnum.Deliverd.getValue() && displayTrackDto
