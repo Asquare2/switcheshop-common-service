@@ -17,6 +17,8 @@ public class CompanyDetailsConstants {
 
   public static final String CMN_COMPANY_TAX_DETAILS = "taxDetails";
 
+  public static final String CMN_WALLET_FAQ = "walletFAQ";
+
   public static final String CMN_COMPANY_APP_LINK_DETAILS = "appLinkDetails";
 
   public static final String CMN_COMPANY_FAQ_DM_DETAILS = "faq_dm";

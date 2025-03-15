@@ -1,6 +1,8 @@
 
 package com.lgitsolution.switcheshopcommon.companydetails.dto;
 
+import java.util.LinkedHashMap;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lgitsolution.switcheshopcommon.dm.dto.DmCommonDto;
@@ -29,6 +31,8 @@ public class CompanyDetailsDto {
   private TaxDetailsDto taxDetailsDto;
 
   private AppLinkDetails appLinkDetails;
+
+  private LinkedHashMap<String, String> walletFaq = new LinkedHashMap<String, String>();
 
   private DmCommonDto homeDM;
 
