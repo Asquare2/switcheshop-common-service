@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lgitsolution.switcheshopcommon.common.authentication.dto.JWTAuthResponse;
 import com.lgitsolution.switcheshopcommon.common.authentication.dto.Provider;
 import com.lgitsolution.switcheshopcommon.promocode.dto.CustomerPromoCodeDetails;
 import com.lgitsolution.switcheshopcommon.wallet.dto.CustomerWalletDto;
@@ -51,11 +52,13 @@ public class CustomerDetailsDto {
 
   private CustomerWalletDto customerWalletDto = null;
 
-  // Used when login by order screen
+  // Used below variables when login by order screen
   private CustomerAddressDetails selectedAddress = null;
 
   private Boolean newUser = null;
 
-  private String jwtToken = null;
+  private JWTAuthResponse jWTAuthResponse = null;
+  
+  private List<Integer> cartItemList = null;
 
 }
