@@ -82,7 +82,7 @@ public class OrderDetails {
   @Column(name = "tracking_data", columnDefinition = "text")
   private String trackingData;
 
-  @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+  @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
   @JoinColumn(name = "order_detail_id", referencedColumnName = "id")
   private List<OrderItems> orderItemsList = new ArrayList<>();
 

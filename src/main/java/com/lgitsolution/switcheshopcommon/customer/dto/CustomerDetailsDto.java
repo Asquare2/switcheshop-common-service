@@ -51,4 +51,11 @@ public class CustomerDetailsDto {
 
   private CustomerWalletDto customerWalletDto = null;
 
+  // Used when login by order screen
+  private CustomerAddressDetails selectedAddress = null;
+
+  private Boolean newUser = null;
+
+  private String jwtToken = null;
+
 }
