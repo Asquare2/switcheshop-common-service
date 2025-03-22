@@ -120,6 +120,8 @@ public class CommonConstants {
 
   public static final String MIS_SETTING_ROBOT_TXT_KEY = "robot_txt";
 
+  public static final String MIS_SETTING_PAYMENT_GATWAY_MODE_KEY = "payment_gatway_mode";
+
   // Miscellaneous settings constant end
 
   // search operations name start

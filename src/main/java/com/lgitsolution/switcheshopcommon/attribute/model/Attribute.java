@@ -38,7 +38,7 @@ public class Attribute {
   @Column(name = "display_name")
   private String displayName;
   
-  //Mapping to the other table
+  // Mapping to the other table
   @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
   @JoinColumn(name = "attribute_id", referencedColumnName = "id")
   private List<AttributeOption> attributeOptionList = new ArrayList<AttributeOption>();
