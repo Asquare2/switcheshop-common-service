@@ -41,7 +41,7 @@ public class OrderPaymentsResponseDto {
 
   private String payment_completion_time;
 
-  private String payment_status;
+  private PaymentStatusEnum payment_status;
 
   private String payment_message;
 
