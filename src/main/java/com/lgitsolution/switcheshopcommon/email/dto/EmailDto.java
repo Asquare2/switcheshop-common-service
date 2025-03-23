@@ -18,5 +18,7 @@ public class EmailDto {
   String body;
   boolean isHtmlContent;
   String filePath;
+  byte[] attachmentFile;
+  String fileName;
 
 }

@@ -53,4 +53,7 @@ public class CustomMessageTemplateConstants {
   /** The constant holds the order delivered email message type value. */
   public static final String CMT_ORDER_DELIVERED_MSG_TYPE = "Order Delivered";
 
+  /** The constant holds the invoice email message type value. */
+  public static final String CMT_INVOICE_EMAIL_MSG_TYPE = "Invoice Email";
+
 }
