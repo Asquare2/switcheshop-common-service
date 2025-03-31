@@ -14,7 +14,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
-import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
@@ -594,29 +593,21 @@ public class Utility {
   }
 
   /**
-   * Gets new date time with time zone formate
+   * Gets new date time with time zone format.
    * 
    * @param addedTime added minutes
-   * @param zoneOffset
+   * @param zoneId
    * @return
    */
-  public static String getNewDateTime(int addedTime, ZoneOffset zoneOffset) {
-    // Get current date
-    Date currentDate = new Date();
-    // Create a LocalDateTime instance
-    LocalDateTime localDateTime = currentDate.toInstant().atZone(ZoneId.systemDefault())
-            .toLocalDateTime();
+  public static String addMinutesToCurrentTime(int minutes, ZoneId zoneId) {
+    // Get the current time in IST
+    OffsetDateTime dateTime = OffsetDateTime.now(zoneId).plusMinutes(minutes);
 
-    // plus one
-    localDateTime = localDateTime.plusMinutes(addedTime);
+    // Format to ISO 8601
+    DateTimeFormatter formatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
 
-    // Add a UTC offset to create an OffsetDateTime
-    OffsetDateTime offsetDateTime = localDateTime.atOffset(zoneOffset);
-
-    // Convert OffsetDateTime to ISO 8601 string
-    String iso8601TimeWithOffset = offsetDateTime.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
-
-    return iso8601TimeWithOffset;
+    // Return formatted date string
+    return dateTime.format(formatter);
   }
 
   public static void main(String[] args) {

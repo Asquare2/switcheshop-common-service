@@ -9,6 +9,9 @@ public class CashfreeConstants {
   /** The constant of the PAID status of cashfree payment order. */
   public static final String CASHFREE_ORDER_STATUS_PAID = "PAID";
 
+  /** The constant of the EXPIRED status of cashfree payment order. */
+  public static final String CASHFREE_ORDER_STATUS_EXPIRED = "EXPIRED";
+
   /** The constant of the currency type indian rupee. */
   public static final String CASHFREE_CURRENCY_TYPE_INDIAN_RUPEE = "INR";
 
@@ -28,5 +31,9 @@ public class CashfreeConstants {
 
   /** The constant of the rate limit error. */
   public static final String CASHFREE_RATE_LIMIT_ERROR = "rate_limit_error";
+
+  // Scheduler constants
+  /** Execute in every 1 hours minutes */
+  public static final long CASHFREE_PAYMENT_STATUS_SCHEDULER_RATE = 1L * 60L * 60L * 1000L;
 
 }

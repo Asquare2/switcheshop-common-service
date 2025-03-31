@@ -2,7 +2,7 @@
 package com.lgitsolution.switcheshopcommon.order.utility;
 
 import java.time.LocalDate;
-import java.time.ZoneOffset;
+import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
@@ -276,7 +276,8 @@ public class Utility {
     orderRequestDto.getCustomer_details().setCustomer_id(customerDetailsDto.getId() + "");
     orderRequestDto.getCustomer_details().setCustomer_email(customerDetailsDto.getEmail());
     orderRequestDto.getCustomer_details().setCustomer_phone(customerDetailsDto.getMobile());
-    orderRequestDto.setOrder_expiry_time(CommonUtility.getNewDateTime(18, ZoneOffset.UTC));
+    orderRequestDto.setOrder_expiry_time(CommonUtility.addMinutesToCurrentTime(18, ZoneId.of(
+            "Asia/Kolkata")));
     /* Order Meta data details. */
     OrderMetaDataDto orderMetaDataDto = new OrderMetaDataDto();
     orderMetaDataDto.setReturn_url(
