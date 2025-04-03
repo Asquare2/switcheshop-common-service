@@ -34,6 +34,7 @@ public class Utility {
     flashSale.setMaxDiscountAmount(flashSaleDto.getMaxDiscountAmount());
     flashSale.setSlug(flashSaleDto.getSlug());
     flashSale.setDmContent(flashSaleDto.getDmContent());
+    flashSale.setMobileMultiMedia(flashSaleDto.getMobileMultiMedia());
     return flashSale;
   }
 
@@ -59,6 +60,7 @@ public class Utility {
     flashSaleDto.setMaxDiscountAmount(flashSale.getMaxDiscountAmount());
     flashSaleDto.setSlug(flashSale.getSlug());
     flashSaleDto.setDmContent(flashSale.getDmContent());
+    flashSaleDto.setMobileMultiMedia(flashSale.getMobileMultiMedia());
     return flashSaleDto;
   }
 

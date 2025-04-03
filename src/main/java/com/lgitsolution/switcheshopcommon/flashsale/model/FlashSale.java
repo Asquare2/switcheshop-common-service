@@ -76,4 +76,7 @@ public class FlashSale {
   @Column(name = "image_alt_tag")
   private String imageAltTag;
 
+  @Column(name = "mob_multi_media")
+  private String mobileMultiMedia;
+
 }

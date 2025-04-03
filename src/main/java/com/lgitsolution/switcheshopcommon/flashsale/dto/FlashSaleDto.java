@@ -27,6 +27,8 @@ public class FlashSaleDto {
   /** This is multi media comes from User interface. */
   private String multiMedia;
 
+  private String mobileMultiMedia;
+
   private Integer status;
 
   private Long createdAt;
