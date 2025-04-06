@@ -5,7 +5,7 @@ public class PendingRequestConstants {
 
   public static final String PR_VERIFY_CASHFREE_PAYMENT_STATUS = "VERIFY_CASHFREE_PAYMENT_STATUS";
 
-  public static final String PR_VERIFY_CASHFREE_RFUND_PAYMENT_STATUS =
+  public static final String PR_VERIFY_CASHFREE_REFUND_PAYMENT_STATUS =
           "VERIFY_CASHFREE_REFUND_PAYMENT_STATUS";
 
   public static final String PR_ORDER_TRACK_STATUS = "ORDER_TRACK";

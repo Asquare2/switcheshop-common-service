@@ -48,15 +48,13 @@ public class CommonConstants {
 
   public static final String CMN_SERVICE_NAME_GOOGLE_AUTH = "googleAuth";
 
-  public static final String CMN_SERVICE_NAME_TWILLO_MOBILE_OTP = "twillioMobileOtp";
-
   public static final String CMN_SERVICE_NAME_CASHFREE_P_GATEWAY = "cashFreePGateway";
 
-  public static final String CMN_CONST_NAME_AUTH_TOKEN_KEY = "authToken";
-
-  public static final String CMN_CONST_NAME_SUFY_THIRED_PARTY_STORAGE_KEY = "sufyStorage";
+  public static final String CMN_SERVICE_NAME_SUFY_THIRED_PARTY_STORAGE_KEY = "sufyStorage";
 
   public static final String CMN_SERVICE_NAME_FAST2SMS = "fast2sms";
+
+  public static final String CMN_CONST_NAME_AUTH_TOKEN_KEY = "authToken";
 
   // Credentials constants End
 
