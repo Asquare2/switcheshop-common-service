@@ -1,6 +1,8 @@
 
 package com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto;
 
+import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -36,7 +38,7 @@ public class RefundResponseDto {
    * Key-value pair that can be used to store additional information about the entity. Maximum 5
    * key-value pairs
    */
-  private RefundMetaDataDto metadata;
+  private Map<String, String> metadata;
 
   /** Merchant’s order Id of the order for which refund is initiated */
   private String order_id;
@@ -59,8 +61,11 @@ public class RefundResponseDto {
   /** Merchant’s refund ID of the refund */
   private String refund_id;
 
+  /**  */
+  private String entity;
+
   /** Method or speed of processing refund */
-  private RefundModeEnum refund_mode;
+  private String refund_mode;
 
   /** Note added by merchant for the refund */
   private String refund_note;
@@ -71,7 +76,7 @@ public class RefundResponseDto {
   private RefundSplitsDto[] refund_splits;
 
   /** This can be one of ["SUCCESS", "PENDING", "CANCELLED", "ONHOLD", "FAILED"] */
-  private RefundStatusEnum refund_status;
+  private String refund_status;
 
   /**
    * This can be one of ["PAYMENT_AUTO_REFUND", "MERCHANT_INITIATED", "UNRECONCILED_AUTO_REFUND"]

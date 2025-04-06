@@ -36,4 +36,7 @@ public class CashfreeConstants {
   /** Execute in every 1 hours minutes */
   public static final long CASHFREE_PAYMENT_STATUS_SCHEDULER_RATE = 1L * 60L * 60L * 1000L;
 
+  /** Execute in every 6 hours minutes */
+  public static final long CASHFREE_REFUND_PAYMENT_STATUS_SCHEDULER_RATE = 6L * 60L * 60L * 1000L;
+
 }
