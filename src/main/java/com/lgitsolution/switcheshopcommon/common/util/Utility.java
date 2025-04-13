@@ -25,6 +25,8 @@ import java.util.SplittableRandom;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -32,11 +34,13 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
+import com.lgitsolution.switcheshopcommon.common.dto.ModuleAccess;
 import com.lgitsolution.switcheshopcommon.common.dto.Multimedia;
 import com.lgitsolution.switcheshopcommon.common.dto.ResponseWrapper;
 import com.lgitsolution.switcheshopcommon.common.logger.SwitcheShopLogger;
 import com.lgitsolution.switcheshopcommon.filter.dto.SearchOptionsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderPaymentMethod;
+import com.lgitsolution.switcheshopcommon.user.model.SystemUser;
 
 import io.micrometer.common.util.StringUtils;
 
@@ -569,6 +573,53 @@ public class Utility {
     String randomNumber = generateRandomAlphanumeric(10);
     slug = slug + "-" + randomNumber;
     return slug;
+  }
+
+  /**
+   * Gets the json string of module access object.
+   * 
+   * @param moduleAccess
+   * @return the json string of module access object.
+   */
+  public static String getModuleAccessJsonString(Map<String, ModuleAccess> moduleAccess) {
+    String jsonString = "";
+    if (moduleAccess != null) {
+      ObjectMapper obj = new ObjectMapper();
+      try {
+        jsonString = obj.writeValueAsString(moduleAccess);
+      } catch (JsonProcessingException e) {
+        e.printStackTrace();
+      }
+    }
+    return jsonString;
+  }
+
+  /**
+   * Gets the module access object from json string
+   * 
+   * @param jsonString
+   * @return the module access object from json string.
+   */
+  public static Map<String, ModuleAccess> getModuleAccessObject(String jsonString) {
+    Map<String, ModuleAccess> moduleAccess = null;
+    try {
+      if (jsonString != null && StringUtils.isNotEmpty(jsonString)) {
+        ObjectMapper obj = new ObjectMapper();
+        moduleAccess = obj.readValue(jsonString, Map.class);
+      }
+    } catch (Exception exception) {
+      logger.error("Failed to get the module object.", exception);
+    }
+    return moduleAccess;
+  }
+
+  public static SystemUser getLoggedInCustomerDetail() {
+    SystemUser systemUser = null;
+    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    if (auth.getPrincipal() != null && !auth.getPrincipal().toString().equals("anonymousUser")) {
+      systemUser = (SystemUser) auth.getPrincipal();
+    }
+    return systemUser;
   }
 
   public static String getNewAddedDate(int addDays) {

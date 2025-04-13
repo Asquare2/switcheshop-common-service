@@ -135,4 +135,20 @@ public class CommonConstants {
   public static final String TEST_ENVIORMENT_NAME = "test";
 
   public static final String PROD_ENVIORMENT_NAME = "prod";
+
+  // folder name constants Start
+  /** The Constant IMAGE_FOLDER_NAME. */
+  public static final String IMAGE_FOLDER_NAME = "image";
+
+  /** The Constant VIDEO_FOLDER_NAME. */
+  public static final String VIDEO_FOLDER_NAME = "video";
+
+  /** The Constant for upload directory. */
+  public static final String UPLOAD_DIR = "uploads";
+
+  /** The Constant for upload directory. */
+  public static final String MULTIMEDIA_DIR = "multimedia";
+
+  // folder name constants End
+
 }
