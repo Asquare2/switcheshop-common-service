@@ -22,7 +22,7 @@ public class ClientDetails {
   @Column(name = "username")
   private String username;
 
-  @Column(name = "compId")
+  @Column(name = "company_id")
   private String compId;
 
   @Column(name = "schema")

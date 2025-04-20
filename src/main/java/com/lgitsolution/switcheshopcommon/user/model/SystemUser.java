@@ -75,6 +75,9 @@ public class SystemUser implements UserDetails {
   @Column(name = "is_system_user", nullable = false)
   private Boolean isSystemUser = true;
 
+  @Column(name = "company_id", nullable = false)
+  private String companyId = "";
+
   @jakarta.persistence.Transient
   private Map<String, ModuleAccess> moduleAccessMap = new HashMap<String, ModuleAccess>();
 
