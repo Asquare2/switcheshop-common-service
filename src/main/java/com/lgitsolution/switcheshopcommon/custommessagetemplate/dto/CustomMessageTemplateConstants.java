@@ -56,4 +56,7 @@ public class CustomMessageTemplateConstants {
   /** The constant holds the invoice email message type value. */
   public static final String CMT_INVOICE_EMAIL_MSG_TYPE = "Invoice Email";
 
+  /** The constant holds the send customer credentials message type value. */
+  public static final String CMT_SEND_CUSTOMER_CREDENTIALS_MSG_TYPE = "Send Customer Credentials";
+
 }
