@@ -23,5 +23,7 @@ public class ClientDetailsDto {
 
   private String mobileNumber;
 
+  private String password;
+
   private Long createdAt;
 }
