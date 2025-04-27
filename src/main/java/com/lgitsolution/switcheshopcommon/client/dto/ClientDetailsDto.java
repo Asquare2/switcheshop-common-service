@@ -21,5 +21,7 @@ public class ClientDetailsDto {
 
   private String url;
 
+  private String mobileNumber;
+
   private Long createdAt;
 }
