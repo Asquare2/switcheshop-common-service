@@ -150,15 +150,19 @@ public class Utility {
     for (OrderTrackingDetailsDto displayTrackDto : displayedTrackingList) {
       int statusCode = displayTrackDto.getStatusCode();
       if ((statusCode == SwitchEShopOrderEnum.Shipped.getValue() && displayTrackDto
-              .getIsDone() == 1) || (statusCode == SwitchEShopOrderEnum.Order_Cancelled_By_Company
-                      .getValue() && displayTrackDto.getIsDone() == 1)
+              .getIsDone() == 1) || (statusCode == SwitchEShopOrderEnum.Out_For_Delivery.getValue()
+                      && displayTrackDto.getIsDone() == 1)
+              || (statusCode == SwitchEShopOrderEnum.Deliverd.getValue() && displayTrackDto
+                      .getIsDone() == 1)
+              || (statusCode == SwitchEShopOrderEnum.Order_Cancelled_By_Company.getValue()
+                      && displayTrackDto.getIsDone() == 1)
               || (statusCode == SwitchEShopOrderEnum.Order_Cancelled_By_Customer.getValue()
                       && displayTrackDto.getIsDone() == 1)
               || (statusCode == SwitchEShopOrderEnum.Paid_Order_Cancelled_By_Customer.getValue()
                       && displayTrackDto.getIsDone() == 1)
               || (statusCode == SwitchEShopOrderEnum.Pending.getValue() && displayTrackDto
                       .getIsDone() == 1 && (statusCode == SwitchEShopOrderEnum.Confirmed.getValue()
-                              && displayTrackDto.getIsDone() != 1))) {
+                              && displayTrackDto.getIsDone() == 0))) {
         isApplicableForCancel = false;
       }
       if (statusCode == SwitchEShopOrderEnum.Deliverd.getValue() && displayTrackDto
