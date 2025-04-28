@@ -147,6 +147,7 @@ public class Utility {
     boolean isToShowInvoiceButton = false;
     List<OrderTrackingDetailsDto> displayedTrackingList = orderDetailsDto
             .getDisplayedTrackingList();
+
     for (OrderTrackingDetailsDto displayTrackDto : displayedTrackingList) {
       int statusCode = displayTrackDto.getStatusCode();
       if ((statusCode == SwitchEShopOrderEnum.Shipped.getValue() && displayTrackDto
@@ -159,12 +160,19 @@ public class Utility {
               || (statusCode == SwitchEShopOrderEnum.Order_Cancelled_By_Customer.getValue()
                       && displayTrackDto.getIsDone() == 1)
               || (statusCode == SwitchEShopOrderEnum.Paid_Order_Cancelled_By_Customer.getValue()
-                      && displayTrackDto.getIsDone() == 1)
-              || (statusCode == SwitchEShopOrderEnum.Pending.getValue() && displayTrackDto
-                      .getIsDone() == 1 && (statusCode == SwitchEShopOrderEnum.Confirmed.getValue()
-                              && displayTrackDto.getIsDone() == 0))) {
+                      && displayTrackDto.getIsDone() == 1)) {
         isApplicableForCancel = false;
       }
+
+      if (statusCode == SwitchEShopOrderEnum.Pending.getValue() && displayTrackDto
+              .getIsDone() == 1) {
+        OrderTrackingDetailsDto confirmedStatus = getTrackingDetailByStatus(
+                SwitchEShopOrderEnum.Confirmed, displayedTrackingList);
+        if (confirmedStatus.getIsDone() == 0) {
+          isApplicableForCancel = false;
+        }
+      }
+
       if (statusCode == SwitchEShopOrderEnum.Deliverd.getValue() && displayTrackDto
               .getIsDone() == 1) {
         isToShowInvoiceButton = true;
