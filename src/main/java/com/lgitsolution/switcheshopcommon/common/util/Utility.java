@@ -23,6 +23,11 @@ import java.util.Map;
 import java.util.Random;
 import java.util.SplittableRandom;
 
+import org.springframework.beans.factory.ObjectFactory;
+import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
+import org.springframework.cloud.openfeign.support.SpringDecoder;
+import org.springframework.cloud.openfeign.support.SpringEncoder;
+import org.springframework.cloud.openfeign.support.SpringMvcContract;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -42,6 +47,7 @@ import com.lgitsolution.switcheshopcommon.filter.dto.SearchOptionsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderPaymentMethod;
 import com.lgitsolution.switcheshopcommon.user.model.SystemUser;
 
+import feign.Feign;
 import io.micrometer.common.util.StringUtils;
 
 /**
@@ -719,4 +725,17 @@ public class Utility {
     LocalDate localDate = LocalDate.parse(date, inputFormatter);
     return localDate.format(outputDateFormatter);
   }
+
+  /**
+   * Gets the refund client object.
+   * 
+   * @param clientClass the name of the class or interface with .class extension
+   * @return
+   */
+  public static <T> T getCashfreeFeignClient(Class<T> clientClass, String url,
+          ObjectFactory<HttpMessageConverters> messageConverters) {
+    return Feign.builder().encoder(new SpringEncoder(messageConverters)).decoder(new SpringDecoder(
+            messageConverters)).contract(new SpringMvcContract()).target(clientClass, url);
+  }
+
 }
