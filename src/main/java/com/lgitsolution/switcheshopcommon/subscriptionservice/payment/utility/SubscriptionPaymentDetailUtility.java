@@ -20,6 +20,7 @@ public class SubscriptionPaymentDetailUtility {
     dto.setProvider(model.getProvider());
     dto.setCurrency(model.getCurrency());
     dto.setPaymentMethod(model.getPaymentMethod());
+    dto.setPaymentSessionId(model.getPaymentSessionId());
     dto.setSpOrderId(model.getSpOrderId());
     dto.setSpStatus(model.getSpStatus());
     dto.setStatus(model.getStatus());
@@ -41,6 +42,7 @@ public class SubscriptionPaymentDetailUtility {
     model.setProvider(dto.getProvider());
     model.setCurrency(dto.getCurrency());
     model.setPaymentMethod(dto.getPaymentMethod());
+    model.setPaymentSessionId(dto.getPaymentSessionId());
     model.setSpOrderId(dto.getSpOrderId());
     model.setSpStatus(dto.getSpStatus());
     model.setStatus(dto.getStatus());

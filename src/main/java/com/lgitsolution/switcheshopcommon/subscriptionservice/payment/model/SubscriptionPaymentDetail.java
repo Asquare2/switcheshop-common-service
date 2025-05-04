@@ -23,17 +23,23 @@ public class SubscriptionPaymentDetail {
   @Column(name = "subscription_id")
   private Integer subscriptionId;
 
+  @Column(name = "subscription_item_id")
+  private String subscriptionItemId;
+
   @Column(name = "client_id")
   private Integer clientId;
 
   @Column(name = "amount")
-  private Float amount;
+  private Double amount;
 
   @Column(name = "provider")
   private String provider;
 
   @Column(name = "currency")
   private String currency;
+
+  @Column(name = "payment_method")
+  private String paymentMethod;
 
   @Column(name = "payment_session_id")
   private String paymentSessionId;
@@ -45,10 +51,7 @@ public class SubscriptionPaymentDetail {
   private String spStatus;
 
   @Column(name = "status")
-  private String status;
-
-  @Column(name = "payment_method")
-  private String paymentMethod;
+  private Integer status;
 
   @Column(name = "create_order_response")
   private String createdOrderResponse;

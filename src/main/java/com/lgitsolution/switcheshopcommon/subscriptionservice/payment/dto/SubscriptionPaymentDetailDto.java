@@ -15,15 +15,16 @@ public class SubscriptionPaymentDetailDto {
 
   private Integer id;
   private Integer subscriptionId;
+  private String subscriptionItemId;
   private Integer clientId;
-  private Float amount;
+  private Double amount;
   private String provider;
   private String currency;
+  private String paymentMethod;
   private String paymentSessionId;
   private String spOrderId;
   private String spStatus;
-  private String status;
-  private String paymentMethod;
+  private Integer status;
   private OrderResponseDto createdOrderResponse;
   private OrderPaymentsResponseDto[] orderPaymentsResponseArr;
   private Long createdAt;
