@@ -4,8 +4,10 @@ package com.lgitsolution.switcheshopcommon.subscriptionservice.utility;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.lgitsolution.switcheshopcommon.subscriptionservice.dto.SubscriptionDto;
 import com.lgitsolution.switcheshopcommon.subscriptionservice.dto.SubscriptionPlansDto;
 import com.lgitsolution.switcheshopcommon.subscriptionservice.dto.SubscriptionPlansPricingDto;
+import com.lgitsolution.switcheshopcommon.subscriptionservice.model.Subscription;
 import com.lgitsolution.switcheshopcommon.subscriptionservice.model.SubscriptionPlans;
 import com.lgitsolution.switcheshopcommon.subscriptionservice.model.SubscriptionPlansPricing;
 
@@ -68,4 +70,34 @@ public class Utility {
     return dto;
   }
 
+  public static Subscription convertDtoToModel(SubscriptionDto dto) {
+    Subscription model = new Subscription();
+    model.setId(dto.getId());
+    model.setClientDetailsId(dto.getClientDetailsId());
+    model.setDiscountId(dto.getDiscountId());
+    model.setPlanId(dto.getPlanId());
+    model.setPricingPlanId(dto.getPricingPlanId());
+    model.setStatus(dto.getStatus());
+    model.setStartDate(CommonUtility.getLocalDate(dto.getStartDate()));
+    model.setEndDate(CommonUtility.getLocalDate(dto.getEndDate()));
+    model.setNotificationStartDays(CommonUtility.getLocalDate(dto.getNotificationStartDays()));
+    model.setUpdatedAt(CommonUtility.getLocalDate(dto.getUpdatedAt()));
+    return model;
+  }
+
+  public static SubscriptionDto convertModelToDto(Subscription model) {
+    SubscriptionDto dto = new SubscriptionDto();
+    dto.setId(model.getId());
+    dto.setClientDetailsId(model.getClientDetailsId());
+    dto.setDiscountId(model.getDiscountId());
+    dto.setPlanId(model.getPlanId());
+    dto.setPricingPlanId(model.getPricingPlanId());
+    dto.setStatus(model.getStatus());
+    dto.setStartDate(CommonUtility.getLocalDateMillis(model.getStartDate()));
+    dto.setEndDate(CommonUtility.getLocalDateMillis(model.getEndDate()));
+    dto.setNotificationStartDays(CommonUtility.getLocalDateMillis(model
+            .getNotificationStartDays()));
+    dto.setUpdatedAt(CommonUtility.getLocalDateMillis(model.getUpdatedAt()));
+    return dto;
+  }
 }
