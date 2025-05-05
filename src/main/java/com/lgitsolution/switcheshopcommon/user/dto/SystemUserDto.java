@@ -45,4 +45,6 @@ public class SystemUserDto {
 
   private Long lastLogin;
 
+  private String companyId = "";
+
 }

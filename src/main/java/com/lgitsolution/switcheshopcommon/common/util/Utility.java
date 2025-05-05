@@ -44,7 +44,6 @@ import com.lgitsolution.switcheshopcommon.common.dto.Multimedia;
 import com.lgitsolution.switcheshopcommon.common.dto.ResponseWrapper;
 import com.lgitsolution.switcheshopcommon.common.logger.SwitcheShopLogger;
 import com.lgitsolution.switcheshopcommon.filter.dto.SearchOptionsDto;
-import com.lgitsolution.switcheshopcommon.order.dto.OrderPaymentMethod;
 import com.lgitsolution.switcheshopcommon.user.model.SystemUser;
 
 import feign.Feign;
@@ -668,23 +667,12 @@ public class Utility {
   }
 
   public static void main(String[] args) {
+    List<String> test = new ArrayList<String>();
+    test.add("10 inventory location");
+    test.add("24/7 chat support");
+    test.add("POS Lite");
+    System.out.println(ConvertObjectToJsonString(test));
 
-    // // Get current date
-    // Date currentDate = new Date();
-    // // Create a LocalDateTime instance
-    // LocalDateTime localDateTime = currentDate.toInstant().atZone(ZoneId.systemDefault())
-    // .toLocalDateTime();
-    //
-    // // plus one
-    // localDateTime = localDateTime.plusMinutes(15);
-    //
-    // // Add a UTC offset to create an OffsetDateTime
-    // OffsetDateTime offsetDateTime = localDateTime.atOffset(ZoneOffset.UTC);
-    //
-    // // Convert OffsetDateTime to ISO 8601 string
-    // String iso8601TimeWithOffset = offsetDateTime.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
-    // Print the result
-    System.out.println(OrderPaymentMethod.Prepaid.name());
   }
 
   public static int roundFloat(float value) {
