@@ -56,6 +56,8 @@ public class CommonConstants {
 
   public static final String CMN_CONST_NAME_AUTH_TOKEN_KEY = "authToken";
 
+  public static final String CMN_CONST_NAME_MODE_KEY = "mode";
+
   // Credentials constants End
 
   public static final String FILTER_CATEGORY_KEY = "category";
