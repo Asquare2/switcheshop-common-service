@@ -24,4 +24,8 @@ public class SubscriptionDto {
   private Long endDate;
   private Long notificationStartDays;
   private Long updatedAt;
+
+  // Only in DTO
+  boolean isToPoke = false;
+  Long subsRemainingDays;
 }
