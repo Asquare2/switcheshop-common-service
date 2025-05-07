@@ -25,7 +25,7 @@ public class SubscriptionDto {
   private Long updatedAt;
   private String promocodeName;
   private Float promocodeDiscount;
-  private Integer promocodeId;
+  private Integer promocodeId = -1;
 
   // Only in DTO
   boolean isToPoke = false;
