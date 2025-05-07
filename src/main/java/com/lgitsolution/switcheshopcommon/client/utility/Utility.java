@@ -1,8 +1,13 @@
 
 package com.lgitsolution.switcheshopcommon.client.utility;
 
+import java.util.HashMap;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lgitsolution.switcheshopcommon.client.dto.ClientDetailsDto;
 import com.lgitsolution.switcheshopcommon.client.model.ClientDetails;
+import com.lgitsolution.switcheshopcommon.promocode.dto.CustomerPromoCodeDetails;
 
 public class Utility {
 
@@ -16,6 +21,7 @@ public class Utility {
     model.setCompId(dto.getCompId());
     model.setUrl(dto.getUrl());
     model.setCreatedAt(CommonUtility.getLocalDate(dto.getCreatedAt()));
+    model.setPromocode(CommonUtility.ConvertObjectToJsonString(dto.getPromocodeDetails()));
     return model;
   }
 
@@ -27,7 +33,23 @@ public class Utility {
     dto.setCompId(model.getCompId());
     dto.setUrl(model.getUrl());
     dto.setCreatedAt(CommonUtility.getLocalDateMillis(model.getCreatedAt()));
+    if (model.getPromocode() != null && !model.getPromocode().isBlank()) {
+      dto.setPromocodeDetails(parseJsonToMap(model.getPromocode()));
+    }
     return dto;
+  }
+
+  private static HashMap<Integer, CustomerPromoCodeDetails> parseJsonToMap(String json) {
+    ObjectMapper objectMapper = new ObjectMapper();
+    try {
+      return objectMapper.readValue(json,
+              new TypeReference<HashMap<Integer, CustomerPromoCodeDetails>>() {
+              });
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new RuntimeException(
+              "Failed to parse JSON to HashMap<String, CustomerPromoCodeDetails>", e);
+    }
   }
 
 }

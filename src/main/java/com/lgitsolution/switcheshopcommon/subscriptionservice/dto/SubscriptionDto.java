@@ -17,13 +17,15 @@ public class SubscriptionDto {
   private int clientDetailsId;
   private int planId;
   private int pricingPlanId;
-  private int discountId = -1;
   @Enumerated(EnumType.STRING)
   private SubscriptionStatusEnum status;
   private Long startDate;
   private Long endDate;
   private Long notificationStartDays;
   private Long updatedAt;
+  private String promocodeName;
+  private Float promocodeDiscount;
+  private Integer promocodeId;
 
   // Only in DTO
   boolean isToPoke = false;

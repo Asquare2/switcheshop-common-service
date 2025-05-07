@@ -31,6 +31,9 @@ public class ClientDetails {
   @Column(name = "url")
   private String url;
 
+  @Column(name = "promocode", columnDefinition = "text")
+  private String promocode;
+
   @Column(name = "created_at")
   private LocalDate createdAt;
 

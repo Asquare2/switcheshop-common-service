@@ -33,8 +33,8 @@ public class Subscription {
   @Column(name = "pricing_plan_id")
   private int pricingPlanId;
 
-  @Column(name = "discount_id")
-  private int discountId;
+  @Column(name = "promocode_id")
+  private int promocodeId;
 
   @Column(name = "status")
   @Enumerated(EnumType.STRING)
@@ -51,4 +51,10 @@ public class Subscription {
 
   @Column(name = "updated_at")
   private LocalDate updatedAt;
+
+  @Column(name = "promocode_name")
+  private String promocodeName;
+
+  @Column(name = "promocode_discount")
+  private Float promocodeDiscount;
 }

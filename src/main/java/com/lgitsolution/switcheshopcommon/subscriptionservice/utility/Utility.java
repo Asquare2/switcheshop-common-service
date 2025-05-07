@@ -74,7 +74,9 @@ public class Utility {
     Subscription model = new Subscription();
     model.setId(dto.getId());
     model.setClientDetailsId(dto.getClientDetailsId());
-    model.setDiscountId(dto.getDiscountId());
+    model.setPromocodeName(dto.getPromocodeName());
+    model.setPromocodeDiscount(dto.getPromocodeDiscount());
+    model.setPromocodeId(dto.getPromocodeId());
     model.setPlanId(dto.getPlanId());
     model.setPricingPlanId(dto.getPricingPlanId());
     model.setStatus(dto.getStatus());
@@ -89,7 +91,9 @@ public class Utility {
     SubscriptionDto dto = new SubscriptionDto();
     dto.setId(model.getId());
     dto.setClientDetailsId(model.getClientDetailsId());
-    dto.setDiscountId(model.getDiscountId());
+    dto.setPromocodeId(model.getPromocodeId());
+    dto.setPromocodeName(model.getPromocodeName());
+    dto.setPromocodeDiscount(model.getPromocodeDiscount());
     dto.setPlanId(model.getPlanId());
     dto.setPricingPlanId(model.getPricingPlanId());
     dto.setStatus(model.getStatus());
