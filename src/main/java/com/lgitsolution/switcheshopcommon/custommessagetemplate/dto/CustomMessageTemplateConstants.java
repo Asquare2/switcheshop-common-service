@@ -34,6 +34,9 @@ public class CustomMessageTemplateConstants {
   /** The constant holds the link variable. */
   public static final String LINK_VAR = "<LINK>";
 
+  /** The constant holds the otp expiry minutes variable. */
+  public static final String OTP_EXPIRY_MINUTES_VAR = "<OTP_EXPIRY_MINUTES>";
+
   /* Message template types constants */
   /** The constant holds the otp email message type value. */
   public static final String CMT_OTP_EMAIL_MSG_TYPE = "Otp Email";
