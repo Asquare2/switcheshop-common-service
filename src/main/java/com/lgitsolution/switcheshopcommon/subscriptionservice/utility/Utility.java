@@ -84,6 +84,7 @@ public class Utility {
     model.setEndDate(CommonUtility.getLocalDate(dto.getEndDate()));
     model.setNotificationStartDays(CommonUtility.getLocalDate(dto.getNotificationStartDays()));
     model.setUpdatedAt(CommonUtility.getLocalDate(dto.getUpdatedAt()));
+    model.setItemId(dto.getItemId());
     return model;
   }
 
@@ -102,6 +103,7 @@ public class Utility {
     dto.setNotificationStartDays(CommonUtility.getLocalDateMillis(model
             .getNotificationStartDays()));
     dto.setUpdatedAt(CommonUtility.getLocalDateMillis(model.getUpdatedAt()));
+    dto.setItemId(model.getItemId());
     return dto;
   }
 }

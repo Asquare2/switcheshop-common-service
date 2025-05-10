@@ -57,4 +57,7 @@ public class Subscription {
 
   @Column(name = "promocode_discount")
   private Float promocodeDiscount;
+
+  @Column(name = "item_id")
+  private String itemId = "";
 }
