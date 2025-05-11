@@ -35,4 +35,5 @@ public class SubscriptionDto {
 
   private SubscriptionPaymentDetailDto subscriptionPaymentDetailDto;
   private String companyId;
+  private Float totalPaymentGatwayPayable;
 }

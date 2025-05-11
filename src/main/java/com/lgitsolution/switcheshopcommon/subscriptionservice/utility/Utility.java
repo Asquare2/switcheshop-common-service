@@ -1,15 +1,19 @@
 
 package com.lgitsolution.switcheshopcommon.subscriptionservice.utility;
 
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.OrderMetaDataDto;
+import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.PaymentOrderRequestDto;
 import com.lgitsolution.switcheshopcommon.subscriptionservice.dto.SubscriptionDto;
 import com.lgitsolution.switcheshopcommon.subscriptionservice.dto.SubscriptionPlansDto;
 import com.lgitsolution.switcheshopcommon.subscriptionservice.dto.SubscriptionPlansPricingDto;
 import com.lgitsolution.switcheshopcommon.subscriptionservice.model.Subscription;
 import com.lgitsolution.switcheshopcommon.subscriptionservice.model.SubscriptionPlans;
 import com.lgitsolution.switcheshopcommon.subscriptionservice.model.SubscriptionPlansPricing;
+import com.lgitsolution.switcheshopcommon.user.dto.SystemUserDto;
 
 public class Utility {
 
@@ -105,5 +109,32 @@ public class Utility {
     dto.setUpdatedAt(CommonUtility.getLocalDateMillis(model.getUpdatedAt()));
     dto.setItemId(model.getItemId());
     return dto;
+  }
+
+  /**
+   * 
+   * @param customerDetailsDto
+   * @param orderDetilsDto
+   * @return
+   */
+  public static PaymentOrderRequestDto createPaymentOrderRequestDtoForSubsciption(
+          SubscriptionDto subscriptionDto, SystemUserDto systemUserDto) {
+    PaymentOrderRequestDto orderRequestDto = new PaymentOrderRequestDto();
+    orderRequestDto.setOrder_amount((double) subscriptionDto.getTotalPaymentGatwayPayable());
+    orderRequestDto.setOrderItemId(subscriptionDto.getItemId());
+    orderRequestDto.getCustomer_details().setCustomer_id(subscriptionDto.getClientDetailsId() + "");
+    orderRequestDto.getCustomer_details().setCustomer_email(systemUserDto.getEmail());
+    orderRequestDto.getCustomer_details().setCustomer_phone(systemUserDto.getMobile());
+    orderRequestDto.setOrder_expiry_time(CommonUtility.addMinutesToCurrentTime(18, ZoneId.of(
+            "Asia/Kolkata")));
+    /* Order Meta data details. */
+    OrderMetaDataDto orderMetaDataDto = new OrderMetaDataDto();
+    /*
+     * orderMetaDataDto.setReturn_url(
+     * "https://localhost:8081/order-details/get-update-order-status?orderItemId=" +
+     * orderDetilsDto.getItemId());
+     */
+    orderRequestDto.setOrder_meta(orderMetaDataDto);
+    return orderRequestDto;
   }
 }
