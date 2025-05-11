@@ -21,6 +21,8 @@ import com.lgitsolution.switcheshopcommon.order.model.OrderDetails;
 import com.lgitsolution.switcheshopcommon.order.model.OrderItems;
 import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.OrderMetaDataDto;
 import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.PaymentOrderRequestDto;
+import com.lgitsolution.switcheshopcommon.subscriptionservice.dto.SubscriptionDto;
+import com.lgitsolution.switcheshopcommon.user.dto.SystemUserDto;
 
 public class Utility {
 
@@ -296,6 +298,33 @@ public class Utility {
     orderMetaDataDto.setReturn_url(
             "https://localhost:8081/order-details/get-update-order-status?orderItemId="
                     + orderDetilsDto.getItemId());
+    orderRequestDto.setOrder_meta(orderMetaDataDto);
+    return orderRequestDto;
+  }
+
+  /**
+   * 
+   * @param customerDetailsDto
+   * @param orderDetilsDto
+   * @return
+   */
+  public static PaymentOrderRequestDto createPaymentOrderRequestDtoForSubsciption(
+          SubscriptionDto subscriptionDto, SystemUserDto systemUserDto) {
+    PaymentOrderRequestDto orderRequestDto = new PaymentOrderRequestDto();
+    orderRequestDto.setOrder_amount(0.0/* ToDo */);
+    orderRequestDto.setOrderItemId(subscriptionDto.getItemId());
+    orderRequestDto.getCustomer_details().setCustomer_id(subscriptionDto.getClientDetailsId() + "");
+    orderRequestDto.getCustomer_details().setCustomer_email(systemUserDto.getEmail());
+    orderRequestDto.getCustomer_details().setCustomer_phone(systemUserDto.getMobile());
+    orderRequestDto.setOrder_expiry_time(CommonUtility.addMinutesToCurrentTime(18, ZoneId.of(
+            "Asia/Kolkata")));
+    /* Order Meta data details. */
+    OrderMetaDataDto orderMetaDataDto = new OrderMetaDataDto();
+    /*
+     * orderMetaDataDto.setReturn_url(
+     * "https://localhost:8081/order-details/get-update-order-status?orderItemId=" +
+     * orderDetilsDto.getItemId());
+     */
     orderRequestDto.setOrder_meta(orderMetaDataDto);
     return orderRequestDto;
   }
