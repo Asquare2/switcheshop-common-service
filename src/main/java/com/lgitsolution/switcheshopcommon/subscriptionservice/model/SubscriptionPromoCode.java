@@ -13,7 +13,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "promocode", schema = "public")
+@Table(name = "subscription_promocode", schema = "public")
 public class SubscriptionPromoCode {
 
   /** The id. */

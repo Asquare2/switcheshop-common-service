@@ -4,15 +4,19 @@ package com.lgitsolution.switcheshopcommon.subscriptionservice.utility;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.OrderMetaDataDto;
 import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.PaymentOrderRequestDto;
+import com.lgitsolution.switcheshopcommon.promocode.dto.CustomerPromoCodeDetails;
 import com.lgitsolution.switcheshopcommon.subscriptionservice.dto.SubscriptionDto;
 import com.lgitsolution.switcheshopcommon.subscriptionservice.dto.SubscriptionPlansDto;
 import com.lgitsolution.switcheshopcommon.subscriptionservice.dto.SubscriptionPlansPricingDto;
+import com.lgitsolution.switcheshopcommon.subscriptionservice.dto.SubscriptionPromoCodeDto;
 import com.lgitsolution.switcheshopcommon.subscriptionservice.model.Subscription;
 import com.lgitsolution.switcheshopcommon.subscriptionservice.model.SubscriptionPlans;
 import com.lgitsolution.switcheshopcommon.subscriptionservice.model.SubscriptionPlansPricing;
+import com.lgitsolution.switcheshopcommon.subscriptionservice.model.SubscriptionPromoCode;
 import com.lgitsolution.switcheshopcommon.user.dto.SystemUserDto;
 
 public class Utility {
@@ -136,5 +140,83 @@ public class Utility {
      */
     orderRequestDto.setOrder_meta(orderMetaDataDto);
     return orderRequestDto;
+  }
+
+  /**
+   * Converts the dto object to model object.
+   * 
+   * @param promocodeDto the promocode dto object
+   * @return the promocode model object
+   */
+  public static SubscriptionPromoCode convertDtoToModel(SubscriptionPromoCodeDto promocodeDto) {
+    SubscriptionPromoCode promocode = new SubscriptionPromoCode();
+    promocode.setName(promocodeDto.getName());
+    promocode.setMessage(promocodeDto.getMessage());
+    promocode.setIsReusable(promocodeDto.getIsReusable());
+    promocode.setUseCount(promocodeDto.getUseCount());
+    promocode.setMultiMedia(CommonUtility.getMultiMediaJsonString(promocodeDto.getMultiMedia()));
+    promocode.setMinimumPurchaseAmount(promocodeDto.getMinimumPurchaseAmount());
+    promocode.setDiscountType(promocodeDto.getDiscountType());
+    promocode.setDiscountAmount(promocodeDto.getDiscountAmount());
+    promocode.setStatus(promocodeDto.getStatus());
+    promocode.setCreatedAt(CommonUtility.getLocalDate(promocodeDto.getCreatedAt()));
+    promocode.setModifiedAt(CommonUtility.getLocalDate(promocodeDto.getModifiedAt()));
+    return promocode;
+  }
+
+  /**
+   * Converts the model to dto object.
+   * 
+   * @param promocode the promocode model class object
+   * @return the promocode dto class object
+   */
+  public static SubscriptionPromoCodeDto convertModelToDto(SubscriptionPromoCode promocode) {
+    SubscriptionPromoCodeDto promocodeDto = new SubscriptionPromoCodeDto();
+    promocodeDto.setId(promocode.getId());
+    promocodeDto.setName(promocode.getName());
+    promocodeDto.setMessage(promocode.getMessage());
+    promocodeDto.setIsReusable(promocode.getIsReusable());
+    promocodeDto.setUseCount(promocode.getUseCount());
+    promocodeDto.setMultiMedia(CommonUtility.getMultiMediaObject(promocode.getMultiMedia()));
+    promocodeDto.setMinimumPurchaseAmount(promocode.getMinimumPurchaseAmount());
+    promocodeDto.setDiscountType(promocode.getDiscountType());
+    promocodeDto.setDiscountAmount(promocode.getDiscountAmount());
+    promocodeDto.setStatus(promocode.getStatus());
+    promocodeDto.setCreatedAt(CommonUtility.getLocalDateMillis(promocode.getCreatedAt()));
+    promocodeDto.setModifiedAt(CommonUtility.getLocalDateMillis(promocode.getModifiedAt()));
+    return promocodeDto;
+  }
+
+  /**
+   * Converts the list of promocode model object to list of promocode dto object.
+   * 
+   * @param promocodeList the list of promocode model object
+   * @return the list of promocode dto object
+   */
+  public static List<SubscriptionPromoCodeDto> convertModelToDto(
+          List<SubscriptionPromoCode> promocodeList) {
+    List<SubscriptionPromoCodeDto> promocodeDtoList = new ArrayList<>();
+    for (SubscriptionPromoCode promocode : promocodeList) {
+      SubscriptionPromoCodeDto promocodeDto = convertModelToDto(promocode);
+      promocodeDtoList.add(promocodeDto);
+    }
+    return promocodeDtoList;
+  }
+
+  public static boolean isEligibleForPromoCode(
+          Map<Integer, CustomerPromoCodeDetails> promocodeDetailsMap, Integer promocodeId) {
+    boolean isEligibleForPromoCode = false;
+    if (promocodeDetailsMap == null || promocodeDetailsMap.isEmpty() || !promocodeDetailsMap
+            .containsKey(promocodeId)) {
+      isEligibleForPromoCode = true;
+    } else {
+      CustomerPromoCodeDetails customerPromoCodeDetails = promocodeDetailsMap.get(promocodeId);
+      if (customerPromoCodeDetails.getIsReusable() == 1) {
+        if (customerPromoCodeDetails.getNoOfUsage() < customerPromoCodeDetails.getMaxCount()) {
+          isEligibleForPromoCode = true;
+        }
+      }
+    }
+    return isEligibleForPromoCode;
   }
 }
