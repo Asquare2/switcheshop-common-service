@@ -3,6 +3,7 @@ package com.lgitsolution.switcheshopcommon.subscriptionservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lgitsolution.switcheshopcommon.subscriptionservice.payment.dto.SubscriptionPaymentDetailDto;
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -30,5 +31,8 @@ public class SubscriptionDto {
 
   // Only in DTO
   boolean isToPoke = false;
-  Long subsRemainingDays;
+  private Long subsRemainingDays;
+
+  private SubscriptionPaymentDetailDto subscriptionPaymentDetailDto;
+  private String companyId;
 }
