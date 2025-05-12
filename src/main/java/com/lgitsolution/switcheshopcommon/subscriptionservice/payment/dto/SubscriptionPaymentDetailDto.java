@@ -17,7 +17,7 @@ public class SubscriptionPaymentDetailDto {
   private Integer subscriptionId;
   private String subscriptionItemId;
   private Integer clientId;
-  private Double amount;
+  private Double amount = 0.0;
   private String provider;
   private String currency;
   private String paymentMethod;

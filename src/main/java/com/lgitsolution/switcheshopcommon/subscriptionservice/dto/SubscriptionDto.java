@@ -3,6 +3,7 @@ package com.lgitsolution.switcheshopcommon.subscriptionservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lgitsolution.switcheshopcommon.order.dto.OrderStatusDetail;
 import com.lgitsolution.switcheshopcommon.subscriptionservice.payment.dto.SubscriptionPaymentDetailDto;
 
 import jakarta.persistence.EnumType;
@@ -35,5 +36,8 @@ public class SubscriptionDto {
 
   private SubscriptionPaymentDetailDto subscriptionPaymentDetailDto;
   private String companyId;
-  private Float totalPaymentGatwayPayable;
+  private Float totalPaymentGatwayPayable = 0.0f;
+  private String planName;
+  OrderStatusDetail paymentStatus;
+
 }
