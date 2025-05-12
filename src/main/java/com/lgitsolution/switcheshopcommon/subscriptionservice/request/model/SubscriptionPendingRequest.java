@@ -16,7 +16,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "pending_request", schema = "public")
+@Table(name = "subscription_pending_request", schema = "public")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubscriptionPendingRequest {
