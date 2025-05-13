@@ -15,6 +15,7 @@ public class SubscriptionPaymentDetailUtility {
     SubscriptionPaymentDetailDto dto = new SubscriptionPaymentDetailDto();
     dto.setId(model.getId());
     dto.setSubscriptionId(model.getSubscriptionId());
+    dto.setSubscriptionItemId(model.getSubscriptionItemId());
     dto.setClientId(model.getClientId());
     dto.setAmount(model.getAmount());
     dto.setProvider(model.getProvider());
