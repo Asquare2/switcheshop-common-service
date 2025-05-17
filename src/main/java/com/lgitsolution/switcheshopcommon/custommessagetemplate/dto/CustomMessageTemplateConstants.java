@@ -37,6 +37,24 @@ public class CustomMessageTemplateConstants {
   /** The constant holds the otp expiry minutes variable. */
   public static final String OTP_EXPIRY_MINUTES_VAR = "<OTP_EXPIRY_MINUTES>";
 
+  /** The constant holds the plan name variable. */
+  public static final String PLAN_NAME_VAR = "<PLAN_NAME>";
+
+  /** The constant holds the subscription start date variable. */
+  public static final String SUBSCRIPTION_START_DATE_VAR = "<SUBSCRIPTION_START_DATE>";
+
+  /** The constant holds the billing cycle variable. */
+  public static final String BILLING_CYCLE_VAR = "<BILLING_CYCLE>";
+
+  /** The constant holds the email variable. */
+  public static final String EMAIL_VAR = "<EMAIL>";
+
+  /** The constant holds the subscription id variable. */
+  public static final String SUBSCRIPTION_ID_VAR = "<SUBSCRIPTION_ID>";
+
+  /** The constant holds thE support email variable. */
+  public static final String SUPPORT_EMAIL_VAR = "<SUPPORT_EMAIL>";
+
   /* Message template types constants */
   /** The constant holds the otp email message type value. */
   public static final String CMT_OTP_EMAIL_MSG_TYPE = "Otp Email";
@@ -61,5 +79,13 @@ public class CustomMessageTemplateConstants {
 
   /** The constant holds the send customer credentials message type value. */
   public static final String CMT_SEND_CUSTOMER_CREDENTIALS_MSG_TYPE = "Send Customer Credentials";
+
+  /** The constant holds the subscription success for customer message type value. */
+  public static final String CMT_SUBSCRIPTION_SUCCESS_FOR_CUSTOMER_MSG_TYPE =
+          "Subscription Success for Customer";
+
+  /** The constant holds the subscription success for admin's message type value. */
+  public static final String CMT_SUBSCRIPTION_SUCCESS_FOR_ADMINS_MSG_TYPE =
+          "Subscription Success for Admins";
 
 }

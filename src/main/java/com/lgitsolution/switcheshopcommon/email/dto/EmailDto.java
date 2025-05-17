@@ -11,7 +11,7 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EmailDto {
 
-  String to;
+  String[] to;
   String[] cc;
   String[] bcc;
   String subject;
