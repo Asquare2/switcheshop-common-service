@@ -92,6 +92,8 @@ public class CommonConstants {
 
   public static final String ORDER_PACKAGE_DIMENTION_WEIGHT = "weight";
 
+  public static final String ORDER_PICKUP_LOCATION = "pickupLocation";
+
   // Order module constant End
 
   public static final String countKeyName = "count";

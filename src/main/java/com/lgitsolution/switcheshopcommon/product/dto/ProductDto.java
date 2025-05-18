@@ -82,8 +82,6 @@ public class ProductDto {
 
   private int displaySkuOnAttributeId;
 
-  private int pickupLocationId;
-
   private int isDisplaySkuWise;
 
   private String specificationData;

@@ -69,9 +69,6 @@ public class Product {
   @Column(name = "brand_id")
   private int brandId;
 
-  @Column(name = "pickup_location")
-  private int pickupLocation;
-
   @Column(name = "multi_media")
   private String multimedia;
 
