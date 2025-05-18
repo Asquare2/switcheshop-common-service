@@ -157,6 +157,6 @@ public class CommonConstants {
 
   // folder name constants End
 
-  public static final String DUMMY_USER_ID = "test@test.com";
+  public static final String DUMMY_USER_ID = "preview@preview.com";
 
 }
