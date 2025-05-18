@@ -78,6 +78,8 @@ public class CommonConstants {
 
   public static final int INACTIVE_STATUS = 0;
 
+  public static final int PREVIEW_STATUS = 2;
+
   // Order module constant Start
 
   public static final String ORDER_PAYMENT_METHOD_PREPAID = "Prepaid";
@@ -154,5 +156,7 @@ public class CommonConstants {
   public static final String MULTIMEDIA_DIR = "multimedia";
 
   // folder name constants End
+
+  public static final String DUMMY_USER_ID = "test@test.com";
 
 }
