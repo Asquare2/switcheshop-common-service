@@ -28,6 +28,7 @@ public class Utility {
     model.setModifiedAt(CommonUtility.getLocalDate(dto.getModifiedAt()));
     model.setLastLogin(CommonUtility.getLocalDateTime(dto.getLastLogin()));
     model.setCompanyId(dto.getCompanyId());
+    model.setClientId(dto.getClientId());
     return model;
   }
 
@@ -56,6 +57,7 @@ public class Utility {
     dto.setModifiedAt(CommonUtility.getLocalDateMillis(model.getModifiedAt()));
     dto.setLastLogin(CommonUtility.getLocalDateTimeMillis(model.getLastLogin()));
     dto.setCompanyId(model.getCompanyId());
+    dto.setClientId(model.getClientId());
     return dto;
   }
 

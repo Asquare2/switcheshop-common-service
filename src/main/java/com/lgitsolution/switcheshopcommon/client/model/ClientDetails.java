@@ -31,6 +31,9 @@ public class ClientDetails {
   @Column(name = "url")
   private String url;
 
+  @Column(name = "mapped_url")
+  private String mappedUrl;
+
   @Column(name = "promocode", columnDefinition = "text")
   private String promocode;
 

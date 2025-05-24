@@ -20,6 +20,7 @@ public class Utility {
     model.setSchema(dto.getSchema());
     model.setCompId(dto.getCompId());
     model.setUrl(dto.getUrl());
+    model.setMappedUrl(dto.getMappedUrl());
     model.setCreatedAt(CommonUtility.getLocalDate(dto.getCreatedAt()));
     model.setPromocode(CommonUtility.ConvertObjectToJsonString(dto.getPromocodeDetails()));
     return model;
@@ -31,6 +32,7 @@ public class Utility {
     dto.setUsername(model.getUsername());
     dto.setSchema(model.getSchema());
     dto.setCompId(model.getCompId());
+    dto.setMappedUrl(model.getMappedUrl());
     dto.setUrl(model.getUrl());
     dto.setCreatedAt(CommonUtility.getLocalDateMillis(model.getCreatedAt()));
     if (model.getPromocode() != null && !model.getPromocode().isBlank()) {

@@ -28,6 +28,8 @@ public class ClientDetailsDto {
 
   private String password;
 
+  private String mappedUrl;
+
   private Map<Integer, CustomerPromoCodeDetails> promocodeDetails = null;
 
   private Long createdAt;

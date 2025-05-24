@@ -47,4 +47,6 @@ public class SystemUserDto {
 
   private String companyId = "";
 
+  private Integer clientId = -1;
+
 }

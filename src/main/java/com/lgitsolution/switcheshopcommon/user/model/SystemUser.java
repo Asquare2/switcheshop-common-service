@@ -78,6 +78,9 @@ public class SystemUser implements UserDetails {
   @Column(name = "company_id", nullable = false)
   private String companyId = "";
 
+  @Column(name = "client_id", nullable = false)
+  private Integer clientId = -1;
+
   @jakarta.persistence.Transient
   private Map<String, ModuleAccess> moduleAccessMap = new HashMap<String, ModuleAccess>();
 
