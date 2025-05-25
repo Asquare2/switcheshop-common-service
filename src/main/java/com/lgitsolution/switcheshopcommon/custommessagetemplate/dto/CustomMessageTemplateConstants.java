@@ -88,4 +88,8 @@ public class CustomMessageTemplateConstants {
   public static final String CMT_SUBSCRIPTION_SUCCESS_FOR_ADMINS_MSG_TYPE =
           "Subscription Success for Admins";
 
+  /** The constant holds the subscription success for admin's message type value. */
+  public static final String CMT_SUBSCRIPTION_ACTIVATION_INPROGRESS_MSG_TYPE =
+          "Subscription Activation In-Progress Email";
+
 }
