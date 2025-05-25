@@ -41,6 +41,8 @@ public class Utility {
       model.setValue(CommonUtility.ConvertObjectToJsonString(dto.getCompanyLogoDetails()));
     } else if (dto.getKey().equals(CompanyDetailsConstants.CMN_COMPANY_TAX_DETAILS)) {
       model.setValue(CommonUtility.ConvertObjectToJsonString(dto.getTaxDetailsDto()));
+    } else if (dto.getKey().equals(CompanyDetailsConstants.CMN_COMPANY_PRIVACY_POLICY)) {
+      model.setValue(CommonUtility.ConvertObjectToJsonString(dto.getPrivacyPolicy()));
     }
     return model;
   }
@@ -72,6 +74,9 @@ public class Utility {
     } else if (dto.getKey().equals(CompanyDetailsConstants.CMN_COMPANY_TAX_DETAILS)) {
       dto.setTaxDetailsDto(CommonUtility.convertJsonToObject(model.getValue(),
               new TaxDetailsDto()));
+    } else if (dto.getKey().equals(CompanyDetailsConstants.CMN_COMPANY_PRIVACY_POLICY)) {
+      dto.setPrivacyPolicy(CommonUtility.convertJsonToObject(model.getValue(),
+              new TermsAndCondition()));
     }
     return dto;
   }

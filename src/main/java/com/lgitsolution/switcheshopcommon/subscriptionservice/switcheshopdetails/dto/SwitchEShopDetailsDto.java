@@ -23,6 +23,8 @@ public class SwitchEShopDetailsDto {
 
   private TermsAndCondition termsAndConditionValue;
 
+  private TermsAndCondition privacyPolicy;
+
   private ContactUsDetails contactUsDetails;
 
   private CustomerCareDetails customerCareDetails;

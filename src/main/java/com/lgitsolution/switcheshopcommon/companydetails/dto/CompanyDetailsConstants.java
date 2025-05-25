@@ -5,6 +5,8 @@ public class CompanyDetailsConstants {
 
   public static final String CMN_COMPANY_TERMS_AND_CONDITIONS = "termAndCondition";
 
+  public static final String CMN_COMPANY_PRIVACY_POLICY = "privacyPolicy";
+
   public static final String CMN_COMPANY_CONTACT_US_DETAILS = "contactUsDetails";
 
   public static final String CMN_COMPANY_CUSTOMER_CARE_DETAILS = "customerCareDetails";
