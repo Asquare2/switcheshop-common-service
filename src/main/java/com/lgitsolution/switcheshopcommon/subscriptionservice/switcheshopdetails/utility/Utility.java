@@ -77,6 +77,7 @@ public class Utility {
     } else if (dto.getKey().equals(CompanyDetailsConstants.CMN_COMPANY_PRIVACY_POLICY)) {
       dto.setPrivacyPolicy(CommonUtility.convertJsonToObject(model.getValue(),
               new TermsAndCondition()));
+      dto.getPrivacyPolicy().setContent(model.getContent());
     }
     return dto;
   }
