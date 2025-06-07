@@ -33,4 +33,10 @@ public class FeatureSection {
   @Column(name = "type_filter_data")
   private String typeFilterData;
 
+  @Column(name = "bg_color")
+  private String bgColor;
+
+  @Column(name = "text_color")
+  private String textColor;
+
 }
