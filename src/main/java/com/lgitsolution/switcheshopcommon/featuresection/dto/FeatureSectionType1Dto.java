@@ -33,4 +33,6 @@ public class FeatureSectionType1Dto {
 
   private String itemID;
 
+  private Integer imageSize;
+
 }

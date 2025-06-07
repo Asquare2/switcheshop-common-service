@@ -17,11 +17,17 @@ public class FeatureSectionDto {
 
   private String title;
 
+  private String subTitle;
+
   private Integer rowOrderId;
 
   private Integer type;
 
   private Integer status;
+
+  private String bgColor;
+
+  private String textColor;
 
   // Single big image
   private FeatureSectionType1Dto featureSectionType1;
@@ -37,5 +43,7 @@ public class FeatureSectionDto {
 
   // Slider Type
   private List<FeatureSectionType1Dto> featureSectionType5;
+
+  private List<FeatureSectionType1Dto> featureSectionType6;
 
 }
