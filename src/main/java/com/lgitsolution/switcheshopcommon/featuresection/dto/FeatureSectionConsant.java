@@ -15,7 +15,10 @@ public class FeatureSectionConsant {
   /** The constant holds the feature section type 4 integer value. */
   public static final Integer FEATURE_SECTION_TYPE_4 = 4;
 
-  /** The constant holds the feature section type 4 integer value. */
+  /** The constant holds the feature section type 5 integer value. */
   public static final Integer FEATURE_SECTION_TYPE_5 = 5;
+
+  /** The constant holds the feature section type 6 integer value. */
+  public static final Integer FEATURE_SECTION_TYPE_6 = 6;
 
 }

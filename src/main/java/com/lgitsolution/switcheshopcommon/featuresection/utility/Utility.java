@@ -6,6 +6,7 @@ import static com.lgitsolution.switcheshopcommon.featuresection.dto.FeatureSecti
 import static com.lgitsolution.switcheshopcommon.featuresection.dto.FeatureSectionConsant.FEATURE_SECTION_TYPE_3;
 import static com.lgitsolution.switcheshopcommon.featuresection.dto.FeatureSectionConsant.FEATURE_SECTION_TYPE_4;
 import static com.lgitsolution.switcheshopcommon.featuresection.dto.FeatureSectionConsant.FEATURE_SECTION_TYPE_5;
+import static com.lgitsolution.switcheshopcommon.featuresection.dto.FeatureSectionConsant.FEATURE_SECTION_TYPE_6;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -39,6 +40,8 @@ public class Utility {
       model.setTypeFilterData(Utility.ConvertObjectToJsonString(dto.getFeatureSectionType4()));
     } else if (dto.getType() == FEATURE_SECTION_TYPE_5) {
       model.setTypeFilterData(Utility.ConvertObjectToJsonString(dto.getFeatureSectionType5()));
+    } else if (dto.getType() == FEATURE_SECTION_TYPE_6) {
+      model.setTypeFilterData(Utility.ConvertObjectToJsonString(dto.getFeatureSectionType6()));
     }
     return model;
   }
@@ -58,9 +61,10 @@ public class Utility {
       dto.setFeatureSectionType3(parseJsonToType3List(model.getTypeFilterData()));
     } else if (model.getType() == FEATURE_SECTION_TYPE_4) {
       dto.setFeatureSectionType4(parseJsonToType1List(model.getTypeFilterData()));
-    }
-    else if (model.getType() == FEATURE_SECTION_TYPE_5) {
+    } else if (model.getType() == FEATURE_SECTION_TYPE_5) {
       dto.setFeatureSectionType5(parseJsonToType1List(model.getTypeFilterData()));
+    } else if (model.getType() == FEATURE_SECTION_TYPE_6) {
+      dto.setFeatureSectionType6(parseJsonToType1List(model.getTypeFilterData()));
     }
     dto.setId(model.getId());
     dto.setStatus(model.getStatus());

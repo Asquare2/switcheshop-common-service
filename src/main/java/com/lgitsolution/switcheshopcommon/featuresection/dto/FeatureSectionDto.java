@@ -44,6 +44,7 @@ public class FeatureSectionDto {
   // Slider Type
   private List<FeatureSectionType1Dto> featureSectionType5;
 
+  // Type 4 with slider
   private List<FeatureSectionType1Dto> featureSectionType6;
 
 }
