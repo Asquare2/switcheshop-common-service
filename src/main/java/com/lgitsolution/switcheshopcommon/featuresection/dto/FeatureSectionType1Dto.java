@@ -21,6 +21,8 @@ public class FeatureSectionType1Dto {
 
   private SearchOptionsDto searchOptionsDto;
 
+  private String link;
+
   private String text;
 
   private String title;

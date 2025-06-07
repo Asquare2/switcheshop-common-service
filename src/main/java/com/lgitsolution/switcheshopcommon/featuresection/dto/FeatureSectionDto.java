@@ -23,12 +23,19 @@ public class FeatureSectionDto {
 
   private Integer status;
 
+  // Single big image
   private FeatureSectionType1Dto featureSectionType1;
 
+  // Category
   private FeatureSectionType2Dto featureSectionType2;
 
+  // Button
   private List<FeatureSectionType3Dto> featureSectionType3;
 
+  // product size images
   private List<FeatureSectionType1Dto> featureSectionType4;
+
+  // Slider Type
+  private List<FeatureSectionType1Dto> featureSectionType5;
 
 }
