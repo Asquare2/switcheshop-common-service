@@ -30,6 +30,8 @@ public class Utility {
     model.setTitle(dto.getTitle());
     model.setType(dto.getType());
     model.setStatus(dto.getStatus());
+    model.setBgColor(dto.getBgColor());
+    model.setTextColor(dto.getTextColor());
     if (dto.getType() == FEATURE_SECTION_TYPE_1) {
       model.setTypeFilterData(Utility.ConvertObjectToJsonString(dto.getFeatureSectionType1()));
     } else if (dto.getType() == FEATURE_SECTION_TYPE_2) {
@@ -51,6 +53,8 @@ public class Utility {
     dto.setRowOrderId(model.getRowOrderId());
     dto.setTitle(model.getTitle());
     dto.setType(model.getType());
+    dto.setBgColor(model.getBgColor());
+    dto.setTextColor(model.getTextColor());
     if (model.getType() == FEATURE_SECTION_TYPE_1) {
       dto.setFeatureSectionType1(Utility.convertJsonToObject(model.getTypeFilterData(),
               new FeatureSectionType1Dto()));
