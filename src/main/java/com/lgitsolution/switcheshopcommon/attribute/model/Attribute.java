@@ -13,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -41,6 +42,7 @@ public class Attribute {
   // Mapping to the other table
   @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
   @JoinColumn(name = "attribute_id", referencedColumnName = "id")
+  @OrderBy("id DESC")
   private List<AttributeOption> attributeOptionList = new ArrayList<AttributeOption>();
 
 }
