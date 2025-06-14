@@ -52,8 +52,11 @@ public class CustomMessageTemplateConstants {
   /** The constant holds the subscription id variable. */
   public static final String SUBSCRIPTION_ID_VAR = "<SUBSCRIPTION_ID>";
 
-  /** The constant holds thE support email variable. */
+  /** The constant holds the support email variable. */
   public static final String SUPPORT_EMAIL_VAR = "<SUPPORT_EMAIL>";
+
+  /** The constant holds the expiry date variable. */
+  public static final String EXPIRY_DATE_VAR = "<EXPIRY_DATE>";
 
   /* Message template types constants */
   /** The constant holds the otp email message type value. */
@@ -91,5 +94,8 @@ public class CustomMessageTemplateConstants {
   /** The constant holds the subscription success for admin's message type value. */
   public static final String CMT_SUBSCRIPTION_ACTIVATION_INPROGRESS_MSG_TYPE =
           "Subscription Activation In-Progress Email";
+
+  /** The constant holds the subscription expiry message type value. */
+  public static final String CMT_SUBSCRIPTION_EXPIRY_MSG_TYPE = "Subscription Expiry Email";
 
 }
