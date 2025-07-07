@@ -715,12 +715,12 @@ public class Utility {
   }
 
   /**
-   * Gets the refund client object.
+   * Creates the feign client object.
    * 
    * @param clientClass the name of the class or interface with .class extension
    * @return
    */
-  public static <T> T getCashfreeFeignClient(Class<T> clientClass, String url,
+  public static <T> T createFeignClient(Class<T> clientClass, String url,
           ObjectFactory<HttpMessageConverters> messageConverters) {
     return Feign.builder().encoder(new SpringEncoder(messageConverters)).decoder(new SpringDecoder(
             messageConverters)).contract(new SpringMvcContract()).target(clientClass, url);

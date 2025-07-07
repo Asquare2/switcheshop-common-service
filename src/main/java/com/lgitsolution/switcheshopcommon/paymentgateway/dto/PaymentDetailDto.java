@@ -1,5 +1,5 @@
 
-package com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto;
+package com.lgitsolution.switcheshopcommon.paymentgateway.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -29,9 +29,9 @@ public class PaymentDetailDto {
 
   private String paymentSessionId;
 
-  private OrderResponseDto createdOrderResponse;
+  private Object createdOrderResponse;
 
-  private OrderPaymentsResponseDto[] orderPaymentsResponseArr;
+  private Object[] orderPaymentsResponseArr;
 
   private Integer status;
 

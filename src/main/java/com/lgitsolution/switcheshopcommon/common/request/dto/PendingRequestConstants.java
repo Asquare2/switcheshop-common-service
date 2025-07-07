@@ -8,6 +8,8 @@ public class PendingRequestConstants {
   public static final String PR_VERIFY_CASHFREE_REFUND_PAYMENT_STATUS =
           "VERIFY_CASHFREE_REFUND_PAYMENT_STATUS";
 
+  public static final String PR_VERIFY_RAZORPAY_PAYMENT_STATUS = "VERIFY_RAZORPAY_PAYMENT_STATUS";
+
   public static final String PR_ORDER_TRACK_STATUS = "ORDER_TRACK";
 
   public static final String PR_RETURN_ORDER_TRACK_STATUS = "RETURN_ORDER_TRACK";

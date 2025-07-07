@@ -5,6 +5,8 @@ public class PaymentDetailConstants {
 
   public static final String PAYMENT_PROVIDER_CASHFREE = "Cashfree";
 
+  public static final String PAYMENT_PROVIDER_RAZORPAY = "Razorpay";
+
   /**
    * The constant holds 'SwitchEShop' as a payment provider. This value is used for provider column
    * when user will select COD as a payment method.

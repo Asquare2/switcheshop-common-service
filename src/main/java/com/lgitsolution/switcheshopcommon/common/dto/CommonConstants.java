@@ -50,6 +50,8 @@ public class CommonConstants {
 
   public static final String CMN_SERVICE_NAME_CASHFREE_P_GATEWAY = "cashFreePGateway";
 
+  public static final String CMN_SERVICE_NAME_RAZORPAY_P_GATEWAY = "razorpayPGateway";
+
   public static final String CMN_SERVICE_NAME_SUFY_THIRED_PARTY_STORAGE_KEY = "sufyStorage";
 
   public static final String CMN_SERVICE_NAME_FAST2SMS = "fast2sms";

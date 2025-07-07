@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lgitsolution.switcheshopcommon.customer.dto.CustomerAddressDetails;
 import com.lgitsolution.switcheshopcommon.orderreturn.dto.ReturnDetailDto;
-import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.PaymentDetailDto;
+import com.lgitsolution.switcheshopcommon.paymentgateway.dto.PaymentDetailDto;
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

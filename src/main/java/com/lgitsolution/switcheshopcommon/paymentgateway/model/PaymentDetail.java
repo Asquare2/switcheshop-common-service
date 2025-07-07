@@ -1,5 +1,5 @@
 
-package com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.model;
+package com.lgitsolution.switcheshopcommon.paymentgateway.model;
 
 import java.time.LocalDate;
 

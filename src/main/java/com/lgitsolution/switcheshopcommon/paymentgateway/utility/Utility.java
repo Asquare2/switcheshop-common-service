@@ -5,8 +5,8 @@ import java.util.List;
 
 import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.OrderPaymentsResponseDto;
 import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.OrderResponseDto;
-import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.PaymentDetailDto;
-import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.model.PaymentDetail;
+import com.lgitsolution.switcheshopcommon.paymentgateway.dto.PaymentDetailDto;
+import com.lgitsolution.switcheshopcommon.paymentgateway.model.PaymentDetail;
 
 public class Utility {
 
