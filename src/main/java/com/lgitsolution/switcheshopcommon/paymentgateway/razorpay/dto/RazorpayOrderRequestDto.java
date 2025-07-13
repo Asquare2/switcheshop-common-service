@@ -1,9 +1,10 @@
 
 package com.lgitsolution.switcheshopcommon.paymentgateway.razorpay.dto;
 
+import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.google.gson.JsonObject;
 
 import lombok.Data;
 
@@ -41,13 +42,13 @@ public class RazorpayOrderRequestDto {
    * Key-value pair that can be used to store additional information about the entity. Maximum 15
    * key-value pairs, 256 characters (maximum) each. For example, "note_key": "Beam me up Scotty”.
    */
-  private JsonObject notes;
+  private Map<String, String> notes;
 
   /**
    * Indicates whether the customer can make a partial payment. Possible values: true : The customer
    * can make partial payments. false (default) : The customer cannot make partial payments.
    */
-  private Boolean partial_payment;
+  private Boolean partial_payment = false;
 
   /**
    * Minimum amount that must be paid by the customer as the first partial payment. For example, if

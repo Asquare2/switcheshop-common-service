@@ -1,9 +1,10 @@
 
 package com.lgitsolution.switcheshopcommon.paymentgateway.razorpay.dto;
 
+import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.google.gson.JsonObject;
 
 import lombok.Data;
 
@@ -69,7 +70,7 @@ public class RazorpayOrderResponseDto {
    * Key-value pair that can be used to store additional information about the entity. Maximum 15
    * key-value pairs, 256 characters (maximum) each. For example, "note_key": "Beam me up Scotty”.
    */
-  private JsonObject notes;
+  private Map<String, String> notes;
 
   /** Indicates the Unix timestamp when this order was created. */
   private Long created_at;

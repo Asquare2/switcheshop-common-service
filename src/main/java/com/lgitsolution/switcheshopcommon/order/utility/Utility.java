@@ -2,7 +2,6 @@
 package com.lgitsolution.switcheshopcommon.order.utility;
 
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +9,6 @@ import java.util.List;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lgitsolution.switcheshopcommon.customer.dto.CustomerAddressDetails;
-import com.lgitsolution.switcheshopcommon.customer.dto.CustomerDetailsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderDetailsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderItemsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.OrderStatusConstants;
@@ -19,8 +17,6 @@ import com.lgitsolution.switcheshopcommon.order.dto.OrderTrackingDetailsDto;
 import com.lgitsolution.switcheshopcommon.order.dto.SwitchEShopOrderEnum;
 import com.lgitsolution.switcheshopcommon.order.model.OrderDetails;
 import com.lgitsolution.switcheshopcommon.order.model.OrderItems;
-import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.OrderMetaDataDto;
-import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.PaymentOrderRequestDto;
 
 public class Utility {
 
@@ -273,31 +269,6 @@ public class Utility {
    */
   public static List<OrderItemsDto> convertModelToDtoList(List<OrderItems> itemModelList) {
     return itemModelList.stream().map(model -> convertModelToDto(model)).toList();
-  }
-
-  /**
-   * 
-   * @param customerDetailsDto
-   * @param orderDetilsDto
-   * @return
-   */
-  public static PaymentOrderRequestDto createPaymentOrderRequestDto(
-          CustomerDetailsDto customerDetailsDto, OrderDetailsDto orderDetilsDto) {
-    PaymentOrderRequestDto orderRequestDto = new PaymentOrderRequestDto();
-    orderRequestDto.setOrder_amount((double) orderDetilsDto.getTotalPaymentGatwayPayable());
-    orderRequestDto.setOrderItemId(orderDetilsDto.getItemId());
-    orderRequestDto.getCustomer_details().setCustomer_id(customerDetailsDto.getId() + "");
-    orderRequestDto.getCustomer_details().setCustomer_email(customerDetailsDto.getEmail());
-    orderRequestDto.getCustomer_details().setCustomer_phone(customerDetailsDto.getMobile());
-    orderRequestDto.setOrder_expiry_time(CommonUtility.addMinutesToCurrentTime(18, ZoneId.of(
-            "Asia/Kolkata")));
-    /* Order Meta data details. */
-    OrderMetaDataDto orderMetaDataDto = new OrderMetaDataDto();
-    orderMetaDataDto.setReturn_url(
-            "https://localhost:8081/order-details/get-update-order-status?orderItemId="
-                    + orderDetilsDto.getItemId());
-    orderRequestDto.setOrder_meta(orderMetaDataDto);
-    return orderRequestDto;
   }
 
   /**
