@@ -6,6 +6,9 @@ import java.util.List;
 import com.lgitsolution.switcheshopcommon.common.util.Utility;
 import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.OrderPaymentsResponseDto;
 import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.OrderResponseDto;
+import com.lgitsolution.switcheshopcommon.paymentgateway.dto.PaymentDetailConstants;
+import com.lgitsolution.switcheshopcommon.paymentgateway.razorpay.dto.RazorpayOrderResponseDto;
+import com.lgitsolution.switcheshopcommon.paymentgateway.razorpay.dto.RazorpayPaymentResponseDto;
 import com.lgitsolution.switcheshopcommon.subscriptionservice.payment.dto.SubscriptionPaymentDetailDto;
 import com.lgitsolution.switcheshopcommon.subscriptionservice.payment.model.SubscriptionPaymentDetail;
 
@@ -25,10 +28,17 @@ public class SubscriptionPaymentDetailUtility {
     dto.setSpOrderId(model.getSpOrderId());
     dto.setSpStatus(model.getSpStatus());
     dto.setStatus(model.getStatus());
-    dto.setCreatedOrderResponse(Utility.convertJsonToObject(model.getCreatedOrderResponse(),
-            new OrderResponseDto()));
-    dto.setOrderPaymentsResponseArr(Utility.convertJsonToObject(model.getOrderPaymentsResponse(),
-            new OrderPaymentsResponseDto[0]));
+    if (PaymentDetailConstants.PAYMENT_PROVIDER_CASHFREE.equals(dto.getProvider())) {
+      dto.setCreatedOrderResponse(Utility.convertJsonToObject(model.getCreatedOrderResponse(),
+              new OrderResponseDto()));
+      dto.setOrderPaymentsResponseArr(Utility.convertJsonToObject(model.getOrderPaymentsResponse(),
+              new OrderPaymentsResponseDto[0]));
+    } else if (PaymentDetailConstants.PAYMENT_PROVIDER_RAZORPAY.equals(dto.getProvider())) {
+      dto.setCreatedOrderResponse(Utility.convertJsonToObject(model.getCreatedOrderResponse(),
+              new RazorpayOrderResponseDto()));
+      dto.setOrderPaymentsResponseArr(Utility.convertJsonToObject(model.getOrderPaymentsResponse(),
+              new RazorpayPaymentResponseDto[0]));
+    }
     dto.setCreatedAt(Utility.getLocalDateMillis(model.getCreatedAt()));
     dto.setModifiedAt(Utility.getLocalDateMillis(model.getModifiedAt()));
     return dto;

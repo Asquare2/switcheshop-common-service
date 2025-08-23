@@ -15,7 +15,7 @@ public class RefundRequestDto {
    * Amount to be refunded. Should be lesser than or equal to the transaction amount. (Decimals
    * allowed)
    */
-  private Double refund_amount;
+  private Float refund_amount;
 
   /**
    * An unique ID to associate the refund with.

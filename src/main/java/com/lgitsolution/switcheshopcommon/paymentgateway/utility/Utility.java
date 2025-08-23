@@ -18,6 +18,8 @@ import com.lgitsolution.switcheshopcommon.paymentgateway.model.PaymentDetail;
 import com.lgitsolution.switcheshopcommon.paymentgateway.razorpay.Utility.RazorpayUtility;
 import com.lgitsolution.switcheshopcommon.paymentgateway.razorpay.dto.RazorpayCurrenciesEnum;
 import com.lgitsolution.switcheshopcommon.paymentgateway.razorpay.dto.RazorpayOrderRequestDto;
+import com.lgitsolution.switcheshopcommon.paymentgateway.razorpay.dto.RazorpayOrderResponseDto;
+import com.lgitsolution.switcheshopcommon.paymentgateway.razorpay.dto.RazorpayPaymentResponseDto;
 
 public class Utility {
 
@@ -35,10 +37,18 @@ public class Utility {
     paymentDetailDto.setModifiedAt(Utility.getLocalDateMillis(paymentDetail.getModifiedAt()));
     paymentDetailDto.setSpOrderId(paymentDetail.getSpOrderId());
     paymentDetailDto.setPaymentSessionId(paymentDetail.getPaymentSessionId());
-    paymentDetailDto.setCreatedOrderResponse(Utility.convertJsonToObject(paymentDetail
-            .getCreatedOrderResponse(), new OrderResponseDto()));
-    paymentDetailDto.setOrderPaymentsResponseArr(Utility.convertJsonToObject(paymentDetail
-            .getOrderPaymentsResponse(), new OrderPaymentsResponseDto[0]));
+    if (PaymentDetailConstants.PAYMENT_PROVIDER_CASHFREE.equals(paymentDetail.getProvider())) {
+      paymentDetailDto.setCreatedOrderResponse(Utility.convertJsonToObject(paymentDetail
+              .getCreatedOrderResponse(), new OrderResponseDto()));
+      paymentDetailDto.setOrderPaymentsResponseArr(Utility.convertJsonToObject(paymentDetail
+              .getOrderPaymentsResponse(), new OrderPaymentsResponseDto[0]));
+    } else if (PaymentDetailConstants.PAYMENT_PROVIDER_RAZORPAY.equals(paymentDetail
+            .getProvider())) {
+      paymentDetailDto.setCreatedOrderResponse(Utility.convertJsonToObject(paymentDetail
+              .getCreatedOrderResponse(), new RazorpayOrderResponseDto()));
+      paymentDetailDto.setOrderPaymentsResponseArr(Utility.convertJsonToObject(paymentDetail
+              .getOrderPaymentsResponse(), new RazorpayPaymentResponseDto[0]));
+    }
     paymentDetailDto.setStatus(paymentDetail.getStatus());
     paymentDetailDto.setOrderItemId(paymentDetail.getOrderItemId());
     paymentDetailDto.setPaymentMethod(paymentDetail.getPaymentMethod());

@@ -3,8 +3,6 @@ package com.lgitsolution.switcheshopcommon.subscriptionservice.payment.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.OrderPaymentsResponseDto;
-import com.lgitsolution.switcheshopcommon.paymentgateway.cashfree.dto.OrderResponseDto;
 
 import lombok.Data;
 
@@ -25,8 +23,8 @@ public class SubscriptionPaymentDetailDto {
   private String spOrderId;
   private String spStatus;
   private Integer status;
-  private OrderResponseDto createdOrderResponse;
-  private OrderPaymentsResponseDto[] orderPaymentsResponseArr;
+  private Object createdOrderResponse;
+  private Object[] orderPaymentsResponseArr;
   private Long createdAt;
   private Long modifiedAt;
 
