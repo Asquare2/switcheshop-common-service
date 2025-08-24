@@ -13,7 +13,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "domain_activation_notification", schema = "public ")
+@Table(name = "domain_activation_notification", schema = "public")
 public class DomainActivationNotification {
 
   @Id
