@@ -11,7 +11,8 @@ public class EmailConstants {
 
   /** The constant for the best regards message. */
   public static final String[] EC_ADMIN_EMAILS_ARRAY = new String[] {
-      "zennosquad@gmail.com"
+      "zennosquad@gmail.com", "nsoni755@gmail.com", "aaashish456@gmail.com",
+      "patelganesh48@gmail.com", "rajputvipin547@gmail.com"
   };
 
 }
