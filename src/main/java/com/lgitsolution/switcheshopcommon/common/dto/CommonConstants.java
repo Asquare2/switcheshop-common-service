@@ -130,7 +130,7 @@ public class CommonConstants {
 
   public static final String MIS_SETTING_PAYMENT_GATEWAY_NAME_KEY = "payment_gateway_name";
 
-  public static final String MIS_SETTING_TRENDING_SEARCH_NAME_KEY = "poluler_search";
+  public static final String MIS_SETTING_POPULER_SEARCH_NAME_KEY = "poluler_search";
 
   // Miscellaneous settings constant end
 
