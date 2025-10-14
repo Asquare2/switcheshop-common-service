@@ -19,4 +19,6 @@ public class ModuleAccess {
 
   int deletePermission;
 
+  int dmPermission;
+
 }
