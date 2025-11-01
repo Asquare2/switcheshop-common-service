@@ -31,7 +31,7 @@ public class Utility {
     model.setTitle(dto.getTitle());
     model.setShortDescription(dto.getShortDescription());
     model.setLongDescription(dto.getLongDescription());
-    model.setSlug(dto.getSlug());
+    model.setSlug(commonUtility.getSlugByTitle(dto.getTitle()));
     model.setDmContent(dto.getDmContent());
     model.setItemId(dto.getItemId());
     model.setSalePrice(dto.getSalePrice());

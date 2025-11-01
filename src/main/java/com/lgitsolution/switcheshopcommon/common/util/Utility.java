@@ -571,13 +571,25 @@ public class Utility {
    * 
    * @return the slug
    */
-  public static String getSlugByTitle(String titie) {
-    String slug = "";
-    slug = titie.replace(" ", "-");
-    slug = slug.replace(" ", "-").toLowerCase();
+  public static String getSlugByTitle(String title) {
+
+    String slug = title.replaceAll("[^a-zA-Z0-9\\s]", "");
+
+    // Step 2: Replace multiple spaces with a single hyphen
+    slug = slug.trim().replaceAll("\\s+", "-");
+
+    // Step 3: Convert to lower case
+    slug = slug.toLowerCase();
+
+    // Step 4: Append random alphanumeric string
     String randomNumber = generateRandomAlphanumeric(10);
     slug = slug + "-" + randomNumber;
+
     return slug;
+  }
+
+  public static void main(String[] args) {
+    System.out.println(getSlugByTitle("Aa#$as ^&*     !@| asj aj bn"));
   }
 
   /**
@@ -664,15 +676,6 @@ public class Utility {
 
     // Return formatted date string
     return dateTime.format(formatter);
-  }
-
-  public static void main(String[] args) {
-    List<String> test = new ArrayList<String>();
-    test.add("10 inventory location");
-    test.add("24/7 chat support");
-    test.add("POS Lite");
-    System.out.println(ConvertObjectToJsonString(test));
-
   }
 
   public static int roundFloat(float value) {
