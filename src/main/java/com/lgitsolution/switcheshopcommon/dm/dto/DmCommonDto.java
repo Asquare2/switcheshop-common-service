@@ -20,5 +20,6 @@ public class DmCommonDto {
   private Multimedia multiMedia;
   private String imageAltTag;
   private String itemId;
+  private Boolean isTitleChanged = true;
 
 }
