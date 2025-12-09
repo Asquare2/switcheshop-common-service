@@ -132,6 +132,9 @@ public class CommonConstants {
 
   public static final String MIS_SETTING_POPULER_SEARCH_NAME_KEY = "poluler_search";
 
+  /** The Constant key for label dimension criteria. */
+  public static final String MIS_SETTING_LABEL_DIMENSION_CRITERIA_KEY = "label_dimension_criteria";
+
   // Miscellaneous settings constant end
 
   // search operations name start
