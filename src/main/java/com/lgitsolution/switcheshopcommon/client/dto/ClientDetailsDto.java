@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lgitsolution.switcheshopcommon.common.dto.CommonConstants;
 import com.lgitsolution.switcheshopcommon.promocode.dto.CustomerPromoCodeDetails;
 
 import lombok.Data;
@@ -29,6 +30,8 @@ public class ClientDetailsDto {
   private String password;
 
   private String mappedUrl;
+
+  private String appMode = CommonConstants.APP_MODE_MULTI_TENANT;
 
   private Map<Integer, CustomerPromoCodeDetails> promocodeDetails = null;
 

@@ -31,8 +31,9 @@ public class SubscriptionDto {
   private String itemId = "";
 
   // Only in DTO
-  boolean isToPoke = false;
+  private boolean isToPoke = false;
   private Long subsRemainingDays;
+  private boolean isStandAlone = false;
 
   private SubscriptionPaymentDetailDto subscriptionPaymentDetailDto;
   private String companyId;

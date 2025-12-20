@@ -168,4 +168,8 @@ public class CommonConstants {
 
   public static final String DUMMY_USER_ID = "preview@preview.com";
 
+  public static final String APP_MODE_MULTI_TENANT = "multi_tanent";
+
+  public static final String APP_MODE_SINGLE_TENANT = "single_tanent";
+
 }

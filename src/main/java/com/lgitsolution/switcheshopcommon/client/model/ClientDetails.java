@@ -2,6 +2,8 @@ package com.lgitsolution.switcheshopcommon.client.model;
 
 import java.time.LocalDate;
 
+import com.lgitsolution.switcheshopcommon.common.dto.CommonConstants;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -39,5 +41,8 @@ public class ClientDetails {
 
   @Column(name = "created_at")
   private LocalDate createdAt;
+
+  @Column(name = "app_mode")
+  private String appMode = CommonConstants.APP_MODE_MULTI_TENANT;
 
 }

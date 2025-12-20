@@ -23,6 +23,7 @@ public class Utility {
     model.setMappedUrl(dto.getMappedUrl());
     model.setCreatedAt(CommonUtility.getLocalDate(dto.getCreatedAt()));
     model.setPromocode(CommonUtility.ConvertObjectToJsonString(dto.getPromocodeDetails()));
+    model.setAppMode(dto.getAppMode());
     return model;
   }
 
@@ -38,6 +39,7 @@ public class Utility {
     if (model.getPromocode() != null && !model.getPromocode().isBlank()) {
       dto.setPromocodeDetails(parseJsonToMap(model.getPromocode()));
     }
+    dto.setAppMode(model.getAppMode());
     return dto;
   }
 
