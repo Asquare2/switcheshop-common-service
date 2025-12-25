@@ -26,7 +26,7 @@ public class Utility {
     flashSale.setDiscount(flashSaleDto.getDiscount());
     flashSale.setStartDate(Utility.getLocalDate(flashSaleDto.getStartDate()));
     flashSale.setEndDate(Utility.getLocalDate(flashSaleDto.getEndDate()));
-    flashSale.setMultiMedia(flashSaleDto.getMultiMedia());
+    flashSale.setMultiMedia(Utility.getMultiMediaJsonString(flashSaleDto.getMultiMedia()));
     flashSale.setStatus(flashSaleDto.getStatus());
     flashSale.setCreatedAt(Utility.getLocalDate(flashSaleDto.getCreatedAt()));
     flashSale.setModifiedAt(Utility.getLocalDate(flashSaleDto.getModifiedAt()));
@@ -34,7 +34,8 @@ public class Utility {
     flashSale.setMaxDiscountAmount(flashSaleDto.getMaxDiscountAmount());
     flashSale.setSlug(flashSaleDto.getSlug());
     flashSale.setDmContent(flashSaleDto.getDmContent());
-    flashSale.setMobileMultiMedia(flashSaleDto.getMobileMultiMedia());
+    flashSale.setMobileMultiMedia(Utility.getMultiMediaJsonString(flashSaleDto
+            .getMobileMultiMedia()));
     return flashSale;
   }
 
@@ -52,7 +53,7 @@ public class Utility {
     flashSaleDto.setDiscount(flashSale.getDiscount());
     flashSaleDto.setStartDate(Utility.getLocalDateMillis(flashSale.getStartDate()));
     flashSaleDto.setEndDate(Utility.getLocalDateMillis(flashSale.getEndDate()));
-    flashSaleDto.setMultiMedia(flashSale.getMultiMedia());
+    flashSaleDto.setMultiMedia(Utility.getMultiMediaObject(flashSale.getMultiMedia()));
     flashSaleDto.setStatus(flashSale.getStatus());
     flashSaleDto.setCreatedAt(Utility.getLocalDateMillis(flashSale.getCreatedAt()));
     flashSaleDto.setModifiedAt(Utility.getLocalDateMillis(flashSale.getModifiedAt()));
@@ -60,7 +61,7 @@ public class Utility {
     flashSaleDto.setMaxDiscountAmount(flashSale.getMaxDiscountAmount());
     flashSaleDto.setSlug(flashSale.getSlug());
     flashSaleDto.setDmContent(flashSale.getDmContent());
-    flashSaleDto.setMobileMultiMedia(flashSale.getMobileMultiMedia());
+    flashSaleDto.setMobileMultiMedia(Utility.getMultiMediaObject(flashSale.getMobileMultiMedia()));
     return flashSaleDto;
   }
 
