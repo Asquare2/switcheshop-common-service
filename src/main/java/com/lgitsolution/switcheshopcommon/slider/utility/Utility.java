@@ -17,7 +17,7 @@ public class Utility {
 
   public static Slider convertDtoToModel(SliderDto dto) {
     Slider model = new Slider();
-    model.setMultiMedia(dto.getMultiMedia());
+    model.setMultiMedia(Utility.getMultiMediaJsonString(dto.getMultiMedia()));
     model.setMobileMultiMedia(dto.getMobileMultiMedia());
     model.setId(dto.getId());
     model.setType(dto.getType());
@@ -38,7 +38,7 @@ public class Utility {
   public static SliderDto convertModelToDto(Slider model) {
     SliderDto dto = new SliderDto();
     dto.setId(model.getId());
-    dto.setMultiMedia(model.getMultiMedia());
+    dto.setMultiMedia(Utility.getMultiMediaObject(model.getMultiMedia()));
     dto.setType(model.getType());
     if (model.getType().equals(SLDR_TYPE_LINK)) {
       dto.setLink(model.getLink());
