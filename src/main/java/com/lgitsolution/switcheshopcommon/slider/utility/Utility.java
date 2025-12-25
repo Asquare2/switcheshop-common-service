@@ -18,7 +18,7 @@ public class Utility {
   public static Slider convertDtoToModel(SliderDto dto) {
     Slider model = new Slider();
     model.setMultiMedia(Utility.getMultiMediaJsonString(dto.getMultiMedia()));
-    model.setMobileMultiMedia(dto.getMobileMultiMedia());
+    model.setMobileMultiMedia(Utility.getMultiMediaJsonString(dto.getMobileMultiMedia()));
     model.setId(dto.getId());
     model.setType(dto.getType());
     if (dto.getType().equals(SLDR_TYPE_LINK)) {
@@ -51,7 +51,8 @@ public class Utility {
     dto.setRowOrderId(model.getRowOrderId());
     dto.setTitle(model.getTitle());
     dto.setImageAltTag(model.getImageAltTag());
-    dto.setMobileMultiMedia(model.getMobileMultiMedia());
+    dto.setMobileMultiMedia(Utility.getMultiMediaObject(model.getMobileMultiMedia()));
+    
     return dto;
   }
 
