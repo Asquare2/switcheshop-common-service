@@ -46,4 +46,6 @@ public class CompanyDetailsDto {
 
   private DmCommonDto contactUsDM;
 
+  private DmCommonDto privacyPolicyDM;
+
 }
