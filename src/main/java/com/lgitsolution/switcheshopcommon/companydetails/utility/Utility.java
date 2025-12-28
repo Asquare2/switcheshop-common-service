@@ -36,6 +36,12 @@ public class Utility {
       companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
               .getReturnAndExchangePolicy()));
     } else if (companyDetailsDto.getKey().equals(
+            CompanyDetailsConstants.CMN_COMPANY_PRIVACY_POLICY)) {
+      companyDetails.setContent(companyDetailsDto.getPrivacyPolicyValue().getContent());
+      companyDetailsDto.getPrivacyPolicyValue().setContent("");
+      companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
+              .getPrivacyPolicyValue()));
+    } else if (companyDetailsDto.getKey().equals(
             CompanyDetailsConstants.CMN_COMPANY_CONTACT_US_DETAILS)) {
       companyDetails.setContent(companyDetailsDto.getContactUsDetails().getContent());
       companyDetailsDto.getContactUsDetails().setContent("");
@@ -118,6 +124,11 @@ public class Utility {
       companyDetailsDto.setReturnAndExchangePolicy(CommonUtility.convertJsonToObject(companyDetails
               .getValue(), new ReturnAndExchangePolicy()));
       companyDetailsDto.getReturnAndExchangePolicy().setContent(companyDetails.getContent());
+    } else if (companyDetailsDto.getKey().equals(
+            CompanyDetailsConstants.CMN_COMPANY_PRIVACY_POLICY)) {
+      companyDetailsDto.setPrivacyPolicyValue(CommonUtility.convertJsonToObject(companyDetails
+              .getValue(), new TermsAndCondition()));
+      companyDetailsDto.getPrivacyPolicyValue().setContent(companyDetails.getContent());
     } else if (companyDetailsDto.getKey().equals(
             CompanyDetailsConstants.CMN_COMPANY_CONTACT_US_DETAILS)) {
       companyDetailsDto.setContactUsDetails(CommonUtility.convertJsonToObject(companyDetails

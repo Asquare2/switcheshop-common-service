@@ -20,6 +20,8 @@ public class CompanyDetailsDto {
 
   private TermsAndCondition termsAndConditionValue;
 
+  private TermsAndCondition privacyPolicyValue;
+
   private ContactUsDetails contactUsDetails;
 
   private CustomerCareDetails customerCareDetails;
