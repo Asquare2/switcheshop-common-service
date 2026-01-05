@@ -18,4 +18,6 @@ public class TaxDetailsDto {
 
   private String cINNumber;
 
+  private String taxPercentage;
+
 }
