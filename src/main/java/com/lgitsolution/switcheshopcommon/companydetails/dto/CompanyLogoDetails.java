@@ -2,6 +2,7 @@ package com.lgitsolution.switcheshopcommon.companydetails.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lgitsolution.switcheshopcommon.common.dto.Multimedia;
 
 import lombok.Data;
 
@@ -10,11 +11,13 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CompanyLogoDetails {
 
-  String companyName = "";
-  String logoImage = "";
-  String signatureImage = "";
-  String faviconImage = "";
-  String domainName = "";
-  String cdnThirtdPartyEndPoint = "";
-  String cdnLocalEndPoint = "";
+  private String companyName = "";
+  private String logoImage = "";
+  private String signatureImage = "";
+  private String faviconImage = "";
+  private String domainName = "";
+  private String cdnThirtdPartyEndPoint = "";
+  private String cdnLocalEndPoint = "";
+  private Multimedia multiMedia;
+
 }

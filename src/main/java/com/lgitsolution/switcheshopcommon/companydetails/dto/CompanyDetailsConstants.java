@@ -30,4 +30,6 @@ public class CompanyDetailsConstants {
   public static final String CMN_COMPANY_TERM_CONDITION_DM_DETAILS = "term_condition_dm";
 
   public static final String CMN_COMPANY_CONTACT_US_DM_DETAILS = "contact_us_dm";
+
+  public static final String CMN_COMPANY_PRIVACY_POLICY_DM_DETAILS = "privacy_policy_dm";
 }
