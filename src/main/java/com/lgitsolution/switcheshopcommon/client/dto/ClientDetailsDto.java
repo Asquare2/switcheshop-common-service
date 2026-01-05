@@ -1,11 +1,13 @@
 
 package com.lgitsolution.switcheshopcommon.client.dto;
 
+import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lgitsolution.switcheshopcommon.common.dto.CommonConstants;
+import com.lgitsolution.switcheshopcommon.customer.dto.CustomerAddressDetails;
 import com.lgitsolution.switcheshopcommon.promocode.dto.CustomerPromoCodeDetails;
 
 import lombok.Data;
@@ -36,4 +38,6 @@ public class ClientDetailsDto {
   private Map<Integer, CustomerPromoCodeDetails> promocodeDetails = null;
 
   private Long createdAt;
+
+  private CustomerAddressDetails address;
 }

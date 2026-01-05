@@ -45,4 +45,7 @@ public class ClientDetails {
   @Column(name = "app_mode")
   private String appMode = CommonConstants.APP_MODE_MULTI_TENANT;
 
+  @Column(name = "address", columnDefinition = "text")
+  private String address;
+
 }

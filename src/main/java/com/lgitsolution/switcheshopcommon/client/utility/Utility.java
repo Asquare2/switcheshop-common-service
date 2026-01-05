@@ -1,12 +1,14 @@
 
 package com.lgitsolution.switcheshopcommon.client.utility;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lgitsolution.switcheshopcommon.client.dto.ClientDetailsDto;
 import com.lgitsolution.switcheshopcommon.client.model.ClientDetails;
+import com.lgitsolution.switcheshopcommon.customer.dto.CustomerAddressDetails;
 import com.lgitsolution.switcheshopcommon.promocode.dto.CustomerPromoCodeDetails;
 
 public class Utility {
@@ -24,6 +26,7 @@ public class Utility {
     model.setCreatedAt(CommonUtility.getLocalDate(dto.getCreatedAt()));
     model.setPromocode(CommonUtility.ConvertObjectToJsonString(dto.getPromocodeDetails()));
     model.setAppMode(dto.getAppMode());
+    model.setAddress(CommonUtility.ConvertObjectToJsonString(dto.getAddress()));
     return model;
   }
 
@@ -40,6 +43,8 @@ public class Utility {
       dto.setPromocodeDetails(parseJsonToMap(model.getPromocode()));
     }
     dto.setAppMode(model.getAppMode());
+    dto.setAddress(CommonUtility.convertJsonToObject(model.getAddress(),
+              new CustomerAddressDetails()));
     return dto;
   }
 
