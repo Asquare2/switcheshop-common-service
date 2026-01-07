@@ -591,6 +591,10 @@ public class Utility {
    */
   public static String getSlugByTitle(String title) {
 
+    if (title == null || title.isBlank()) {
+      return null;
+    }
+
     String slug = title.replaceAll("[^a-zA-Z0-9\\s]", "");
 
     // Step 2: Replace multiple spaces with a single hyphen
