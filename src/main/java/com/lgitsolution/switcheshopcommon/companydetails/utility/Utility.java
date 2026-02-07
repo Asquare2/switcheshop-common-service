@@ -115,7 +115,13 @@ public class Utility {
     } else if (companyDetailsDto.getKey().equals(CompanyDetailsConstants.CMN_WALLET_FAQ)) {
       companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
               .getWalletFaq()));
-    }
+    } else if (companyDetailsDto.getKey().equals(
+            CompanyDetailsConstants.CMN_COMPANY_COPYRIGHT_DETAILS_DETAILS)) {
+      companyDetails.setContent(companyDetailsDto.getCopyRightsDetails().getContent());
+      companyDetailsDto.getCopyRightsDetails().setContent("");
+      companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
+              .getCopyRightsDetails()));
+    } 
     return companyDetails;
   }
 
@@ -185,7 +191,12 @@ public class Utility {
     } else if (companyDetailsDto.getKey().equals(CompanyDetailsConstants.CMN_WALLET_FAQ)) {
       companyDetailsDto.setWalletFaq(CommonUtility.convertJsonStringToMap(companyDetails
               .getValue()));
-    }
+    } else if (companyDetailsDto.getKey().equals(
+            CompanyDetailsConstants.CMN_COMPANY_COPYRIGHT_DETAILS_DETAILS)) {
+      companyDetailsDto.setCopyRightsDetails(CommonUtility.convertJsonToObject(companyDetails
+              .getValue(), new TermsAndCondition()));
+      companyDetailsDto.getCopyRightsDetails().setContent(companyDetails.getContent());
+    } 
     return companyDetailsDto;
   }
 }

@@ -33,6 +33,8 @@ public class CompanyDetailsDto {
   private TaxDetailsDto taxDetailsDto;
 
   private AppLinkDetails appLinkDetails;
+  
+  private TermsAndCondition copyRightsDetails;
 
   private LinkedHashMap<String, String> walletFaq = new LinkedHashMap<String, String>();
 
