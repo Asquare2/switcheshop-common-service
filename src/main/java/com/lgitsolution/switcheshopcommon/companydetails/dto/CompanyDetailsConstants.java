@@ -22,6 +22,8 @@ public class CompanyDetailsConstants {
   public static final String CMN_WALLET_FAQ = "walletFAQ";
 
   public static final String CMN_COMPANY_APP_LINK_DETAILS = "appLinkDetails";
+  
+  public static final String CMN_COMPANY_COPYRIGHT_DETAILS_DETAILS = "copyrightDetails";
 
   public static final String CMN_COMPANY_FAQ_DM_DETAILS = "faq_dm";
 
@@ -32,4 +34,5 @@ public class CompanyDetailsConstants {
   public static final String CMN_COMPANY_CONTACT_US_DM_DETAILS = "contact_us_dm";
 
   public static final String CMN_COMPANY_PRIVACY_POLICY_DM_DETAILS = "privacy_policy_dm";
+  
 }
