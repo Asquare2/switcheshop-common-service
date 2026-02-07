@@ -121,7 +121,10 @@ public class Utility {
       companyDetailsDto.getCopyRightsDetails().setContent("");
       companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
               .getCopyRightsDetails()));
-    } 
+    } else if (companyDetailsDto.getKey().equals(CompanyDetailsConstants.CMN_SITE_FAQ)) {
+        companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
+                .getSiteFaq()));
+    }
     return companyDetails;
   }
 
@@ -196,6 +199,10 @@ public class Utility {
       companyDetailsDto.setCopyRightsDetails(CommonUtility.convertJsonToObject(companyDetails
               .getValue(), new TermsAndCondition()));
       companyDetailsDto.getCopyRightsDetails().setContent(companyDetails.getContent());
+    } 
+    else if (companyDetailsDto.getKey().equals(CompanyDetailsConstants.CMN_SITE_FAQ)) {
+        companyDetailsDto.setSiteFaq(CommonUtility.convertJsonStringToMap(companyDetails
+                .getValue()));
     } 
     return companyDetailsDto;
   }

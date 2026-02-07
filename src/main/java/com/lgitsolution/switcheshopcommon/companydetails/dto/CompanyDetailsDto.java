@@ -37,6 +37,8 @@ public class CompanyDetailsDto {
   private TermsAndCondition copyRightsDetails;
 
   private LinkedHashMap<String, String> walletFaq = new LinkedHashMap<String, String>();
+  
+  private LinkedHashMap<String, String> siteFaq = new LinkedHashMap<String, String>();
 
   private DmCommonDto homeDM;
 
