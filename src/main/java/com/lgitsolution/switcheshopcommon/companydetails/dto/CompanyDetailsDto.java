@@ -5,6 +5,7 @@ import java.util.LinkedHashMap;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.lgitsolution.switcheshopcommon.common.dto.Multimedia;
 import com.lgitsolution.switcheshopcommon.dm.dto.DmCommonDto;
 
 import lombok.Data;
@@ -51,5 +52,7 @@ public class CompanyDetailsDto {
   private DmCommonDto contactUsDM;
 
   private DmCommonDto privacyPolicyDM;
+  
+  private Multimedia companyLogoUrl;
 
 }

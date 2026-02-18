@@ -14,6 +14,8 @@ public class CompanyDetailsConstants {
   public static final String CMN_COMPANY_RETUEN_AND_EXCHANGE_POLICY = "returnAndExchangePolicy";
 
   public static final String CMN_COMPANY_LOGO_DETAILS = "logoDetails";
+  
+  public static final String CMN_COMPANY_LOGO_URL = "companyLogoUrl";
 
   public static final String CMN_COMPANY_HOME_DM_DETAILS = "home_dm";
 

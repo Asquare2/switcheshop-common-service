@@ -1,6 +1,7 @@
 
 package com.lgitsolution.switcheshopcommon.companydetails.utility;
 
+import com.lgitsolution.switcheshopcommon.common.dto.Multimedia;
 import com.lgitsolution.switcheshopcommon.companydetails.dto.AppLinkDetails;
 import com.lgitsolution.switcheshopcommon.companydetails.dto.CompanyDetailsConstants;
 import com.lgitsolution.switcheshopcommon.companydetails.dto.CompanyDetailsDto;
@@ -124,6 +125,9 @@ public class Utility {
     } else if (companyDetailsDto.getKey().equals(CompanyDetailsConstants.CMN_SITE_FAQ)) {
         companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
                 .getSiteFaq()));
+    } else if (companyDetailsDto.getKey().equals(CompanyDetailsConstants.CMN_COMPANY_LOGO_URL)) {
+        companyDetails.setValue(CommonUtility.ConvertObjectToJsonString(companyDetailsDto
+                .getCompanyLogoUrl()));
     }
     return companyDetails;
   }
@@ -203,7 +207,10 @@ public class Utility {
     else if (companyDetailsDto.getKey().equals(CompanyDetailsConstants.CMN_SITE_FAQ)) {
         companyDetailsDto.setSiteFaq(CommonUtility.convertJsonStringToMap(companyDetails
                 .getValue()));
-    } 
+    } else if (companyDetailsDto.getKey().equals(CompanyDetailsConstants.CMN_COMPANY_LOGO_URL)) {
+    	companyDetailsDto.setCompanyLogoUrl(CommonUtility.convertJsonToObject(companyDetails.getValue(),
+                new Multimedia()));
+    }
     return companyDetailsDto;
   }
 }
